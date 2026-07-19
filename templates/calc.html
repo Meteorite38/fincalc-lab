@@ -67,6 +67,20 @@
     </div>
   </section>
 
+  {% if related_articles %}
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      {% for a in related_articles %}
+      <a class="card" href="/articles/{{ a.slug }}/">
+        <span class="card-title">{{ a.title }}</span>
+        <span class="card-desc">{{ a.description }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
 </div>
 <script>

@@ -102,8 +102,11 @@ def build():
 
     # calculators
     calc_tpl = env.get_template("calc.html")
-    for c in CALCS:
-        html = calc_tpl.render(c=c, calcs=CALCS, articles=articles, jsonld=faq_jsonld(c))
+    for idx, c in enumerate(CALCS):
+        # deterministically surface 3 different guides per calculator for internal linking variety
+        related_articles = [articles[(idx + k) % len(articles)] for k in range(min(3, len(articles)))] if articles else []
+        html = calc_tpl.render(c=c, calcs=CALCS, articles=articles,
+                               related_articles=related_articles, jsonld=faq_jsonld(c))
         write(f"calculators/{c['slug']}/index.html", html)
         urls.append(f"calculators/{c['slug']}/")
 
