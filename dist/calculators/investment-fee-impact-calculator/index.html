@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Fee Impact Calculator — What Fees Really Cost</title>
+<meta name="description" content="See how much an annual investment fee (expense ratio) really costs over decades — often tens or hundreds of thousands in lost growth. Compare a low-fee vs high-fee fund.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/investment-fee-impact-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Investment Fee Impact Calculator — What Fees Really Cost">
+<meta property="og:description" content="See how much an annual investment fee (expense ratio) really costs over decades — often tens or hundreds of thousands in lost growth. Compare a low-fee vs high-fee fund.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/investment-fee-impact-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Investment Fee Impact Calculator — What Fees Really Cost">
+<meta name="twitter:description" content="See how much an annual investment fee (expense ratio) really costs over decades — often tens or hundreds of thousands in lost growth. Compare a low-fee vs high-fee fund.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much do investment fees really cost?", "acceptedAnswer": {"@type": "Answer", "text": "Far more than the headline percentage, because fees are charged annually on your whole balance and rob you of future compounding. A 1% fee versus a 0.05% fee can cost 15–25% of your final balance over several decades."}}, {"@type": "Question", "name": "What is a good expense ratio?", "acceptedAnswer": {"@type": "Answer", "text": "For broad index funds, 0.03–0.20% is excellent and widely available. Anything above ~0.5% deserves scrutiny, and actively managed funds charging 1%+ rarely justify the cost after fees."}}, {"@type": "Question", "name": "Do advisory fees count too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A 1% advisory fee is charged on top of the underlying fund fees, so your total drag might be 1.5% or more. Add both together to see the true long-term impact."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Investment Fee Impact Calculator", "item": "https://fincalc-lab.pages.dev/calculators/investment-fee-impact-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Investment Fee Impact Calculator</nav>
+  <h1>🪤 Investment Fee Impact Calculator</h1>
+  <p class="lead">A 1% fee sounds trivial, but compounded over decades it can quietly consume a huge share of your returns. Enter your investment details and two fee levels to see the true lifetime cost.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Starting amount ($)</span>
+      
+      <input type="number" id="principal" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly contribution ($)</span>
+      
+      <input type="number" id="monthly" value="500" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Gross annual return (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Low fee / expense ratio (%)</span>
+      
+      <input type="number" id="fee1" value="0.05" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">High fee / expense ratio (%)</span>
+      
+      <input type="number" id="fee2" value="1.0" step="0.01" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why a "small" fee isn't small</h2>
+<p>Fund fees (expense ratios) are charged on your <em>entire balance</em> every year, and the money they take can no longer compound. So a 1% fee doesn't cost you 1% — it costs you 1% plus all the growth that 1% would have generated for the rest of your investing life. Over decades, that compounding-in-reverse turns a tiny percentage into a life-changing sum.</p>
+<h2>The eye-watering example</h2>
+<p>Invest $10,000 plus $500/month for 30 years at a 7% gross return. In a near-free index fund (0.05% fee) you end with roughly $610,000. In an actively managed fund charging 1%, you end with about $505,000. That 0.95% difference quietly cost you around <strong>$105,000 — roughly a fifth of your potential nest egg</strong> — for no guaranteed benefit. This is why fee awareness is one of the highest-return "skills" in personal finance.</p>
+<h2>What to watch for</h2>
+<ul>
+<li><strong>Expense ratios:</strong> broad index funds and ETFs now charge as little as 0.03–0.10%. Actively managed funds often charge 0.5–1.5% and rarely beat the index after fees.</li>
+<li><strong>Advisory fees:</strong> a 1% "assets under management" fee stacks <em>on top</em> of fund fees — run both combined through this tool to see the real drag.</li>
+<li><strong>Hidden costs:</strong> trading costs, loads (sales charges), and account fees add further drag. Low-cost, broadly diversified index funds sidestep most of them.</li>
+</ul>
+<p>You can't control the market's returns, but you can control your fees — and this is one of the few financial decisions with a near-guaranteed payoff. Minimizing costs is quietly one of the most reliable ways to end up with more.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much do investment fees really cost?</summary>
+      <p>Far more than the headline percentage, because fees are charged annually on your whole balance and rob you of future compounding. A 1% fee versus a 0.05% fee can cost 15–25% of your final balance over several decades.</p>
+    </details>
+    
+    <details>
+      <summary>What is a good expense ratio?</summary>
+      <p>For broad index funds, 0.03–0.20% is excellent and widely available. Anything above ~0.5% deserves scrutiny, and actively managed funds charging 1%+ rarely justify the cost after fees.</p>
+    </details>
+    
+    <details>
+      <summary>Do advisory fees count too?</summary>
+      <p>Yes. A 1% advisory fee is charged on top of the underlying fund fees, so your total drag might be 1.5% or more. Add both together to see the true long-term impact.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/simple-interest-calculator/">
+        <span class="card-emoji">📐</span>
+        <span class="card-title">Simple Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cd-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">CD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/apy-calculator/">
+        <span class="card-emoji">🔁</span>
+        <span class="card-title">APY Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/real-return-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Real Rate of Return Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/millionaire-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Millionaire Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/future-value-calculator/">
+        <span class="card-emoji">🔮</span>
+        <span class="card-title">Future Value Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/why-net-worth-is-the-only-number-that-matters/">
+        <span class="card-title">"Why Net Worth Is the Only Number That Really Matters"</span>
+        <span class="card-desc">Income tells you how fast you're rowing; net worth tells you where the boat actually is. How to calculate it, track it, and use it to build wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/pay-off-debt-faster/">
+        <span class="card-title">"How to Pay Off Debt Faster: A Strategy Guide That Respects Both Math and Psychology"</span>
+        <span class="card-desc">Avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-price-freelance-work/">
+        <span class="card-title">"How to Price Freelance Work Without Underselling Yourself"</span>
+        <span class="card-desc">Why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function fv(P, pmt, annual, years) {
+  const i = annual/100/12, n = years*12, g = Math.pow(1+i, n);
+  return P*g + (i>0 ? pmt*(g-1)/i : pmt*n);
+}
+function calculate() {
+  const P = val('principal'), pmt = val('monthly'), r = val('rate'), y = val('years'), f1 = val('fee1'), f2 = val('fee2');
+  const low = fv(P, pmt, r - f1, y);
+  const high = fv(P, pmt, r - f2, y);
+  const cost = low - high;
+  show(`<div class="result-main">$${fmt(cost,0)}<small>Extra cost of the ${fmt(f2,2)}% fee vs ${fmt(f1,2)}% over ${y} years</small></div>
+  <table>
+    <tr><td>Ending value at ${fmt(f1,2)}% fee</td><td>$${fmt(low,0)}</td></tr>
+    <tr><td>Ending value at ${fmt(f2,2)}% fee</td><td>$${fmt(high,0)}</td></tr>
+    <tr><td>Lost to the higher fee</td><td>$${fmt(cost,0)} (${fmt(low>0?cost/low*100:0,1)}%)</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

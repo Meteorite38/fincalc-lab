@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coast FIRE Calculator — When You Can Stop Saving</title>
+<meta name="description" content="Calculate your Coast FIRE number — the amount that, left untouched, grows to fund retirement without further contributions — and whether you've hit it.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/coast-fire-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Coast FIRE Calculator — When You Can Stop Saving">
+<meta property="og:description" content="Calculate your Coast FIRE number — the amount that, left untouched, grows to fund retirement without further contributions — and whether you've hit it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/coast-fire-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coast FIRE Calculator — When You Can Stop Saving">
+<meta name="twitter:description" content="Calculate your Coast FIRE number — the amount that, left untouched, grows to fund retirement without further contributions — and whether you've hit it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Coast FIRE?", "acceptedAnswer": {"@type": "Answer", "text": "The point where your current investments will grow to fund retirement by themselves, with no further contributions. After reaching it, you only need to earn enough to cover current expenses."}}, {"@type": "Question", "name": "How is the Coast FIRE number calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your retirement target by (1 + expected real return) raised to the number of years until retirement. It's the present value today that compounds into your goal."}}, {"@type": "Question", "name": "Should I use nominal or real returns?", "acceptedAnswer": {"@type": "Answer", "text": "Real (inflation-adjusted) returns, since your retirement target is a future amount. Using a real return like 5% keeps the answer expressed in today's purchasing power."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Coast FIRE Calculator", "item": "https://fincalc-lab.pages.dev/calculators/coast-fire-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Coast FIRE Calculator</nav>
+  <h1>🏄 Coast FIRE Calculator</h1>
+  <p class="lead">Coast FIRE is the moment your existing investments will grow to fund retirement on their own, even if you never save another dollar. Enter your details to see your Coast FIRE number and whether you've reached it.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current age</span>
+      
+      <input type="number" id="age" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Traditional retirement age</span>
+      
+      <input type="number" id="retire" value="65" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Nest egg needed at retirement ($)</span>
+      
+      <input type="number" id="target" value="1000000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current invested savings ($)</span>
+      
+      <input type="number" id="current" value="120000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected real annual return (%) <em class="hint">(after inflation)</em></span>
+      
+      <input type="number" id="rate" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The idea behind Coast FIRE</h2>
+<p>Full FIRE means saving enough to live off your investments now. <strong>Coast FIRE</strong> is a gentler milestone: the point where your current portfolio, left alone to compound, will grow into a full retirement nest egg by traditional retirement age — <em>without any further contributions</em>. Once you "coast," you only need to earn enough to cover today's expenses; your retirement is already handled by compounding.</p>
+<h2>The math</h2>
+<p>Work backwards from your retirement target using compound growth: <code>Coast number = target ÷ (1 + return)<sup>years</sup></code>. A 30-year-old wanting $1,000,000 at 65, assuming a 5% real return, needs only about $181,000 invested today to coast. That figure is far smaller than the final target because 35 years of compounding does the heavy lifting.</p>
+<h2>Why it's liberating</h2>
+<ul>
+<li><strong>It reframes the finish line.</strong> Reaching Coast FIRE early (often in your 30s) means you can downshift to lower-paying but more enjoyable work, take career risks, or go part-time — because you no longer <em>need</em> to save for old age.</li>
+<li><strong>It rewards starting young.</strong> The earlier you front-load savings, the longer compounding runs and the smaller your coast number. This is the strongest possible argument for investing aggressively in your 20s.</li>
+<li><strong>Use real returns.</strong> Because the target is in future dollars, use an inflation-adjusted (real) return like 5% rather than a nominal 7–8%, so the answer stays in today's purchasing power.</li>
+</ul>
+<p>Coast FIRE pairs naturally with the <a href="/calculators/fire-number-calculator/">full FIRE number calculator</a>: reach Coast FIRE first, then decide whether to keep pushing for full independence or simply enjoy the freedom of no longer having to save.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is Coast FIRE?</summary>
+      <p>The point where your current investments will grow to fund retirement by themselves, with no further contributions. After reaching it, you only need to earn enough to cover current expenses.</p>
+    </details>
+    
+    <details>
+      <summary>How is the Coast FIRE number calculated?</summary>
+      <p>Divide your retirement target by (1 + expected real return) raised to the number of years until retirement. It's the present value today that compounds into your goal.</p>
+    </details>
+    
+    <details>
+      <summary>Should I use nominal or real returns?</summary>
+      <p>Real (inflation-adjusted) returns, since your retirement target is a future amount. Using a real return like 5% keeps the answer expressed in today's purchasing power.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/annuity-payout-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Annuity Payout Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/fire-number-calculator/">
+        <span class="card-emoji">🔥</span>
+        <span class="card-title">FIRE Number Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const age = val('age'), retire = val('retire'), target = val('target'), P = val('current'), r = val('rate')/100;
+  const yrs = retire - age;
+  if (yrs <= 0) { show('<div class="result-main">Retirement age must be beyond current age.</div>'); return; }
+  const coast = target / Math.pow(1+r, yrs);
+  const projected = P * Math.pow(1+r, yrs);
+  let rows = `<tr><td>Coast FIRE number at age ${age}</td><td>$${fmt(coast,0)}</td></tr>
+    <tr><td>Your savings will grow to</td><td>$${fmt(projected,0)}</td></tr>
+    <tr><td>Growth years remaining</td><td>${yrs}</td></tr>`;
+  if (P >= coast) {
+    show(`<div class="result-main">Coast FIRE reached \u2705<small>Your $${fmt(P,0)} should grow to $${fmt(projected,0)} by ${retire} with no new saving</small></div><table>${rows}</table>`);
+  } else {
+    rows += `<tr><td>Still needed to coast</td><td>$${fmt(coast - P,0)}</td></tr>`;
+    show(`<div class="result-main">$${fmt(coast,0)}<small>Reach this and you can stop saving for retirement</small></div><table>${rows}</table>`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

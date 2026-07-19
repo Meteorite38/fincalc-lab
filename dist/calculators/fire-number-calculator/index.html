@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIRE Number Calculator — How Much to Retire Early</title>
+<meta name="description" content="Calculate your FIRE number — the savings needed for financial independence — from your annual expenses and safe withdrawal rate, plus how many years until you reach it.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/fire-number-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="FIRE Number Calculator — How Much to Retire Early">
+<meta property="og:description" content="Calculate your FIRE number — the savings needed for financial independence — from your annual expenses and safe withdrawal rate, plus how many years until you reach it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/fire-number-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FIRE Number Calculator — How Much to Retire Early">
+<meta name="twitter:description" content="Calculate your FIRE number — the savings needed for financial independence — from your annual expenses and safe withdrawal rate, plus how many years until you reach it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is a FIRE number calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your expected annual expenses by your safe withdrawal rate. At the common 4% rate, that's 25 times your annual spending. Spending $40,000/year implies a $1,000,000 target."}}, {"@type": "Question", "name": "Is the 4% rule safe for early retirement?", "acceptedAnswer": {"@type": "Answer", "text": "It was designed for a 30-year retirement. For the 40–50 year horizons common in early retirement, many use a more conservative 3–3.5%, which raises the target to roughly 28–33x annual expenses."}}, {"@type": "Question", "name": "What matters more, income or savings rate?", "acceptedAnswer": {"@type": "Answer", "text": "Savings rate. Because FIRE timing depends on the gap between what you earn and what you spend, a high savings rate reaches independence quickly at almost any income level."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "FIRE Number Calculator", "item": "https://fincalc-lab.pages.dev/calculators/fire-number-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; FIRE Number Calculator</nav>
+  <h1>🔥 FIRE Number Calculator</h1>
+  <p class="lead">Financial independence means your investments can cover your living costs indefinitely. Enter your annual spending and a safe withdrawal rate to get your FIRE number, then see how long it takes to get there.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual expenses in retirement ($)</span>
+      
+      <input type="number" id="expenses" value="40000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Safe withdrawal rate (%) <em class="hint">(4% is the common default)</em></span>
+      
+      <input type="number" id="swr" value="4" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current invested savings ($)</span>
+      
+      <input type="number" id="current" value="100000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly contribution ($)</span>
+      
+      <input type="number" id="monthly" value="2000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What is a FIRE number?</h2>
+<p>FIRE — Financial Independence, Retire Early — is the point where your invested assets are large enough that a safe annual withdrawal covers your living costs forever. The core formula is beautifully simple: <code>FIRE number = annual expenses ÷ safe withdrawal rate</code>. At the common 4% rate that's <strong>25 times your annual spending</strong>. Spend $40,000 a year and you need about $1,000,000.</p>
+<h2>Where the 4% comes from</h2>
+<p>The 4% rule descends from the Trinity study, which found that withdrawing 4% of a starting portfolio (adjusted for inflation) survived 30 years in almost all historical periods. Early retirees planning for 40–50 year horizons often use a more conservative 3–3.5%, which raises the target to 28–33x expenses. Lower the withdrawal rate in the calculator and watch the FIRE number climb — that's the price of extra safety over a longer retirement.</p>
+<h2>Two levers, both powerful</h2>
+<ul>
+<li><strong>Spending is the master variable.</strong> Because the target is a multiple of expenses, cutting $5,000 of annual spending lowers your FIRE number by $125,000 (at 4%) — and simultaneously frees cash to invest. Frugality works on both sides of the equation.</li>
+<li><strong>Savings rate sets the timeline.</strong> The single biggest determinant of <em>how soon</em> you reach FIRE is the percentage of income you save. A 50% savings rate gets most people there in around 17 years regardless of income level.</li>
+</ul>
+<h2>Beyond the number</h2>
+<p>Reaching your FIRE number gives you options, not obligations — many "retire" into work they actually enjoy. Pair this with our <a href="/calculators/retirement-withdrawal-calculator/">withdrawal calculator</a> to stress-test how long the money lasts, and mind sequence-of-returns risk in the early years. FIRE is less about never working again and more about never <em>having</em> to.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How is a FIRE number calculated?</summary>
+      <p>Divide your expected annual expenses by your safe withdrawal rate. At the common 4% rate, that's 25 times your annual spending. Spending $40,000/year implies a $1,000,000 target.</p>
+    </details>
+    
+    <details>
+      <summary>Is the 4% rule safe for early retirement?</summary>
+      <p>It was designed for a 30-year retirement. For the 40–50 year horizons common in early retirement, many use a more conservative 3–3.5%, which raises the target to roughly 28–33x annual expenses.</p>
+    </details>
+    
+    <details>
+      <summary>What matters more, income or savings rate?</summary>
+      <p>Savings rate. Because FIRE timing depends on the gap between what you earn and what you spend, a high savings rate reaches independence quickly at almost any income level.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/annuity-payout-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Annuity Payout Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/coast-fire-calculator/">
+        <span class="card-emoji">🏄</span>
+        <span class="card-title">Coast FIRE Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const exp = val('expenses'), swr = val('swr')/100, P = val('current'), pmt = val('monthly'), r = val('rate')/100/12;
+  if (swr <= 0) { show('<div class="result-main">Enter a withdrawal rate above zero.</div>'); return; }
+  const fire = exp / swr;
+  let rows = `<tr><td>Multiple of expenses</td><td>${fmt(1/swr,1)}x annual spending</td></tr>`;
+  if (P >= fire) {
+    show(`<div class="result-main">$${fmt(fire,0)}<small>You've already reached financial independence \u2705</small></div><table>${rows}</table>`);
+    return;
+  }
+  let bal = P, months = 0;
+  while (bal < fire && months < 1200) { bal = bal*(1+r) + pmt; months++; }
+  const yrs = Math.floor(months/12), mo = months%12;
+  rows += `<tr><td>Still needed</td><td>$${fmt(fire - P,0)}</td></tr>
+    <tr><td>Time to FIRE</td><td>${months>=1200 ? 'over 100 years — raise savings' : yrs+' years '+mo+' months'}</td></tr>
+    <tr><td>Monthly income it funds</td><td>$${fmt(fire*swr/12,0)}</td></tr>`;
+  show(`<div class="result-main">$${fmt(fire,0)}<small>Your FIRE number at a ${fmt(swr*100,1)}% withdrawal rate</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

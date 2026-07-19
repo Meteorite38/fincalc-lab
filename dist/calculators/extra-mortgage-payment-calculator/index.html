@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extra Mortgage Payment Calculator — Save Interest and Years</title>
+<meta name="description" content="See how much interest you save and how many years you cut off your mortgage by paying a little extra each month toward principal.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/extra-mortgage-payment-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Extra Mortgage Payment Calculator — Save Interest and Years">
+<meta property="og:description" content="See how much interest you save and how many years you cut off your mortgage by paying a little extra each month toward principal.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/extra-mortgage-payment-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Extra Mortgage Payment Calculator — Save Interest and Years">
+<meta name="twitter:description" content="See how much interest you save and how many years you cut off your mortgage by paying a little extra each month toward principal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much can extra mortgage payments save?", "acceptedAnswer": {"@type": "Answer", "text": "Often tens of thousands in interest and several years off the loan. On a typical 30-year mortgage, an extra $200/month can save 5–7 years and $100,000+ in interest, depending on the rate and balance."}}, {"@type": "Question", "name": "Is it better to pay extra on the mortgage or invest?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your mortgage rate versus expected after-tax investment returns. Paying down a mortgage is a guaranteed return equal to the rate; investing may earn more but with risk. Clear higher-rate debt and capture retirement matches first."}}, {"@type": "Question", "name": "Do I need to tell my lender the extra is for principal?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — specify that extra amounts go toward principal, or some servicers apply them to future payments instead, which doesn't shorten the loan. Also confirm there's no prepayment penalty."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Extra Mortgage Payment Calculator", "item": "https://fincalc-lab.pages.dev/calculators/extra-mortgage-payment-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Extra Mortgage Payment Calculator</nav>
+  <h1>🏡 Extra Mortgage Payment Calculator</h1>
+  <p class="lead">Adding even a small amount to each mortgage payment can save years and tens of thousands in interest. Enter your loan and an extra monthly amount to see the impact.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Mortgage balance ($)</span>
+      
+      <input type="number" id="balance" value="300000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Interest rate (%)</span>
+      
+      <input type="number" id="rate" value="6.5" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years remaining</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra monthly payment ($)</span>
+      
+      <input type="number" id="extra" value="200" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why extra principal is so powerful</h2>
+<p>A mortgage front-loads interest: in the early years, most of each payment covers interest and only a sliver reduces the balance. Every extra dollar you send goes <strong>entirely to principal</strong>, permanently removing all the future interest that dollar would have accrued. Because the effect compounds over the remaining decades, small extra payments produce outsized savings.</p>
+<h2>A concrete example</h2>
+<p>On a $300,000 mortgage at 6.5% over 30 years, the normal payment is about $1,896. Add just $200/month and you'll pay the loan off roughly <strong>6 years early and save over $100,000 in interest</strong>. The extra $200 isn't earning a return in the usual sense — it's guaranteeing you avoid 6.5% interest, a risk-free return most investments can't promise.</p>
+<h2>Ways to add extra</h2>
+<ul>
+<li><strong>Fixed monthly extra</strong> (this calculator) — simplest and easiest to automate.</li>
+<li><strong>Biweekly payments</strong> — paying half the payment every two weeks sneaks in one extra full payment per year; see our <a href="/calculators/biweekly-mortgage-calculator/">biweekly mortgage calculator</a>.</li>
+<li><strong>Lump sums</strong> — applying tax refunds or bonuses directly to principal.</li>
+</ul>
+<h2>Should you? The trade-off</h2>
+<p>Prepaying a mortgage is a guaranteed return equal to your rate — compelling when rates are high. But weigh it against alternatives: capture any employer retirement match first, clear higher-rate debt (credit cards) before the mortgage, and keep an emergency fund, since money sent to the mortgage is hard to get back. Confirm your lender applies extra payments to principal, and check for any (rare) prepayment penalty.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much can extra mortgage payments save?</summary>
+      <p>Often tens of thousands in interest and several years off the loan. On a typical 30-year mortgage, an extra $200/month can save 5–7 years and $100,000+ in interest, depending on the rate and balance.</p>
+    </details>
+    
+    <details>
+      <summary>Is it better to pay extra on the mortgage or invest?</summary>
+      <p>It depends on your mortgage rate versus expected after-tax investment returns. Paying down a mortgage is a guaranteed return equal to the rate; investing may earn more but with risk. Clear higher-rate debt and capture retirement matches first.</p>
+    </details>
+    
+    <details>
+      <summary>Do I need to tell my lender the extra is for principal?</summary>
+      <p>Yes — specify that extra amounts go toward principal, or some servicers apply them to future payments instead, which doesn't shorten the loan. Also confirm there's no prepayment penalty.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/pay-off-debt-faster/">
+        <span class="card-title">"How to Pay Off Debt Faster: A Strategy Guide That Respects Both Math and Psychology"</span>
+        <span class="card-desc">Avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-price-freelance-work/">
+        <span class="card-title">"How to Price Freelance Work Without Underselling Yourself"</span>
+        <span class="card-desc">Why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.</span>
+      </a>
+      
+      <a class="card" href="/articles/renting-vs-buying-a-home/">
+        <span class="card-title">"Renting vs Buying a Home: The Honest Math"</span>
+        <span class="card-desc">Beyond 'rent is throwing money away' — the real costs on both sides, the break-even horizon, and how to decide based on your actual situation.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function payoff(P, i, pmt) {
+  if (pmt <= P*i) return null;
+  let bal = P, months = 0, interest = 0;
+  while (bal > 0 && months < 1200) { const int = bal*i; interest += int; bal = bal + int - pmt; months++; }
+  return { months, interest };
+}
+function calculate() {
+  const P = val('balance'), i = val('rate')/100/12, n = val('years')*12, extra = val('extra');
+  const base = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n;
+  const b = payoff(P, i, base), f = payoff(P, i, base + extra);
+  if (!b || !f) { show('<div class="result-main">Check your inputs.</div>'); return; }
+  const monthsSaved = b.months - f.months;
+  const yS = Math.floor(monthsSaved/12), mS = monthsSaved%12;
+  show(`<div class="result-main">$${fmt(b.interest - f.interest,0)} saved<small>and ${yS}y ${mS}m off your mortgage with +$${fmt(extra,0)}/mo</small></div>
+  <table>
+    <tr><td>Normal payment</td><td>$${fmt(base)}/mo</td></tr>
+    <tr><td>New payment</td><td>$${fmt(base+extra)}/mo</td></tr>
+    <tr><td>Interest without extra</td><td>$${fmt(b.interest,0)}</td></tr>
+    <tr><td>Interest with extra</td><td>$${fmt(f.interest,0)}</td></tr>
+    <tr><td>Payoff time</td><td>${Math.floor(f.months/12)}y ${f.months%12}m (was ${Math.floor(b.months/12)}y ${b.months%12}m)</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

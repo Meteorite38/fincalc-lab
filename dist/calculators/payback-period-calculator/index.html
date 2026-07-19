@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payback Period Calculator — How Fast an Investment Pays Back</title>
+<meta name="description" content="Calculate the payback period — how long it takes for an investment's cash inflows to recover its initial cost — plus a simple ROI on the full holding period.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/payback-period-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Payback Period Calculator — How Fast an Investment Pays Back">
+<meta property="og:description" content="Calculate the payback period — how long it takes for an investment's cash inflows to recover its initial cost — plus a simple ROI on the full holding period.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/payback-period-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Payback Period Calculator — How Fast an Investment Pays Back">
+<meta name="twitter:description" content="Calculate the payback period — how long it takes for an investment's cash inflows to recover its initial cost — plus a simple ROI on the full holding period.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you calculate payback period?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the initial investment by the annual cash flow it produces. A $50,000 investment returning $15,000 a year has a payback period of about 3.3 years."}}, {"@type": "Question", "name": "Is a shorter payback period better?", "acceptedAnswer": {"@type": "Answer", "text": "Generally yes — it means your money is at risk for less time and is recovered sooner to reinvest. But payback ignores returns after break-even, so also weigh the total lifetime return."}}, {"@type": "Question", "name": "What are the limitations of payback period?", "acceptedAnswer": {"@type": "Answer", "text": "It ignores cash flows after the payback point and the time value of money, and assumes steady returns. Use it as a quick screen, then confirm major decisions with ROI and discounted-cash-flow methods like NPV."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Payback Period Calculator", "item": "https://fincalc-lab.pages.dev/calculators/payback-period-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Payback Period Calculator</nav>
+  <h1>⏳ Payback Period Calculator</h1>
+  <p class="lead">The payback period is how long an investment takes to earn back its cost. Enter the upfront cost and the cash it returns each period to see when you break even.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Initial investment ($)</span>
+      
+      <input type="number" id="cost" value="50000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Cash returned per year ($)</span>
+      
+      <input type="number" id="cashflow" value="15000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Investment lifespan (years)</span>
+      
+      <input type="number" id="life" value="6" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What the payback period tells you</h2>
+<p>The payback period is the time it takes for an investment's cash returns to recover its upfront cost: <code>payback = initial cost ÷ annual cash flow</code>. A $50,000 machine that generates $15,000 a year pays back in about 3.3 years. It's the simplest, most intuitive investment metric — a direct answer to "how long until I get my money back?" — which is why business owners and individuals reach for it first.</p>
+<h2>Why shorter is safer</h2>
+<p>A shorter payback means less time your capital is at risk and sooner it's free to redeploy. Two investments returning the same total can differ sharply in risk: one that pays back in 2 years is far safer than one taking 6, because the future is uncertain and money recovered sooner can be reinvested. Many businesses set a maximum acceptable payback (say 3 years) as a quick screening rule before deeper analysis.</p>
+<h2>The metric's blind spots</h2>
+<ul>
+<li><strong>It ignores everything after payback.</strong> An investment that pays back in 4 years then gushes cash for 20 more looks worse, by payback alone, than one that pays back in 3 years and immediately dies. Always consider total lifetime return too — this calculator shows both.</li>
+<li><strong>It ignores the time value of money.</strong> Simple payback treats a dollar in year 5 as equal to a dollar today. For big or long-dated decisions, discounted methods like <a href="/calculators/present-value-calculator/">present value</a> or net present value give a truer picture.</li>
+<li><strong>It assumes steady cash flows.</strong> Real returns are lumpy; use it as a first-pass screen, not the final word.</li>
+</ul>
+<p>Use payback period as a fast, honest gut check — then confirm big decisions with ROI over the full lifespan and, where the stakes justify it, a discounted-cash-flow analysis.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do you calculate payback period?</summary>
+      <p>Divide the initial investment by the annual cash flow it produces. A $50,000 investment returning $15,000 a year has a payback period of about 3.3 years.</p>
+    </details>
+    
+    <details>
+      <summary>Is a shorter payback period better?</summary>
+      <p>Generally yes — it means your money is at risk for less time and is recovered sooner to reinvest. But payback ignores returns after break-even, so also weigh the total lifetime return.</p>
+    </details>
+    
+    <details>
+      <summary>What are the limitations of payback period?</summary>
+      <p>It ignores cash flows after the payback point and the time value of money, and assumes steady returns. Use it as a quick screen, then confirm major decisions with ROI and discounted-cash-flow methods like NPV.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+        <span class="card-emoji">🧑‍💻</span>
+        <span class="card-title">Freelance Hourly Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/markup-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Markup Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cac-ltv-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">LTV : CAC Ratio Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/startup-runway-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Startup Runway Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/sinking-funds-saving-for-big-purchases/">
+        <span class="card-title">"Sinking Funds: The Simple Trick for Big Expenses"</span>
+        <span class="card-desc">How sinking funds turn irregular, budget-wrecking expenses into small predictable monthly savings — and why they beat relying on your emergency fund.</span>
+      </a>
+      
+      <a class="card" href="/articles/true-cost-of-car-ownership/">
+        <span class="card-title">"The True Cost of Owning a Car (It's Not the Payment)"</span>
+        <span class="card-desc">Depreciation, insurance, fuel, maintenance and financing — the full cost of car ownership, and how to spend far less on getting around.</span>
+      </a>
+      
+      <a class="card" href="/articles/50-30-20-rule-in-real-life/">
+        <span class="card-title">"The 50/30/20 Rule in Real Life: Where It Works, Where It Breaks, How to Fix It"</span>
+        <span class="card-desc">An honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const cost = val('cost'), cf = val('cashflow'), life = val('life');
+  if (cf <= 0) { show('<div class="result-main">Annual cash flow must be above zero.</div>'); return; }
+  const payback = cost / cf;
+  const totalReturn = cf * life;
+  const netProfit = totalReturn - cost;
+  const roi = cost>0 ? netProfit/cost*100 : 0;
+  let verdict;
+  if (payback > life) verdict = 'Never pays back within its lifespan \u26A0\uFE0F';
+  else if (payback <= life/2) verdict = 'Fast payback — attractive';
+  else verdict = 'Pays back, but late in its life';
+  show(`<div class="result-main">${fmt(payback,1)} years<small>to recover the $${fmt(cost,0)} investment</small></div>
+  <table>
+    <tr><td>Payback in months</td><td>${fmt(payback*12,0)} months</td></tr>
+    <tr><td>Total cash over ${life} years</td><td>$${fmt(totalReturn,0)}</td></tr>
+    <tr><td>Net profit over lifespan</td><td>$${fmt(netProfit,0)}</td></tr>
+    <tr><td>Total ROI</td><td>${fmt(roi,0)}%</td></tr>
+    <tr><td>Verdict</td><td>${verdict}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Runway Calculator — How Many Months of Cash Left</title>
+<meta name="description" content="Calculate your startup's runway in months from cash on hand, monthly revenue and expenses — plus the revenue needed to reach break-even.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/startup-runway-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Startup Runway Calculator — How Many Months of Cash Left">
+<meta property="og:description" content="Calculate your startup's runway in months from cash on hand, monthly revenue and expenses — plus the revenue needed to reach break-even.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/startup-runway-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Startup Runway Calculator — How Many Months of Cash Left">
+<meta name="twitter:description" content="Calculate your startup's runway in months from cash on hand, monthly revenue and expenses — plus the revenue needed to reach break-even.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is startup runway calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your cash on hand by your net monthly burn (expenses minus revenue). $200,000 in cash with a $30,000 net burn gives about 6.7 months of runway at the current rate."}}, {"@type": "Question", "name": "What is a healthy amount of runway?", "acceptedAnswer": {"@type": "Answer", "text": "Many investors suggest raising enough for about 18 months — roughly a year to hit your next milestone plus six months to close the next round. Under six months, fundraising leverage weakens sharply."}}, {"@type": "Question", "name": "What's the difference between gross and net burn?", "acceptedAnswer": {"@type": "Answer", "text": "Gross burn is your total monthly spending; net burn subtracts revenue, showing how fast your cash balance actually declines. Net burn is the figure that determines runway."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Startup Runway Calculator", "item": "https://fincalc-lab.pages.dev/calculators/startup-runway-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Startup Runway Calculator</nav>
+  <h1>🚀 Startup Runway Calculator</h1>
+  <p class="lead">Runway is how long your startup survives at the current burn rate. Enter your cash, monthly revenue and monthly costs to see how many months you have and what it takes to reach break-even.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Cash in the bank ($)</span>
+      
+      <input type="number" id="cash" value="200000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly revenue ($)</span>
+      
+      <input type="number" id="revenue" value="15000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly expenses ($)</span>
+      
+      <input type="number" id="expenses" value="45000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly revenue growth (%)</span>
+      
+      <input type="number" id="growth" value="8" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Runway: the number that governs everything</h2>
+<p>Runway is how many months your company can operate before the cash runs out. The basic formula is <code>runway = cash ÷ monthly burn</code>, where burn is expenses minus revenue. It's the most important number for any pre-profit startup because it dictates your deadline: raise more money, reach profitability, or wind down — all before runway hits zero.</p>
+<h2>Burn rate, gross vs net</h2>
+<p><strong>Gross burn</strong> is total monthly spend; <strong>net burn</strong> is spend minus revenue — the true rate your bank balance falls. A company spending $45,000 with $15,000 of revenue has a net burn of $30,000; with $200,000 in the bank, that's a flat runway of about 6.7 months. Revenue growth extends this, which is why the calculator also simulates growing revenue toward break-even.</p>
+<h2>The 18-month rule of thumb</h2>
+<ul>
+<li><strong>Raise for ~18 months.</strong> A common target is enough cash to run 18 months: roughly 12 to hit the next milestone and 6 to raise the next round. Under ~6 months of runway, you're in the danger zone where fundraising leverage collapses.</li>
+<li><strong>Growth changes the math.</strong> If revenue is climbing fast enough to reach break-even before cash runs out, you may never need another raise — the ideal outcome. If not, you're racing a clock.</li>
+<li><strong>Cutting burn buys time asymmetrically.</strong> Reducing burn extends runway immediately and permanently; it's usually faster and more certain than hoping revenue spikes.</li>
+</ul>
+<h2>Watch the trend, not just the number</h2>
+<p>Track runway monthly. A stable or lengthening runway means growth is outpacing spend; a shrinking one is an early warning long before the crisis. Pair this with a <a href="/calculators/break-even-point-calculator/">break-even analysis</a> to know exactly how much revenue turns the burn positive.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How is startup runway calculated?</summary>
+      <p>Divide your cash on hand by your net monthly burn (expenses minus revenue). $200,000 in cash with a $30,000 net burn gives about 6.7 months of runway at the current rate.</p>
+    </details>
+    
+    <details>
+      <summary>What is a healthy amount of runway?</summary>
+      <p>Many investors suggest raising enough for about 18 months — roughly a year to hit your next milestone plus six months to close the next round. Under six months, fundraising leverage weakens sharply.</p>
+    </details>
+    
+    <details>
+      <summary>What's the difference between gross and net burn?</summary>
+      <p>Gross burn is your total monthly spending; net burn subtracts revenue, showing how fast your cash balance actually declines. Net burn is the figure that determines runway.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+        <span class="card-emoji">🧑‍💻</span>
+        <span class="card-title">Freelance Hourly Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/markup-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Markup Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cac-ltv-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">LTV : CAC Ratio Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/payback-period-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Payback Period Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/sinking-funds-saving-for-big-purchases/">
+        <span class="card-title">"Sinking Funds: The Simple Trick for Big Expenses"</span>
+        <span class="card-desc">How sinking funds turn irregular, budget-wrecking expenses into small predictable monthly savings — and why they beat relying on your emergency fund.</span>
+      </a>
+      
+      <a class="card" href="/articles/true-cost-of-car-ownership/">
+        <span class="card-title">"The True Cost of Owning a Car (It's Not the Payment)"</span>
+        <span class="card-desc">Depreciation, insurance, fuel, maintenance and financing — the full cost of car ownership, and how to spend far less on getting around.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const cash = val('cash'), rev0 = val('revenue'), exp = val('expenses'), g = val('growth')/100;
+  const burn = exp - rev0;
+  if (burn <= 0) { show(`<div class="result-main">Profitable now \u2705<small>Revenue already covers expenses — net $${fmt(rev0-exp,0)}/mo</small></div>`); return; }
+  const flatRunway = cash / burn;
+  // simulate with growth
+  let bal = cash, rev = rev0, months = 0, breakeven = null;
+  while (bal > 0 && months < 600) {
+    if (rev >= exp) { breakeven = months; break; }
+    bal += rev - exp; rev *= (1+g); months++;
+    if (bal <= 0) break;
+  }
+  let rows = `<tr><td>Monthly burn (now)</td><td>$${fmt(burn,0)}</td></tr>
+    <tr><td>Flat runway (no growth)</td><td>${fmt(flatRunway,1)} months</td></tr>`;
+  if (breakeven !== null) {
+    rows += `<tr><td>Break-even reached in</td><td>${breakeven} months (if cash lasts)</td></tr>`;
+  } else {
+    rows += `<tr><td>Break-even</td><td>Not reached before cash runs out</td></tr>`;
+  }
+  rows += `<tr><td>Revenue needed to break even</td><td>$${fmt(exp,0)}/mo (${fmt(rev0>0?exp/rev0:0,1)}x current)</td></tr>`;
+  const label = breakeven !== null && months >= breakeven ? 'reach profitability' : 'runway at current burn';
+  show(`<div class="result-main">${fmt(flatRunway,1)} months<small>of cash at the current burn rate</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
