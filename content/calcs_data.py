@@ -6,5 +6,6 @@ from calcs_part3 import PART3
 from calcs_part4 import PART4
 from calcs_part5 import PART5
 from calcs_part6 import PART6
+from calcs_part7 import PART7
 
-CALCS = PART1 + PART2 + PART3 + PART4 + PART5 + PART6
+CALCS = PART1 + PART2 + PART3 + PART4 + PART5 + PART6 + PART7

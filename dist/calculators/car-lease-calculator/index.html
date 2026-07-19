@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Lease Calculator — Estimate Your Monthly Lease Payment</title>
+<meta name="description" content="Estimate a car lease monthly payment from vehicle price, residual value, lease term and money factor — and understand what you're really paying for.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/car-lease-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Car Lease Calculator — Estimate Your Monthly Lease Payment">
+<meta property="og:description" content="Estimate a car lease monthly payment from vehicle price, residual value, lease term and money factor — and understand what you're really paying for.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/car-lease-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Car Lease Calculator — Estimate Your Monthly Lease Payment">
+<meta name="twitter:description" content="Estimate a car lease monthly payment from vehicle price, residual value, lease term and money factor — and understand what you're really paying for.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a money factor?", "acceptedAnswer": {"@type": "Answer", "text": "The lease's interest rate expressed as a small decimal. Multiply it by 2,400 to get the approximate APR — a 0.0025 money factor is about 6%. Always convert it to compare against normal loan rates."}}, {"@type": "Question", "name": "Why are lease payments lower than loan payments?", "acceptedAnswer": {"@type": "Answer", "text": "Because a lease only finances the car's depreciation during your term plus finance charges, not its full price. You're paying for the value used, not the whole vehicle."}}, {"@type": "Question", "name": "Is leasing cheaper than buying?", "acceptedAnswer": {"@type": "Answer", "text": "Leasing usually has lower monthly payments but never ends in ownership, so over many years buying and keeping a car is typically cheaper. Leasing suits those who want a new car every few years and predictable costs."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Car Lease Calculator", "item": "https://fincalc-lab.pages.dev/calculators/car-lease-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Car Lease Calculator</nav>
+  <h1>🗝️ Car Lease Calculator</h1>
+  <p class="lead">Leasing pays for a car's depreciation plus finance charges, not the whole car. Enter the price, expected residual value, term and money factor for an estimated monthly payment.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Negotiated vehicle price ($)</span>
+      
+      <input type="number" id="price" value="35000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment / incentives ($)</span>
+      
+      <input type="number" id="down" value="2000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Residual value at lease end ($) <em class="hint">(what it's worth when returned)</em></span>
+      
+      <input type="number" id="residual" value="21000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Lease term (months)</span>
+      
+      <input type="number" id="months" value="36" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Money factor <em class="hint">(APR ÷ 2400; 0.0025 ≈ 6% APR)</em></span>
+      
+      <input type="number" id="mf" value="0.0025" step="0.0001" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What a lease actually pays for</h2>
+<p>When you lease, you don't pay for the whole car — only its <strong>depreciation</strong> during your term (the value it loses) plus a <strong>finance charge</strong>. That's why lease payments are lower than loan payments on the same car: you're financing perhaps $14,000 of value lost, not the full $35,000. At lease end you return the car (worth its "residual value") and walk away, or buy it for that residual.</p>
+<h2>Decoding the money factor</h2>
+<p>The <strong>money factor</strong> is the lease's interest rate in disguise. Convert it to a familiar APR by multiplying by 2,400: a 0.0025 money factor is roughly 6% APR. Dealers sometimes quote the money factor hoping you won't translate it — always convert and compare it to normal loan rates. A high money factor is expensive interest wearing an unfamiliar costume.</p>
+<h2>The residual value lever</h2>
+<p>A higher residual means the car keeps more value, so you pay for less depreciation and your payment drops. Cars that hold value well (strong resale reputations) often lease more cheaply than their price suggests, while fast-depreciating models lease expensively. The residual is set by the leasing company, not negotiable — but it explains why two similarly-priced cars can have very different lease payments.</p>
+<h2>Lease vs buy, briefly</h2>
+<ul>
+<li><strong>Leasing</strong> means lower payments, a new car every few years, and warranty coverage — but perpetual payments and no ownership, plus mileage limits and wear charges.</li>
+<li><strong>Buying</strong> costs more monthly but ends in an owned asset and payment-free years, usually the cheaper path if you keep cars a long time.</li>
+</ul>
+<p>This is an estimate; real leases add taxes, fees, and mileage terms. But knowing the depreciation and finance components — and converting that money factor to an APR — puts you far ahead of the average lessee at the dealership.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a money factor?</summary>
+      <p>The lease's interest rate expressed as a small decimal. Multiply it by 2,400 to get the approximate APR — a 0.0025 money factor is about 6%. Always convert it to compare against normal loan rates.</p>
+    </details>
+    
+    <details>
+      <summary>Why are lease payments lower than loan payments?</summary>
+      <p>Because a lease only finances the car's depreciation during your term plus finance charges, not its full price. You're paying for the value used, not the whole vehicle.</p>
+    </details>
+    
+    <details>
+      <summary>Is leasing cheaper than buying?</summary>
+      <p>Leasing usually has lower monthly payments but never ends in ownership, so over many years buying and keeping a car is typically cheaper. Leasing suits those who want a new car every few years and predictable costs.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), down = val('down'), residual = val('residual'), n = val('months'), mf = val('mf');
+  const cap = price - down;
+  const depreciation = (cap - residual) / n;
+  const financeCharge = (cap + residual) * mf;
+  const payment = depreciation + financeCharge;
+  const apr = mf * 2400;
+  if (payment < 0) { show('<div class="result-main">Check inputs — residual exceeds the financed amount.</div>'); return; }
+  show(`<div class="result-main">$${fmt(payment)} / month<small>Estimated lease payment (before tax) for ${n} months</small></div>
+  <table>
+    <tr><td>Depreciation portion</td><td>$${fmt(depreciation)}/mo</td></tr>
+    <tr><td>Finance charge (≈${fmt(apr,1)}% APR)</td><td>$${fmt(financeCharge)}/mo</td></tr>
+    <tr><td>Total of payments</td><td>$${fmt(payment*n,0)}</td></tr>
+    <tr><td>Total cost incl. down payment</td><td>$${fmt(payment*n + down,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

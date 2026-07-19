@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annuity Payout Calculator — Monthly Income from a Lump Sum</title>
+<meta name="description" content="Calculate the monthly income a lump sum can provide over a set number of years at a given return — the payout phase of an annuity or drawdown.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/annuity-payout-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Annuity Payout Calculator — Monthly Income from a Lump Sum">
+<meta property="og:description" content="Calculate the monthly income a lump sum can provide over a set number of years at a given return — the payout phase of an annuity or drawdown.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/annuity-payout-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Annuity Payout Calculator — Monthly Income from a Lump Sum">
+<meta name="twitter:description" content="Calculate the monthly income a lump sum can provide over a set number of years at a given return — the payout phase of an annuity or drawdown.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much monthly income will my savings provide?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the amount, the return earned, and how long it must last. This calculator computes the level monthly payment that draws a lump sum down to zero over your chosen period while the balance keeps earning."}}, {"@type": "Question", "name": "Is this the same as buying an annuity?", "acceptedAnswer": {"@type": "Answer", "text": "The math mirrors a fixed-period annuity's payout, but a real insurance annuity includes fees, guarantees, and sometimes lifetime payments. Use this as a planning estimate, not a product quote."}}, {"@type": "Question", "name": "Does the payout account for inflation?", "acceptedAnswer": {"@type": "Answer", "text": "No — it's a level (fixed) monthly amount, which loses purchasing power over time. If you want income that rises with inflation, the starting payment would be lower. Use a conservative real return to approximate this."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Annuity Payout Calculator", "item": "https://fincalc-lab.pages.dev/calculators/annuity-payout-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Annuity Payout Calculator</nav>
+  <h1>💵 Annuity Payout Calculator</h1>
+  <p class="lead">How much guaranteed monthly income can a lump sum produce? Enter the amount, an expected return, and how many years you want it to last for the level monthly payout.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Lump sum ($)</span>
+      
+      <input type="number" id="principal" value="500000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="4" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Payout period (years)</span>
+      
+      <input type="number" id="years" value="25" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Turning savings into income</h2>
+<p>Building a nest egg is half the journey; the other half is converting it into a reliable income. This calculator finds the level monthly payment a lump sum can sustain over a fixed period while the remaining balance keeps earning a return — the same math behind fixed-period annuities and structured drawdowns. Notice the "of which is growth" line: because the unpaid balance keeps working, the total paid out exceeds the original lump sum.</p>
+<h2>The trade-off: certainty vs flexibility</h2>
+<p>A <strong>fixed-period payout</strong> gives a predictable income but ends when the term does — you must outlive it carefully or pair it with other income. A <strong>lifetime annuity</strong> (bought from an insurer) instead pays until you die, transferring longevity risk to the insurer, but you give up the lump sum and control. Self-managed drawdown (keeping the money invested and withdrawing flexibly) offers the most control and upside but no guarantee it lasts — the risk explored in our <a href="/calculators/retirement-withdrawal-calculator/">retirement withdrawal calculator</a>.</p>
+<h2>What the return assumption does</h2>
+<ul>
+<li><strong>Higher assumed return → higher payout,</strong> but also more risk that reality falls short. Conservative retirees use lower rates (3–4%) for safety.</li>
+<li><strong>Inflation isn't included</strong> in a level payout — $2,600/month feels smaller each year as prices rise. Consider whether you need rising income, which lowers the starting figure.</li>
+<li><strong>Taxes</strong> apply to most retirement income; the figures here are pre-tax.</li>
+</ul>
+<h2>Using the number</h2>
+<p>This is a planning estimate, not a product quote. Real annuities carry fees and specific terms, and self-managed drawdown returns vary year to year. But seeing that, say, $500,000 at 4% supports roughly $2,600/month for 25 years turns an abstract nest-egg target into a concrete lifestyle question — and helps you judge whether your savings goal actually matches the retirement you want.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much monthly income will my savings provide?</summary>
+      <p>It depends on the amount, the return earned, and how long it must last. This calculator computes the level monthly payment that draws a lump sum down to zero over your chosen period while the balance keeps earning.</p>
+    </details>
+    
+    <details>
+      <summary>Is this the same as buying an annuity?</summary>
+      <p>The math mirrors a fixed-period annuity's payout, but a real insurance annuity includes fees, guarantees, and sometimes lifetime payments. Use this as a planning estimate, not a product quote.</p>
+    </details>
+    
+    <details>
+      <summary>Does the payout account for inflation?</summary>
+      <p>No — it's a level (fixed) monthly amount, which loses purchasing power over time. If you want income that rises with inflation, the starting payment would be lower. Use a conservative real return to approximate this.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const P = val('principal'), i = val('rate')/100/12, n = val('years')*12;
+  const pmt = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n;
+  const total = pmt*n;
+  show(`<div class="result-main">$${fmt(pmt)} / month<small>for ${val('years')} years from $${fmt(P,0)}</small></div>
+  <table>
+    <tr><td>Total paid out</td><td>$${fmt(total,0)}</td></tr>
+    <tr><td>Of which is growth</td><td>$${fmt(total-P,0)}</td></tr>
+    <tr><td>Annual income</td><td>$${fmt(pmt*12,0)}</td></tr>
+    <tr><td>As % of lump sum / year</td><td>${fmt(pmt*12/P*100,1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

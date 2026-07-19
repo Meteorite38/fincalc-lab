@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Return Calculator — Investment Return After Inflation</title>
+<meta name="description" content="Calculate your real (inflation-adjusted) rate of return from a nominal return and inflation rate — the number that reflects true growth in purchasing power.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/real-return-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Real Return Calculator — Investment Return After Inflation">
+<meta property="og:description" content="Calculate your real (inflation-adjusted) rate of return from a nominal return and inflation rate — the number that reflects true growth in purchasing power.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/real-return-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Real Return Calculator — Investment Return After Inflation">
+<meta name="twitter:description" content="Calculate your real (inflation-adjusted) rate of return from a nominal return and inflation rate — the number that reflects true growth in purchasing power.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a real rate of return?", "acceptedAnswer": {"@type": "Answer", "text": "Your investment return after adjusting for inflation — the growth in actual purchasing power. It's calculated as (1 + nominal) ÷ (1 + inflation) − 1, roughly nominal minus inflation."}}, {"@type": "Question", "name": "Can real return be negative?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If inflation exceeds your nominal return — common for cash in high-inflation periods — your real return is negative and your money loses purchasing power despite growing in dollar terms."}}, {"@type": "Question", "name": "Why not just subtract inflation from my return?", "acceptedAnswer": {"@type": "Answer", "text": "Simple subtraction is a good approximation at low rates but slightly overstates the real return. The exact formula divides by (1 + inflation), which matters more when rates are high."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Real Rate of Return Calculator", "item": "https://fincalc-lab.pages.dev/calculators/real-return-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Real Rate of Return Calculator</nav>
+  <h1>📉 Real Rate of Return Calculator</h1>
+  <p class="lead">Earning 7% means little if inflation is 5%. The real return strips out inflation to show how much your purchasing power actually grew. Enter your nominal return and the inflation rate.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Nominal return (%)</span>
+      
+      <input type="number" id="nominal" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Inflation rate (%)</span>
+      
+      <input type="number" id="inflation" value="3" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Amount invested ($, optional)</span>
+      
+      <input type="number" id="amount" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years (optional)</span>
+      
+      <input type="number" id="years" value="20" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Nominal vs real return</h2>
+<p>Your <strong>nominal return</strong> is the headline number your investment earns. Your <strong>real return</strong> subtracts inflation to reveal the growth in actual buying power. The precise formula isn't simple subtraction — it's <code>(1 + nominal) ÷ (1 + inflation) − 1</code> — though "nominal minus inflation" is a close-enough estimate at low rates. A 7% return with 3% inflation is a real return of about 3.9%, not exactly 4%.</p>
+<h2>Why it changes the whole picture</h2>
+<p>Real return is the honest measure of whether you're getting richer. Consider the trap of "safe" cash: a savings account paying 2% while inflation runs 4% has a <strong>negative real return</strong> of about −1.9% — your money grows on paper but buys less each year. Feeling safe while quietly losing purchasing power is one of the most common financial mistakes.</p>
+<h2>Planning in real terms</h2>
+<ul>
+<li><strong>Retirement:</strong> a projected $1 million decades away is worth far less in today's money. Planning with a real return (say 4–5% instead of 7%) gives targets in purchasing power you can actually understand.</li>
+<li><strong>Historical context:</strong> long-run stock real returns have averaged roughly 6–7%; bonds much lower; cash near zero or negative. These real figures, not nominal ones, are what compound your standard of living.</li>
+<li><strong>Debt cuts both ways:</strong> inflation quietly erodes the real value of fixed-rate debt, which is why a low fixed-rate mortgage feels cheaper over time.</li>
+</ul>
+<p>Whenever someone quotes a return, mentally subtract inflation. The difference between nominal and real is the difference between looking richer and being richer.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a real rate of return?</summary>
+      <p>Your investment return after adjusting for inflation — the growth in actual purchasing power. It's calculated as (1 + nominal) ÷ (1 + inflation) − 1, roughly nominal minus inflation.</p>
+    </details>
+    
+    <details>
+      <summary>Can real return be negative?</summary>
+      <p>Yes. If inflation exceeds your nominal return — common for cash in high-inflation periods — your real return is negative and your money loses purchasing power despite growing in dollar terms.</p>
+    </details>
+    
+    <details>
+      <summary>Why not just subtract inflation from my return?</summary>
+      <p>Simple subtraction is a good approximation at low rates but slightly overstates the real return. The exact formula divides by (1 + inflation), which matters more when rates are high.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/simple-interest-calculator/">
+        <span class="card-emoji">📐</span>
+        <span class="card-title">Simple Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cd-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">CD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/apy-calculator/">
+        <span class="card-emoji">🔁</span>
+        <span class="card-title">APY Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const nom = val('nominal')/100, inf = val('inflation')/100, a = val('amount'), y = val('years');
+  const real = (1 + nom)/(1 + inf) - 1;
+  const approx = nom - inf;
+  let rows = `<tr><td>Real return (exact)</td><td>${fmt(real*100,2)}%</td></tr>
+    <tr><td>Quick estimate (nominal − inflation)</td><td>${fmt(approx*100,2)}%</td></tr>`;
+  if (a > 0 && y > 0) {
+    const nominalFV = a*Math.pow(1+nom,y), realFV = a*Math.pow(1+real,y);
+    rows += `<tr><td>Nominal value in ${y} yrs</td><td>$${fmt(nominalFV,0)}</td></tr>
+    <tr><td>Value in today's money</td><td>$${fmt(realFV,0)}</td></tr>`;
+  }
+  show(`<div class="result-main">${fmt(real*100,2)}%<small>Real return after ${fmt(inf*100,1)}% inflation</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

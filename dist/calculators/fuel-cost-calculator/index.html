@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Cost Calculator — Trip and Annual Driving Cost</title>
+<meta name="description" content="Calculate the fuel cost of a trip from distance, fuel efficiency and fuel price, plus your estimated annual fuel spend. Works with MPG or L/100km.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/fuel-cost-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Fuel Cost Calculator — Trip and Annual Driving Cost">
+<meta property="og:description" content="Calculate the fuel cost of a trip from distance, fuel efficiency and fuel price, plus your estimated annual fuel spend. Works with MPG or L/100km.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/fuel-cost-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fuel Cost Calculator — Trip and Annual Driving Cost">
+<meta name="twitter:description" content="Calculate the fuel cost of a trip from distance, fuel efficiency and fuel price, plus your estimated annual fuel spend. Works with MPG or L/100km.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate fuel cost for a trip?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the distance by your vehicle's fuel efficiency to get fuel used, then multiply by the fuel price. For example, 300 miles ÷ 30 MPG = 10 gallons × $3.50 = $35."}}, {"@type": "Question", "name": "Can I use this with litres and kilometres?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — just keep units consistent. Enter distance in km, efficiency in km per litre, and price per litre. The math works identically; only the labels differ."}}, {"@type": "Question", "name": "Does fuel cost include all driving costs?", "acceptedAnswer": {"@type": "Answer", "text": "No. Fuel is only one part. Insurance, maintenance, tyres, and depreciation frequently cost more than fuel, so include them when comparing vehicles or commutes."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Fuel Cost Calculator", "item": "https://fincalc-lab.pages.dev/calculators/fuel-cost-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Fuel Cost Calculator</nav>
+  <h1>⛽ Fuel Cost Calculator</h1>
+  <p class="lead">Estimate what a drive costs in fuel — handy for road trips, commutes, or comparing cars. Enter the distance, your vehicle's efficiency, and the fuel price.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Trip distance</span>
+      
+      <input type="number" id="distance" value="300" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Fuel efficiency (miles per gallon) <em class="hint">(or km per unit — keep units consistent)</em></span>
+      
+      <input type="number" id="efficiency" value="30" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Fuel price (per gallon)</span>
+      
+      <input type="number" id="price" value="3.5" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual distance driven (optional)</span>
+      
+      <input type="number" id="annual" value="12000" step="100" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The simple formula</h2>
+<p>Fuel cost = (distance ÷ efficiency) × price per unit. Divide the trip distance by your miles-per-gallon (or km per litre) to get fuel used, then multiply by the price. A 300-mile trip in a 30-MPG car at $3.50/gallon uses 10 gallons and costs $35. Keep your units consistent — miles with MPG and price per gallon, or kilometres with your local equivalents.</p>
+<h2>Cost per mile: the number that compares cars</h2>
+<p>Dividing price by efficiency gives cost per mile — a clean way to compare vehicles or plan budgets. At $3.50/gallon, a 30-MPG car costs about 12¢/mile in fuel; a 20-MPG SUV costs 17.5¢; a 45-MPG hybrid just 7.8¢. Over 12,000 miles a year, that spread is hundreds of dollars — and it compounds over the years you own the vehicle.</p>
+<h2>Beyond the pump price</h2>
+<ul>
+<li><strong>Fuel is only part of driving cost.</strong> Insurance, maintenance, tyres, and depreciation often exceed fuel — factor them in when comparing cars or commutes.</li>
+<li><strong>Efficiency varies with conditions.</strong> Highway driving, gentle acceleration, and proper tyre pressure improve real-world MPG; city stop-and-go and heavy loads worsen it.</li>
+<li><strong>Commute math:</strong> a longer commute to a cheaper home has a real, recurring fuel (and time) cost worth putting a number on before you decide.</li>
+</ul>
+<p>For electric vehicles the same logic applies with cost per kWh and miles per kWh — the per-mile figure is usually much lower, which is a core part of the EV value case alongside their higher purchase price.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I calculate fuel cost for a trip?</summary>
+      <p>Divide the distance by your vehicle's fuel efficiency to get fuel used, then multiply by the fuel price. For example, 300 miles ÷ 30 MPG = 10 gallons × $3.50 = $35.</p>
+    </details>
+    
+    <details>
+      <summary>Can I use this with litres and kilometres?</summary>
+      <p>Yes — just keep units consistent. Enter distance in km, efficiency in km per litre, and price per litre. The math works identically; only the labels differ.</p>
+    </details>
+    
+    <details>
+      <summary>Does fuel cost include all driving costs?</summary>
+      <p>No. Fuel is only one part. Insurance, maintenance, tyres, and depreciation frequently cost more than fuel, so include them when comparing vehicles or commutes.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/percentage-calculator/">
+        <span class="card-emoji">🔢</span>
+        <span class="card-title">Percentage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/unit-price-calculator/">
+        <span class="card-emoji">🛒</span>
+        <span class="card-title">Unit Price Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const d = val('distance'), e = val('efficiency'), p = val('price'), yr = val('annual');
+  if (e <= 0) { show('<div class="result-main">Fuel efficiency must be above zero.</div>'); return; }
+  const fuelUsed = d / e, cost = fuelUsed * p;
+  let rows = `<tr><td>Fuel used</td><td>${fmt(fuelUsed,2)} gallons</td></tr>
+    <tr><td>Cost per mile</td><td>$${fmt(p/e,3)}</td></tr>`;
+  if (yr > 0) rows += `<tr><td>Estimated annual fuel cost</td><td>$${fmt(yr/e*p,0)}</td></tr>
+    <tr><td>Per month</td><td>$${fmt(yr/e*p/12,0)}</td></tr>`;
+  show(`<div class="result-main">$${fmt(cost)}<small>Fuel cost for a ${fmt(d,0)}-mile trip</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

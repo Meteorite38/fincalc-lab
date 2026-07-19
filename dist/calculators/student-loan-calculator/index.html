@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Loan Calculator — Payment, Payoff and Interest</title>
+<meta name="description" content="Calculate your student loan monthly payment, total interest, and how much faster you finish by paying extra each month.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/student-loan-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Student Loan Calculator — Payment, Payoff and Interest">
+<meta property="og:description" content="Calculate your student loan monthly payment, total interest, and how much faster you finish by paying extra each month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/student-loan-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Student Loan Calculator — Payment, Payoff and Interest">
+<meta name="twitter:description" content="Calculate your student loan monthly payment, total interest, and how much faster you finish by paying extra each month.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I pay off student loans early or invest?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the loan rate to your expected after-tax investment return. High-rate loans (roughly 6%+) usually favor faster payoff; low-rate loans can be paid on schedule while you invest. Always take a full employer match first."}}, {"@type": "Question", "name": "Do extra payments really help?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — extra amounts applied to principal remove future interest and shorten the loan. Confirm your servicer applies them to principal rather than crediting future payments."}}, {"@type": "Question", "name": "Should I refinance federal student loans?", "acceptedAnswer": {"@type": "Answer", "text": "Refinancing can lower your rate, but moving federal loans to a private lender gives up protections like income-driven repayment and potential forgiveness. Only refinance federal loans if you're confident you won't need those benefits."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Student Loan Calculator", "item": "https://fincalc-lab.pages.dev/calculators/student-loan-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Student Loan Calculator</nav>
+  <h1>🎓 Student Loan Calculator</h1>
+  <p class="lead">See what your student loans really cost. Enter your balance, interest rate and repayment term for the monthly payment and total interest — then try an extra payment to see how much sooner you're free.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Total loan balance ($)</span>
+      
+      <input type="number" id="balance" value="30000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Interest rate (%)</span>
+      
+      <input type="number" id="rate" value="6" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Repayment term (years)</span>
+      
+      <input type="number" id="years" value="10" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra monthly payment ($)</span>
+      
+      <input type="number" id="extra" value="0" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What drives the cost</h2>
+<p>Student loans amortize like any other fixed loan: a level monthly payment split between interest and principal. Two levers dominate the total cost — the <strong>interest rate</strong> and the <strong>term</strong>. A $30,000 loan at 6% over 10 years costs about $9,967 in interest; stretch it to 20 years and the payment drops but total interest more than doubles. Longer terms ease monthly cash flow at a steep long-run price.</p>
+<h2>The power of extra payments</h2>
+<p>Because interest accrues on the balance, every extra dollar toward principal removes all the future interest that dollar would have generated. Try the extra-payment field: even a modest additional amount can cut months off the loan and save meaningful interest. Ask your servicer to apply extra payments to <em>principal</em>, not toward future installments, or the benefit is lost.</p>
+<h2>Fixed vs variable, and repayment plans</h2>
+<ul>
+<li><strong>Fixed-rate</strong> loans (this calculator's model) keep the same payment for the life of the loan — predictable and safest.</li>
+<li><strong>Income-driven plans</strong> (common for government loans) cap payments at a share of income and may forgive remaining balances after many years, but often increase total interest paid.</li>
+<li><strong>Refinancing</strong> can lower a high rate, but refinancing federal loans into private ones usually forfeits protections like income-driven plans and forgiveness — weigh carefully.</li>
+</ul>
+<h2>Where student debt fits in your plan</h2>
+<p>Low-rate student loans (say under 5%) are often worth paying on schedule while you invest and build an emergency fund. Higher-rate loans deserve more aggressive payoff. Whatever the rate, always capture any employer retirement match first — a 50–100% instant return beats prepaying almost any loan.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Should I pay off student loans early or invest?</summary>
+      <p>Compare the loan rate to your expected after-tax investment return. High-rate loans (roughly 6%+) usually favor faster payoff; low-rate loans can be paid on schedule while you invest. Always take a full employer match first.</p>
+    </details>
+    
+    <details>
+      <summary>Do extra payments really help?</summary>
+      <p>Yes — extra amounts applied to principal remove future interest and shorten the loan. Confirm your servicer applies them to principal rather than crediting future payments.</p>
+    </details>
+    
+    <details>
+      <summary>Should I refinance federal student loans?</summary>
+      <p>Refinancing can lower your rate, but moving federal loans to a private lender gives up protections like income-driven repayment and potential forgiveness. Only refinance federal loans if you're confident you won't need those benefits.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function payoff(P, i, pmt) {
+  if (pmt <= P*i) return null;
+  let bal = P, months = 0, interest = 0;
+  while (bal > 0 && months < 1200) { const int = bal*i; interest += int; bal = bal + int - pmt; months++; }
+  return { months, interest };
+}
+function calculate() {
+  const P = val('balance'), i = val('rate')/100/12, y = val('years'), extra = val('extra');
+  const n = y*12;
+  const base = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n;
+  const totalInterest = base*n - P;
+  let rows = `<tr><td>Monthly payment</td><td>$${fmt(base)}</td></tr>
+    <tr><td>Total interest</td><td>$${fmt(totalInterest)}</td></tr>
+    <tr><td>Total repaid</td><td>$${fmt(base*n)}</td></tr>`;
+  if (extra > 0) {
+    const fast = payoff(P, i, base + extra);
+    if (fast) {
+      const yrs = Math.floor(fast.months/12), mo = fast.months%12;
+      rows += `<tr><td>With +$${fmt(extra,0)}/mo</td><td>${yrs}y ${mo}m, save $${fmt(totalInterest - fast.interest)}</td></tr>`;
+    }
+  }
+  show(`<div class="result-main">$${fmt(base)} / month<small>for ${y} years at ${fmt(i*1200,1)}%</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

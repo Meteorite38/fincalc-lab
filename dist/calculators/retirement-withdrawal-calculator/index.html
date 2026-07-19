@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Withdrawal Calculator — How Long Will Savings Last?</title>
+<meta name="description" content="See how long your retirement savings will last based on your balance, monthly withdrawals and expected return — and what the 4% rule implies for your nest egg.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/retirement-withdrawal-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Retirement Withdrawal Calculator — How Long Will Savings Last?">
+<meta property="og:description" content="See how long your retirement savings will last based on your balance, monthly withdrawals and expected return — and what the 4% rule implies for your nest egg.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/retirement-withdrawal-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Retirement Withdrawal Calculator — How Long Will Savings Last?">
+<meta name="twitter:description" content="See how long your retirement savings will last based on your balance, monthly withdrawals and expected return — and what the 4% rule implies for your nest egg.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the 4% rule?", "acceptedAnswer": {"@type": "Answer", "text": "A guideline suggesting you can withdraw 4% of your starting retirement balance in year one, then adjust for inflation, with a high chance the money lasts 30 years. It's a starting point, not a guarantee."}}, {"@type": "Question", "name": "What is sequence-of-returns risk?", "acceptedAnswer": {"@type": "Answer", "text": "The danger that poor market returns early in retirement deplete your savings faster, because you're withdrawing while asset values are low. The same returns in a different order can produce very different outcomes."}}, {"@type": "Question", "name": "Should I withdraw a fixed amount or a percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Fixed withdrawals are predictable but riskier in downturns. Percentage-based or flexible withdrawals (cutting back in bad years) adapt to markets and make savings last longer, at the cost of variable income."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Retirement Withdrawal Calculator", "item": "https://fincalc-lab.pages.dev/calculators/retirement-withdrawal-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Retirement Withdrawal Calculator</nav>
+  <h1>🏖️ Retirement Withdrawal Calculator</h1>
+  <p class="lead">Will your savings outlast your retirement? Enter your nest egg, the monthly income you want to draw, and an expected return to see how many years the money lasts.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Retirement savings ($)</span>
+      
+      <input type="number" id="balance" value="1000000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly withdrawal ($)</span>
+      
+      <input type="number" id="withdrawal" value="4000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The retirement math that keeps people up at night</h2>
+<p>The saving phase asks "how big a nest egg can I build?" The spending phase asks the scarier question: "will it last?" This calculator simulates your balance month by month — growing with returns, shrinking with withdrawals — until it either runs dry or clearly outlasts any reasonable retirement.</p>
+<h2>The 4% rule</h2>
+<p>The famous guideline from the Trinity study suggests that withdrawing about <strong>4% of your starting balance per year</strong> (then adjusting for inflation) has historically lasted through a 30-year retirement. On $1 million that's $40,000/year, about $3,333/month. Withdraw much more and you risk running out; withdraw less and you'll likely die with a large balance. The calculator shows how your chosen withdrawal compares to this benchmark.</p>
+<h2>The variables that make or break it</h2>
+<ul>
+<li><strong>Withdrawal rate is king.</strong> The gap between a 4% and a 6% withdrawal is the difference between "lasts forever" and "gone in ~20 years."</li>
+<li><strong>Sequence-of-returns risk:</strong> a market crash <em>early</em> in retirement is far more dangerous than the same crash later, because you're selling assets while they're down. Average returns hide this danger — real retirees should keep a cash buffer to avoid selling into downturns.</li>
+<li><strong>Inflation:</strong> this tool uses a flat withdrawal; in reality your spending needs rise with inflation, which shortens how long the money lasts. Using a lower "real" return (say 4–5%) partly accounts for this.</li>
+</ul>
+<h2>Flexibility is the safety net</h2>
+<p>The 4% rule assumes rigid spending. Retirees who can trim withdrawals in bad market years — skipping the inflation raise, or cutting discretionary spending — dramatically improve the odds their money lasts. Treat the result here as a planning guide, not a guarantee, and build in the flexibility to spend less when markets demand it.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is the 4% rule?</summary>
+      <p>A guideline suggesting you can withdraw 4% of your starting retirement balance in year one, then adjust for inflation, with a high chance the money lasts 30 years. It's a starting point, not a guarantee.</p>
+    </details>
+    
+    <details>
+      <summary>What is sequence-of-returns risk?</summary>
+      <p>The danger that poor market returns early in retirement deplete your savings faster, because you're withdrawing while asset values are low. The same returns in a different order can produce very different outcomes.</p>
+    </details>
+    
+    <details>
+      <summary>Should I withdraw a fixed amount or a percentage?</summary>
+      <p>Fixed withdrawals are predictable but riskier in downturns. Percentage-based or flexible withdrawals (cutting back in bad years) adapt to markets and make savings last longer, at the cost of variable income.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/annuity-payout-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Annuity Payout Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  let bal = val('balance'); const w = val('withdrawal'), i = val('rate')/100/12;
+  const startBal = bal;
+  let months = 0;
+  while (bal > 0 && months < 1200) { bal = bal*(1+i) - w; months++; }
+  const rule4 = startBal * 0.04 / 12;
+  if (months >= 1200) {
+    show(`<div class="result-main">Essentially forever<small>At $${fmt(w,0)}/mo and ${fmt(i*1200,1)}% return, growth outpaces withdrawals</small></div>
+    <table><tr><td>4% rule monthly income</td><td>$${fmt(rule4,0)}</td></tr>
+    <tr><td>Your withdrawal vs 4% rule</td><td>${fmt(w/rule4*100,0)}%</td></tr></table>`);
+    return;
+  }
+  const yrs = Math.floor(months/12), mo = months%12;
+  show(`<div class="result-main">${yrs} years ${mo} months<small>Until $${fmt(startBal,0)} runs out at $${fmt(w,0)}/month</small></div>
+  <table>
+    <tr><td>Annual withdrawal</td><td>$${fmt(w*12,0)} (${fmt(w*12/startBal*100,1)}% of balance)</td></tr>
+    <tr><td>4% rule "safe" monthly income</td><td>$${fmt(rule4,0)}</td></tr>
+    <tr><td>Your rate vs 4% rule</td><td>${fmt(w/rule4*100,0)}% of it</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

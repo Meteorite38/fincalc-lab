@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Price Calculator — Compare Which Package Is Cheaper</title>
+<meta name="description" content="Compare two package sizes by cost per unit to find the genuinely cheaper option. Stop being fooled by bigger packages that cost more per unit.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/unit-price-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Unit Price Calculator — Compare Which Package Is Cheaper">
+<meta property="og:description" content="Compare two package sizes by cost per unit to find the genuinely cheaper option. Stop being fooled by bigger packages that cost more per unit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/unit-price-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unit Price Calculator — Compare Which Package Is Cheaper">
+<meta name="twitter:description" content="Compare two package sizes by cost per unit to find the genuinely cheaper option. Stop being fooled by bigger packages that cost more per unit.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I compare prices of different sizes?", "acceptedAnswer": {"@type": "Answer", "text": "Divide each item's price by its size to get cost per unit, then compare those figures. The lower cost per unit is the better value regardless of which package is bigger or has the lower sticker price."}}, {"@type": "Question", "name": "Is the bigger package always cheaper per unit?", "acceptedAnswer": {"@type": "Answer", "text": "No. Larger 'bulk' or 'family' sizes sometimes cost more per unit than standard sizes. Always calculate cost per unit rather than assuming bigger means cheaper."}}, {"@type": "Question", "name": "What if the units are different (grams vs count)?", "acceptedAnswer": {"@type": "Answer", "text": "Convert to the same unit before comparing, or compare only like-for-like. Store shelf labels sometimes use different bases (per 100g vs per item), which can make comparisons misleading."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Unit Price Calculator", "item": "https://fincalc-lab.pages.dev/calculators/unit-price-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Unit Price Calculator</nav>
+  <h1>🛒 Unit Price Calculator</h1>
+  <p class="lead">Bigger isn't always cheaper. Enter the price and size of two options to see the cost per unit for each — and which one is actually the better deal.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Option A price ($)</span>
+      
+      <input type="number" id="price1" value="4.5" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Option A size (units)</span>
+      
+      <input type="number" id="size1" value="500" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Option B price ($)</span>
+      
+      <input type="number" id="price2" value="7.2" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Option B size (units)</span>
+      
+      <input type="number" id="size2" value="900" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why unit price beats sticker price</h2>
+<p>The only fair way to compare two package sizes is <strong>cost per unit</strong> — price divided by size. Stores rely on shoppers assuming the bigger pack is always cheaper per unit, but that's frequently false. "Bulk" and "family size" packages sometimes cost <em>more</em> per unit than the standard size, betting you won't do the division. This calculator does it for you.</p>
+<h2>The bigger-package trap</h2>
+<p>Consider 500 units for $4.50 (0.9¢ each) versus 900 units for $7.20 (0.8¢ each) — here the larger pack genuinely wins. But swap in 900 units for $8.50 and the small pack is cheaper per unit despite looking like worse value. Always compare the per-unit figure, not the total price or the vague sense that "more must be better."</p>
+<h2>Smart-shopping caveats</h2>
+<ul>
+<li><strong>Waste kills bulk savings.</strong> A cheaper-per-unit giant package is no bargain if half spoils or goes unused. Cost per unit <em>you actually use</em> is the real metric.</li>
+<li><strong>Check the store's shelf label,</strong> which often shows unit price — but verify it, as units (per 100g vs per item) can differ between products and mislead.</li>
+<li><strong>Loyalty and sales</strong> can flip the answer temporarily; a smaller pack on sale may beat the usual bulk winner.</li>
+</ul>
+<p>Two seconds of division at the shelf, repeated across a lifetime of grocery trips, quietly adds up to real money — and immunizes you against packaging that's designed to look like a deal.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I compare prices of different sizes?</summary>
+      <p>Divide each item's price by its size to get cost per unit, then compare those figures. The lower cost per unit is the better value regardless of which package is bigger or has the lower sticker price.</p>
+    </details>
+    
+    <details>
+      <summary>Is the bigger package always cheaper per unit?</summary>
+      <p>No. Larger 'bulk' or 'family' sizes sometimes cost more per unit than standard sizes. Always calculate cost per unit rather than assuming bigger means cheaper.</p>
+    </details>
+    
+    <details>
+      <summary>What if the units are different (grams vs count)?</summary>
+      <p>Convert to the same unit before comparing, or compare only like-for-like. Store shelf labels sometimes use different bases (per 100g vs per item), which can make comparisons misleading.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/percentage-calculator/">
+        <span class="card-emoji">🔢</span>
+        <span class="card-title">Percentage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/fuel-cost-calculator/">
+        <span class="card-emoji">⛽</span>
+        <span class="card-title">Fuel Cost Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const p1 = val('price1'), s1 = val('size1'), p2 = val('price2'), s2 = val('size2');
+  if (s1 <= 0 || s2 <= 0) { show('<div class="result-main">Sizes must be above zero.</div>'); return; }
+  const u1 = p1/s1, u2 = p2/s2;
+  const cheaper = u1 < u2 ? 'A' : (u2 < u1 ? 'B' : 'Tie');
+  const save = Math.abs(u1 - u2) / Math.max(u1, u2) * 100;
+  show(`<div class="result-main">Option ${cheaper}${cheaper !== 'Tie' ? ' is cheaper' : ''}<small>${cheaper !== 'Tie' ? fmt(save,1) + '% less per unit' : 'Both cost the same per unit'}</small></div>
+  <table>
+    <tr><td>Option A cost per unit</td><td>$${fmt(u1,4)}</td></tr>
+    <tr><td>Option B cost per unit</td><td>$${fmt(u2,4)}</td></tr>
+    <tr><td>Better value</td><td>Option ${cheaper}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APY Calculator — Convert APR to Effective Annual Yield</title>
+<meta name="description" content="Convert a nominal interest rate (APR) and compounding frequency into the effective annual yield (APY) so you can compare savings accounts fairly.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/apy-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="APY Calculator — Convert APR to Effective Annual Yield">
+<meta property="og:description" content="Convert a nominal interest rate (APR) and compounding frequency into the effective annual yield (APY) so you can compare savings accounts fairly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/apy-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APY Calculator — Convert APR to Effective Annual Yield">
+<meta name="twitter:description" content="Convert a nominal interest rate (APR) and compounding frequency into the effective annual yield (APY) so you can compare savings accounts fairly.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is APY always higher than APR?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, unless interest compounds exactly once a year, in which case they're equal. Any more frequent compounding makes APY larger, because interest starts earning interest sooner."}}, {"@type": "Question", "name": "Which should I use to compare savings accounts?", "acceptedAnswer": {"@type": "Answer", "text": "APY. It reflects real earnings including compounding, so it's the only fair basis for comparison. Two accounts with the same nominal rate but different compounding frequencies have different APYs."}}, {"@type": "Question", "name": "Does more frequent compounding make a big difference?", "acceptedAnswer": {"@type": "Answer", "text": "The jump from annual to daily compounding is modest at normal rates (a fraction of a percent), but it's still free money, and it grows with larger balances, higher rates, and longer time horizons."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "APY Calculator", "item": "https://fincalc-lab.pages.dev/calculators/apy-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; APY Calculator</nav>
+  <h1>🔁 APY Calculator</h1>
+  <p class="lead">Two accounts with the same nominal rate can pay different amounts depending on how often they compound. Enter a rate and compounding frequency to get the true effective annual yield (APY).</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Nominal annual rate / APR (%)</span>
+      
+      <input type="number" id="rate" value="5" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Compounding frequency</span>
+      
+      <select id="freq">
+        
+        <option value="1">Annually</option>
+        
+        <option value="2">Semiannually</option>
+        
+        <option value="4">Quarterly</option>
+        
+        <option value="12" selected>Monthly</option>
+        
+        <option value="365">Daily</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Deposit amount ($, optional)</span>
+      
+      <input type="number" id="amount" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>APR vs APY in one line</h2>
+<p>APR is the stated ("nominal") yearly rate; APY is what you actually earn once compounding is included. Because interest earns interest between compounding dates, <strong>APY is always equal to or higher than APR</strong> — and the more frequently it compounds, the bigger the gap. The formula: <code>APY = (1 + APR/n)<sup>n</sup> − 1</code>, where <em>n</em> is the number of compounding periods per year.</p>
+<h2>Why frequency matters</h2>
+<p>A 5% nominal rate becomes 5.00% APY compounded annually, 5.09% quarterly, 5.12% monthly, and 5.13% daily. The differences look tiny, but they're free money — and over large balances or many years they add up. Crucially, this is why you should <strong>compare savings accounts by APY, not the headline rate</strong>: a slightly lower nominal rate that compounds daily can beat a higher one that compounds annually.</p>
+<h2>The marketing angle</h2>
+<p>Banks advertise <strong>APY</strong> on savings because it's the larger, more attractive number. Lenders advertise <strong>APR</strong> on debt because it's the smaller one — so your credit card's real cost (its APY) is higher than the rate on the statement. Knowing how to convert between them means neither side's marketing can mislead you. See our <a href="/articles/apr-vs-apy-explained/">full APR vs APY guide</a> for the deeper explanation.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is APY always higher than APR?</summary>
+      <p>Yes, unless interest compounds exactly once a year, in which case they're equal. Any more frequent compounding makes APY larger, because interest starts earning interest sooner.</p>
+    </details>
+    
+    <details>
+      <summary>Which should I use to compare savings accounts?</summary>
+      <p>APY. It reflects real earnings including compounding, so it's the only fair basis for comparison. Two accounts with the same nominal rate but different compounding frequencies have different APYs.</p>
+    </details>
+    
+    <details>
+      <summary>Does more frequent compounding make a big difference?</summary>
+      <p>The jump from annual to daily compounding is modest at normal rates (a fraction of a percent), but it's still free money, and it grows with larger balances, higher rates, and longer time horizons.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/simple-interest-calculator/">
+        <span class="card-emoji">📐</span>
+        <span class="card-title">Simple Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cd-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">CD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/real-return-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Real Rate of Return Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const r = val('rate')/100, n = parseFloat(document.getElementById('freq').value), a = val('amount');
+  const apy = Math.pow(1 + r/n, n) - 1;
+  const gap = apy*100 - r*100;
+  let rows = `<tr><td>Nominal rate (APR)</td><td>${fmt(r*100,2)}%</td></tr>
+    <tr><td>Effective yield (APY)</td><td>${fmt(apy*100,2)}%</td></tr>
+    <tr><td>Compounding boost</td><td>+${fmt(gap,2)}%</td></tr>`;
+  if (a > 0) rows += `<tr><td>One year's interest on $${fmt(a,0)}</td><td>$${fmt(a*apy)}</td></tr>`;
+  show(`<div class="result-main">${fmt(apy*100,2)}%<small>True APY at ${document.getElementById('freq').options[document.getElementById('freq').selectedIndex].text.toLowerCase()} compounding</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
