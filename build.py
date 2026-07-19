@@ -18,7 +18,7 @@ from jinja2 import Environment, FileSystemLoader
 # ------------------------------------------------- site config
 SITE_NAME = "FinCalc Lab"
 SITE_TAGLINE = "Free, fast and honest financial calculators"
-SITE_URL = "https://fincalclab.pages.dev"  # 买好域名后改成正式域名再重新构建
+SITE_URL = "https://fincalc-lab.pages.dev"  # 买好域名后改成正式域名再重新构建
 CONTACT_EMAIL = "contact@fincalclab.com"   # 上线前改成你的真实邮箱
 CURRENT_YEAR = datetime.date.today().year
 TODAY = datetime.date.today().isoformat()
