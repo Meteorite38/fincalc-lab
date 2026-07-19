@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ p.title }} — {{ site_name }}{% endblock %}
+{% block description %}{{ p.description }}{% endblock %}
+{% block canonical %}{{ p.slug }}/{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <article class="explainer article-page">
+    <h1>{{ p.title }}</h1>
+    {{ p.html }}
+  </article>
+</div>
+{% endblock %}

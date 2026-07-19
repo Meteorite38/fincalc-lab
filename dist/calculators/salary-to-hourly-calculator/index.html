@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salary to Hourly Calculator — What You Really Earn Per Hour</title>
+<meta name="description" content="Convert an annual salary into hourly, weekly and monthly pay — including an honest hourly rate that counts overtime and commuting time.">
+<link rel="canonical" href="https://fincalclab.pages.dev/calculators/salary-to-hourly-calculator/">
+<meta property="og:title" content="Salary to Hourly Calculator — What You Really Earn Per Hour">
+<meta property="og:description" content="Convert an annual salary into hourly, weekly and monthly pay — including an honest hourly rate that counts overtime and commuting time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalclab.pages.dev/calculators/salary-to-hourly-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this before or after tax?", "acceptedAnswer": {"@type": "Answer", "text": "Before tax. Take-home pay depends on your country, state and deductions; gross figures are the standard basis for comparing jobs and rates."}}, {"@type": "Question", "name": "How many working weeks should I use?", "acceptedAnswer": {"@type": "Answer", "text": "52 minus your vacation and public holidays. In the US, 50 is typical (two weeks off); in much of Europe 46–47 reflects five to six weeks of leave."}}, {"@type": "Question", "name": "Does the calculator handle part-time work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — just set your actual weekly hours. The math is identical; only the inputs change."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Salary to Hourly Calculator</nav>
+  <h1>💰 Salary to Hourly Calculator</h1>
+  <p class="lead">Convert a salary into its hourly equivalent — and, more interestingly, into your "true" hourly rate once unpaid overtime and commuting are counted. The second number is the one worth negotiating over.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual salary ($)</span>
+      
+      <input type="number" id="salary" value="65000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Official hours per week</span>
+      
+      <input type="number" id="hours" value="40" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Working weeks per year <em class="hint">(52 minus vacation)</em></span>
+      
+      <input type="number" id="weeks" value="50" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Unpaid extra hours per week (overtime + commute)</span>
+      
+      <input type="number" id="extra" value="7" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The basic conversion</h2>
+<p>Hourly rate = salary ÷ (hours per week × weeks per year). A $65,000 salary at 40 hours and 50 working weeks is $32.50 an hour. Quick rule of thumb for US-style 2,000-hour years: hourly ≈ salary ÷ 2,000, so every $2,000 of salary is about $1 an hour.</p>
+<h2>Why the "true hourly rate" matters more</h2>
+<p>Salaried work quietly absorbs time that hourly work bills for: staying late, answering evening messages, commuting. Add a typical 7 unpaid hours a week to the example above and the true rate drops to about $27.70 — a 15% invisible pay cut. This number is the honest basis for comparing a salaried offer against contract work, a job closer to home, or remote work.</p>
+<h2>Using it in decisions</h2>
+<ul>
+<li><strong>Comparing offers:</strong> a $70,000 job with a 90-minute round-trip commute can pay a lower true rate than $63,000 within walking distance.</li>
+<li><strong>Freelance pricing:</strong> to match a salary, a contractor typically needs 1.3–1.5× the equivalent hourly rate to cover self-employment taxes, insurance and unpaid gaps between projects.</li>
+<li><strong>Overtime culture:</strong> if the unpaid-hours field is uncomfortable to fill honestly, that is information too.</li>
+</ul>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is this before or after tax?</summary>
+      <p>Before tax. Take-home pay depends on your country, state and deductions; gross figures are the standard basis for comparing jobs and rates.</p>
+    </details>
+    
+    <details>
+      <summary>How many working weeks should I use?</summary>
+      <p>52 minus your vacation and public holidays. In the US, 50 is typical (two weeks off); in much of Europe 46–47 reflects five to six weeks of leave.</p>
+    </details>
+    
+    <details>
+      <summary>Does the calculator handle part-time work?</summary>
+      <p>Yes — just set your actual weekly hours. The math is identical; only the inputs change.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const s = val('salary'), h = val('hours'), w = val('weeks'), e = val('extra');
+  if (h <= 0 || w <= 0) { show('<div class="result-main">Hours and weeks must be above zero.</div>'); return; }
+  const hourly = s / (h * w);
+  const trueHourly = s / ((h + e) * w);
+  show(`<div class="result-main">$${fmt(hourly)} / hour<small>Official rate at ${h} hours, ${w} weeks a year</small></div>
+  <table>
+    <tr><td>Monthly (gross)</td><td>$${fmt(s / 12)}</td></tr>
+    <tr><td>Weekly (gross)</td><td>$${fmt(s / w)}</td></tr>
+    <tr><td>True hourly incl. ${fmt(e, 1)} unpaid hours/week</td><td>$${fmt(trueHourly)}</td></tr>
+    <tr><td>Pay cut hidden in those unpaid hours</td><td>${fmt((1 - trueHourly / hourly) * 100, 1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

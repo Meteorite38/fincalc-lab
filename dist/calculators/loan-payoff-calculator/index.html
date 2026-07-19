@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Payoff Calculator — Extra Payments, Time & Interest Saved</title>
+<meta name="description" content="Find out how much faster your loan disappears and how much interest you save by paying extra each month. Works for mortgages, auto and personal loans.">
+<link rel="canonical" href="https://fincalclab.pages.dev/calculators/loan-payoff-calculator/">
+<meta property="og:title" content="Loan Payoff Calculator — Extra Payments, Time & Interest Saved">
+<meta property="og:description" content="Find out how much faster your loan disappears and how much interest you save by paying extra each month. Works for mortgages, auto and personal loans.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalclab.pages.dev/calculators/loan-payoff-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it better to pay extra monthly or one lump sum per year?", "acceptedAnswer": {"@type": "Answer", "text": "Mathematically, sooner is better: twelve monthly $100 payments beat a single $1,200 payment at year-end, because principal drops earlier. In practice the difference is small — pick whichever pattern you will actually stick to."}}, {"@type": "Question", "name": "Should I pay off my loan early or invest instead?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the loan rate with what you realistically expect after tax from investing. High-rate debt (credit cards, most personal loans) almost always wins. For low-rate mortgages, investing may come out ahead, at the cost of certainty — paying down debt is the guaranteed option."}}, {"@type": "Question", "name": "Why does the calculator cap at 100 years?", "acceptedAnswer": {"@type": "Answer", "text": "If a payment barely exceeds the monthly interest, payoff times explode. The cap keeps the simulation honest; if you hit it, the practical answer is that the payment needs to rise."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Loan Payoff Calculator</nav>
+  <h1>🚀 Loan Payoff Calculator</h1>
+  <p class="lead">Already have a loan? Enter the balance, rate and current payment, then test what an extra monthly amount does. The answer is usually more motivating than people expect.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current balance ($)</span>
+      
+      <input type="number" id="balance" value="15000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual interest rate (%)</span>
+      
+      <input type="number" id="rate" value="9" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current monthly payment ($)</span>
+      
+      <input type="number" id="payment" value="320" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra payment per month ($)</span>
+      
+      <input type="number" id="extra" value="100" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why extra payments punch above their weight</h2>
+<p>Every extra dollar goes straight to principal, and interest is charged on principal. So an extra payment doesn't just shrink the balance once — it shrinks every future month's interest charge. The effect compounds in reverse, which is why even $50–$100 a month visibly shortens most loans.</p>
+<h2>A worked example</h2>
+<p>A $15,000 balance at 9% with a $320 payment takes about 4 years 8 months to clear and costs roughly $3,300 in interest. Add $100 a month and it is gone in about 3 years 6 months with around $2,400 of interest — a year of your life and about $900 back, in exchange for a sacrifice most budgets can absorb.</p>
+<h2>Where extra payments rank against other uses of money</h2>
+<ul>
+<li><strong>Beat the guaranteed rate test.</strong> Paying down a 9% loan is a guaranteed, tax-free 9% return. Very few investments can promise that.</li>
+<li><strong>But keep an emergency fund first.</strong> Money sent to the loan is hard to get back. Three to six months of expenses in cash comes before aggressive prepayment.</li>
+<li><strong>Check for prepayment penalties.</strong> Rare on modern personal loans, still occasionally present on mortgages. A quick look at your agreement settles it.</li>
+</ul>
+<h2>Getting the payment applied correctly</h2>
+<p>Tell your lender that extra amounts should be applied to <em>principal</em>, not held as a credit toward next month's payment. Most banking apps have an explicit "pay extra principal" option; using it is the difference between actually shortening the loan and merely prepaying future bills.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is it better to pay extra monthly or one lump sum per year?</summary>
+      <p>Mathematically, sooner is better: twelve monthly $100 payments beat a single $1,200 payment at year-end, because principal drops earlier. In practice the difference is small — pick whichever pattern you will actually stick to.</p>
+    </details>
+    
+    <details>
+      <summary>Should I pay off my loan early or invest instead?</summary>
+      <p>Compare the loan rate with what you realistically expect after tax from investing. High-rate debt (credit cards, most personal loans) almost always wins. For low-rate mortgages, investing may come out ahead, at the cost of certainty — paying down debt is the guaranteed option.</p>
+    </details>
+    
+    <details>
+      <summary>Why does the calculator cap at 100 years?</summary>
+      <p>If a payment barely exceeds the monthly interest, payoff times explode. The cap keeps the simulation honest; if you hit it, the practical answer is that the payment needs to rise.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function payoffMonths(P, i, pmt) {
+  if (pmt <= P * i) return null; // payment doesn't cover interest
+  let bal = P, months = 0, interest = 0;
+  while (bal > 0 && months < 1200) {
+    const int = bal * i;
+    interest += int;
+    bal = bal + int - pmt;
+    months++;
+  }
+  return { months: months, interest: interest };
+}
+function calculate() {
+  const P = val('balance'), i = val('rate') / 100 / 12, pmt = val('payment'), extra = val('extra');
+  const base = payoffMonths(P, i, pmt);
+  if (!base) { show('<div class="result-main">Your payment does not cover monthly interest — the balance would grow forever. Increase the payment.</div>'); return; }
+  const fast = payoffMonths(P, i, pmt + extra);
+  const yearsBase = Math.floor(base.months / 12), remBase = base.months % 12;
+  const yearsFast = Math.floor(fast.months / 12), remFast = fast.months % 12;
+  show(`<div class="result-main">${base.months - fast.months} months sooner<small>and $${fmt(base.interest - fast.interest)} of interest saved</small></div>
+  <table>
+    <tr><td>Payoff at current payment</td><td>${yearsBase}y ${remBase}m, $${fmt(base.interest)} interest</td></tr>
+    <tr><td>Payoff with extra $${fmt(extra, 0)}</td><td>${yearsFast}y ${remFast}m, $${fmt(fast.interest)} interest</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

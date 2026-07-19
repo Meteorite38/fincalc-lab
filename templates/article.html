@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ a.title }} — {{ site_name }}{% endblock %}
+{% block description %}{{ a.description }}{% endblock %}
+{% block canonical %}articles/{{ a.slug }}/{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#articles">Guides</a> &rsaquo; {{ a.title }}</nav>
+  <article class="explainer article-page">
+    <h1>{{ a.title }}</h1>
+    <p class="article-meta">Last updated {{ a.date }}</p>
+    {{ a.html }}
+  </article>
+  <section class="related">
+    <h2>Try our calculators</h2>
+    <div class="grid">
+      {% for r in calcs[:6] %}
+      <a class="card" href="/calculators/{{ r.slug }}/">
+        <span class="card-emoji">{{ r.emoji }}</span>
+        <span class="card-title">{{ r.h1 }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

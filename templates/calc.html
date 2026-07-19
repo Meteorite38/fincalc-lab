@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}{{ c.title }}{% endblock %}
+{% block description %}{{ c.meta_description }}{% endblock %}
+{% block canonical %}calculators/{{ c.slug }}/{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ jsonld }}</script>
+{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; {{ c.h1 }}</nav>
+  <h1>{{ c.emoji }} {{ c.h1 }}</h1>
+  <p class="lead">{{ c.intro }}</p>
+
+  <div class="calc-box" id="calc">
+    {% for f in c.fields %}
+    <label class="field">
+      <span class="field-label">{{ f.label }}{% if f.hint %} <em class="hint">({{ f.hint }})</em>{% endif %}</span>
+      {% if f.type == 'select' %}
+      <select id="{{ f.id }}">
+        {% for opt_val, opt_label in f.options %}
+        <option value="{{ opt_val }}"{% if opt_val == f.value %} selected{% endif %}>{{ opt_label }}</option>
+        {% endfor %}
+      </select>
+      {% else %}
+      <input type="number" id="{{ f.id }}" value="{{ f.value }}" step="{{ f.step | default('any') }}" min="{{ f.min | default('0') }}">
+      {% endif %}
+    </label>
+    {% endfor %}
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    {{ c.body_html }}
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    {% for q, a in c.faqs %}
+    <details>
+      <summary>{{ q }}</summary>
+      <p>{{ a }}</p>
+    </details>
+    {% endfor %}
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      {% for r in calcs if r.slug != c.slug and r.category == c.category %}
+      <a class="card" href="/calculators/{{ r.slug }}/">
+        <span class="card-emoji">{{ r.emoji }}</span>
+        <span class="card-title">{{ r.h1 }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+{{ c.js }}
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+{% endblock %}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Fund Calculator — Your Target and Timeline</title>
+<meta name="description" content="Calculate how big your emergency fund should be based on your essential expenses and job stability, and how many months it will take to save it.">
+<link rel="canonical" href="https://fincalclab.pages.dev/calculators/emergency-fund-calculator/">
+<meta property="og:title" content="Emergency Fund Calculator — Your Target and Timeline">
+<meta property="og:description" content="Calculate how big your emergency fund should be based on your essential expenses and job stability, and how many months it will take to save it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalclab.pages.dev/calculators/emergency-fund-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I pause investing to build the fund?", "acceptedAnswer": {"@type": "Answer", "text": "Up to your first month of expenses, usually yes — except don't leave employer retirement matching on the table, which is an instant 50–100% return. After a month is banked, running the fund and investing in parallel is reasonable."}}, {"@type": "Question", "name": "What officially counts as an emergency?", "acceptedAnswer": {"@type": "Answer", "text": "Unexpected, necessary, urgent — job loss, medical bills, essential repairs. A sale is none of the three. Some households write the rules down when calm to remove debate later."}}, {"@type": "Question", "name": "Should the fund grow over time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, quietly. Revisit the target when rent rises, a child arrives or income structure changes. A once-a-year check keeps it honest without turning it into a hobby."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Emergency Fund Calculator</nav>
+  <h1>🛟 Emergency Fund Calculator</h1>
+  <p class="lead">An emergency fund is insurance you sell to yourself: cash that turns a job loss or a broken boiler from a crisis into an inconvenience. Enter your essential monthly costs and how much you can save, and get your target and timeline.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Essential monthly expenses ($) <em class="hint">(needs only, not wants)</em></span>
+      
+      <input type="number" id="expenses" value="2800" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Months of coverage</span>
+      
+      <select id="months">
+        
+        <option value="3">3 months — dual income, stable jobs</option>
+        
+        <option value="6">6 months — standard recommendation</option>
+        
+        <option value="9">9 months — freelance or single income</option>
+        
+        <option value="12">12 months — very variable income</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Already saved ($)</span>
+      
+      <input type="number" id="saved" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly saving toward the fund ($)</span>
+      
+      <input type="number" id="monthly" value="400" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How many months do you actually need?</h2>
+<p>The classic advice is three to six months of <em>essential</em> expenses. The right number tracks your income risk: a dual-income household of civil servants can hold less; a single-income freelancer in a cyclical industry should hold more. Two questions cut through it: <em>how long would a realistic job search take?</em> and <em>how many people depend on this income?</em></p>
+<h2>Essential expenses, not total spending</h2>
+<p>Fund the survival version of your life, not the current version: housing, utilities, groceries, insurance, transport, minimum debt payments. Most households find essentials are 60–75% of normal spending. Using total spending inflates the target and delays the moment the fund actually protects you.</p>
+<h2>Where to keep it</h2>
+<ul>
+<li><strong>High-yield savings account</strong> — the default answer: instant access, deposit-insured, currently earning meaningful interest.</li>
+<li><strong>Not the stock market</strong> — the one guarantee about emergencies is bad timing; a 30% drawdown the month you lose your job defeats the purpose.</li>
+<li><strong>Not your checking account</strong> — visible money gets spent. A separate account at a separate bank adds useful friction.</li>
+</ul>
+<h2>Building it without stalling other goals</h2>
+<p>A practical sequence: save a starter $1,000–$2,000 first (covers most single emergencies), then split spare cash between high-interest debt and the fund until you hit one month of expenses, then grind to the full target. Windfalls — tax refunds, bonuses, side income — are emergency-fund rocket fuel precisely because they were never in the monthly budget.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Should I pause investing to build the fund?</summary>
+      <p>Up to your first month of expenses, usually yes — except don't leave employer retirement matching on the table, which is an instant 50–100% return. After a month is banked, running the fund and investing in parallel is reasonable.</p>
+    </details>
+    
+    <details>
+      <summary>What officially counts as an emergency?</summary>
+      <p>Unexpected, necessary, urgent — job loss, medical bills, essential repairs. A sale is none of the three. Some households write the rules down when calm to remove debate later.</p>
+    </details>
+    
+    <details>
+      <summary>Should the fund grow over time?</summary>
+      <p>Yes, quietly. Revisit the target when rent rises, a child arrives or income structure changes. A once-a-year check keeps it honest without turning it into a hobby.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const exp = val('expenses'), m = val('months'), saved = val('saved'), pmt = val('monthly');
+  const target = exp * m;
+  const gap = target - saved;
+  if (gap <= 0) {
+    show(`<div class="result-main">Fully funded ✅<small>Target $${fmt(target, 0)} — you have $${fmt(saved, 0)}</small></div>`);
+    return;
+  }
+  const t = pmt > 0 ? Math.ceil(gap / pmt) : null;
+  show(`<div class="result-main">$${fmt(target, 0)}<small>Your emergency fund target (${m} months × $${fmt(exp, 0)})</small></div>
+  <table>
+    <tr><td>Still to save</td><td>$${fmt(gap, 0)}</td></tr>
+    <tr><td>Current progress</td><td>${fmt(saved / target * 100, 0)}%</td></tr>
+    <tr><td>Time to full at $${fmt(pmt, 0)}/month</td><td>${t ? t + ' months (' + fmt(t / 12, 1) + ' years)' : 'set a monthly amount'}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

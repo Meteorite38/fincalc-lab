@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ site_name }} — Free Financial Calculators That Just Work{% endblock %}
+{% block description %}Free compound interest, loan, mortgage, retirement, savings and debt calculators. No sign-up, no data collection — instant answers with clear explanations.{% endblock %}
+{% block canonical %}{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>Financial answers in seconds</h1>
+    <p class="hero-sub">Free calculators for loans, savings, retirement and debt — with plain-English explanations of the math behind every result. No sign-up. Nothing tracked. Everything runs in your browser.</p>
+  </div>
+</section>
+
+<section id="calculators" class="container section">
+  <h2>All calculators</h2>
+  {% for cat in ['Savings & Investing', 'Loans & Debt', 'Income & Budgeting', 'Business'] %}
+  {% set items = calcs | selectattr('category', 'equalto', cat) | list %}
+  {% if items %}
+  <h3 class="cat-label">{{ cat }}</h3>
+  <div class="grid">
+    {% for c in items %}
+    <a class="card" href="/calculators/{{ c.slug }}/">
+      <span class="card-emoji">{{ c.emoji }}</span>
+      <span class="card-title">{{ c.h1 }}</span>
+      <span class="card-desc">{{ c.blurb }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<section id="articles" class="container section">
+  <h2>Guides &amp; explainers</h2>
+  <div class="grid">
+    {% for a in articles %}
+    <a class="card" href="/articles/{{ a.slug }}/">
+      <span class="card-title">{{ a.title }}</span>
+      <span class="card-desc">{{ a.description }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container section why">
+  <h2>Why {{ site_name }}?</h2>
+  <div class="why-grid">
+    <div><h3>Private by design</h3><p>Every calculation happens in your browser. Your salary, debts and savings never leave your device.</p></div>
+    <div><h3>The math, explained</h3><p>Each tool shows the formula it uses and walks through what the result actually means for you.</p></div>
+    <div><h3>No paywalls, ever</h3><p>Free to use, no accounts, no "premium" upsell. Supported by unobtrusive advertising.</p></div>
+  </div>
+</section>
+{% endblock %}

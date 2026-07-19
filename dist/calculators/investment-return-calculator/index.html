@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAGR Calculator — Annualized Investment Return</title>
+<meta name="description" content="Calculate the compound annual growth rate (CAGR) of any investment from its starting value, ending value and holding period. Compare investments fairly.">
+<link rel="canonical" href="https://fincalclab.pages.dev/calculators/investment-return-calculator/">
+<meta property="og:title" content="CAGR Calculator — Annualized Investment Return">
+<meta property="og:description" content="Calculate the compound annual growth rate (CAGR) of any investment from its starting value, ending value and holding period. Compare investments fairly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalclab.pages.dev/calculators/investment-return-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between CAGR and average annual return?", "acceptedAnswer": {"@type": "Answer", "text": "The arithmetic average of yearly returns overstates growth because it ignores compounding and volatility drag. A portfolio that gains 50% then loses 50% has an average return of 0% but has actually lost 25% of its value. CAGR reflects what really happened to your money."}}, {"@type": "Question", "name": "Can CAGR be negative?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If the ending value is below the starting value, CAGR is negative — it is the steady annual rate of decline that produces the observed loss."}}, {"@type": "Question", "name": "Does CAGR account for deposits and withdrawals?", "acceptedAnswer": {"@type": "Answer", "text": "No. It assumes a single lump sum at the start and no cash flows until the end. If you contributed along the way, use a money-weighted return (IRR/XIRR in a spreadsheet) for an accurate personal return."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Investment Return (CAGR) Calculator</nav>
+  <h1>📊 Investment Return (CAGR) Calculator</h1>
+  <p class="lead">"My stock doubled" means little without knowing how long it took. CAGR — compound annual growth rate — converts any total gain into a per-year rate, so investments held for different periods can be compared on equal footing.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Starting value ($)</span>
+      
+      <input type="number" id="initial" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Ending value ($)</span>
+      
+      <input type="number" id="final" value="18000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Holding period (years)</span>
+      
+      <input type="number" id="years" value="6" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What CAGR actually measures</h2>
+<p>CAGR answers the question: <em>what steady annual rate would have turned my starting value into my ending value over this period?</em> Real investments never grow steadily, but expressing the messy path as one smooth rate makes results comparable — a 6-year investment against a 3-year one, a stock against a fund, or your own portfolio against an index.</p>
+<p><code>CAGR = (Ending ÷ Starting)<sup>1/years</sup> − 1</code></p>
+<h2>A worked example</h2>
+<p>$10,000 growing to $18,000 over 6 years is an 80% total return. Naively dividing by six suggests "13.3% a year", but that ignores compounding. The true annualized rate is about 10.3% — noticeably lower, because each year's growth builds on the previous year's larger base. This is exactly why sales pitches love quoting total returns and honest analysis prefers CAGR.</p>
+<h2>Common uses</h2>
+<ul>
+<li><strong>Comparing funds or stocks</strong> held over different time spans.</li>
+<li><strong>Checking a sales claim.</strong> "We tripled investors' money" over 15 years is a 7.6% CAGR — decent, not spectacular.</li>
+<li><strong>Business metrics.</strong> Revenue or user CAGR across multiple years is standard in financial analysis and pitch decks.</li>
+</ul>
+<h2>Limits worth knowing</h2>
+<p>CAGR ignores everything that happened between the two endpoints — volatility, drawdowns, and any deposits or withdrawals along the way. If you added money during the period, CAGR will overstate your skill; for portfolios with cash flows, a money-weighted return (IRR) is the fairer measure. And two investments with the same CAGR can carry very different risk: 10% a year with a smooth ride is not the same experience as 10% with a 50% crash in the middle.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is the difference between CAGR and average annual return?</summary>
+      <p>The arithmetic average of yearly returns overstates growth because it ignores compounding and volatility drag. A portfolio that gains 50% then loses 50% has an average return of 0% but has actually lost 25% of its value. CAGR reflects what really happened to your money.</p>
+    </details>
+    
+    <details>
+      <summary>Can CAGR be negative?</summary>
+      <p>Yes. If the ending value is below the starting value, CAGR is negative — it is the steady annual rate of decline that produces the observed loss.</p>
+    </details>
+    
+    <details>
+      <summary>Does CAGR account for deposits and withdrawals?</summary>
+      <p>No. It assumes a single lump sum at the start and no cash flows until the end. If you contributed along the way, use a money-weighted return (IRR/XIRR in a spreadsheet) for an accurate personal return.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const a = val('initial'), b = val('final'), y = val('years');
+  if (a <= 0 || y <= 0) { show('<div class="result-main">Starting value and years must be above zero.</div>'); return; }
+  const total = (b - a) / a * 100;
+  const cagr = (Math.pow(b / a, 1 / y) - 1) * 100;
+  show(`<div class="result-main">${fmt(cagr)}% / year<small>Compound annual growth rate over ${y} years</small></div>
+  <table>
+    <tr><td>Total return</td><td>${fmt(total)}%</td></tr>
+    <tr><td>Money multiple</td><td>${fmt(b / a)}x</td></tr>
+    <tr><td>Rule-of-72 doubling time at this rate</td><td>${cagr > 0 ? fmt(72 / cagr, 1) + ' years' : '—'}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
