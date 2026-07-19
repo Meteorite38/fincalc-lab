@@ -43,13 +43,15 @@
 
 <section id="calculators" class="container section">
   <h2>All calculators</h2>
+  <input type="search" id="calc-filter" class="calc-filter" placeholder="Search {{ calcs | length }} calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
+  <p id="calc-noresults" class="calc-noresults" hidden>No calculators match — try another word.</p>
   {% for cat in ['Savings & Investing', 'Retirement', 'Loans & Debt', 'Income & Budgeting', 'Taxes & Shopping', 'Business', 'Everyday Math'] %}
   {% set items = calcs | selectattr('category', 'equalto', cat) | list %}
   {% if items %}
-  <h3 class="cat-label">{{ cat }}</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>{{ cat }}</h3>
+  <div class="grid" data-catgrid>
     {% for c in items %}
-    <a class="card" href="/calculators/{{ c.slug }}/">
+    <a class="card" href="/calculators/{{ c.slug }}/" data-name="{{ (c.h1 ~ ' ' ~ c.blurb ~ ' ' ~ cat) | lower }}">
       <span class="card-emoji">{{ c.emoji }}</span>
       <span class="card-title">{{ c.h1 }}</span>
       <span class="card-desc">{{ c.blurb }}</span>
@@ -59,6 +61,24 @@
   {% endif %}
   {% endfor %}
 </section>
+<script>
+function filterCalcs(q) {
+  q = (q || '').trim().toLowerCase();
+  var shown = 0;
+  document.querySelectorAll('[data-catgrid]').forEach(function(grid) {
+    var visibleInGrid = 0;
+    grid.querySelectorAll('.card').forEach(function(card) {
+      var match = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) { visibleInGrid++; shown++; }
+    });
+    var label = grid.previousElementSibling;
+    if (label && label.hasAttribute('data-catlabel')) label.style.display = visibleInGrid ? '' : 'none';
+  });
+  var nr = document.getElementById('calc-noresults');
+  if (nr) nr.hidden = shown !== 0;
+}
+</script>
 
 <section id="articles" class="container section">
   <h2>Guides &amp; explainers</h2>

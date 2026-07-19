@@ -39,6 +39,9 @@ a:hover { text-decoration: underline; }
 .section { padding: 42px 0 10px; }
 .section h2 { font-size: 1.55rem; margin-bottom: 18px; }
 .cat-label { margin: 22px 0 10px; color: var(--ink-soft); font-size: 1.02rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.calc-filter { width: 100%; max-width: 520px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; margin-bottom: 8px; background: #fff; color: var(--ink); }
+.calc-filter:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+.calc-noresults { color: var(--ink-soft); font-size: 0.95rem; margin: 8px 0; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
 .card {
   background: var(--card); border: 1px solid var(--line); border-radius: 10px;

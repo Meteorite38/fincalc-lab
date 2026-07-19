@@ -73,79 +73,81 @@
 
 <section id="calculators" class="container section">
   <h2>All calculators</h2>
+  <input type="search" id="calc-filter" class="calc-filter" placeholder="Search 49 calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
+  <p id="calc-noresults" class="calc-noresults" hidden>No calculators match — try another word.</p>
   
   
   
-  <h3 class="cat-label">Savings & Investing</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Savings & Investing</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/compound-interest-calculator/">
+    <a class="card" href="/calculators/compound-interest-calculator/" data-name="compound interest calculator project how savings grow with monthly deposits and compounding. savings & investing">
       <span class="card-emoji">📈</span>
       <span class="card-title">Compound Interest Calculator</span>
       <span class="card-desc">Project how savings grow with monthly deposits and compounding.</span>
     </a>
     
-    <a class="card" href="/calculators/savings-goal-calculator/">
+    <a class="card" href="/calculators/savings-goal-calculator/" data-name="savings goal calculator find the exact monthly saving needed to hit a target amount. savings & investing">
       <span class="card-emoji">🎯</span>
       <span class="card-title">Savings Goal Calculator</span>
       <span class="card-desc">Find the exact monthly saving needed to hit a target amount.</span>
     </a>
     
-    <a class="card" href="/calculators/retirement-savings-calculator/">
+    <a class="card" href="/calculators/retirement-savings-calculator/" data-name="retirement savings calculator project your nest egg and the income it could support. savings & investing">
       <span class="card-emoji">🌴</span>
       <span class="card-title">Retirement Savings Calculator</span>
       <span class="card-desc">Project your nest egg and the income it could support.</span>
     </a>
     
-    <a class="card" href="/calculators/investment-return-calculator/">
+    <a class="card" href="/calculators/investment-return-calculator/" data-name="investment return (cagr) calculator turn a total gain into an honest annualized return. savings & investing">
       <span class="card-emoji">📊</span>
       <span class="card-title">Investment Return (CAGR) Calculator</span>
       <span class="card-desc">Turn a total gain into an honest annualized return.</span>
     </a>
     
-    <a class="card" href="/calculators/roi-calculator/">
+    <a class="card" href="/calculators/roi-calculator/" data-name="roi calculator total and annualized return on any investment or project. savings & investing">
       <span class="card-emoji">💹</span>
       <span class="card-title">ROI Calculator</span>
       <span class="card-desc">Total and annualized return on any investment or project.</span>
     </a>
     
-    <a class="card" href="/calculators/rule-of-72-calculator/">
+    <a class="card" href="/calculators/rule-of-72-calculator/" data-name="rule of 72 calculator estimate doubling time from an interest or growth rate. savings & investing">
       <span class="card-emoji">⏳</span>
       <span class="card-title">Rule of 72 Calculator</span>
       <span class="card-desc">Estimate doubling time from an interest or growth rate.</span>
     </a>
     
-    <a class="card" href="/calculators/present-value-calculator/">
+    <a class="card" href="/calculators/present-value-calculator/" data-name="present value calculator discount a future sum back to today's dollars. savings & investing">
       <span class="card-emoji">🕐</span>
       <span class="card-title">Present Value Calculator</span>
       <span class="card-desc">Discount a future sum back to today's dollars.</span>
     </a>
     
-    <a class="card" href="/calculators/dividend-income-calculator/">
+    <a class="card" href="/calculators/dividend-income-calculator/" data-name="dividend income calculator annual dividend income, yield and reinvested growth. savings & investing">
       <span class="card-emoji">🪙</span>
       <span class="card-title">Dividend Income Calculator</span>
       <span class="card-desc">Annual dividend income, yield and reinvested growth.</span>
     </a>
     
-    <a class="card" href="/calculators/simple-interest-calculator/">
+    <a class="card" href="/calculators/simple-interest-calculator/" data-name="simple interest calculator interest on principal only, no compounding. savings & investing">
       <span class="card-emoji">📐</span>
       <span class="card-title">Simple Interest Calculator</span>
       <span class="card-desc">Interest on principal only, no compounding.</span>
     </a>
     
-    <a class="card" href="/calculators/cd-calculator/">
+    <a class="card" href="/calculators/cd-calculator/" data-name="cd calculator maturity value and interest earned on a cd. savings & investing">
       <span class="card-emoji">🏦</span>
       <span class="card-title">CD Calculator</span>
       <span class="card-desc">Maturity value and interest earned on a CD.</span>
     </a>
     
-    <a class="card" href="/calculators/apy-calculator/">
+    <a class="card" href="/calculators/apy-calculator/" data-name="apy calculator turn a nominal rate + compounding into true apy. savings & investing">
       <span class="card-emoji">🔁</span>
       <span class="card-title">APY Calculator</span>
       <span class="card-desc">Turn a nominal rate + compounding into true APY.</span>
     </a>
     
-    <a class="card" href="/calculators/real-return-calculator/">
+    <a class="card" href="/calculators/real-return-calculator/" data-name="real rate of return calculator what your return is really worth after inflation. savings & investing">
       <span class="card-emoji">📉</span>
       <span class="card-title">Real Rate of Return Calculator</span>
       <span class="card-desc">What your return is really worth after inflation.</span>
@@ -156,28 +158,28 @@
   
   
   
-  <h3 class="cat-label">Retirement</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Retirement</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/401k-calculator/">
+    <a class="card" href="/calculators/401k-calculator/" data-name="401(k) calculator project 401(k) growth including the employer match. retirement">
       <span class="card-emoji">🏦</span>
       <span class="card-title">401(k) Calculator</span>
       <span class="card-desc">Project 401(k) growth including the employer match.</span>
     </a>
     
-    <a class="card" href="/calculators/roth-ira-calculator/">
+    <a class="card" href="/calculators/roth-ira-calculator/" data-name="roth ira calculator project tax-free roth ira growth from regular contributions. retirement">
       <span class="card-emoji">💰</span>
       <span class="card-title">Roth IRA Calculator</span>
       <span class="card-desc">Project tax-free Roth IRA growth from regular contributions.</span>
     </a>
     
-    <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+    <a class="card" href="/calculators/retirement-withdrawal-calculator/" data-name="retirement withdrawal calculator how long a nest egg lasts at a given withdrawal. retirement">
       <span class="card-emoji">🏖️</span>
       <span class="card-title">Retirement Withdrawal Calculator</span>
       <span class="card-desc">How long a nest egg lasts at a given withdrawal.</span>
     </a>
     
-    <a class="card" href="/calculators/annuity-payout-calculator/">
+    <a class="card" href="/calculators/annuity-payout-calculator/" data-name="annuity payout calculator monthly income a lump sum can pay over a period. retirement">
       <span class="card-emoji">💵</span>
       <span class="card-title">Annuity Payout Calculator</span>
       <span class="card-desc">Monthly income a lump sum can pay over a period.</span>
@@ -188,70 +190,70 @@
   
   
   
-  <h3 class="cat-label">Loans & Debt</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Loans & Debt</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/loan-payment-calculator/">
+    <a class="card" href="/calculators/loan-payment-calculator/" data-name="loan payment calculator monthly payment, total interest and cost of any amortized loan. loans & debt">
       <span class="card-emoji">💳</span>
       <span class="card-title">Loan Payment Calculator</span>
       <span class="card-desc">Monthly payment, total interest and cost of any amortized loan.</span>
     </a>
     
-    <a class="card" href="/calculators/mortgage-calculator/">
+    <a class="card" href="/calculators/mortgage-calculator/" data-name="mortgage calculator full monthly housing cost: loan, property tax and insurance. loans & debt">
       <span class="card-emoji">🏠</span>
       <span class="card-title">Mortgage Calculator</span>
       <span class="card-desc">Full monthly housing cost: loan, property tax and insurance.</span>
     </a>
     
-    <a class="card" href="/calculators/loan-payoff-calculator/">
+    <a class="card" href="/calculators/loan-payoff-calculator/" data-name="loan payoff calculator see how extra monthly payments shorten a loan and cut interest. loans & debt">
       <span class="card-emoji">🚀</span>
       <span class="card-title">Loan Payoff Calculator</span>
       <span class="card-desc">See how extra monthly payments shorten a loan and cut interest.</span>
     </a>
     
-    <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+    <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/" data-name="debt avalanche vs snowball calculator compare the two classic payoff strategies on your own debts. loans & debt">
       <span class="card-emoji">🧊</span>
       <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
       <span class="card-desc">Compare the two classic payoff strategies on your own debts.</span>
     </a>
     
-    <a class="card" href="/calculators/car-affordability-calculator/">
+    <a class="card" href="/calculators/car-affordability-calculator/" data-name="car affordability calculator turn a monthly budget into a realistic car price. loans & debt">
       <span class="card-emoji">🚗</span>
       <span class="card-title">Car Affordability Calculator</span>
       <span class="card-desc">Turn a monthly budget into a realistic car price.</span>
     </a>
     
-    <a class="card" href="/calculators/credit-card-payoff-calculator/">
+    <a class="card" href="/calculators/credit-card-payoff-calculator/" data-name="credit card payoff calculator how long to clear a card, and what interest costs you. loans & debt">
       <span class="card-emoji">💳</span>
       <span class="card-title">Credit Card Payoff Calculator</span>
       <span class="card-desc">How long to clear a card, and what interest costs you.</span>
     </a>
     
-    <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+    <a class="card" href="/calculators/debt-to-income-ratio-calculator/" data-name="debt-to-income (dti) calculator the ratio lenders use to approve mortgages and loans. loans & debt">
       <span class="card-emoji">⚖️</span>
       <span class="card-title">Debt-to-Income (DTI) Calculator</span>
       <span class="card-desc">The ratio lenders use to approve mortgages and loans.</span>
     </a>
     
-    <a class="card" href="/calculators/house-down-payment-calculator/">
+    <a class="card" href="/calculators/house-down-payment-calculator/" data-name="house down payment calculator down payment amount and monthly saving to reach it. loans & debt">
       <span class="card-emoji">🔑</span>
       <span class="card-title">House Down Payment Calculator</span>
       <span class="card-desc">Down payment amount and monthly saving to reach it.</span>
     </a>
     
-    <a class="card" href="/calculators/mortgage-refinance-calculator/">
+    <a class="card" href="/calculators/mortgage-refinance-calculator/" data-name="mortgage refinance calculator monthly savings and break-even point of refinancing. loans & debt">
       <span class="card-emoji">🔄</span>
       <span class="card-title">Mortgage Refinance Calculator</span>
       <span class="card-desc">Monthly savings and break-even point of refinancing.</span>
     </a>
     
-    <a class="card" href="/calculators/student-loan-calculator/">
+    <a class="card" href="/calculators/student-loan-calculator/" data-name="student loan calculator monthly payment and total interest on student debt. loans & debt">
       <span class="card-emoji">🎓</span>
       <span class="card-title">Student Loan Calculator</span>
       <span class="card-desc">Monthly payment and total interest on student debt.</span>
     </a>
     
-    <a class="card" href="/calculators/car-lease-calculator/">
+    <a class="card" href="/calculators/car-lease-calculator/" data-name="car lease calculator estimate a monthly lease payment from the key terms. loans & debt">
       <span class="card-emoji">🗝️</span>
       <span class="card-title">Car Lease Calculator</span>
       <span class="card-desc">Estimate a monthly lease payment from the key terms.</span>
@@ -262,64 +264,64 @@
   
   
   
-  <h3 class="cat-label">Income & Budgeting</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Income & Budgeting</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/salary-to-hourly-calculator/">
+    <a class="card" href="/calculators/salary-to-hourly-calculator/" data-name="salary to hourly calculator convert annual salary to hourly, weekly and monthly pay. income & budgeting">
       <span class="card-emoji">💰</span>
       <span class="card-title">Salary to Hourly Calculator</span>
       <span class="card-desc">Convert annual salary to hourly, weekly and monthly pay.</span>
     </a>
     
-    <a class="card" href="/calculators/take-home-pay-calculator/">
+    <a class="card" href="/calculators/take-home-pay-calculator/" data-name="take-home pay estimator estimate net monthly pay from gross salary and tax rates. income & budgeting">
       <span class="card-emoji">🧾</span>
       <span class="card-title">Take-Home Pay Estimator</span>
       <span class="card-desc">Estimate net monthly pay from gross salary and tax rates.</span>
     </a>
     
-    <a class="card" href="/calculators/budget-calculator/">
+    <a class="card" href="/calculators/budget-calculator/" data-name="50/30/20 budget calculator split your take-home pay into needs, wants and savings. income & budgeting">
       <span class="card-emoji">💸</span>
       <span class="card-title">50/30/20 Budget Calculator</span>
       <span class="card-desc">Split your take-home pay into needs, wants and savings.</span>
     </a>
     
-    <a class="card" href="/calculators/emergency-fund-calculator/">
+    <a class="card" href="/calculators/emergency-fund-calculator/" data-name="emergency fund calculator size your emergency fund and see how long it takes to build. income & budgeting">
       <span class="card-emoji">🛟</span>
       <span class="card-title">Emergency Fund Calculator</span>
       <span class="card-desc">Size your emergency fund and see how long it takes to build.</span>
     </a>
     
-    <a class="card" href="/calculators/inflation-calculator/">
+    <a class="card" href="/calculators/inflation-calculator/" data-name="inflation calculator see what today's money will be worth in the future. income & budgeting">
       <span class="card-emoji">🎈</span>
       <span class="card-title">Inflation Calculator</span>
       <span class="card-desc">See what today's money will be worth in the future.</span>
     </a>
     
-    <a class="card" href="/calculators/net-worth-calculator/">
+    <a class="card" href="/calculators/net-worth-calculator/" data-name="net worth calculator add up what you own, subtract what you owe. income & budgeting">
       <span class="card-emoji">📋</span>
       <span class="card-title">Net Worth Calculator</span>
       <span class="card-desc">Add up what you own, subtract what you owe.</span>
     </a>
     
-    <a class="card" href="/calculators/hourly-to-salary-calculator/">
+    <a class="card" href="/calculators/hourly-to-salary-calculator/" data-name="hourly to salary calculator convert an hourly wage into weekly, monthly and yearly pay. income & budgeting">
       <span class="card-emoji">📆</span>
       <span class="card-title">Hourly to Salary Calculator</span>
       <span class="card-desc">Convert an hourly wage into weekly, monthly and yearly pay.</span>
     </a>
     
-    <a class="card" href="/calculators/rent-affordability-calculator/">
+    <a class="card" href="/calculators/rent-affordability-calculator/" data-name="rent affordability calculator a sensible rent range based on your income. income & budgeting">
       <span class="card-emoji">🏡</span>
       <span class="card-title">Rent Affordability Calculator</span>
       <span class="card-desc">A sensible rent range based on your income.</span>
     </a>
     
-    <a class="card" href="/calculators/overtime-pay-calculator/">
+    <a class="card" href="/calculators/overtime-pay-calculator/" data-name="overtime pay calculator total weekly pay including overtime at any multiplier. income & budgeting">
       <span class="card-emoji">⏰</span>
       <span class="card-title">Overtime Pay Calculator</span>
       <span class="card-desc">Total weekly pay including overtime at any multiplier.</span>
     </a>
     
-    <a class="card" href="/calculators/paycheck-calculator/">
+    <a class="card" href="/calculators/paycheck-calculator/" data-name="paycheck calculator gross and net pay per paycheck by pay frequency. income & budgeting">
       <span class="card-emoji">💵</span>
       <span class="card-title">Paycheck Calculator</span>
       <span class="card-desc">Gross and net pay per paycheck by pay frequency.</span>
@@ -330,28 +332,28 @@
   
   
   
-  <h3 class="cat-label">Taxes & Shopping</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Taxes & Shopping</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/sales-tax-calculator/">
+    <a class="card" href="/calculators/sales-tax-calculator/" data-name="sales tax calculator add sales tax to a price, or back it out of a total. taxes & shopping">
       <span class="card-emoji">🧾</span>
       <span class="card-title">Sales Tax Calculator</span>
       <span class="card-desc">Add sales tax to a price, or back it out of a total.</span>
     </a>
     
-    <a class="card" href="/calculators/discount-calculator/">
+    <a class="card" href="/calculators/discount-calculator/" data-name="discount calculator final price after a percentage off, and what you save. taxes & shopping">
       <span class="card-emoji">🏷️</span>
       <span class="card-title">Discount Calculator</span>
       <span class="card-desc">Final price after a percentage off, and what you save.</span>
     </a>
     
-    <a class="card" href="/calculators/tip-calculator/">
+    <a class="card" href="/calculators/tip-calculator/" data-name="tip calculator work out the tip and split a bill between people. taxes & shopping">
       <span class="card-emoji">🍽️</span>
       <span class="card-title">Tip Calculator</span>
       <span class="card-desc">Work out the tip and split a bill between people.</span>
     </a>
     
-    <a class="card" href="/calculators/vat-calculator/">
+    <a class="card" href="/calculators/vat-calculator/" data-name="vat calculator add vat to a net price or extract it from a gross price. taxes & shopping">
       <span class="card-emoji">🧾</span>
       <span class="card-title">VAT Calculator</span>
       <span class="card-desc">Add VAT to a net price or extract it from a gross price.</span>
@@ -362,34 +364,34 @@
   
   
   
-  <h3 class="cat-label">Business</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Business</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/break-even-point-calculator/">
+    <a class="card" href="/calculators/break-even-point-calculator/" data-name="break-even point calculator how many sales cover your costs — the first business question. business">
       <span class="card-emoji">⚖️</span>
       <span class="card-title">Break-Even Point Calculator</span>
       <span class="card-desc">How many sales cover your costs — the first business question.</span>
     </a>
     
-    <a class="card" href="/calculators/profit-margin-calculator/">
+    <a class="card" href="/calculators/profit-margin-calculator/" data-name="profit margin calculator margin, markup and profit from cost and price. business">
       <span class="card-emoji">📉</span>
       <span class="card-title">Profit Margin Calculator</span>
       <span class="card-desc">Margin, markup and profit from cost and price.</span>
     </a>
     
-    <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+    <a class="card" href="/calculators/freelance-hourly-rate-calculator/" data-name="freelance hourly rate calculator turn a target income into the hourly rate you must charge. business">
       <span class="card-emoji">🧑‍💻</span>
       <span class="card-title">Freelance Hourly Rate Calculator</span>
       <span class="card-desc">Turn a target income into the hourly rate you must charge.</span>
     </a>
     
-    <a class="card" href="/calculators/markup-calculator/">
+    <a class="card" href="/calculators/markup-calculator/" data-name="markup calculator set a selling price from cost and desired markup. business">
       <span class="card-emoji">🏷️</span>
       <span class="card-title">Markup Calculator</span>
       <span class="card-desc">Set a selling price from cost and desired markup.</span>
     </a>
     
-    <a class="card" href="/calculators/cac-ltv-calculator/">
+    <a class="card" href="/calculators/cac-ltv-calculator/" data-name="ltv : cac ratio calculator lifetime value vs acquisition cost — is growth healthy? business">
       <span class="card-emoji">🎯</span>
       <span class="card-title">LTV : CAC Ratio Calculator</span>
       <span class="card-desc">Lifetime value vs acquisition cost — is growth healthy?</span>
@@ -400,22 +402,22 @@
   
   
   
-  <h3 class="cat-label">Everyday Math</h3>
-  <div class="grid">
+  <h3 class="cat-label" data-catlabel>Everyday Math</h3>
+  <div class="grid" data-catgrid>
     
-    <a class="card" href="/calculators/percentage-calculator/">
+    <a class="card" href="/calculators/percentage-calculator/" data-name="percentage calculator three everyday percentage questions in one tool. everyday math">
       <span class="card-emoji">🔢</span>
       <span class="card-title">Percentage Calculator</span>
       <span class="card-desc">Three everyday percentage questions in one tool.</span>
     </a>
     
-    <a class="card" href="/calculators/fuel-cost-calculator/">
+    <a class="card" href="/calculators/fuel-cost-calculator/" data-name="fuel cost calculator cost of a trip, and yearly fuel spend. everyday math">
       <span class="card-emoji">⛽</span>
       <span class="card-title">Fuel Cost Calculator</span>
       <span class="card-desc">Cost of a trip, and yearly fuel spend.</span>
     </a>
     
-    <a class="card" href="/calculators/unit-price-calculator/">
+    <a class="card" href="/calculators/unit-price-calculator/" data-name="unit price calculator find the real cost per unit and the better deal. everyday math">
       <span class="card-emoji">🛒</span>
       <span class="card-title">Unit Price Calculator</span>
       <span class="card-desc">Find the real cost per unit and the better deal.</span>
@@ -425,6 +427,24 @@
   
   
 </section>
+<script>
+function filterCalcs(q) {
+  q = (q || '').trim().toLowerCase();
+  var shown = 0;
+  document.querySelectorAll('[data-catgrid]').forEach(function(grid) {
+    var visibleInGrid = 0;
+    grid.querySelectorAll('.card').forEach(function(card) {
+      var match = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) { visibleInGrid++; shown++; }
+    });
+    var label = grid.previousElementSibling;
+    if (label && label.hasAttribute('data-catlabel')) label.style.display = visibleInGrid ? '' : 'none';
+  });
+  var nr = document.getElementById('calc-noresults');
+  if (nr) nr.hidden = shown !== 0;
+}
+</script>
 
 <section id="articles" class="container section">
   <h2>Guides &amp; explainers</h2>
