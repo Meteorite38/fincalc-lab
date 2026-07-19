@@ -156,10 +156,17 @@ def build():
 
 def serve():
     import functools
+    socketserver.TCPServer.allow_reuse_address = True
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=DIST)
-    with socketserver.TCPServer(("127.0.0.1", 8788), handler) as httpd:
-        print("Preview at http://127.0.0.1:8788  (Ctrl+C to stop)")
-        httpd.serve_forever()
+    for port in range(8788, 8798):  # if 8788 is busy, try the next few ports
+        try:
+            with socketserver.TCPServer(("127.0.0.1", port), handler) as httpd:
+                print(f"Preview at http://127.0.0.1:{port}  (Ctrl+C to stop)")
+                httpd.serve_forever()
+            return
+        except OSError:
+            print(f"Port {port} busy, trying {port + 1}...")
+    print("All ports 8788-8797 are busy. Close other preview servers and retry.")
 
 
 if __name__ == "__main__":
