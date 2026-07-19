@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Affordability Calculator — How Much House Can You Afford?</title>
+<meta name="description" content="Find how much house you can afford based on your income, debts, down payment and rate — using the lender-standard 28/36 rule. See your maximum price and payment.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/home-affordability-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Home Affordability Calculator — How Much House Can You Afford?">
+<meta property="og:description" content="Find how much house you can afford based on your income, debts, down payment and rate — using the lender-standard 28/36 rule. See your maximum price and payment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/home-affordability-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home Affordability Calculator — How Much House Can You Afford?">
+<meta name="twitter:description" content="Find how much house you can afford based on your income, debts, down payment and rate — using the lender-standard 28/36 rule. See your maximum price and payment.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much house can I afford on my income?", "acceptedAnswer": {"@type": "Answer", "text": "A common guideline caps total housing costs at 28% of gross monthly income and all debt at 36%. On $90,000 income with modest debts, that supports roughly a $300,000–$325,000 home with a healthy down payment, depending on rates."}}, {"@type": "Question", "name": "What is the 28/36 rule?", "acceptedAnswer": {"@type": "Answer", "text": "A lending guideline: keep housing costs (principal, interest, taxes, insurance) under 28% of gross monthly income, and all debt payments combined under 36%. Lenders use the lower of the two as your ceiling."}}, {"@type": "Question", "name": "Should I borrow the maximum I'm approved for?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. Approval limits are ceilings, not targets. Buying below the maximum leaves room for savings, emergencies, and life changes, reducing the risk of being stretched too thin by housing costs."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Home Affordability Calculator", "item": "https://fincalc-lab.pages.dev/calculators/home-affordability-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Home Affordability Calculator</nav>
+  <h1>🏡 Home Affordability Calculator</h1>
+  <p class="lead">Lenders decide what you can borrow using debt-to-income ratios. Enter your income, existing debts, down payment and rate to see a sensible maximum home price via the classic 28/36 rule.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Gross annual income ($)</span>
+      
+      <input type="number" id="income" value="90000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Existing monthly debt payments ($) <em class="hint">(cars, student loans, min. card payments)</em></span>
+      
+      <input type="number" id="debts" value="400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment saved ($)</span>
+      
+      <input type="number" id="down" value="60000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Mortgage interest rate (%)</span>
+      
+      <input type="number" id="rate" value="6.5" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Mortgage term (years)</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Est. monthly tax + insurance ($) <em class="hint">(property tax + home insurance)</em></span>
+      
+      <input type="number" id="taxins" value="450" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How lenders decide what you can borrow</h2>
+<p>Mortgage affordability comes down to two debt-to-income ratios, together called the <strong>28/36 rule</strong>. Your total housing payment — principal, interest, property taxes and insurance (PITI) — should stay at or under <strong>28% of gross monthly income</strong> (the "front-end" ratio). And <em>all</em> your debt payments combined, housing included, should stay under <strong>36%</strong> (the "back-end" ratio). This calculator applies both and uses the lower ceiling, then works backward to a maximum home price.</p>
+<h2>A worked example</h2>
+<p>On $90,000 income ($7,500/month), 28% gives a $2,100 housing budget. With $400 of existing debt, the 36% rule allows $2,300 for housing — so the 28% rule binds at $2,100. Subtract ~$450 of taxes and insurance, leaving ~$1,650 for principal and interest. At 6.5% over 30 years that supports about a $261,000 loan; add a $60,000 down payment and you can afford roughly a <strong>$321,000 home</strong>.</p>
+<h2>What "can afford" really means</h2>
+<ul>
+<li><strong>Borrowing max ≠ spending max.</strong> Lenders will often approve you at the top of these ratios; that doesn't mean you should buy there. Leaving room below the ceiling protects you from becoming "house-poor."</li>
+<li><strong>Down payment matters twice.</strong> It raises the price you can afford <em>and</em>, at 20%+, avoids private mortgage insurance (PMI) — see the <a href="/calculators/house-down-payment-calculator/">down payment calculator</a>.</li>
+<li><strong>Rate sensitivity is real.</strong> A one-point rate rise can cut your affordable price by tens of thousands, because it shrinks the loan a given payment supports.</li>
+</ul>
+<h2>Beyond the ratios</h2>
+<p>The 28/36 rule ignores your actual life — childcare, irregular income, savings goals, or a long commute all argue for buying below the maximum. Treat the result as a ceiling set by lenders, then subtract a personal safety margin sized to your circumstances. Pair it with the full <a href="/calculators/mortgage-calculator/">mortgage calculator</a> to see the real monthly payment, and read <a href="/articles/how-much-house-can-you-afford/">how much house you can afford</a> for the deeper discussion.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much house can I afford on my income?</summary>
+      <p>A common guideline caps total housing costs at 28% of gross monthly income and all debt at 36%. On $90,000 income with modest debts, that supports roughly a $300,000–$325,000 home with a healthy down payment, depending on rates.</p>
+    </details>
+    
+    <details>
+      <summary>What is the 28/36 rule?</summary>
+      <p>A lending guideline: keep housing costs (principal, interest, taxes, insurance) under 28% of gross monthly income, and all debt payments combined under 36%. Lenders use the lower of the two as your ceiling.</p>
+    </details>
+    
+    <details>
+      <summary>Should I borrow the maximum I'm approved for?</summary>
+      <p>Usually not. Approval limits are ceilings, not targets. Buying below the maximum leaves room for savings, emergencies, and life changes, reducing the risk of being stretched too thin by housing costs.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-equity-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">Home Equity Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/what-affects-your-credit-score/">
+        <span class="card-title">"What Actually Affects Your Credit Score"</span>
+        <span class="card-desc">The five factors behind your credit score, which ones matter most, and the practical habits that raise it — without the myths.</span>
+      </a>
+      
+      <a class="card" href="/articles/dollar-cost-averaging-explained/">
+        <span class="card-title">"Dollar-Cost Averaging: Why Boring, Automatic Investing Wins"</span>
+        <span class="card-desc">How dollar-cost averaging works, what the research actually says versus lump-sum investing, and why the biggest benefit is behavioral, not mathematical.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function maxLoan(payment, i, n) {
+  if (payment <= 0) return 0;
+  return i > 0 ? payment * (1 - Math.pow(1 + i, -n)) / i : payment * n;
+}
+function calculate() {
+  const inc = val('income'), debts = val('debts'), down = val('down');
+  const i = val('rate')/100/12, n = Math.min(Math.round(val('years')*12), 1200), extras = val('taxins');
+  const monthlyIncome = inc / 12;
+  // 28% front-end: housing (PITI) cap
+  const frontHousing = monthlyIncome * 0.28;
+  // 36% back-end: all debt; housing cap = 36% - existing debts
+  const backHousing = monthlyIncome * 0.36 - debts;
+  const housingBudget = Math.max(0, Math.min(frontHousing, backHousing));
+  const piBudget = Math.max(0, housingBudget - extras);  // principal+interest after tax/ins
+  const loan = maxLoan(piBudget, i, n);
+  const price = loan + down;
+  const binding = frontHousing <= backHousing ? "28% housing rule" : "36% total-debt rule";
+  show(`<div class="result-main">$${fmt(price, 0)}<small>Estimated maximum home price you can afford</small></div>
+  <table>
+    <tr><td>Max monthly housing budget (PITI)</td><td>$${fmt(housingBudget, 0)}</td></tr>
+    <tr><td>Of which principal &amp; interest</td><td>$${fmt(piBudget, 0)}</td></tr>
+    <tr><td>Supportable loan amount</td><td>$${fmt(loan, 0)}</td></tr>
+    <tr><td>+ Your down payment</td><td>$${fmt(down, 0)}</td></tr>
+    <tr><td>Limiting factor</td><td>${binding}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
