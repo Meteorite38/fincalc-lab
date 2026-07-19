@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}All Money Guides — {{ site_name }}{% endblock %}
+{% block description %}Plain-English guides to personal finance — investing, debt, retirement, budgeting and more. {{ articles | length }} in-depth explainers, free and jargon-free.{% endblock %}
+{% block canonical %}guides/{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Money Guides",
+  "url": "{{ site_url }}/guides/",
+  "description": "In-depth, plain-English personal finance guides from {{ site_name }}."
+}
+</script>
+{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; Guides</nav>
+  <h1>Money guides &amp; explainers</h1>
+  <p class="lead">{{ articles | length }} plain-English guides to the money decisions that matter — no jargon, no sales pitch, just the reasoning and the numbers.</p>
+  <div class="grid">
+    {% for a in articles %}
+    <a class="card" href="/articles/{{ a.slug }}/">
+      <span class="card-title">{{ a.title }}</span>
+      <span class="card-desc">{{ a.description }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

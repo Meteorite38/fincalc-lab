@@ -128,6 +128,10 @@ def build():
     write("calculators/index.html", env.get_template("calc_index.html").render(calcs=CALCS, articles=articles))
     urls.append("calculators/")
 
+    # guides directory page
+    write("guides/index.html", env.get_template("guides_index.html").render(calcs=CALCS, articles=articles))
+    urls.append("guides/")
+
     # home
     write("index.html", env.get_template("home.html").render(calcs=CALCS, articles=articles))
     urls.insert(0, "")
