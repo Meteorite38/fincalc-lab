@@ -2,6 +2,32 @@
 {% block title %}{{ a.title }} — {{ site_name }}{% endblock %}
 {% block description %}{{ a.description }}{% endblock %}
 {% block canonical %}articles/{{ a.slug }}/{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ a.title | tojson }},
+  "description": {{ a.description | tojson }},
+  "datePublished": "{{ a.date }}",
+  "dateModified": "{{ a.date }}",
+  "author": {"@type": "Organization", "name": "{{ site_name }}"},
+  "publisher": {"@type": "Organization", "name": "{{ site_name }}"},
+  "mainEntityOfPage": "{{ site_url }}/articles/{{ a.slug }}/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site_url }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "{{ site_url }}/#articles"},
+    {"@type": "ListItem", "position": 3, "name": {{ a.title | tojson }}, "item": "{{ site_url }}/articles/{{ a.slug }}/"}
+  ]
+}
+</script>
+{% endblock %}
 {% block content %}
 <div class="container narrow">
   <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#articles">Guides</a> &rsaquo; {{ a.title }}</nav>

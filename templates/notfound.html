@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Page not found — {{ site_name }}{% endblock %}
+{% block description %}The page you were looking for could not be found. Browse our free financial calculators instead.{% endblock %}
+{% block canonical %}404{% endblock %}
+{% block content %}
+<div class="container narrow" style="text-align:center; padding: 50px 20px;">
+  <h1 style="font-size:2.4rem;">404</h1>
+  <p class="lead">We couldn't find that page — but there's plenty else here.</p>
+  <p><a class="btn" href="/" style="display:inline-block; text-decoration:none;">Back to home</a></p>
+</div>
+<section class="container section">
+  <h2>Popular calculators</h2>
+  <div class="grid">
+    {% for c in calcs[:8] %}
+    <a class="card" href="/calculators/{{ c.slug }}/">
+      <span class="card-emoji">{{ c.emoji }}</span>
+      <span class="card-title">{{ c.h1 }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

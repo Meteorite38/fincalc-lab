@@ -6,10 +6,16 @@
 <title>{% block title %}{{ site_name }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ site_tagline }}{% endblock %}">
 <link rel="canonical" href="{{ site_url }}/{% block canonical %}{% endblock %}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="{{ site_name }}">
 <meta property="og:title" content="{% block ogtitle %}{{ self.title() }}{% endblock %}">
 <meta property="og:description" content="{{ self.description() }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site_url }}/{{ self.canonical() }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ self.ogtitle() }}">
+<meta name="twitter:description" content="{{ self.description() }}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
 <link rel="stylesheet" href="/static/style.css">
 <!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->

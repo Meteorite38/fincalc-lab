@@ -2,6 +2,32 @@
 {% block title %}{{ site_name }} — Free Financial Calculators That Just Work{% endblock %}
 {% block description %}Free compound interest, loan, mortgage, retirement, savings and debt calculators. No sign-up, no data collection — instant answers with clear explanations.{% endblock %}
 {% block canonical %}{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site_name }}",
+  "url": "{{ site_url }}/",
+  "description": "{{ site_tagline }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site_url }}/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site_name }}",
+  "url": "{{ site_url }}/",
+  "description": "Free financial calculators and plain-English money guides.",
+  "contactPoint": {"@type": "ContactPoint", "email": "{{ contact_email }}", "contactType": "customer support"}
+}
+</script>
+{% endblock %}
 {% block content %}
 <section class="hero">
   <div class="container">

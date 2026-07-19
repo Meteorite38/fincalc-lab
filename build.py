@@ -124,6 +124,9 @@ def build():
     write("index.html", env.get_template("home.html").render(calcs=CALCS, articles=articles))
     urls.insert(0, "")
 
+    # 404
+    write("404.html", env.get_template("notfound.html").render(calcs=CALCS))
+
     # sitemap + robots
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -137,8 +140,9 @@ def build():
 
 
 def serve():
-    os.chdir(DIST)
-    with socketserver.TCPServer(("127.0.0.1", 8788), http.server.SimpleHTTPRequestHandler) as httpd:
+    import functools
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=DIST)
+    with socketserver.TCPServer(("127.0.0.1", 8788), handler) as httpd:
         print("Preview at http://127.0.0.1:8788  (Ctrl+C to stop)")
         httpd.serve_forever()
 
