@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Equity Calculator — How Much You Can Borrow (HELOC)</title>
+<meta name="description" content="Calculate your home equity and how much you could borrow with a home equity loan or HELOC, based on your home value, mortgage balance and the lender's loan-to-value limit.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/home-equity-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Home Equity Calculator — How Much You Can Borrow (HELOC)">
+<meta property="og:description" content="Calculate your home equity and how much you could borrow with a home equity loan or HELOC, based on your home value, mortgage balance and the lender's loan-to-value limit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/home-equity-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home Equity Calculator — How Much You Can Borrow (HELOC)">
+<meta name="twitter:description" content="Calculate your home equity and how much you could borrow with a home equity loan or HELOC, based on your home value, mortgage balance and the lender's loan-to-value limit.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much home equity can I borrow?", "acceptedAnswer": {"@type": "Answer", "text": "Typically your home's value times the lender's LTV limit (often 80–90%), minus your current mortgage balance. That's usually less than your total equity, because lenders keep a cushion."}}, {"@type": "Question", "name": "What's the difference between a home equity loan and a HELOC?", "acceptedAnswer": {"@type": "Answer", "text": "A home equity loan gives a fixed lump sum at a fixed rate; a HELOC is a revolving, usually variable-rate credit line you draw from as needed. Loans suit one-time costs; HELOCs suit ongoing or uncertain needs."}}, {"@type": "Question", "name": "Is borrowing against home equity safe?", "acceptedAnswer": {"@type": "Answer", "text": "It offers lower rates than unsecured debt, but the loan is secured by your home, so defaulting risks foreclosure. Use it for value-adding or rate-lowering purposes, not lifestyle spending."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Home Equity Calculator", "item": "https://fincalc-lab.pages.dev/calculators/home-equity-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Home Equity Calculator</nav>
+  <h1>🏦 Home Equity Calculator</h1>
+  <p class="lead">Home equity is the part of your home you truly own. Enter your home's value, your mortgage balance, and a lender loan-to-value limit to see your equity and how much you could potentially borrow.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current home value ($)</span>
+      
+      <input type="number" id="value" value="450000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Mortgage balance owed ($)</span>
+      
+      <input type="number" id="mortgage" value="260000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Lender max loan-to-value (%) <em class="hint">(commonly 80-90%)</em></span>
+      
+      <input type="number" id="ltv" value="85" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Equity vs borrowable equity</h2>
+<p>Your <strong>home equity</strong> is simply your home's value minus what you owe: a $450,000 home with a $260,000 mortgage means $190,000 of equity. But lenders won't let you borrow all of it. They cap your <em>combined</em> borrowing at a loan-to-value (LTV) limit — often 80–90% of the home's value. Borrowable equity is that ceiling minus your existing mortgage, which is usually less than your raw equity.</p>
+<h2>The LTV math</h2>
+<p>At an 85% LTV limit on a $450,000 home, total allowed debt is $382,500. Subtract the $260,000 mortgage and about <strong>$122,500</strong> is available through a home equity loan or line of credit (HELOC) — not the full $190,000 of equity. The lower the LTV limit (the more conservative the lender), the less you can tap. Lenders keep this cushion so they're protected if home prices fall.</p>
+<h2>Home equity loan vs HELOC</h2>
+<ul>
+<li><strong>Home equity loan:</strong> a lump sum at a fixed rate, repaid over a set term — predictable, good for one-time costs.</li>
+<li><strong>HELOC:</strong> a revolving credit line you draw from as needed, usually variable-rate — flexible, but payments and rates can rise.</li>
+</ul>
+<h2>Borrow against your home carefully</h2>
+<p>Because these loans are secured by your house, the rates are lower than credit cards — but the stakes are far higher: default can mean foreclosure. Sensible uses include value-adding home improvements or consolidating higher-rate debt at a lower secured rate. Risky uses include funding lifestyle spending or depreciating purchases. You're converting hard-won equity back into debt, so the reason had better be worth putting your home on the line.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much home equity can I borrow?</summary>
+      <p>Typically your home's value times the lender's LTV limit (often 80–90%), minus your current mortgage balance. That's usually less than your total equity, because lenders keep a cushion.</p>
+    </details>
+    
+    <details>
+      <summary>What's the difference between a home equity loan and a HELOC?</summary>
+      <p>A home equity loan gives a fixed lump sum at a fixed rate; a HELOC is a revolving, usually variable-rate credit line you draw from as needed. Loans suit one-time costs; HELOCs suit ongoing or uncertain needs.</p>
+    </details>
+    
+    <details>
+      <summary>Is borrowing against home equity safe?</summary>
+      <p>It offers lower rates than unsecured debt, but the loan is secured by your home, so defaulting risks foreclosure. Use it for value-adding or rate-lowering purposes, not lifestyle spending.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/good-debt-vs-bad-debt/">
+        <span class="card-title">"Good Debt vs Bad Debt: A Simple Framework for Borrowing Decisions"</span>
+        <span class="card-desc">Not all debt is equal. A practical framework for telling wealth-building debt from wealth-destroying debt, using interest rate, asset value and cash flow.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const v = val('value'), m = val('mortgage'), ltv = val('ltv')/100;
+  if (v <= 0) { show('<div class="result-main">Enter a home value above zero.</div>'); return; }
+  const equity = v - m;
+  const equityPct = equity / v * 100;
+  const maxBorrowTotal = v * ltv;
+  const available = Math.max(0, maxBorrowTotal - m);
+  show(`<div class="result-main">$${fmt(available,0)}<small>Estimated borrowable equity at ${val('ltv')}% LTV</small></div>
+  <table>
+    <tr><td>Your home equity</td><td>$${fmt(equity,0)} (${fmt(equityPct,0)}% of value)</td></tr>
+    <tr><td>Max total debt at ${val('ltv')}% LTV</td><td>$${fmt(maxBorrowTotal,0)}</td></tr>
+    <tr><td>Less current mortgage</td><td>\u2212$${fmt(m,0)}</td></tr>
+    <tr><td>Available to borrow</td><td>$${fmt(available,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

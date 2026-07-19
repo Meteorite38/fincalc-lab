@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mortgage Calculator — Monthly Payment with Taxes & Insurance</title>
-<meta name="description" content="Estimate your true monthly mortgage payment including principal, interest, property tax and home insurance. See total interest over the life of the loan.">
-<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/mortgage-calculator/">
+<title>Amortization Schedule Calculator — Year-by-Year Loan Breakdown</title>
+<meta name="description" content="Generate a year-by-year amortization schedule for any loan or mortgage: see how each year's payments split between principal and interest, and the falling balance.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/amortization-schedule-calculator/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0b6e4f">
 <meta property="og:site_name" content="FinCalc Lab">
-<meta property="og:title" content="Mortgage Calculator — Monthly Payment with Taxes & Insurance">
-<meta property="og:description" content="Estimate your true monthly mortgage payment including principal, interest, property tax and home insurance. See total interest over the life of the loan.">
+<meta property="og:title" content="Amortization Schedule Calculator — Year-by-Year Loan Breakdown">
+<meta property="og:description" content="Generate a year-by-year amortization schedule for any loan or mortgage: see how each year's payments split between principal and interest, and the falling balance.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/mortgage-calculator/">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/amortization-schedule-calculator/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mortgage Calculator — Monthly Payment with Taxes & Insurance">
-<meta name="twitter:description" content="Estimate your true monthly mortgage payment including principal, interest, property tax and home insurance. See total interest over the life of the loan.">
+<meta name="twitter:title" content="Amortization Schedule Calculator — Year-by-Year Loan Breakdown">
+<meta name="twitter:description" content="Generate a year-by-year amortization schedule for any loan or mortgage: see how each year's payments split between principal and interest, and the falling balance.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
 <link rel="stylesheet" href="/static/style.css">
 <!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this calculator include PMI?", "acceptedAnswer": {"@type": "Answer", "text": "No. Private mortgage insurance applies to many loans with less than 20% down and typically costs 0.5–1.5% of the loan balance per year. If you are putting less down, mentally add that to the result or increase the insurance field."}}, {"@type": "Question", "name": "Are property taxes really that predictable?", "acceptedAnswer": {"@type": "Answer", "text": "They change with local rates and reassessments, usually annually. The calculator treats them as constant, which is fine for comparing scenarios, but expect the escrow portion of your payment to drift upward over the years."}}, {"@type": "Question", "name": "Fixed or variable rate — which does this model?", "acceptedAnswer": {"@type": "Answer", "text": "Fixed. Variable/adjustable mortgages start with a fixed period and then reset periodically; no single calculation can promise their lifetime cost. If you are considering one, stress-test the payment at 2–3 percentage points above the intro rate."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an amortization schedule?", "acceptedAnswer": {"@type": "Answer", "text": "A table showing how each loan payment over time is divided between interest and principal, and how the remaining balance declines. It reveals that early payments are mostly interest and later ones mostly principal."}}, {"@type": "Question", "name": "Why is so much of my early payment interest?", "acceptedAnswer": {"@type": "Answer", "text": "Because interest is charged on the outstanding balance, which is largest at the start. As you pay down the principal, the interest portion of each payment shrinks and the principal portion grows."}}, {"@type": "Question", "name": "Does refinancing restart amortization?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A new loan begins a fresh schedule at the interest-heavy start, which is why refinancing late in a loan's life can increase total interest even at a lower rate unless you also shorten the term."}}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +28,7 @@
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
     {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
-    {"@type": "ListItem", "position": 3, "name": "Mortgage Calculator", "item": "https://fincalc-lab.pages.dev/calculators/mortgage-calculator/"}
+    {"@type": "ListItem", "position": 3, "name": "Amortization Schedule Calculator", "item": "https://fincalc-lab.pages.dev/calculators/amortization-schedule-calculator/"}
   ]
 }
 </script>
@@ -48,51 +48,30 @@
 <main>
 
 <div class="container narrow">
-  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Mortgage Calculator</nav>
-  <h1>🏠 Mortgage Calculator</h1>
-  <p class="lead">A mortgage payment is more than the loan itself. This calculator combines principal and interest with property tax and insurance to show the real monthly number a lender will assess — and what the house costs you over the full term.</p>
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Amortization Schedule Calculator</nav>
+  <h1>📅 Amortization Schedule Calculator</h1>
+  <p class="lead">An amortization schedule shows exactly how a loan is paid off over time — how much of each year goes to interest versus principal, and how the balance falls. Enter your loan details for a full yearly breakdown.</p>
 
   <div class="calc-box" id="calc">
     
     <label class="field">
-      <span class="field-label">Home price ($)</span>
+      <span class="field-label">Loan amount ($)</span>
       
-      <input type="number" id="price" value="350000" step="any" min="0">
-      
-    </label>
-    
-    <label class="field">
-      <span class="field-label">Down payment ($)</span>
-      
-      <input type="number" id="down" value="70000" step="any" min="0">
+      <input type="number" id="amount" value="300000" step="any" min="0">
       
     </label>
     
     <label class="field">
-      <span class="field-label">Interest rate (%)</span>
+      <span class="field-label">Annual interest rate (%)</span>
       
       <input type="number" id="rate" value="6.5" step="0.05" min="0">
       
     </label>
     
     <label class="field">
-      <span class="field-label">Term (years)</span>
+      <span class="field-label">Loan term (years)</span>
       
       <input type="number" id="years" value="30" step="1" min="0">
-      
-    </label>
-    
-    <label class="field">
-      <span class="field-label">Property tax ($/year) <em class="hint">(often 1-2% of home value)</em></span>
-      
-      <input type="number" id="tax" value="4200" step="any" min="0">
-      
-    </label>
-    
-    <label class="field">
-      <span class="field-label">Home insurance ($/year)</span>
-      
-      <input type="number" id="ins" value="1500" step="any" min="0">
       
     </label>
     
@@ -102,18 +81,18 @@
 
   <article class="explainer">
     
-<h2>What is in a mortgage payment?</h2>
-<p>Lenders talk about <strong>PITI</strong>: Principal, Interest, Taxes, Insurance. Principal and interest repay the loan; property tax and homeowner's insurance are usually collected monthly into an escrow account and paid on your behalf. Buyers who budget only for principal and interest routinely underestimate their housing cost by 20–30%.</p>
-<h2>A worked example</h2>
-<p>A $350,000 home with $70,000 down (20%) leaves a $280,000 loan. At 6.5% over 30 years, principal and interest run about $1,770 a month. Add typical tax and insurance and the real monthly cost is roughly $2,245. Over the full term the interest alone comes to about $357,000 — more than the original loan. That is not a scam; it is what three decades of borrowing costs at these rates.</p>
-<h2>Levers worth testing in the calculator</h2>
+<h2>What amortization actually means</h2>
+<p>To amortize a loan is to pay it off through regular equal payments, each split between interest on the remaining balance and repayment of the principal. Early on, the balance is large, so most of your payment is interest and little touches the principal. As the balance shrinks, the split flips — later payments are almost all principal. The schedule above makes this shift visible year by year.</p>
+<h2>The front-loaded interest surprise</h2>
+<p>On a $300,000 mortgage at 6.5% over 30 years, look at the first year versus the last. In year one, roughly $19,000 of your ~$22,750 in payments goes to interest and only ~$3,400 reduces the balance. By the final year it's the reverse. This is why paying a 30-year mortgage for five years barely dents the balance — and why refinancing resets you to the interest-heavy start of a fresh schedule.</p>
+<h2>How to use the schedule</h2>
 <ul>
-<li><strong>Down payment.</strong> Below 20% down, most US lenders add private mortgage insurance (PMI), often 0.5–1.5% of the loan per year — not included above, so treat sub-20% results as optimistic.</li>
-<li><strong>Rate.</strong> On a $280,000 loan, one percentage point changes the payment by roughly $180 a month and lifetime interest by about $65,000.</li>
-<li><strong>Term.</strong> A 15-year loan roughly halves total interest but raises the monthly payment by 30–40%.</li>
+<li><strong>See your equity build.</strong> The balance column shows what you still owe; subtract it from the property value to track home equity over time.</li>
+<li><strong>Understand extra payments.</strong> Any extra principal payment permanently removes the interest on that amount for the rest of the schedule — try our <a href="/calculators/extra-mortgage-payment-calculator/">extra payment calculator</a> to see the effect.</li>
+<li><strong>Compare loans honestly.</strong> Two loans with the same payment can have very different total interest depending on term and rate — the schedule totals reveal the real cost.</li>
 </ul>
-<h2>How much house can you afford?</h2>
-<p>A common guideline is that total housing costs should stay under 28% of gross monthly income, and all debt payments combined under 36%. Work backwards: if your household earns $8,000 a month, 28% is $2,240 — about the payment in the example above. Guidelines are not laws, but exceeding them consistently is the most common way buyers become house-poor.</p>
+<h2>Beyond mortgages</h2>
+<p>The same math governs car loans, student loans, and personal loans. Any fixed-rate, fixed-term loan follows an amortization schedule — knowing how to read one turns an opaque monthly bill into a transparent plan you can see the end of.</p>
 
   </article>
 
@@ -121,18 +100,18 @@
     <h2>Frequently asked questions</h2>
     
     <details>
-      <summary>Does this calculator include PMI?</summary>
-      <p>No. Private mortgage insurance applies to many loans with less than 20% down and typically costs 0.5–1.5% of the loan balance per year. If you are putting less down, mentally add that to the result or increase the insurance field.</p>
+      <summary>What is an amortization schedule?</summary>
+      <p>A table showing how each loan payment over time is divided between interest and principal, and how the remaining balance declines. It reveals that early payments are mostly interest and later ones mostly principal.</p>
     </details>
     
     <details>
-      <summary>Are property taxes really that predictable?</summary>
-      <p>They change with local rates and reassessments, usually annually. The calculator treats them as constant, which is fine for comparing scenarios, but expect the escrow portion of your payment to drift upward over the years.</p>
+      <summary>Why is so much of my early payment interest?</summary>
+      <p>Because interest is charged on the outstanding balance, which is largest at the start. As you pay down the principal, the interest portion of each payment shrinks and the principal portion grows.</p>
     </details>
     
     <details>
-      <summary>Fixed or variable rate — which does this model?</summary>
-      <p>Fixed. Variable/adjustable mortgages start with a fixed period and then reset periodically; no single calculation can promise their lifetime cost. If you are considering one, stress-test the payment at 2–3 percentage points above the intro rate.</p>
+      <summary>Does refinancing restart amortization?</summary>
+      <p>Yes. A new loan begins a fresh schedule at the interest-heavy start, which is why refinancing late in a loan's life can increase total interest even at a lower rate unless you also shorten the term.</p>
     </details>
     
   </section>
@@ -144,6 +123,11 @@
       <a class="card" href="/calculators/loan-payment-calculator/">
         <span class="card-emoji">💳</span>
         <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
       </a>
       
       <a class="card" href="/calculators/loan-payoff-calculator/">
@@ -201,11 +185,6 @@
         <span class="card-title">Biweekly Mortgage Calculator</span>
       </a>
       
-      <a class="card" href="/calculators/amortization-schedule-calculator/">
-        <span class="card-emoji">📅</span>
-        <span class="card-title">Amortization Schedule Calculator</span>
-      </a>
-      
       <a class="card" href="/calculators/debt-consolidation-calculator/">
         <span class="card-emoji">🧮</span>
         <span class="card-title">Debt Consolidation Calculator</span>
@@ -254,21 +233,24 @@ function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
 
 function calculate() {
-  const price = val('price'), down = val('down'), r = val('rate') / 100, y = val('years');
-  const P = price - down;
-  if (P <= 0) { show('<div class="result-main">Down payment covers the full price — no loan needed.</div>'); return; }
-  const i = r / 12, n = y * 12;
-  const pi = i > 0 ? P * i / (1 - Math.pow(1 + i, -n)) : P / n;
-  const extras = (val('tax') + val('ins')) / 12;
-  const totalInterest = pi * n - P;
-  const ltv = P / price * 100;
-  show(`<div class="result-main">$${fmt(pi + extras)} / month<small>Including property tax and insurance</small></div>
-  <table>
-    <tr><td>Principal &amp; interest</td><td>$${fmt(pi)}</td></tr>
-    <tr><td>Property tax + insurance</td><td>$${fmt(extras)}</td></tr>
-    <tr><td>Loan amount (LTV ${fmt(ltv, 0)}%)</td><td>$${fmt(P, 0)}</td></tr>
-    <tr><td>Total interest over ${y} years</td><td>$${fmt(totalInterest, 0)}</td></tr>
-  </table>`);
+  const P = val('amount'), i = val('rate')/100/12;
+  const n = Math.min(Math.round(val('years')*12), 1200);  // cap at 100 years to stay safe
+  if (P <= 0 || n <= 0) { show('<div class="result-main">Enter a loan amount and term above zero.</div>'); return; }
+  if (val('years') > 100) { show('<div class="result-main">Please enter a term of 100 years or less.</div>'); return; }
+  const pmt = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n;
+  let bal = P, rows = '', yearInt = 0, yearPrin = 0, totalInt = 0;
+  const yearsN = Math.ceil(n/12);
+  let table = `<table><tr><td><strong>Year</strong></td><td><strong>Principal</strong></td><td><strong>Interest</strong></td><td><strong>Balance</strong></td></tr>`;
+  for (let m = 1; m <= n; m++) {
+    const int = bal * i; const prin = pmt - int;
+    bal -= prin; yearInt += int; yearPrin += prin; totalInt += int;
+    if (m % 12 === 0 || m === n) {
+      table += `<tr><td>${Math.ceil(m/12)}</td><td>$${fmt(yearPrin,0)}</td><td>$${fmt(yearInt,0)}</td><td>$${fmt(Math.max(bal,0),0)}</td></tr>`;
+      yearInt = 0; yearPrin = 0;
+    }
+  }
+  table += `</table>`;
+  show(`<div class="result-main">$${fmt(pmt)} / month<small>Total interest over ${val('years')} years: $${fmt(totalInt,0)}</small></div>${table}`);
 }
 
 document.addEventListener("DOMContentLoaded", calculate);

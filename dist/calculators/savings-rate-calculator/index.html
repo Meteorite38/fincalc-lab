@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Rate Calculator — What Percentage of Income You Save</title>
+<meta name="description" content="Calculate your savings rate — the percentage of income you save — and see roughly how many years until financial independence, the number that matters most.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/savings-rate-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Savings Rate Calculator — What Percentage of Income You Save">
+<meta property="og:description" content="Calculate your savings rate — the percentage of income you save — and see roughly how many years until financial independence, the number that matters most.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/savings-rate-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Savings Rate Calculator — What Percentage of Income You Save">
+<meta name="twitter:description" content="Calculate your savings rate — the percentage of income you save — and see roughly how many years until financial independence, the number that matters most.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good savings rate?", "acceptedAnswer": {"@type": "Answer", "text": "10% is a common minimum, 20% is strong, and 50%+ puts you on a fast track to financial independence. The right target depends on your goals, but higher is almost always better — and the number matters more than your income."}}, {"@type": "Question", "name": "Why does savings rate matter more than income?", "acceptedAnswer": {"@type": "Answer", "text": "Because it sets both how much you need (by defining your spending) and how fast you accumulate it. A high earner who spends most of it can retire later than a modest earner who saves half."}}, {"@type": "Question", "name": "What counts toward my savings rate?", "acceptedAnswer": {"@type": "Answer", "text": "All genuine saving: retirement contributions, investments, extra debt principal payments, and cash truly set aside. Money that sits in checking to be spent next month doesn't count."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Savings Rate Calculator", "item": "https://fincalc-lab.pages.dev/calculators/savings-rate-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Savings Rate Calculator</nav>
+  <h1>💹 Savings Rate Calculator</h1>
+  <p class="lead">Your savings rate — the share of take-home pay you keep — is the single strongest predictor of how fast you build wealth. Enter your income and savings to find yours and what it implies.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Monthly take-home income ($)</span>
+      
+      <input type="number" id="income" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly amount saved/invested ($)</span>
+      
+      <input type="number" id="saved" value="1250" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why savings rate rules everything</h2>
+<p>Most people obsess over investment returns and ignore the variable they fully control: their savings rate. Yet the percentage of income you save is the dominant factor in how quickly you reach financial independence — far more than your salary or a percentage point of return. The reason is elegant: a higher savings rate simultaneously lowers the expenses you'll need to fund <em>and</em> raises the pile funding them.</p>
+<h2>The math that surprises people</h2>
+<p>Starting from zero, at a 5% real return, the approximate time to financial independence is set almost entirely by savings rate:</p>
+<ul>
+<li><strong>10% saved</strong> → roughly 50 years</li>
+<li><strong>20% saved</strong> → roughly 32 years</li>
+<li><strong>50% saved</strong> → roughly 17 years</li>
+<li><strong>65% saved</strong> → roughly 10 years</li>
+</ul>
+<p>Income barely appears in this relationship. A modest earner saving 50% reaches independence decades before a high earner saving 10% — because the high earner's lifestyle costs so much to sustain. This is the core insight behind the <a href="/articles/fire-movement-explained/">FIRE movement</a>.</p>
+<h2>How to compute yours honestly</h2>
+<p>Savings rate = amount saved ÷ take-home income. Count all real saving: retirement contributions, investments, extra debt principal, and cash added to savings. Be honest about "saving" that's really just a checking-account balance you'll spend next month. Many people are surprised their true rate is lower than they assumed — which is exactly why measuring it is the first step to improving it.</p>
+<h2>Moving the number</h2>
+<p>Because it's a ratio, you can raise your savings rate from both sides: earn more (and avoid lifestyle inflation) or spend less. The biggest levers are usually the big three — housing, transport, and food — not small indulgences. Even a 5-percentage-point increase, sustained, pulls your independence date forward by years. Pair this with the <a href="/calculators/budget-calculator/">50/30/20 budget</a> to find the room.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a good savings rate?</summary>
+      <p>10% is a common minimum, 20% is strong, and 50%+ puts you on a fast track to financial independence. The right target depends on your goals, but higher is almost always better — and the number matters more than your income.</p>
+    </details>
+    
+    <details>
+      <summary>Why does savings rate matter more than income?</summary>
+      <p>Because it sets both how much you need (by defining your spending) and how fast you accumulate it. A high earner who spends most of it can retire later than a modest earner who saves half.</p>
+    </details>
+    
+    <details>
+      <summary>What counts toward my savings rate?</summary>
+      <p>All genuine saving: retirement contributions, investments, extra debt principal payments, and cash truly set aside. Money that sits in checking to be spent next month doesn't count.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/overtime-pay-calculator/">
+        <span class="card-emoji">⏰</span>
+        <span class="card-title">Overtime Pay Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/paycheck-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Paycheck Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/pay-raise-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Pay Raise Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-increase-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Rent Increase Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const inc = val('income'), saved = val('saved');
+  if (inc <= 0) { show('<div class="result-main">Enter income above zero.</div>'); return; }
+  const rate = saved / inc * 100;
+  // rough years-to-FI assuming 5% real return, 4% withdrawal, starting from zero
+  const r = 0.05, wr = 0.04, sr = Math.min(Math.max(saved/inc, 0.0001), 0.999);
+  const spend = 1 - sr;
+  const target = spend / wr;  // in units of annual income
+  let bal = 0, yrs = 0;
+  while (bal < target && yrs < 200) { bal = bal*(1+r) + sr; yrs++; }
+  let band;
+  if (rate >= 50) band = 'Exceptional — on a fast track to financial independence';
+  else if (rate >= 20) band = 'Strong — comfortably ahead of most households';
+  else if (rate >= 10) band = 'Solid start — a common recommended minimum';
+  else if (rate > 0) band = 'Below target — worth pushing higher when you can';
+  else band = 'Not saving yet — the first goal is to get above zero';
+  show(`<div class="result-main">${fmt(rate,1)}%<small>of your take-home pay is being saved</small></div>
+  <table>
+    <tr><td>Saved per year</td><td>$${fmt(saved*12,0)}</td></tr>
+    <tr><td>Spent per year</td><td>$${fmt((inc-saved)*12,0)}</td></tr>
+    <tr><td>Rough years to financial independence</td><td>${yrs>=200 ? 'raise the rate to make progress' : '≈ '+yrs+' years'}</td></tr>
+    <tr><td>Assessment</td><td>${band}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

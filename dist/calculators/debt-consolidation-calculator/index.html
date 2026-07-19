@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Consolidation Calculator — Compare Combining Your Debts</title>
+<meta name="description" content="Compare your current debts against a single consolidation loan: new monthly payment, total interest, and whether consolidating actually saves you money.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/debt-consolidation-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Debt Consolidation Calculator — Compare Combining Your Debts">
+<meta property="og:description" content="Compare your current debts against a single consolidation loan: new monthly payment, total interest, and whether consolidating actually saves you money.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/debt-consolidation-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Debt Consolidation Calculator — Compare Combining Your Debts">
+<meta name="twitter:description" content="Compare your current debts against a single consolidation loan: new monthly payment, total interest, and whether consolidating actually saves you money.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does debt consolidation save money?", "acceptedAnswer": {"@type": "Answer", "text": "Only if the new loan's total interest is lower than your current debts' — which requires a meaningfully lower rate without a much longer term. A lower monthly payment alone can still mean paying more overall."}}, {"@type": "Question", "name": "Why might consolidation cost more?", "acceptedAnswer": {"@type": "Answer", "text": "Because it often lowers the payment by extending the term. A lower rate over more years can produce more total interest, and origination or balance-transfer fees add to the cost."}}, {"@type": "Question", "name": "Is consolidation a good idea?", "acceptedAnswer": {"@type": "Answer", "text": "It can be, when the rate drop is large, fees are small, and you stop taking on new debt. If you keep using the paid-off cards, you'll end up worse off — behavior matters more than the loan."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Debt Consolidation Calculator", "item": "https://fincalc-lab.pages.dev/calculators/debt-consolidation-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Debt Consolidation Calculator</nav>
+  <h1>🧮 Debt Consolidation Calculator</h1>
+  <p class="lead">Consolidating several debts into one loan can lower your payment and simplify life — but only if the numbers work. Enter your current debt and a consolidation offer to compare honestly.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Total current debt balance ($)</span>
+      
+      <input type="number" id="balance" value="25000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current total monthly payment ($)</span>
+      
+      <input type="number" id="currentpmt" value="850" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current average interest rate (%)</span>
+      
+      <input type="number" id="avgrate" value="19" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Consolidation loan rate (%)</span>
+      
+      <input type="number" id="newrate" value="11" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Consolidation term (years)</span>
+      
+      <input type="number" id="newterm" value="4" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Consolidation fee ($, optional)</span>
+      
+      <input type="number" id="fee" value="0" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What consolidation really does</h2>
+<p>Debt consolidation replaces several debts — often high-rate credit cards — with a single new loan, ideally at a lower rate. The appeal is real: one payment instead of many, a lower interest rate, and often a lower monthly payment. But two traps hide in the details, and this calculator exposes both: the <strong>term</strong> and the <strong>fee</strong>.</p>
+<h2>The lower-payment illusion</h2>
+<p>A consolidation loan often lowers your monthly payment mainly by <em>stretching the term</em>. A lower rate spread over more years can still cost more total interest than your current debts would. Always compare total interest, not just the monthly payment — a smaller payment for twice as long is frequently a worse deal dressed up as relief. The calculator shows both numbers side by side so you can't be fooled.</p>
+<h2>When consolidation genuinely wins</h2>
+<ul>
+<li><strong>The rate drop is large</strong> (e.g. from 19% cards to an 11% personal loan) and the term isn't dramatically longer.</li>
+<li><strong>Fees are modest.</strong> Balance-transfer or origination fees (often 3–5%) eat into savings — the calculator lets you include them.</li>
+<li><strong>You stop adding new debt.</strong> Consolidation only works if you don't run the cards back up. Otherwise you end up with the loan <em>and</em> new card balances — the most common way consolidation backfires.</li>
+</ul>
+<h2>Alternatives to weigh</h2>
+<p>Before consolidating, compare a <a href="/calculators/debt-snowball-vs-avalanche-calculator/">structured payoff plan</a> (avalanche/snowball) on your existing debts, and a 0% balance-transfer card if you can clear the balance within the promo window. Consolidation is a tool, not a cure — the behavior that created the debt matters more than the loan that refinances it.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Does debt consolidation save money?</summary>
+      <p>Only if the new loan's total interest is lower than your current debts' — which requires a meaningfully lower rate without a much longer term. A lower monthly payment alone can still mean paying more overall.</p>
+    </details>
+    
+    <details>
+      <summary>Why might consolidation cost more?</summary>
+      <p>Because it often lowers the payment by extending the term. A lower rate over more years can produce more total interest, and origination or balance-transfer fees add to the cost.</p>
+    </details>
+    
+    <details>
+      <summary>Is consolidation a good idea?</summary>
+      <p>It can be, when the rate drop is large, fees are small, and you stop taking on new debt. If you keep using the paid-off cards, you'll end up worse off — behavior matters more than the loan.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-equity-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">Home Equity Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/fire-movement-explained/">
+        <span class="card-title">"The FIRE Movement Explained: Financial Independence by the Numbers"</span>
+        <span class="card-desc">What FIRE really means, the 25x rule and 4% withdrawal, the variants (Lean, Fat, Coast, Barista FIRE), and the one number that decides your timeline.</span>
+      </a>
+      
+      <a class="card" href="/articles/good-debt-vs-bad-debt/">
+        <span class="card-title">"Good Debt vs Bad Debt: A Simple Framework for Borrowing Decisions"</span>
+        <span class="card-desc">Not all debt is equal. A practical framework for telling wealth-building debt from wealth-destroying debt, using interest rate, asset value and cash flow.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function payoffMonths(P, i, pmt) {
+  if (pmt <= P*i) return null;
+  let bal = P, m = 0, interest = 0;
+  while (bal > 0 && m < 1200) { const int = bal*i; interest += int; bal = bal + int - pmt; m++; }
+  return { months: m, interest };
+}
+function calculate() {
+  const P = val('balance'), curPmt = val('currentpmt'), curI = val('avgrate')/100/12;
+  const newI = val('newrate')/100/12, n = Math.round(val('newterm')*12), fee = val('fee');
+  const cur = payoffMonths(P, curI, curPmt);
+  const newLoan = P + fee;
+  const newPmt = newI>0 ? newLoan*newI/(1-Math.pow(1+newI,-n)) : newLoan/n;
+  const newInterest = newPmt*n - newLoan + fee;
+  if (!cur) { show('<div class="result-main">Your current payment barely covers interest — almost any consolidation helps. Enter a realistic current payment.</div>'); return; }
+  const saving = cur.interest - newInterest;
+  show(`<div class="result-main">${saving>=0 ? '$'+fmt(saving,0)+' saved' : '$'+fmt(-saving,0)+' more'}<small>in total interest by consolidating${saving>=0 ? '' : ' — costs more overall'}</small></div>
+  <table>
+    <tr><td>New monthly payment</td><td>$${fmt(newPmt)} (was $${fmt(curPmt,0)})</td></tr>
+    <tr><td>Current payoff / interest</td><td>${(cur.months/12).toFixed(1)} yrs, $${fmt(cur.interest,0)}</td></tr>
+    <tr><td>Consolidated payoff / interest</td><td>${(n/12).toFixed(1)} yrs, $${fmt(newInterest,0)}</td></tr>
+    <tr><td>Monthly cash-flow change</td><td>${newPmt<=curPmt ? '$'+fmt(curPmt-newPmt,0)+' freed up' : '$'+fmt(newPmt-curPmt,0)+' more'}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

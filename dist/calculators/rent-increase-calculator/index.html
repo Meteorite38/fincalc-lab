@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>50/30/20 Budget Calculator — Needs, Wants, Savings</title>
-<meta name="description" content="Apply the 50/30/20 rule to your monthly take-home pay: how much for needs, wants, and savings or debt. Adjustable percentages for your situation.">
-<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/budget-calculator/">
+<title>Rent Increase Calculator — New Rent and Percentage Change</title>
+<meta name="description" content="Calculate your new rent after a percentage or dollar increase, the extra you'll pay per year, and how the increase compares to inflation.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/rent-increase-calculator/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0b6e4f">
 <meta property="og:site_name" content="FinCalc Lab">
-<meta property="og:title" content="50/30/20 Budget Calculator — Needs, Wants, Savings">
-<meta property="og:description" content="Apply the 50/30/20 rule to your monthly take-home pay: how much for needs, wants, and savings or debt. Adjustable percentages for your situation.">
+<meta property="og:title" content="Rent Increase Calculator — New Rent and Percentage Change">
+<meta property="og:description" content="Calculate your new rent after a percentage or dollar increase, the extra you'll pay per year, and how the increase compares to inflation.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/budget-calculator/">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/rent-increase-calculator/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="50/30/20 Budget Calculator — Needs, Wants, Savings">
-<meta name="twitter:description" content="Apply the 50/30/20 rule to your monthly take-home pay: how much for needs, wants, and savings or debt. Adjustable percentages for your situation.">
+<meta name="twitter:title" content="Rent Increase Calculator — New Rent and Percentage Change">
+<meta name="twitter:description" content="Calculate your new rent after a percentage or dollar increase, the extra you'll pay per year, and how the increase compares to inflation.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
 <link rel="stylesheet" href="/static/style.css">
 <!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is 50/30/20 based on gross or net income?", "acceptedAnswer": {"@type": "Answer", "text": "Net — your take-home pay after taxes and payroll deductions. If retirement contributions already come out of your paycheck, you can count them toward the 20% and apply the rule to what remains."}}, {"@type": "Question", "name": "Where do debt payments go?", "acceptedAnswer": {"@type": "Answer", "text": "Minimum required payments are needs — missing them has consequences. Anything you pay above the minimum is building your net worth, so it belongs in the savings category."}}, {"@type": "Question", "name": "Is 20% savings enough?", "acceptedAnswer": {"@type": "Answer", "text": "It is a solid default for someone starting in their 20s or 30s aiming at a traditional retirement age. Starting later, or aiming earlier, needs more — run our retirement calculator to see what your target actually requires."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate a rent increase?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply your current rent by the percentage increase and add it, or add a flat dollar amount. A 5% increase on $1,800 rent adds $90, for a new rent of $1,890."}}, {"@type": "Question", "name": "Is my rent increase reasonable?", "acceptedAnswer": {"@type": "Answer", "text": "Compare it to inflation. Increases near the inflation rate (2–4%) are common; those well above it are worth negotiating, particularly if you're a reliable long-term tenant whose turnover would cost the landlord."}}, {"@type": "Question", "name": "Can I negotiate a rent increase?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. Strong payment history, comparable local rents, and offering a longer lease all help. Some regions also cap increases or mandate notice, so check your local tenant rules first."}}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +28,7 @@
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
     {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
-    {"@type": "ListItem", "position": 3, "name": "50/30/20 Budget Calculator", "item": "https://fincalc-lab.pages.dev/calculators/budget-calculator/"}
+    {"@type": "ListItem", "position": 3, "name": "Rent Increase Calculator", "item": "https://fincalc-lab.pages.dev/calculators/rent-increase-calculator/"}
   ]
 }
 </script>
@@ -48,37 +48,37 @@
 <main>
 
 <div class="container narrow">
-  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; 50/30/20 Budget Calculator</nav>
-  <h1>💸 50/30/20 Budget Calculator</h1>
-  <p class="lead">The 50/30/20 rule is the most durable budgeting shortcut: 50% of take-home pay for needs, 30% for wants, 20% for savings and extra debt payments. Enter your net income — and adjust the split if your circumstances demand it.</p>
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Rent Increase Calculator</nav>
+  <h1>📈 Rent Increase Calculator</h1>
+  <p class="lead">Got a rent increase notice? Enter your current rent and the increase to see the new amount, the annual cost, and whether it's in line with inflation or steep.</p>
 
   <div class="calc-box" id="calc">
     
     <label class="field">
-      <span class="field-label">Monthly take-home pay ($)</span>
+      <span class="field-label">Current monthly rent ($)</span>
       
-      <input type="number" id="income" value="4500" step="any" min="0">
-      
-    </label>
-    
-    <label class="field">
-      <span class="field-label">Needs (%)</span>
-      
-      <input type="number" id="needs" value="50" step="1" min="0">
+      <input type="number" id="rent" value="1800" step="any" min="0">
       
     </label>
     
     <label class="field">
-      <span class="field-label">Wants (%)</span>
+      <span class="field-label">Increase (%)</span>
       
-      <input type="number" id="wants" value="30" step="1" min="0">
+      <input type="number" id="pct" value="5" step="0.1" min="0">
       
     </label>
     
     <label class="field">
-      <span class="field-label">Savings & debt (%)</span>
+      <span class="field-label">Or flat increase ($/month, optional)</span>
       
-      <input type="number" id="save" value="20" step="1" min="0">
+      <input type="number" id="flat" value="0" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current inflation rate (%)</span>
+      
+      <input type="number" id="inflation" value="3" step="0.1" min="0">
       
     </label>
     
@@ -88,16 +88,19 @@
 
   <article class="explainer">
     
-<h2>What counts as a need, a want, a saving?</h2>
-<p><strong>Needs</strong> are expenses you cannot pause without consequences: housing, utilities, groceries, insurance, transport to work, minimum debt payments. <strong>Wants</strong> are everything you enjoy but could cut in a bad month: restaurants, streaming, travel, upgraded anything. <strong>Savings</strong> covers emergency-fund building, investing, retirement contributions and debt payments beyond the minimum. The honest test for "need vs want": what would you actually do if your income dropped 30% next month?</p>
-<h2>When to bend the rule</h2>
+<h2>Reading a rent increase clearly</h2>
+<p>A rent increase notice usually states either a percentage or a dollar amount. This calculator converts between them, shows your new rent, and — most usefully — compares the increase to inflation. That comparison is the key context: an increase roughly at the inflation rate is your landlord holding real rent steady, while an increase well above inflation is a real-terms rise in what you pay.</p>
+<h2>What's a "normal" increase?</h2>
+<p>There's no universal rule, but a useful frame: increases near the inflation rate (often 2–4%) are common and hard to argue with. Increases several points above inflation are worth questioning — especially if you're a reliable, long-term tenant, which has real value to a landlord who'd otherwise face vacancy, turnover costs, and the uncertainty of a new renter. A $90/month increase is $1,080 a year, so even "small" percentages add up.</p>
+<h2>Negotiating, briefly</h2>
 <ul>
-<li><strong>High-rent cities:</strong> needs may genuinely consume 60%+. Shrink wants first, protect at least 10% savings, and treat the imbalance as a signal about housing cost, not a personal failure.</li>
-<li><strong>High incomes:</strong> letting wants scale with income is how six-figure households end up saving nothing. Consider capping wants in dollars and pushing the surplus percentage into savings.</li>
-<li><strong>Aggressive goals:</strong> early-retirement savers invert the rule entirely — 50% to savings is common in that community. The framework is a starting grid, not a ceiling.</li>
+<li><strong>Know your leverage.</strong> Good payment history, low-maintenance tenancy, and local vacancy rates all strengthen your case. Turnover is expensive for landlords.</li>
+<li><strong>Anchor to data.</strong> Cite comparable local rents and the inflation rate; propose a specific lower number rather than just objecting.</li>
+<li><strong>Offer something back.</strong> A longer lease commitment in exchange for a smaller increase can suit both sides.</li>
+<li><strong>Check local rules.</strong> Some areas cap increases or require notice periods — know your rights before negotiating.</li>
 </ul>
-<h2>Making it operational</h2>
-<p>Percentages become real when they become transfers. On payday, move the savings share to a separate account automatically, keep needs in the main account, and put wants on a dedicated card or account — when it is empty, wants are done for the month. That single structure replaces most of the discipline budgeting usually demands.</p>
+<h2>The bigger budget picture</h2>
+<p>Housing is most people's largest expense, so a rent rise ripples through everything. Re-run your numbers with the <a href="/calculators/rent-affordability-calculator/">rent affordability calculator</a> to check the new rent still fits comfortably within your income — and if it pushes past a healthy share of take-home pay, that's a signal to negotiate harder or weigh alternatives.</p>
 
   </article>
 
@@ -105,18 +108,18 @@
     <h2>Frequently asked questions</h2>
     
     <details>
-      <summary>Is 50/30/20 based on gross or net income?</summary>
-      <p>Net — your take-home pay after taxes and payroll deductions. If retirement contributions already come out of your paycheck, you can count them toward the 20% and apply the rule to what remains.</p>
+      <summary>How do I calculate a rent increase?</summary>
+      <p>Multiply your current rent by the percentage increase and add it, or add a flat dollar amount. A 5% increase on $1,800 rent adds $90, for a new rent of $1,890.</p>
     </details>
     
     <details>
-      <summary>Where do debt payments go?</summary>
-      <p>Minimum required payments are needs — missing them has consequences. Anything you pay above the minimum is building your net worth, so it belongs in the savings category.</p>
+      <summary>Is my rent increase reasonable?</summary>
+      <p>Compare it to inflation. Increases near the inflation rate (2–4%) are common; those well above it are worth negotiating, particularly if you're a reliable long-term tenant whose turnover would cost the landlord.</p>
     </details>
     
     <details>
-      <summary>Is 20% savings enough?</summary>
-      <p>It is a solid default for someone starting in their 20s or 30s aiming at a traditional retirement age. Starting later, or aiming earlier, needs more — run our retirement calculator to see what your target actually requires.</p>
+      <summary>Can I negotiate a rent increase?</summary>
+      <p>Often, yes. Strong payment history, comparable local rents, and offering a longer lease all help. Some regions also cap increases or mandate notice, so check your local tenant rules first.</p>
     </details>
     
   </section>
@@ -133,6 +136,11 @@
       <a class="card" href="/calculators/take-home-pay-calculator/">
         <span class="card-emoji">🧾</span>
         <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
       </a>
       
       <a class="card" href="/calculators/emergency-fund-calculator/">
@@ -180,11 +188,6 @@
         <span class="card-title">Savings Rate Calculator</span>
       </a>
       
-      <a class="card" href="/calculators/rent-increase-calculator/">
-        <span class="card-emoji">📈</span>
-        <span class="card-title">Rent Increase Calculator</span>
-      </a>
-      
     </div>
   </section>
 
@@ -223,15 +226,20 @@ function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
 
 function calculate() {
-  const inc = val('income'), n = val('needs'), w = val('wants'), s = val('save');
-  const total = n + w + s;
-  const warn = Math.abs(total - 100) > 0.01 ? `<p style="color:#b45309;font-weight:600">Your percentages add to ${fmt(total, 0)}% — adjust to reach 100%.</p>` : '';
-  show(`${warn}<div class="result-main">$${fmt(inc * s / 100)} / month to savings<small>at ${s}% of take-home pay</small></div>
+  const rent = val('rent'), pct = val('pct')/100, flat = val('flat'), inf = val('inflation');
+  const inc = flat > 0 ? flat : rent*pct;
+  const newRent = rent + inc;
+  const effPct = rent>0 ? inc/rent*100 : 0;
+  let verdict;
+  if (effPct <= inf) verdict = 'At or below inflation — a relatively normal increase';
+  else if (effPct <= inf + 3) verdict = 'Above inflation — worth a polite negotiation';
+  else verdict = 'Well above inflation — steep; negotiate or compare alternatives';
+  show(`<div class="result-main">$${fmt(newRent,0)} / month<small>New rent — up $${fmt(inc,0)} (${fmt(effPct,1)}%)</small></div>
   <table>
-    <tr><td>Needs (rent, groceries, utilities, minimum debt payments)</td><td>$${fmt(inc * n / 100)}</td></tr>
-    <tr><td>Wants (dining out, subscriptions, travel, hobbies)</td><td>$${fmt(inc * w / 100)}</td></tr>
-    <tr><td>Savings &amp; extra debt payments</td><td>$${fmt(inc * s / 100)}</td></tr>
-    <tr><td>Savings per year at this rate</td><td>$${fmt(inc * s / 100 * 12, 0)}</td></tr>
+    <tr><td>Extra per month</td><td>$${fmt(inc,0)}</td></tr>
+    <tr><td>Extra per year</td><td>$${fmt(inc*12,0)}</td></tr>
+    <tr><td>Increase vs inflation (${fmt(inf,1)}%)</td><td>${effPct>inf ? '+' : ''}${fmt(effPct-inf,1)}% real</td></tr>
+    <tr><td>Assessment</td><td>${verdict}</td></tr>
   </table>`);
 }
 
