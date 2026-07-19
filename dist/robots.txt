@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fincalc-lab.pages.dev/sitemap.xml

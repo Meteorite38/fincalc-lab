@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profit Margin Calculator — Gross Margin & Markup</title>
+<meta name="description" content="Calculate gross profit margin and markup from cost and selling price — and stop confusing the two. Includes pricing guidance by industry.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/profit-margin-calculator/">
+<meta property="og:title" content="Profit Margin Calculator — Gross Margin & Markup">
+<meta property="og:description" content="Calculate gross profit margin and markup from cost and selling price — and stop confusing the two. Includes pricing guidance by industry.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/profit-margin-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which costs belong in 'cost per unit'?", "acceptedAnswer": {"@type": "Answer", "text": "For gross margin: direct costs of the product — purchase or manufacturing cost, inbound shipping, packaging, payment fees. Rent and salaries stay out; they belong to the fixed-cost side of a break-even analysis."}}, {"@type": "Question", "name": "Why do retailers talk about 'keystone' pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Keystone means doubling cost (100% markup, 50% margin) — a traditional retail default. It is a starting point, not a law; competitive categories run thinner, and unique or service-heavy products can run much thicker."}}, {"@type": "Question", "name": "Can margin exceed 100%?", "acceptedAnswer": {"@type": "Answer", "text": "Margin cannot — it is capped below 100% because price is the denominator. Markup can be any size: sell a $5 item for $50 and the markup is 900% while the margin is 90%."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Profit Margin Calculator</nav>
+  <h1>📉 Profit Margin Calculator</h1>
+  <p class="lead">Margin and markup are the most-confused pair in small-business pricing — mixing them up quietly destroys profitability. Enter cost and price to get both, correctly.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Cost per unit ($)</span>
+      
+      <input type="number" id="cost" value="24" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Selling price per unit ($)</span>
+      
+      <input type="number" id="price" value="40" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Margin vs markup, settled</h2>
+<p><strong>Margin</strong> is profit as a share of <em>price</em>: (price − cost) ÷ price. <strong>Markup</strong> is profit as a share of <em>cost</em>: (price − cost) ÷ cost. A $24 cost sold at $40 is a 40% margin but a 67% markup — same transaction, different denominators. The dangerous mistake runs one way: a shop owner who wants a 50% margin and therefore "adds 50%" to cost gets only a 33% margin and wonders where the profit went.</p>
+<h2>Pricing for a target margin</h2>
+<p>To hit margin <em>m</em>, divide — don't multiply: <code>Price = Cost ÷ (1 − m)</code>. For a 50% margin on a $24 cost: 24 ÷ 0.5 = $48, not $36. This one formula is worth more than most pricing courses.</p>
+<h2>What is a "good" margin?</h2>
+<p>Entirely industry-dependent. Grocery retail survives on 1–3% net margins through volume; software and digital products run 70–90% gross margins; restaurants typically land at 3–9% net after labor and rent. Compare yourself with your industry, not with headlines. Two universal rules: know your margin on every product (many businesses lose money on some items without noticing), and remember gross margin still has to cover all fixed costs before anything is truly profit — our <a href="/calculators/break-even-point-calculator/">break-even calculator</a> picks up exactly there.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Which costs belong in 'cost per unit'?</summary>
+      <p>For gross margin: direct costs of the product — purchase or manufacturing cost, inbound shipping, packaging, payment fees. Rent and salaries stay out; they belong to the fixed-cost side of a break-even analysis.</p>
+    </details>
+    
+    <details>
+      <summary>Why do retailers talk about 'keystone' pricing?</summary>
+      <p>Keystone means doubling cost (100% markup, 50% margin) — a traditional retail default. It is a starting point, not a law; competitive categories run thinner, and unique or service-heavy products can run much thicker.</p>
+    </details>
+    
+    <details>
+      <summary>Can margin exceed 100%?</summary>
+      <p>Margin cannot — it is capped below 100% because price is the denominator. Markup can be any size: sell a $5 item for $50 and the markup is 900% while the margin is 90%.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const c = val('cost'), p = val('price');
+  if (p <= 0) { show('<div class="result-main">Price must be above zero.</div>'); return; }
+  const profit = p - c;
+  const margin = profit / p * 100;
+  const markup = c > 0 ? profit / c * 100 : Infinity;
+  show(`<div class="result-main">${fmt(margin, 1)}% margin<small>$${fmt(profit)} gross profit per unit</small></div>
+  <table>
+    <tr><td>Markup on cost</td><td>${fmt(markup, 1)}%</td></tr>
+    <tr><td>Profit per unit</td><td>$${fmt(profit)}</td></tr>
+    <tr><td>Units for $1,000 of gross profit</td><td>${profit > 0 ? fmt(1000 / profit, 0) : '—'}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Break-Even Point Calculator — Units and Revenue to Profit</title>
+<meta name="description" content="Calculate your break-even point in units and revenue from fixed costs, price and variable cost per unit. Includes contribution margin explained.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/break-even-point-calculator/">
+<meta property="og:title" content="Break-Even Point Calculator — Units and Revenue to Profit">
+<meta property="og:description" content="Calculate your break-even point in units and revenue from fixed costs, price and variable cost per unit. Includes contribution margin explained.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/break-even-point-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does break-even include my own salary?", "acceptedAnswer": {"@type": "Answer", "text": "It should. Founders who exclude their own pay are subsidizing the business with free labor and overstating its health. Add at least a survival salary to fixed costs; the honest break-even is higher but real."}}, {"@type": "Question", "name": "How does this work for services instead of products?", "acceptedAnswer": {"@type": "Answer", "text": "Define a unit as a billable hour, a project or a client-month. Price is what you charge for it; variable cost is what delivering one more of it costs you (subcontractors, tools billed per client, transaction fees)."}}, {"@type": "Question", "name": "My break-even looks impossible. Now what?", "acceptedAnswer": {"@type": "Answer", "text": "Three levers, in usual order of power: raise prices (small increases move the number a lot), redesign delivery to cut variable cost, and only then attack fixed costs. If no combination produces a plausible volume, the model — not the effort — is the problem."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Break-Even Point Calculator</nav>
+  <h1>⚖️ Break-Even Point Calculator</h1>
+  <p class="lead">Before profit projections and growth plans comes one blunt question: how much do you have to sell just to cover costs? Enter your fixed costs, unit price and unit variable cost to find out.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Fixed costs per month ($) <em class="hint">(rent, salaries, software, insurance)</em></span>
+      
+      <input type="number" id="fixed" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Selling price per unit ($)</span>
+      
+      <input type="number" id="price" value="40" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Variable cost per unit ($) <em class="hint">(materials, packaging, payment fees)</em></span>
+      
+      <input type="number" id="varcost" value="15" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The idea: contribution margin</h2>
+<p>Each sale contributes <em>price minus variable cost</em> toward your fixed costs — that difference is the <strong>contribution margin</strong>. Break-even is simply fixed costs divided by contribution margin per unit. Selling $40 products that cost $15 to deliver, each sale contributes $25; with $5,000 of monthly fixed costs, you need 200 sales a month before profit exists.</p>
+<h2>Getting the cost split right</h2>
+<ul>
+<li><strong>Fixed costs</strong> don't move with volume: rent, salaries, software subscriptions, insurance, loan payments.</li>
+<li><strong>Variable costs</strong> scale with each unit: materials, packaging, shipping, payment-processing fees, sales commissions, per-order labor.</li>
+<li><strong>Gray areas</strong> (marketing, utilities) go wherever they honestly behave in your business. When unsure, treating a cost as fixed gives the more conservative break-even.</li>
+</ul>
+<h2>What to do with the number</h2>
+<p>Compare break-even volume with realistic market demand — 200 units a month means nothing until you ask whether 7 sales a day is plausible for your channel. Then use the calculator as a sandbox: a $5 price rise cuts the example's break-even from 200 to 167 units; trimming $5 of unit cost does the same. Price changes usually move break-even more than heroic cost-cutting does.</p>
+<h2>The margin of safety</h2>
+<p>Once selling above break-even, the gap between actual sales and break-even sales — the <em>margin of safety</em> — tells you how much demand can fall before losses start. Selling 260 units against a 200-unit break-even means a 23% cushion. Thin cushions argue for building cash reserves before scaling spending.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Does break-even include my own salary?</summary>
+      <p>It should. Founders who exclude their own pay are subsidizing the business with free labor and overstating its health. Add at least a survival salary to fixed costs; the honest break-even is higher but real.</p>
+    </details>
+    
+    <details>
+      <summary>How does this work for services instead of products?</summary>
+      <p>Define a unit as a billable hour, a project or a client-month. Price is what you charge for it; variable cost is what delivering one more of it costs you (subcontractors, tools billed per client, transaction fees).</p>
+    </details>
+    
+    <details>
+      <summary>My break-even looks impossible. Now what?</summary>
+      <p>Three levers, in usual order of power: raise prices (small increases move the number a lot), redesign delivery to cut variable cost, and only then attack fixed costs. If no combination produces a plausible volume, the model — not the effort — is the problem.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const f = val('fixed'), p = val('price'), v = val('varcost');
+  const cm = p - v;
+  if (cm <= 0) { show('<div class="result-main">Price does not exceed variable cost — every sale loses money. Raise the price or cut unit costs.</div>'); return; }
+  const units = f / cm;
+  show(`<div class="result-main">${fmt(units, 0)} units / month<small>to break even ($${fmt(units * p, 0)} of revenue)</small></div>
+  <table>
+    <tr><td>Contribution margin per unit</td><td>$${fmt(cm)} (${fmt(cm / p * 100, 0)}% of price)</td></tr>
+    <tr><td>Per day (30-day month)</td><td>${fmt(units / 30, 1)} units</td></tr>
+    <tr><td>Profit at 2× break-even volume</td><td>$${fmt(f, 0)} / month</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Goal Calculator — How Much to Save Each Month</title>
+<meta name="description" content="Work out how much you need to save every month to reach any savings goal, taking interest into account. Free, instant and private.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/savings-goal-calculator/">
+<meta property="og:title" content="Savings Goal Calculator — How Much to Save Each Month">
+<meta property="og:description" content="Work out how much you need to save every month to reach any savings goal, taking interest into account. Free, instant and private.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/savings-goal-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What interest rate should I use for a short-term goal?", "acceptedAnswer": {"@type": "Answer", "text": "For goals under five years, most people keep the money in cash-like products, so use your actual savings account or money-market rate (often 3–5%). Avoid assuming stock-market returns for money you will need soon."}}, {"@type": "Question", "name": "What if I can't afford the monthly amount shown?", "acceptedAnswer": {"@type": "Answer", "text": "You have three levers: extend the deadline, lower the goal, or raise the return (which usually means more risk). Even a small extension often reduces the monthly figure noticeably because both time and compounding work for you."}}, {"@type": "Question", "name": "Does the calculator assume deposits at the start or end of the month?", "acceptedAnswer": {"@type": "Answer", "text": "End of month, the standard convention. If you deposit at the start of each month you will finish slightly ahead of the goal — a pleasant rounding error in your favor."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Savings Goal Calculator</nav>
+  <h1>🎯 Savings Goal Calculator</h1>
+  <p class="lead">Tell the calculator what you are saving for, what you already have, and how long you have. It returns the monthly amount that gets you there, including the help you get from interest along the way.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Savings goal ($)</span>
+      
+      <input type="number" id="goal" value="30000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Already saved ($)</span>
+      
+      <input type="number" id="current" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Time to reach the goal (years)</span>
+      
+      <input type="number" id="years" value="5" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual interest rate (%)</span>
+      
+      <input type="number" id="rate" value="4" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why work backwards from the goal?</h2>
+<p>Most people save whatever is left at the end of the month — and the amount is usually disappointing. Flipping the question to "how much do I need to put away each month?" turns a vague hope into a concrete, automatable number. Once you know the figure, you can set up an automatic transfer on payday and stop relying on willpower.</p>
+<h2>How the math works</h2>
+<p>The calculator first grows your existing savings forward: money you already have will compound until the deadline. Whatever gap remains must be covered by monthly deposits, and the required deposit is the annuity payment that future-values to that gap:</p>
+<p><code>PMT = (Goal − P·(1+i)<sup>n</sup>) · i / ((1+i)<sup>n</sup> − 1)</code></p>
+<p>where <em>i</em> is the monthly rate and <em>n</em> the number of months. If your current savings alone will out-grow the goal, the answer is simply zero.</p>
+<h2>A worked example</h2>
+<p>You want $30,000 for a house deposit in 5 years, already have $5,000, and your savings account pays 4%. Your $5,000 grows to about $6,100 on its own. The remaining $23,900 gap needs roughly $360 a month. Without any interest you would need about $415 a month — the account is quietly covering the difference.</p>
+<h2>Making the number stick</h2>
+<ul>
+<li><strong>Automate it.</strong> Schedule the transfer for the day after payday, so the goal is funded before spending starts.</li>
+<li><strong>Revisit yearly.</strong> Rates change and goals drift. Re-run the calculation once a year and adjust.</li>
+<li><strong>Keep goal money separate.</strong> A dedicated account reduces the temptation to raid it, and makes progress visible.</li>
+</ul>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What interest rate should I use for a short-term goal?</summary>
+      <p>For goals under five years, most people keep the money in cash-like products, so use your actual savings account or money-market rate (often 3–5%). Avoid assuming stock-market returns for money you will need soon.</p>
+    </details>
+    
+    <details>
+      <summary>What if I can't afford the monthly amount shown?</summary>
+      <p>You have three levers: extend the deadline, lower the goal, or raise the return (which usually means more risk). Even a small extension often reduces the monthly figure noticeably because both time and compounding work for you.</p>
+    </details>
+    
+    <details>
+      <summary>Does the calculator assume deposits at the start or end of the month?</summary>
+      <p>End of month, the standard convention. If you deposit at the start of each month you will finish slightly ahead of the goal — a pleasant rounding error in your favor.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const goal = val('goal'), P = val('current'), y = val('years'), r = val('rate') / 100;
+  const i = r / 12, n = Math.round(y * 12);
+  if (n <= 0) { show('<div class="result-main">Please enter a time horizon above zero.</div>'); return; }
+  const growth = Math.pow(1 + i, n);
+  const fromCurrent = P * growth;
+  let msg;
+  if (fromCurrent >= goal) {
+    msg = `<div class="result-main">$0.00<small>Your current savings alone should reach $${fmt(fromCurrent)} — the goal is already covered.</small></div>`;
+  } else {
+    const pmt = i > 0 ? (goal - fromCurrent) * i / (growth - 1) : (goal - fromCurrent) / n;
+    const deposited = P + pmt * n;
+    msg = `<div class="result-main">$${fmt(pmt)} / month<small>Needed to reach $${fmt(goal, 0)} in ${y} years</small></div>
+    <table>
+      <tr><td>Growth of what you already have</td><td>$${fmt(fromCurrent)}</td></tr>
+      <tr><td>Total you will deposit overall</td><td>$${fmt(deposited)}</td></tr>
+      <tr><td>Interest doing the rest</td><td>$${fmt(goal - deposited > 0 ? goal - deposited : 0)}</td></tr>
+    </table>`;
+  }
+  show(msg);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

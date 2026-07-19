@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator — Monthly Payment with Taxes & Insurance</title>
+<meta name="description" content="Estimate your true monthly mortgage payment including principal, interest, property tax and home insurance. See total interest over the life of the loan.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/mortgage-calculator/">
+<meta property="og:title" content="Mortgage Calculator — Monthly Payment with Taxes & Insurance">
+<meta property="og:description" content="Estimate your true monthly mortgage payment including principal, interest, property tax and home insurance. See total interest over the life of the loan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/mortgage-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this calculator include PMI?", "acceptedAnswer": {"@type": "Answer", "text": "No. Private mortgage insurance applies to many loans with less than 20% down and typically costs 0.5–1.5% of the loan balance per year. If you are putting less down, mentally add that to the result or increase the insurance field."}}, {"@type": "Question", "name": "Are property taxes really that predictable?", "acceptedAnswer": {"@type": "Answer", "text": "They change with local rates and reassessments, usually annually. The calculator treats them as constant, which is fine for comparing scenarios, but expect the escrow portion of your payment to drift upward over the years."}}, {"@type": "Question", "name": "Fixed or variable rate — which does this model?", "acceptedAnswer": {"@type": "Answer", "text": "Fixed. Variable/adjustable mortgages start with a fixed period and then reset periodically; no single calculation can promise their lifetime cost. If you are considering one, stress-test the payment at 2–3 percentage points above the intro rate."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Mortgage Calculator</nav>
+  <h1>🏠 Mortgage Calculator</h1>
+  <p class="lead">A mortgage payment is more than the loan itself. This calculator combines principal and interest with property tax and insurance to show the real monthly number a lender will assess — and what the house costs you over the full term.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home price ($)</span>
+      
+      <input type="number" id="price" value="350000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment ($)</span>
+      
+      <input type="number" id="down" value="70000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Interest rate (%)</span>
+      
+      <input type="number" id="rate" value="6.5" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Term (years)</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Property tax ($/year) <em class="hint">(often 1-2% of home value)</em></span>
+      
+      <input type="number" id="tax" value="4200" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Home insurance ($/year)</span>
+      
+      <input type="number" id="ins" value="1500" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What is in a mortgage payment?</h2>
+<p>Lenders talk about <strong>PITI</strong>: Principal, Interest, Taxes, Insurance. Principal and interest repay the loan; property tax and homeowner's insurance are usually collected monthly into an escrow account and paid on your behalf. Buyers who budget only for principal and interest routinely underestimate their housing cost by 20–30%.</p>
+<h2>A worked example</h2>
+<p>A $350,000 home with $70,000 down (20%) leaves a $280,000 loan. At 6.5% over 30 years, principal and interest run about $1,770 a month. Add typical tax and insurance and the real monthly cost is roughly $2,245. Over the full term the interest alone comes to about $357,000 — more than the original loan. That is not a scam; it is what three decades of borrowing costs at these rates.</p>
+<h2>Levers worth testing in the calculator</h2>
+<ul>
+<li><strong>Down payment.</strong> Below 20% down, most US lenders add private mortgage insurance (PMI), often 0.5–1.5% of the loan per year — not included above, so treat sub-20% results as optimistic.</li>
+<li><strong>Rate.</strong> On a $280,000 loan, one percentage point changes the payment by roughly $180 a month and lifetime interest by about $65,000.</li>
+<li><strong>Term.</strong> A 15-year loan roughly halves total interest but raises the monthly payment by 30–40%.</li>
+</ul>
+<h2>How much house can you afford?</h2>
+<p>A common guideline is that total housing costs should stay under 28% of gross monthly income, and all debt payments combined under 36%. Work backwards: if your household earns $8,000 a month, 28% is $2,240 — about the payment in the example above. Guidelines are not laws, but exceeding them consistently is the most common way buyers become house-poor.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Does this calculator include PMI?</summary>
+      <p>No. Private mortgage insurance applies to many loans with less than 20% down and typically costs 0.5–1.5% of the loan balance per year. If you are putting less down, mentally add that to the result or increase the insurance field.</p>
+    </details>
+    
+    <details>
+      <summary>Are property taxes really that predictable?</summary>
+      <p>They change with local rates and reassessments, usually annually. The calculator treats them as constant, which is fine for comparing scenarios, but expect the escrow portion of your payment to drift upward over the years.</p>
+    </details>
+    
+    <details>
+      <summary>Fixed or variable rate — which does this model?</summary>
+      <p>Fixed. Variable/adjustable mortgages start with a fixed period and then reset periodically; no single calculation can promise their lifetime cost. If you are considering one, stress-test the payment at 2–3 percentage points above the intro rate.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), down = val('down'), r = val('rate') / 100, y = val('years');
+  const P = price - down;
+  if (P <= 0) { show('<div class="result-main">Down payment covers the full price — no loan needed.</div>'); return; }
+  const i = r / 12, n = y * 12;
+  const pi = i > 0 ? P * i / (1 - Math.pow(1 + i, -n)) : P / n;
+  const extras = (val('tax') + val('ins')) / 12;
+  const totalInterest = pi * n - P;
+  const ltv = P / price * 100;
+  show(`<div class="result-main">$${fmt(pi + extras)} / month<small>Including property tax and insurance</small></div>
+  <table>
+    <tr><td>Principal &amp; interest</td><td>$${fmt(pi)}</td></tr>
+    <tr><td>Property tax + insurance</td><td>$${fmt(extras)}</td></tr>
+    <tr><td>Loan amount (LTV ${fmt(ltv, 0)}%)</td><td>$${fmt(P, 0)}</td></tr>
+    <tr><td>Total interest over ${y} years</td><td>$${fmt(totalInterest, 0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

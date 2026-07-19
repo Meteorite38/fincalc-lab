@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Avalanche vs Snowball — Which Saves You More?</title>
+<meta name="description" content="Enter up to three debts and compare the avalanche (highest rate first) and snowball (smallest balance first) payoff methods: time, interest and the real difference.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/debt-snowball-vs-avalanche-calculator/">
+<meta property="og:title" content="Debt Avalanche vs Snowball — Which Saves You More?">
+<meta property="og:description" content="Enter up to three debts and compare the avalanche (highest rate first) and snowball (smallest balance first) payoff methods: time, interest and the real difference.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/debt-snowball-vs-avalanche-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which method should I choose?", "acceptedAnswer": {"@type": "Answer", "text": "If you are confident you will stick to the plan, avalanche — it is never worse mathematically. If you have started and quit debt plans before, snowball's early wins have real behavioral value that can outweigh a modest interest cost."}}, {"@type": "Question", "name": "What about minimum payments on each debt?", "acceptedAnswer": {"@type": "Answer", "text": "For simplicity the calculator pools your entire budget and pays debts in strategy order, which closely approximates real minimum-plus-extra behavior for typical consumer debts. The strategy comparison — the point of the tool — is unaffected."}}, {"@type": "Question", "name": "My budget can't cover the interest. Now what?", "acceptedAnswer": {"@type": "Answer", "text": "That means balances grow no matter the order. Priorities shift: call lenders about hardship plans, look into consolidation at a lower rate, and treat any high-rate compounding debt as an emergency to stop growing first."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Debt Avalanche vs Snowball Calculator</nav>
+  <h1>🧊 Debt Avalanche vs Snowball Calculator</h1>
+  <p class="lead">List up to three debts and your total monthly budget for them. The calculator simulates both classic strategies — avalanche (highest interest rate first) and snowball (smallest balance first) — and shows exactly what choosing one over the other costs or saves.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Debt 1 balance ($)</span>
+      
+      <input type="number" id="b1" value="6000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 1 rate (%)</span>
+      
+      <input type="number" id="r1" value="22" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 2 balance ($)</span>
+      
+      <input type="number" id="b2" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 2 rate (%)</span>
+      
+      <input type="number" id="r2" value="12" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 3 balance ($, 0 if none)</span>
+      
+      <input type="number" id="b3" value="1200" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 3 rate (%)</span>
+      
+      <input type="number" id="r3" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Total monthly budget for debts ($)</span>
+      
+      <input type="number" id="budget" value="400" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The two strategies in one minute</h2>
+<p>Both methods have you pay minimums on everything and throw every spare dollar at one target debt. They differ only in the target: <strong>avalanche</strong> attacks the highest interest rate first, which is mathematically optimal; <strong>snowball</strong> attacks the smallest balance first, which produces quick wins that keep people motivated. The best strategy on paper is worthless if you abandon it in month three — which is the honest case for snowball.</p>
+<h2>How big is the difference, really?</h2>
+<p>Usually smaller than the internet argues about. With the example debts ($6,000 at 22%, $3,000 at 12%, $1,200 at 7%) and $400 a month, avalanche saves roughly a few hundred dollars and finishes about the same time as snowball. The gap grows when rate differences are extreme or balances are large; it shrinks toward zero when rates are similar. Run your own numbers — that is what the calculator is for.</p>
+<h2>Practical playbook</h2>
+<ul>
+<li><strong>List every debt</strong> with balance, rate and minimum payment. Visibility alone changes behavior.</li>
+<li><strong>Automate minimums</strong> so a missed payment never adds fees to the pile.</li>
+<li><strong>Pick a method and stay put.</strong> Switching strategies mid-way costs more than either choice.</li>
+<li><strong>Consider a 0% balance transfer or consolidation loan</strong> if your credit allows — lowering the rate beats optimizing the order of expensive debts.</li>
+</ul>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Which method should I choose?</summary>
+      <p>If you are confident you will stick to the plan, avalanche — it is never worse mathematically. If you have started and quit debt plans before, snowball's early wins have real behavioral value that can outweigh a modest interest cost.</p>
+    </details>
+    
+    <details>
+      <summary>What about minimum payments on each debt?</summary>
+      <p>For simplicity the calculator pools your entire budget and pays debts in strategy order, which closely approximates real minimum-plus-extra behavior for typical consumer debts. The strategy comparison — the point of the tool — is unaffected.</p>
+    </details>
+    
+    <details>
+      <summary>My budget can't cover the interest. Now what?</summary>
+      <p>That means balances grow no matter the order. Priorities shift: call lenders about hardship plans, look into consolidation at a lower rate, and treat any high-rate compounding debt as an emergency to stop growing first.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function simulate(debts, budget, order) {
+  let ds = debts.map(d => ({ bal: d.bal, rate: d.rate })).filter(d => d.bal > 0);
+  let months = 0, interest = 0;
+  while (ds.length > 0 && months < 1200) {
+    months++;
+    for (const d of ds) { const int = d.bal * d.rate / 12; d.bal += int; interest += int; }
+    ds.sort(order);
+    let pay = budget;
+    for (const d of ds) { const p = Math.min(pay, d.bal); d.bal -= p; pay -= p; if (pay <= 0) break; }
+    ds = ds.filter(d => d.bal > 0.005);
+  }
+  return months >= 1200 ? null : { months: months, interest: interest };
+}
+function calculate() {
+  const debts = [
+    { bal: val('b1'), rate: val('r1') / 100 },
+    { bal: val('b2'), rate: val('r2') / 100 },
+    { bal: val('b3'), rate: val('r3') / 100 },
+  ];
+  const budget = val('budget');
+  const minInterest = debts.reduce((s, d) => s + d.bal * d.rate / 12, 0);
+  if (budget <= minInterest) { show('<div class="result-main">Your budget does not cover the first month\'s interest ($' + fmt(minInterest) + '). The balances would grow — increase the budget.</div>'); return; }
+  const av = simulate(debts, budget, (a, b) => b.rate - a.rate);
+  const sn = simulate(debts, budget, (a, b) => a.bal - b.bal);
+  if (!av || !sn) { show('<div class="result-main">Payoff exceeds 100 years — increase the budget.</div>'); return; }
+  const diff = sn.interest - av.interest;
+  show(`<div class="result-main">Avalanche saves $${fmt(Math.abs(diff))}<small>${diff >= 0 ? 'versus snowball, with the same monthly budget' : 'less than snowball here — rare, driven by rounding; they are effectively tied'}</small></div>
+  <table>
+    <tr><td>Avalanche (highest rate first)</td><td>${av.months} months, $${fmt(av.interest)} interest</td></tr>
+    <tr><td>Snowball (smallest balance first)</td><td>${sn.months} months, $${fmt(sn.interest)} interest</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

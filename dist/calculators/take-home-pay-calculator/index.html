@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Take-Home Pay Estimator — From Gross to Net Salary</title>
+<meta name="description" content="Estimate your net take-home pay from gross salary using your effective tax rate and deductions. Understand the difference between marginal and effective tax rates.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/take-home-pay-calculator/">
+<meta property="og:title" content="Take-Home Pay Estimator — From Gross to Net Salary">
+<meta property="og:description" content="Estimate your net take-home pay from gross salary using your effective tax rate and deductions. Understand the difference between marginal and effective tax rates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/take-home-pay-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why not calculate the exact tax for my country?", "acceptedAnswer": {"@type": "Answer", "text": "Exact tax depends on filing status, dependents, deductions, credits and local rules that change yearly. Tools that promise exactness for every reader quietly go stale. This estimator makes the assumptions visible and editable, which is more honest and more portable."}}, {"@type": "Question", "name": "What effective rate should I guess if I have no history?", "acceptedAnswer": {"@type": "Answer", "text": "Very roughly: US single filers at average incomes often land at 12–20% federal-plus-state; much of Western Europe lands at 25–40% including social charges. Adjust after your first real payslip."}}, {"@type": "Question", "name": "Are bonuses taxed differently?", "acceptedAnswer": {"@type": "Answer", "text": "They are often withheld at a higher flat rate during the year, but at filing time they are ordinary income in most systems — the effective-rate approach here handles them fine over a full year."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Take-Home Pay Estimator</nav>
+  <h1>🧾 Take-Home Pay Estimator</h1>
+  <p class="lead">Enter your gross salary and the percentages taken by tax and other deductions. The calculator shows monthly take-home pay. Because tax systems vary by country and personal situation, this is a transparent estimator you control — not a black box claiming false precision.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Gross annual salary ($)</span>
+      
+      <input type="number" id="gross" value="70000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Effective income tax rate (%) <em class="hint">(total tax ÷ income, not your top bracket)</em></span>
+      
+      <input type="number" id="taxrate" value="18" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Social security / pension contributions (%)</span>
+      
+      <input type="number" id="social" value="8" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Other deductions ($/month) <em class="hint">(health premiums, union dues, etc.)</em></span>
+      
+      <input type="number" id="other" value="150" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Marginal vs effective tax rate — the classic confusion</h2>
+<p>Your <strong>marginal rate</strong> is the tax on your next dollar; your <strong>effective rate</strong> is total tax divided by total income, and it is always lower in a progressive system because early slices of income are taxed lightly or not at all. "I'm in the 24% bracket" does <em>not</em> mean 24% of your salary disappears — a single US filer at $70,000 pays an effective federal rate closer to 13–15%. Use the effective rate here.</p>
+<h2>Finding your real numbers</h2>
+<ul>
+<li><strong>Last year's tax return</strong> is the gold standard: total tax ÷ total income = effective rate.</li>
+<li><strong>A recent payslip</strong> works too: identify each deduction line and convert it to a percentage of gross.</li>
+<li><strong>Moving or changing jobs?</strong> Look up the destination country's or state's typical burden for your income level, then refine after the first payslip.</li>
+</ul>
+<h2>What to do with the result</h2>
+<p>Budgets built on gross pay fail immediately. Anchor your rent, loan and savings decisions to the net figure. A common allocation for the net amount is 50% needs / 30% wants / 20% savings and debt — see our <a href="/calculators/budget-calculator/">50/30/20 budget calculator</a> to split it automatically.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Why not calculate the exact tax for my country?</summary>
+      <p>Exact tax depends on filing status, dependents, deductions, credits and local rules that change yearly. Tools that promise exactness for every reader quietly go stale. This estimator makes the assumptions visible and editable, which is more honest and more portable.</p>
+    </details>
+    
+    <details>
+      <summary>What effective rate should I guess if I have no history?</summary>
+      <p>Very roughly: US single filers at average incomes often land at 12–20% federal-plus-state; much of Western Europe lands at 25–40% including social charges. Adjust after your first real payslip.</p>
+    </details>
+    
+    <details>
+      <summary>Are bonuses taxed differently?</summary>
+      <p>They are often withheld at a higher flat rate during the year, but at filing time they are ordinary income in most systems — the effective-rate approach here handles them fine over a full year.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const g = val('gross'), t = val('taxrate') / 100, s = val('social') / 100, o = val('other');
+  const netAnnual = g * (1 - t - s) - o * 12;
+  if (netAnnual < 0) { show('<div class="result-main">Deductions exceed the salary — check the percentages.</div>'); return; }
+  show(`<div class="result-main">$${fmt(netAnnual / 12)} / month<small>Estimated take-home pay</small></div>
+  <table>
+    <tr><td>Gross monthly</td><td>$${fmt(g / 12)}</td></tr>
+    <tr><td>Income tax</td><td>−$${fmt(g * t / 12)}</td></tr>
+    <tr><td>Social contributions</td><td>−$${fmt(g * s / 12)}</td></tr>
+    <tr><td>Other deductions</td><td>−$${fmt(o)}</td></tr>
+    <tr><td>Share of gross you keep</td><td>${fmt(netAnnual / g * 100, 1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
