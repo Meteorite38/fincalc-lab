@@ -20,6 +20,7 @@ SITE_NAME = "FinCalc Lab"
 SITE_TAGLINE = "Free, fast and honest financial calculators"
 SITE_URL = "https://fincalc-lab.pages.dev"  # 买好域名后改成正式域名再重新构建
 CONTACT_EMAIL = "contact@fincalclab.com"   # 上线前改成你的真实邮箱
+INDEXNOW_KEY = "a2fc473d104de2b06f0dc22da1af535f"  # IndexNow 密钥, 用于向 Bing/Yandex 主动推送收录
 CURRENT_YEAR = datetime.date.today().year
 TODAY = datetime.date.today().isoformat()
 
@@ -135,6 +136,9 @@ def build():
     sm.append("</urlset>")
     write("sitemap.xml", "\n".join(sm))
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+    # IndexNow key file (lets us push new URLs to Bing/Yandex without any login)
+    write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
 
     print(f"OK: built {len(urls)} pages -> dist/")
 
