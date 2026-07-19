@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rule of 72 Calculator — How Long to Double Your Money</title>
+<meta name="description" content="Use the Rule of 72 to estimate how many years it takes to double your money at a given rate — plus the exact doubling time for comparison.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/rule-of-72-calculator/">
+<meta property="og:title" content="Rule of 72 Calculator — How Long to Double Your Money">
+<meta property="og:description" content="Use the Rule of 72 to estimate how many years it takes to double your money at a given rate — plus the exact doubling time for comparison.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/rule-of-72-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Rule of 72 accurate?", "acceptedAnswer": {"@type": "Answer", "text": "Very accurate for rates between about 5% and 12% — usually within a fraction of a year. It drifts wider at very high or very low rates, where you should use the exact formula shown above."}}, {"@type": "Question", "name": "Can I use it for inflation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dividing 72 by the inflation rate estimates how long until your money's purchasing power halves — a sobering way to see why idle cash loses value."}}, {"@type": "Question", "name": "What rate should I assume for investing?", "acceptedAnswer": {"@type": "Answer", "text": "Historically diversified stocks have averaged roughly 7–10% before inflation. Using a conservative 7% (a ~10-year double) keeps expectations realistic."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Rule of 72 Calculator</nav>
+  <h1>⏳ Rule of 72 Calculator</h1>
+  <p class="lead">The Rule of 72 is the most useful piece of mental math in finance: divide 72 by your annual return, and you get roughly how many years it takes to double your money. Enter a rate to see the estimate — and how close it is to the exact answer.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual return / interest rate (%)</span>
+      
+      <input type="number" id="rate" value="8" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Starting amount ($, optional)</span>
+      
+      <input type="number" id="amount" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why 72?</h2>
+<p>The exact doubling time comes from logarithms: <code>ln(2) ÷ ln(1 + rate)</code>. That's not something you can do in your head. The number 72 is a clever approximation — it divides cleanly by 2, 3, 4, 6, 8, 9 and 12, and it's most accurate for rates in the 6–10% range that matter most to investors. At 8%, the rule says 9 years; the exact answer is 9.01. Remarkably close for mental math.</p>
+<h2>Everyday uses</h2>
+<ul>
+<li><strong>Investing:</strong> at an 8% average return, money doubles roughly every 9 years — so a 27-year horizon means about three doublings, an 8x increase.</li>
+<li><strong>Inflation, in reverse:</strong> at 3% inflation, prices double (your money's purchasing power halves) in about 24 years. At 6%, just 12.</li>
+<li><strong>Debt, as a warning:</strong> a 24% credit card balance left unpaid doubles what you owe in about 3 years.</li>
+</ul>
+<h2>Accuracy and limits</h2>
+<p>For higher rates the rule drifts: at 20%, it estimates 3.6 years vs an exact 3.8. Some people switch to 70 for continuous compounding or 69.3 for maximum precision, but 72 wins on mental-math convenience. The bigger caveat: real investments don't return a steady rate — they average one out through violent ups and downs. The Rule of 72 tells you what a smooth average implies, which is a planning guide, not a prediction of any single year.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is the Rule of 72 accurate?</summary>
+      <p>Very accurate for rates between about 5% and 12% — usually within a fraction of a year. It drifts wider at very high or very low rates, where you should use the exact formula shown above.</p>
+    </details>
+    
+    <details>
+      <summary>Can I use it for inflation?</summary>
+      <p>Yes. Dividing 72 by the inflation rate estimates how long until your money's purchasing power halves — a sobering way to see why idle cash loses value.</p>
+    </details>
+    
+    <details>
+      <summary>What rate should I assume for investing?</summary>
+      <p>Historically diversified stocks have averaged roughly 7–10% before inflation. Using a conservative 7% (a ~10-year double) keeps expectations realistic.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const r = val('rate'), a = val('amount');
+  if (r <= 0) { show('<div class="result-main">Enter a rate above zero.</div>'); return; }
+  const rule = 72 / r;
+  const exact = Math.log(2) / Math.log(1 + r / 100);
+  let rows = `<tr><td>Rule of 72 estimate</td><td>${fmt(rule,1)} years</td></tr>
+    <tr><td>Exact doubling time</td><td>${fmt(exact,1)} years</td></tr>`;
+  if (a > 0) {
+    rows += `<tr><td>${a.toLocaleString()} doubles to</td><td>$${fmt(a*2,0)} in ~${fmt(rule,1)} yrs</td></tr>
+    <tr><td>Quadruples (2 doublings)</td><td>$${fmt(a*4,0)} in ~${fmt(rule*2,1)} yrs</td></tr>`;
+  }
+  show(`<div class="result-main">~${fmt(rule,1)} years<small>to double at ${fmt(r,1)}% per year</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

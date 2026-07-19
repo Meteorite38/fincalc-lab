@@ -12,7 +12,7 @@
 
 <section id="calculators" class="container section">
   <h2>All calculators</h2>
-  {% for cat in ['Savings & Investing', 'Loans & Debt', 'Income & Budgeting', 'Business'] %}
+  {% for cat in ['Savings & Investing', 'Retirement', 'Loans & Debt', 'Income & Budgeting', 'Taxes & Shopping', 'Business'] %}
   {% set items = calcs | selectattr('category', 'equalto', cat) | list %}
   {% if items %}
   <h3 class="cat-label">{{ cat }}</h3>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Present Value Calculator — What Future Money Is Worth Today</title>
+<meta name="description" content="Calculate the present value of a future amount using a discount rate — understand the time value of money and compare payouts across different dates.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/present-value-calculator/">
+<meta property="og:title" content="Present Value Calculator — What Future Money Is Worth Today">
+<meta property="og:description" content="Calculate the present value of a future amount using a discount rate — understand the time value of money and compare payouts across different dates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/present-value-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between present value and future value?", "acceptedAnswer": {"@type": "Answer", "text": "Future value grows today's money forward at a rate; present value discounts tomorrow's money back. They're inverse operations using the same rate and time period."}}, {"@type": "Question", "name": "What discount rate should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Your opportunity cost — the return you'd realistically earn on the money elsewhere. There's no universal 'correct' rate; it reflects your alternatives and risk tolerance, which is why PV analysis always states its rate."}}, {"@type": "Question", "name": "Does this handle a stream of payments?", "acceptedAnswer": {"@type": "Answer", "text": "This tool discounts a single future sum. For a series of payments, you present-value each one and sum them (the basis of annuity and NPV calculations)."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Present Value Calculator</nav>
+  <h1>🕐 Present Value Calculator</h1>
+  <p class="lead">A dollar tomorrow is worth less than a dollar today. Present value tells you exactly how much less: enter a future amount, a discount rate and the years until you receive it, to see what that money is worth in today's terms.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Future amount ($)</span>
+      
+      <input type="number" id="future" value="50000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Discount rate (%) <em class="hint">(your required return or opportunity cost)</em></span>
+      
+      <input type="number" id="rate" value="6" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until received</span>
+      
+      <input type="number" id="years" value="10" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The time value of money</h2>
+<p>Money available now is worth more than the same amount later, for three reasons: you could invest it and earn a return, inflation erodes future purchasing power, and future payments carry the risk they never arrive. Present value (PV) quantifies all of this in one number using the formula <code>PV = FV ÷ (1 + r)<sup>years</sup></code>, where <em>r</em> is the discount rate.</p>
+<h2>Choosing a discount rate</h2>
+<p>The discount rate is the return you could otherwise earn on your money — your opportunity cost. Use a low rate (3–4%) if your alternative is safe savings; a higher rate (8–10%+) if you'd otherwise invest in stocks or fund a business. The higher the rate, the more aggressively future money is discounted: at 10%, $50,000 in ten years is worth only about $19,300 today; at 3%, about $37,200. The rate choice dominates the answer.</p>
+<h2>Where present value decides real questions</h2>
+<ul>
+<li><strong>Lump sum vs installments:</strong> is a $500,000 lottery lump sum better than $700,000 paid over 20 years? PV settles it.</li>
+<li><strong>Pension or buyout offers:</strong> comparing a one-time payout against a future stream.</li>
+<li><strong>Business investment:</strong> a project's future cash flows are only worth their combined present value today — the basis of net present value (NPV) analysis.</li>
+</ul>
+<p>The intuition to keep: whenever someone offers you money in the future, mentally discount it. Distant promises are worth less than their face value, and the longer the wait or the higher your opportunity cost, the bigger the discount.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What's the difference between present value and future value?</summary>
+      <p>Future value grows today's money forward at a rate; present value discounts tomorrow's money back. They're inverse operations using the same rate and time period.</p>
+    </details>
+    
+    <details>
+      <summary>What discount rate should I use?</summary>
+      <p>Your opportunity cost — the return you'd realistically earn on the money elsewhere. There's no universal 'correct' rate; it reflects your alternatives and risk tolerance, which is why PV analysis always states its rate.</p>
+    </details>
+    
+    <details>
+      <summary>Does this handle a stream of payments?</summary>
+      <p>This tool discounts a single future sum. For a series of payments, you present-value each one and sum them (the basis of annuity and NPV calculations).</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const fv = val('future'), r = val('rate') / 100, y = val('years');
+  const pv = fv / Math.pow(1 + r, y);
+  const discount = fv - pv;
+  show(`<div class="result-main">$${fmt(pv)}<small>Today's value of $${fmt(fv,0)} received in ${fmt(y,1)} years</small></div>
+  <table>
+    <tr><td>Value lost to discounting</td><td>$${fmt(discount)}</td></tr>
+    <tr><td>Discount factor</td><td>${fmt(pv / fv, 3)}</td></tr>
+    <tr><td>Each future dollar is worth today</td><td>$${fmt(pv / fv, 3)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Calculator — Return on Investment (Simple & Annualized)</title>
+<meta name="description" content="Calculate return on investment (ROI) from cost and final value, including total ROI, net profit and an annualized rate for fair comparison across time periods.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/roi-calculator/">
+<meta property="og:title" content="ROI Calculator — Return on Investment (Simple & Annualized)">
+<meta property="og:description" content="Calculate return on investment (ROI) from cost and final value, including total ROI, net profit and an annualized rate for fair comparison across time periods.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/roi-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good ROI?", "acceptedAnswer": {"@type": "Answer", "text": "It depends entirely on the asset class and risk. Long-run stock market ROI has averaged roughly 7–10% annualized; a business project might target 20%+ to justify the effort and risk. 'Good' means beating your alternatives at a similar risk level."}}, {"@type": "Question", "name": "Can ROI be negative?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — if the final value is less than the amount invested, ROI is negative, representing a loss on your capital."}}, {"@type": "Question", "name": "Why is my annualized ROI so much lower than simple ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Because compounding spreads the gain across years. A large total return earned slowly is a modest annual rate. This is exactly why annualized figures prevent long, mediocre investments from looking impressive."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; ROI Calculator</nav>
+  <h1>💹 ROI Calculator</h1>
+  <p class="lead">ROI answers the simplest money question: for every dollar I put in, how much did I get back? Enter what you invested, what it became, and how long you held it — you get both the headline ROI and the annualized rate that makes different investments comparable.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Amount invested ($)</span>
+      
+      <input type="number" id="cost" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Final value / amount returned ($)</span>
+      
+      <input type="number" id="final" value="8000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Holding period (years)</span>
+      
+      <input type="number" id="years" value="3" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Simple ROI vs annualized ROI</h2>
+<p><strong>Simple ROI</strong> = (final value − cost) ÷ cost. It's the total percentage gain over the whole holding period, ignoring how long that took. A 60% ROI sounds great — but 60% over one year and 60% over ten years are wildly different investments.</p>
+<p><strong>Annualized ROI</strong> fixes this by converting the total return into a per-year rate using compounding: <code>(final ÷ cost)<sup>1/years</sup> − 1</code>. That 60% total becomes 60%/year over one year, but only about 4.8%/year over ten. Always compare investments on the annualized figure.</p>
+<h2>What to include in "cost"</h2>
+<p>Real ROI counts every dollar the investment required, not just the sticker price: purchase cost, fees, commissions, renovation or setup costs, and ongoing expenses. Leaving these out inflates ROI and is the most common way people fool themselves about a deal's quality.</p>
+<h2>Where ROI is used — and its blind spots</h2>
+<ul>
+<li><strong>Business projects:</strong> "this $5,000 software will save $8,000" is a 60% ROI decision.</li>
+<li><strong>Marketing:</strong> revenue generated per dollar of ad spend.</li>
+<li><strong>Investments:</strong> though for cash-flowing assets, annualized ROI (or IRR) beats simple ROI.</li>
+</ul>
+<p>ROI's blind spot is <em>risk and time</em>. It says nothing about how likely the return was, or the volatility along the way. A 40% ROI from a government bond and a 40% ROI from a lottery-like startup are not equivalent, even though the number is identical. Use ROI to rank comparable options, not to justify taking on wildly different risks.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a good ROI?</summary>
+      <p>It depends entirely on the asset class and risk. Long-run stock market ROI has averaged roughly 7–10% annualized; a business project might target 20%+ to justify the effort and risk. 'Good' means beating your alternatives at a similar risk level.</p>
+    </details>
+    
+    <details>
+      <summary>Can ROI be negative?</summary>
+      <p>Yes — if the final value is less than the amount invested, ROI is negative, representing a loss on your capital.</p>
+    </details>
+    
+    <details>
+      <summary>Why is my annualized ROI so much lower than simple ROI?</summary>
+      <p>Because compounding spreads the gain across years. A large total return earned slowly is a modest annual rate. This is exactly why annualized figures prevent long, mediocre investments from looking impressive.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const c = val('cost'), f = val('final'), y = val('years');
+  if (c <= 0) { show('<div class="result-main">Amount invested must be above zero.</div>'); return; }
+  const profit = f - c;
+  const roi = profit / c * 100;
+  const ann = y > 0 ? (Math.pow(f / c, 1 / y) - 1) * 100 : NaN;
+  show(`<div class="result-main">${fmt(roi)}%<small>Total ROI &mdash; net ${profit >= 0 ? 'profit' : 'loss'} of $${fmt(Math.abs(profit))}</small></div>
+  <table>
+    <tr><td>Net profit</td><td>$${fmt(profit)}</td></tr>
+    <tr><td>Money multiple</td><td>${fmt(f / c)}x</td></tr>
+    <tr><td>Annualized ROI (${fmt(y,1)} yr)</td><td>${isFinite(ann) ? fmt(ann) + '%' : '—'}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

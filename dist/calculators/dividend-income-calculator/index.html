@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dividend Income Calculator — Annual Payout & Yield</title>
+<meta name="description" content="Calculate annual dividend income from your portfolio value and dividend yield, including monthly income and a projection of dividend growth over time.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/dividend-income-calculator/">
+<meta property="og:title" content="Dividend Income Calculator — Annual Payout & Yield">
+<meta property="og:description" content="Calculate annual dividend income from your portfolio value and dividend yield, including monthly income and a projection of dividend growth over time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/dividend-income-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is dividend yield the same as total return?", "acceptedAnswer": {"@type": "Answer", "text": "No. Yield is only the income portion. Total return also includes share price appreciation (or loss). A 3% yield with 5% price growth is an 8% total return."}}, {"@type": "Question", "name": "How often are dividends paid?", "acceptedAnswer": {"@type": "Answer", "text": "Most companies pay quarterly, some monthly or semi-annually. This calculator works in annual terms; divide by 12 for a rough monthly figure."}}, {"@type": "Question", "name": "What is 'yield on cost'?", "acceptedAnswer": {"@type": "Answer", "text": "Your current annual dividend divided by your original investment. As companies raise payouts, yield on cost climbs even though the market yield stays similar — a key reward of long-term dividend-growth holding."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Dividend Income Calculator</nav>
+  <h1>🪙 Dividend Income Calculator</h1>
+  <p class="lead">Estimate the income a dividend portfolio produces. Enter your investment amount and the average dividend yield to see annual and monthly income — plus how reinvesting and dividend growth compound the payout over time.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Portfolio value ($)</span>
+      
+      <input type="number" id="amount" value="100000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Average dividend yield (%)</span>
+      
+      <input type="number" id="yield" value="3.5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual dividend growth (%) <em class="hint">(how fast payouts rise)</em></span>
+      
+      <input type="number" id="growth" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years to project</span>
+      
+      <input type="number" id="years" value="10" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How dividend income works</h2>
+<p>Dividend-paying companies distribute part of their profits to shareholders, usually quarterly. Your annual income is simply <code>portfolio value × dividend yield</code>. A $100,000 portfolio yielding 3.5% produces $3,500 a year, about $290 a month — income you receive without selling any shares.</p>
+<h2>Two engines of dividend growth</h2>
+<p>This calculator shows the effect of <strong>dividend growth</strong> — healthy companies tend to raise their payouts over time. At 5% annual growth, that $3,500 becomes about $5,700 in ten years <em>from the same shares</em>, lifting your "yield on cost" well above the starting yield. The second engine, not shown here, is <strong>reinvestment</strong>: using dividends to buy more shares, which then pay their own dividends. Combined, the two produce the powerful compounding that dividend-growth investors rely on.</p>
+<h2>Reality checks</h2>
+<ul>
+<li><strong>Yield traps:</strong> an unusually high yield (say 8%+) often signals a falling share price and a dividend at risk of being cut. Sustainable yields matter more than headline ones.</li>
+<li><strong>Taxes:</strong> dividends are typically taxable in the year received (rates vary by country and account type), which reduces the cash you keep.</li>
+<li><strong>Not guaranteed:</strong> dividends can be reduced or eliminated in hard times. Diversification across many payers reduces the impact of any single cut.</li>
+</ul>
+<p>Dividend investing appeals to those who want a growing income stream and psychological staying power in downturns — but total return (price growth plus dividends) is what ultimately builds wealth, so don't chase yield at the expense of quality.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is dividend yield the same as total return?</summary>
+      <p>No. Yield is only the income portion. Total return also includes share price appreciation (or loss). A 3% yield with 5% price growth is an 8% total return.</p>
+    </details>
+    
+    <details>
+      <summary>How often are dividends paid?</summary>
+      <p>Most companies pay quarterly, some monthly or semi-annually. This calculator works in annual terms; divide by 12 for a rough monthly figure.</p>
+    </details>
+    
+    <details>
+      <summary>What is 'yield on cost'?</summary>
+      <p>Your current annual dividend divided by your original investment. As companies raise payouts, yield on cost climbs even though the market yield stays similar — a key reward of long-term dividend-growth holding.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const p = val('amount'), y = val('yield') / 100, g = val('growth') / 100, n = val('years');
+  const annual = p * y;
+  const future = annual * Math.pow(1 + g, n);
+  const yieldOnCost = future / p * 100;
+  show(`<div class="result-main">$${fmt(annual)} / year<small>$${fmt(annual/12)} per month at ${fmt(y*100,1)}% yield</small></div>
+  <table>
+    <tr><td>Annual income now</td><td>$${fmt(annual)}</td></tr>
+    <tr><td>Annual income in ${n} yrs (payout growth only)</td><td>$${fmt(future)}</td></tr>
+    <tr><td>Yield on cost in ${n} yrs</td><td>${fmt(yieldOnCost,1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

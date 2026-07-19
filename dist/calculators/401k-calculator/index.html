@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>401(k) Calculator — Retirement Growth with Employer Match</title>
+<meta name="description" content="Project your 401(k) balance at retirement including your contributions, employer match and investment growth — and see how much the match adds over a career.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/401k-calculator/">
+<meta property="og:title" content="401(k) Calculator — Retirement Growth with Employer Match">
+<meta property="og:description" content="Project your 401(k) balance at retirement including your contributions, employer match and investment growth — and see how much the match adds over a career.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/401k-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I contribute to my 401(k)?", "acceptedAnswer": {"@type": "Answer", "text": "At minimum, enough to capture the full employer match. Many planners suggest working toward 15% of salary (including the match) for a traditional retirement age; start where you can and increase with raises."}}, {"@type": "Question", "name": "What return rate is realistic?", "acceptedAnswer": {"@type": "Answer", "text": "A diversified stock-heavy portfolio has historically averaged around 7–10% before inflation over long periods. Using 6–7% keeps projections conservative; retirees often shift toward lower-return, lower-risk mixes near retirement."}}, {"@type": "Question", "name": "Traditional or Roth 401(k)?", "acceptedAnswer": {"@type": "Answer", "text": "Traditional lowers taxes now and is taxed at withdrawal; Roth is taxed now and withdrawn tax-free. Roth often favors those expecting higher future tax rates or with a long horizon; many people split contributions between both."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; 401(k) Calculator</nav>
+  <h1>🏦 401(k) Calculator</h1>
+  <p class="lead">Your 401(k) has a feature almost nothing else offers: free money from your employer's match. Enter your salary, contribution rate and match to project your balance at retirement — and see just how much the match alone is worth.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual salary ($)</span>
+      
+      <input type="number" id="salary" value="70000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Your contribution (% of salary)</span>
+      
+      <input type="number" id="contrib" value="10" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Employer match (% of salary) <em class="hint">(e.g. 100% match up to 4%)</em></span>
+      
+      <input type="number" id="match" value="4" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current 401(k) balance ($)</span>
+      
+      <input type="number" id="balance" value="25000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until retirement</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The employer match is a 100% instant return</h2>
+<p>If your employer matches 100% of contributions up to, say, 4% of salary, every dollar you put in (up to that limit) is immediately doubled. No investment on earth reliably offers a guaranteed 100% return — turning down a full match is leaving free salary on the table. The first rule of retirement saving is: <strong>contribute at least enough to capture the entire match.</strong></p>
+<h2>How the projection works</h2>
+<p>The calculator combines your contribution and the employer match into monthly deposits, then compounds them plus your current balance at your expected return until retirement. Notice the "value from the match alone" line — over a 30-year career, an employer match can quietly grow into hundreds of thousands of dollars you never earned at work.</p>
+<h2>Levers that matter</h2>
+<ul>
+<li><strong>Start early.</strong> Because of compounding, contributions in your 20s do far more work than the same dollars in your 50s.</li>
+<li><strong>Raise the rate over time.</strong> Bumping your contribution 1% each raise is nearly painless and dramatically changes the outcome.</li>
+<li><strong>Mind the fees.</strong> Fund expense ratios silently reduce your return; low-cost index options often serve well.</li>
+</ul>
+<h2>Important caveats</h2>
+<p>Projections assume a steady average return; real markets deliver that average through sharp swings. Contribution limits apply (set annually by the IRS), and traditional 401(k) withdrawals are taxed as income in retirement, while Roth 401(k) contributions are taxed now and withdrawn tax-free later. Treat the result as a realistic planning estimate, not a promise.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much should I contribute to my 401(k)?</summary>
+      <p>At minimum, enough to capture the full employer match. Many planners suggest working toward 15% of salary (including the match) for a traditional retirement age; start where you can and increase with raises.</p>
+    </details>
+    
+    <details>
+      <summary>What return rate is realistic?</summary>
+      <p>A diversified stock-heavy portfolio has historically averaged around 7–10% before inflation over long periods. Using 6–7% keeps projections conservative; retirees often shift toward lower-return, lower-risk mixes near retirement.</p>
+    </details>
+    
+    <details>
+      <summary>Traditional or Roth 401(k)?</summary>
+      <p>Traditional lowers taxes now and is taxed at withdrawal; Roth is taxed now and withdrawn tax-free. Roth often favors those expecting higher future tax rates or with a long horizon; many people split contributions between both.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const s = val('salary'), cr = val('contrib')/100, m = val('match')/100;
+  const P = val('balance'), r = val('rate')/100, y = val('years');
+  const annualContrib = s * cr, annualMatch = s * m;
+  const total = annualContrib + annualMatch;
+  const i = r/12, n = y*12, pmt = total/12, growth = Math.pow(1+i,n);
+  const fv = P*growth + (i>0 ? pmt*(growth-1)/i : pmt*n);
+  const matchOnly = i>0 ? (annualMatch/12)*(growth-1)/i : (annualMatch/12)*n;
+  show(`<div class="result-main">$${fmt(fv,0)}<small>Projected 401(k) at retirement (${y} years)</small></div>
+  <table>
+    <tr><td>Your yearly contribution</td><td>$${fmt(annualContrib,0)}</td></tr>
+    <tr><td>Employer match yearly</td><td>$${fmt(annualMatch,0)} (free money)</td></tr>
+    <tr><td>Value from the match alone</td><td>$${fmt(matchOnly,0)}</td></tr>
+    <tr><td>Total contributed over career</td><td>$${fmt(P + total*y,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

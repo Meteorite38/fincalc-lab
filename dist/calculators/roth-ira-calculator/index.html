@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roth IRA Calculator — Tax-Free Retirement Growth</title>
+<meta name="description" content="Project the tax-free value of a Roth IRA from annual contributions and expected returns, and see how much of the balance is growth you'll never pay tax on.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/roth-ira-calculator/">
+<meta property="og:title" content="Roth IRA Calculator — Tax-Free Retirement Growth">
+<meta property="og:description" content="Project the tax-free value of a Roth IRA from annual contributions and expected returns, and see how much of the balance is growth you'll never pay tax on.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/roth-ira-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the Roth IRA contribution limit?", "acceptedAnswer": {"@type": "Answer", "text": "It's set annually. For 2024 it's $7,000 (under 50) or $8,000 (50+). Limits rise over time, so revisit the figure each year and adjust the calculator."}}, {"@type": "Question", "name": "Are withdrawals really tax-free?", "acceptedAnswer": {"@type": "Answer", "text": "Qualified withdrawals are — generally once you're 59½ and the account has been open five years. Your own contributions can usually be withdrawn anytime tax- and penalty-free; earnings withdrawn early may be taxed and penalized."}}, {"@type": "Question", "name": "Roth or Traditional IRA — which is better?", "acceptedAnswer": {"@type": "Answer", "text": "Roth favors those who expect equal or higher tax rates in retirement (often younger savers). Traditional favors high earners wanting a deduction now. Many people contribute to both to diversify their future tax exposure."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Roth IRA Calculator</nav>
+  <h1>💰 Roth IRA Calculator</h1>
+  <p class="lead">A Roth IRA's superpower is that qualified withdrawals in retirement are completely tax-free — including all the growth. Enter your contributions and expected return to see the balance you could build, and how much of it is untaxed gains.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current Roth balance ($)</span>
+      
+      <input type="number" id="balance" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual contribution ($) <em class="hint">(2024 limit is $7,000 under age 50)</em></span>
+      
+      <input type="number" id="annual" value="7000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years of contributing</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why "tax-free" is such a big deal</h2>
+<p>In a Roth IRA you contribute money you've already paid tax on. In exchange, qualified withdrawals in retirement — contributions <em>and</em> all investment growth — come out completely tax-free. Look at the "investment growth" line in your result: over decades, the majority of a Roth balance is typically gains, and in a Roth you never pay a cent of tax on them. In a regular taxable account, those same gains would be taxed.</p>
+<h2>Roth vs Traditional in one sentence</h2>
+<p>Pay tax now (Roth) or pay tax later (Traditional). Roth wins if you expect to be in the same or a higher tax bracket in retirement — which describes many young savers whose income (and tax rate) will rise. Traditional wins if you're in a high bracket now and expect a lower one later. Splitting contributions hedges the bet.</p>
+<h2>Rules worth knowing</h2>
+<ul>
+<li><strong>Contribution limits</strong> are set annually (e.g. $7,000 in 2024, plus a $1,000 catch-up at 50+). This calculator assumes a constant contribution; adjust as limits rise.</li>
+<li><strong>Income limits</strong> can reduce or block direct Roth contributions at higher incomes.</li>
+<li><strong>Flexibility:</strong> your <em>contributions</em> (not earnings) can generally be withdrawn anytime without penalty, making the Roth unusually flexible — though raiding it sacrifices the tax-free growth that makes it valuable.</li>
+<li><strong>No required withdrawals</strong> during the original owner's lifetime, unlike traditional accounts.</li>
+</ul>
+<h2>The takeaway</h2>
+<p>A Roth IRA is one of the most powerful wealth tools available to ordinary savers precisely because of that tax-free growth line. Maxing it out each year, invested in low-cost diversified funds and left alone for decades, is a quietly spectacular strategy. As always, the projection assumes a steady average return that real markets deliver only in the long run.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What's the Roth IRA contribution limit?</summary>
+      <p>It's set annually. For 2024 it's $7,000 (under 50) or $8,000 (50+). Limits rise over time, so revisit the figure each year and adjust the calculator.</p>
+    </details>
+    
+    <details>
+      <summary>Are withdrawals really tax-free?</summary>
+      <p>Qualified withdrawals are — generally once you're 59½ and the account has been open five years. Your own contributions can usually be withdrawn anytime tax- and penalty-free; earnings withdrawn early may be taxed and penalized.</p>
+    </details>
+    
+    <details>
+      <summary>Roth or Traditional IRA — which is better?</summary>
+      <p>Roth favors those who expect equal or higher tax rates in retirement (often younger savers). Traditional favors high earners wanting a deduction now. Many people contribute to both to diversify their future tax exposure.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const P = val('balance'), c = val('annual'), r = val('rate')/100, y = val('years');
+  const i = r/12, n = y*12, pmt = c/12, growth = Math.pow(1+i,n);
+  const fv = P*growth + (i>0 ? pmt*(growth-1)/i : pmt*n);
+  const contributed = P + c*y;
+  const gains = fv - contributed;
+  show(`<div class="result-main">$${fmt(fv,0)}<small>Tax-free at retirement after ${y} years</small></div>
+  <table>
+    <tr><td>Total contributed</td><td>$${fmt(contributed,0)}</td></tr>
+    <tr><td>Investment growth (all tax-free)</td><td>$${fmt(gains,0)}</td></tr>
+    <tr><td>Growth as share of balance</td><td>${fv>0 ? fmt(gains/fv*100,0) : '—'}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
