@@ -26,8 +26,9 @@ for u in urls:
         if code != 200:
             problems.append(f"{code} {u}")
             continue
-        if "/calculators/" in u:
-            # calc pages must have the interactive box and a calculate() script
+        # individual calculator pages (/calculators/<slug>/) must have the interactive box;
+        # the /calculators/ directory index is a listing and is exempt.
+        if "/calculators/" in u and not u.rstrip("/").endswith("/calculators"):
             if 'id="calc"' not in html or "function calculate()" not in html:
                 calc_no_result.append(u)
         # crude JSON-LD sanity: balanced braces in each ld+json block
