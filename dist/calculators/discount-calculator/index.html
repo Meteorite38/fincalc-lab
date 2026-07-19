@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discount Calculator — Sale Price and Money Saved</title>
+<meta name="description" content="Calculate the sale price after a percentage discount and see how much you save. Handles stacked discounts and shows the effective total discount.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/discount-calculator/">
+<meta property="og:title" content="Discount Calculator — Sale Price and Money Saved">
+<meta property="og:description" content="Calculate the sale price after a percentage discount and see how much you save. Handles stacked discounts and shows the effective total discount.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/discount-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I combine two discounts?", "acceptedAnswer": {"@type": "Answer", "text": "Apply them one after another, not by adding. 20% then 10% means multiply by 0.8 then by 0.9 (0.72 total), giving a 28% effective discount — less than the 30% the numbers might suggest."}}, {"@type": "Question", "name": "What does 'effective discount' mean?", "acceptedAnswer": {"@type": "Answer", "text": "The single discount percentage that would produce the same final price as the stacked discounts. It's always less than the sum of the individual percentages."}}, {"@type": "Question", "name": "Is the sale price before or after tax?", "acceptedAnswer": {"@type": "Answer", "text": "Advertised discounts almost always apply to the pre-tax price. Sales tax is then added to the discounted amount at checkout, so your final total will be a bit higher than the sale price shown."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Discount Calculator</nav>
+  <h1>🏷️ Discount Calculator</h1>
+  <p class="lead">See exactly what you'll pay after a discount — and what you actually save. Enter the original price and the percent off; optionally add a second discount to see how 'stacked' offers really combine.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Original price ($)</span>
+      
+      <input type="number" id="price" value="80" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Discount (%)</span>
+      
+      <input type="number" id="off" value="25" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra discount on top (%, optional) <em class="hint">(applied after the first)</em></span>
+      
+      <input type="number" id="off2" value="0" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The math behind the sale tag</h2>
+<p>Sale price = original × (1 − discount). A 25% discount on $80 leaves you paying $60 and saving $20. Simple enough — but retailers count on shoppers misjudging percentages, especially when discounts stack.</p>
+<h2>Stacked discounts don't add up</h2>
+<p>"25% off, then an extra 20% off" is <strong>not</strong> 45% off. The second discount applies to the already-reduced price: $80 → $60 → $48. That's a $32 saving, or 40% effective — not 45%. Stacked percentages always produce a smaller total discount than their sum, because each one works on a shrinking base. This calculator's "effective total discount" line shows the true figure so a clever-looking sign doesn't fool you.</p>
+<h2>Smart-shopper checks</h2>
+<ul>
+<li><strong>Discount off what?</strong> A percentage off an inflated "original" price can beat a smaller discount off a fair one. Compare final prices, not percentages.</li>
+<li><strong>Need vs deal.</strong> Saving 40% on something you wouldn't otherwise buy is spending 60%, not saving anything.</li>
+<li><strong>Add tax back.</strong> The advertised sale price is usually pre-tax; the register total will be higher.</li>
+</ul>
+<p>The only number that matters at checkout is the final amount leaving your account. Percentages are marketing; the total is reality.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I combine two discounts?</summary>
+      <p>Apply them one after another, not by adding. 20% then 10% means multiply by 0.8 then by 0.9 (0.72 total), giving a 28% effective discount — less than the 30% the numbers might suggest.</p>
+    </details>
+    
+    <details>
+      <summary>What does 'effective discount' mean?</summary>
+      <p>The single discount percentage that would produce the same final price as the stacked discounts. It's always less than the sum of the individual percentages.</p>
+    </details>
+    
+    <details>
+      <summary>Is the sale price before or after tax?</summary>
+      <p>Advertised discounts almost always apply to the pre-tax price. Sales tax is then added to the discounted amount at checkout, so your final total will be a bit higher than the sale price shown.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/sales-tax-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Sales Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tip-calculator/">
+        <span class="card-emoji">🍽️</span>
+        <span class="card-title">Tip Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/vat-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">VAT Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const p = val('price'), d1 = val('off')/100, d2 = val('off2')/100;
+  const after1 = p * (1 - d1);
+  const final = after1 * (1 - d2);
+  const saved = p - final;
+  const effective = p > 0 ? saved / p * 100 : 0;
+  let extra = '';
+  if (d2 > 0) extra = `<tr><td>Effective total discount</td><td>${fmt(effective,1)}% (not ${fmt((d1+d2)*100,0)}%)</td></tr>`;
+  show(`<div class="result-main">$${fmt(final)}<small>Final price &mdash; you save $${fmt(saved)}</small></div>
+  <table>
+    <tr><td>Original price</td><td>$${fmt(p)}</td></tr>
+    <tr><td>You save</td><td>$${fmt(saved)} (${fmt(effective,1)}%)</td></tr>
+    ${extra}
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

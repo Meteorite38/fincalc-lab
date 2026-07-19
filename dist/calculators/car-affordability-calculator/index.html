@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Affordability Calculator — What Car Payment Can You Afford?</title>
+<meta name="description" content="Find out what car price you can afford from a monthly payment budget, down payment, loan term and rate — the reverse of a normal loan calculator.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/car-affordability-calculator/">
+<meta property="og:title" content="Car Affordability Calculator — What Car Payment Can You Afford?">
+<meta property="og:description" content="Find out what car price you can afford from a monthly payment budget, down payment, loan term and rate — the reverse of a normal loan calculator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/car-affordability-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I put down on a car?", "acceptedAnswer": {"@type": "Answer", "text": "Aim for at least 20%. A larger down payment reduces the loan, lowers interest, and helps you avoid owing more than the car is worth as it depreciates."}}, {"@type": "Question", "name": "Is a longer loan term a good idea?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not. Longer terms lower the monthly payment but increase total interest and keep you underwater longer. Four years or less is a common guideline for financial health."}}, {"@type": "Question", "name": "Does this include insurance and running costs?", "acceptedAnswer": {"@type": "Answer", "text": "No — it covers only the financing. Budget separately for insurance, fuel, and maintenance, which together often rival the loan payment itself."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Car Affordability Calculator</nav>
+  <h1>🚗 Car Affordability Calculator</h1>
+  <p class="lead">Instead of falling in love with a car and forcing the numbers, start from what you can comfortably pay each month. Enter your budget and this works backwards to a realistic car price — including your down payment.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Comfortable monthly payment ($)</span>
+      
+      <input type="number" id="payment" value="400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment / trade-in ($)</span>
+      
+      <input type="number" id="down" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan interest rate (%)</span>
+      
+      <input type="number" id="rate" value="7.5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan term (years)</span>
+      
+      <input type="number" id="years" value="5" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Budget first, car second</h2>
+<p>Dealerships love to negotiate on the monthly payment because it hides the real price — stretch the loan long enough and almost anything "fits." Flip the process: decide the payment you can genuinely afford, then let the math reveal the price range. This calculator does exactly that, discounting your monthly budget back into a loan amount and adding your down payment.</p>
+<h2>The 20/4/10 guideline</h2>
+<p>A widely used rule for buying a car sensibly: put at least <strong>20% down</strong>, finance for no more than <strong>4 years</strong>, and keep total transport costs (payment plus insurance) under <strong>10% of gross income</strong>. Longer loans (6–7 years) shrink the monthly payment but pile on interest and keep you "underwater" — owing more than the car is worth — for years.</p>
+<h2>The costs beyond the payment</h2>
+<ul>
+<li><strong>Insurance:</strong> often $100–$200+ a month, and higher for newer or financed cars requiring full coverage.</li>
+<li><strong>Fuel, maintenance, tyres:</strong> a real and recurring line item.</li>
+<li><strong>Depreciation:</strong> new cars can lose 20%+ of their value in the first year — the largest hidden cost of all.</li>
+</ul>
+<p>Because of depreciation and lower prices, lightly-used cars (2–4 years old) often deliver far better value than new. Whatever you choose, financing a payment you can truly afford — rather than the biggest one a lender will approve — is what keeps a car an asset for living rather than a drag on your finances.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much should I put down on a car?</summary>
+      <p>Aim for at least 20%. A larger down payment reduces the loan, lowers interest, and helps you avoid owing more than the car is worth as it depreciates.</p>
+    </details>
+    
+    <details>
+      <summary>Is a longer loan term a good idea?</summary>
+      <p>Usually not. Longer terms lower the monthly payment but increase total interest and keep you underwater longer. Four years or less is a common guideline for financial health.</p>
+    </details>
+    
+    <details>
+      <summary>Does this include insurance and running costs?</summary>
+      <p>No — it covers only the financing. Budget separately for insurance, fuel, and maintenance, which together often rival the loan payment itself.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const pmt = val('payment'), down = val('down'), r = val('rate')/100, y = val('years');
+  const i = r/12, n = Math.round(y*12);
+  const loan = i > 0 ? pmt * (1 - Math.pow(1+i, -n)) / i : pmt * n;
+  const price = loan + down;
+  const totalPaid = pmt * n + down;
+  const interest = totalPaid - price;
+  show(`<div class="result-main">$${fmt(price,0)}<small>Car price you can afford at $${fmt(pmt,0)}/month</small></div>
+  <table>
+    <tr><td>Loan amount</td><td>$${fmt(loan,0)}</td></tr>
+    <tr><td>Down payment</td><td>$${fmt(down,0)}</td></tr>
+    <tr><td>Total interest over ${y} yrs</td><td>$${fmt(interest,0)}</td></tr>
+    <tr><td>Total you'll pay</td><td>$${fmt(totalPaid,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

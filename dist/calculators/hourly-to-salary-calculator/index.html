@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hourly to Salary Calculator — Annual Income from an Hourly Wage</title>
+<meta name="description" content="Convert an hourly wage into annual, monthly and weekly salary based on your hours and weeks worked. Compare job offers on equal footing.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/hourly-to-salary-calculator/">
+<meta property="og:title" content="Hourly to Salary Calculator — Annual Income from an Hourly Wage">
+<meta property="og:description" content="Convert an hourly wage into annual, monthly and weekly salary based on your hours and weeks worked. Compare job offers on equal footing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/hourly-to-salary-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many hours are in a work year?", "acceptedAnswer": {"@type": "Answer", "text": "A standard full-time year is about 2,080 hours (40 × 52) before time off, or roughly 2,000 working hours after typical vacation. The '× 2000' shortcut uses the latter for quick mental conversion."}}, {"@type": "Question", "name": "Should I compare hourly and salary jobs on gross pay?", "acceptedAnswer": {"@type": "Answer", "text": "Start with gross for an apples-to-apples base, then adjust for benefits, paid leave, overtime potential, and stability, which often differ significantly between hourly and salaried roles."}}, {"@type": "Question", "name": "Does this account for taxes?", "acceptedAnswer": {"@type": "Answer", "text": "No — it shows gross income. Net take-home depends on your country, filing status, and deductions; use a take-home pay calculator for the after-tax figure."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Hourly to Salary Calculator</nav>
+  <h1>📆 Hourly to Salary Calculator</h1>
+  <p class="lead">Comparing an hourly job to a salaried offer? Convert your hourly wage into annual terms. Enter your rate, weekly hours and weeks worked per year to see the equivalent salary — before and adjusted for time off.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Hourly wage ($)</span>
+      
+      <input type="number" id="rate" value="25" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Hours per week</span>
+      
+      <input type="number" id="hours" value="40" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Weeks worked per year <em class="hint">(52 minus unpaid time off)</em></span>
+      
+      <input type="number" id="weeks" value="50" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The conversion, and the quick trick</h2>
+<p>Annual salary = hourly rate × hours per week × weeks worked. The handy shortcut for a standard full-time year (40 hours × ~50 weeks = 2,000 hours) is to <strong>multiply your hourly rate by 2,000</strong>: $25/hour ≈ $50,000/year. In reverse, divide a salary by 2,000 to estimate the hourly equivalent — a $60,000 salary is about $30/hour.</p>
+<h2>Why "weeks worked" matters</h2>
+<p>Hourly workers are usually paid only for hours actually worked, so unpaid time off directly reduces annual income. Salaried employees are typically paid across all 52 weeks including vacation. That difference — captured by the "weeks worked" field — is a real gap when comparing an hourly role to a salary. The "if paid all 52 weeks" line shows the ceiling if every week were compensated.</p>
+<h2>Comparing offers fairly</h2>
+<ul>
+<li><strong>Benefits:</strong> salaried roles often include paid leave, health coverage, and retirement matching that hourly roles may not. Add their value before comparing.</li>
+<li><strong>Overtime:</strong> hourly work may pay 1.5× beyond 40 hours — a premium salaried staff rarely get.</li>
+<li><strong>Stability:</strong> salary smooths income across slow periods; hourly pay swings with available hours.</li>
+</ul>
+<p>All figures here are gross (pre-tax). Your take-home depends on your tax situation — use a take-home pay estimator for the net comparison that actually hits your bank account.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How many hours are in a work year?</summary>
+      <p>A standard full-time year is about 2,080 hours (40 × 52) before time off, or roughly 2,000 working hours after typical vacation. The '× 2000' shortcut uses the latter for quick mental conversion.</p>
+    </details>
+    
+    <details>
+      <summary>Should I compare hourly and salary jobs on gross pay?</summary>
+      <p>Start with gross for an apples-to-apples base, then adjust for benefits, paid leave, overtime potential, and stability, which often differ significantly between hourly and salaried roles.</p>
+    </details>
+    
+    <details>
+      <summary>Does this account for taxes?</summary>
+      <p>No — it shows gross income. Net take-home depends on your country, filing status, and deductions; use a take-home pay calculator for the after-tax figure.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const r = val('rate'), h = val('hours'), w = val('weeks');
+  const annual = r * h * w;
+  const fullYear = r * h * 52;
+  show(`<div class="result-main">$${fmt(annual,0)} / year<small>at $${fmt(r)}/hr, ${h} hrs/week, ${w} weeks</small></div>
+  <table>
+    <tr><td>Monthly (gross)</td><td>$${fmt(annual/12,0)}</td></tr>
+    <tr><td>Weekly (gross)</td><td>$${fmt(r*h,0)}</td></tr>
+    <tr><td>If paid all 52 weeks</td><td>$${fmt(fullYear,0)}</td></tr>
+    <tr><td>Quick rule (rate × 2000)</td><td>$${fmt(r*2000,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent Affordability Calculator — How Much Rent Can You Afford?</title>
+<meta name="description" content="Find how much rent you can afford using the 30% rule and your other debts. Get a comfortable monthly rent range based on your income.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/rent-affordability-calculator/">
+<meta property="og:title" content="Rent Affordability Calculator — How Much Rent Can You Afford?">
+<meta property="og:description" content="Find how much rent you can afford using the 30% rule and your other debts. Get a comfortable monthly rent range based on your income.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/rent-affordability-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the 30% rule based on gross or net income?", "acceptedAnswer": {"@type": "Answer", "text": "Traditionally gross (pre-tax) income, which is what landlords check. Budgeting against net income is stricter and safer, especially if your tax rate is high."}}, {"@type": "Question", "name": "What if I can't find anything at 30%?", "acceptedAnswer": {"@type": "Answer", "text": "In high-cost areas this is common. Prioritise keeping some savings, consider roommates to share fixed costs, and treat any rent above ~40% of income as a temporary situation to plan your way out of."}}, {"@type": "Question", "name": "Do landlords have income requirements?", "acceptedAnswer": {"@type": "Answer", "text": "Many require gross income of about 3× the monthly rent (equivalent to the 33% rule) and check your debt-to-income and credit. Meeting the 30% guideline usually clears these checks comfortably."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Rent Affordability Calculator</nav>
+  <h1>🏡 Rent Affordability Calculator</h1>
+  <p class="lead">How much rent is too much? Enter your income and existing debts to get a comfortable rent range based on the widely-used 30% guideline — adjusted for the other commitments already claiming your paycheck.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Gross monthly income ($) <em class="hint">(before tax)</em></span>
+      
+      <input type="number" id="income" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Existing monthly debt payments ($)</span>
+      
+      <input type="number" id="debts" value="500" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The 30% rule</h2>
+<p>The oldest guideline in renting: keep housing costs at or below <strong>30% of gross income</strong>. On a $5,000 monthly income that's $1,500. The rule persists because it usually leaves enough for savings, debt, and living once other essentials are covered. It's a starting point, not a law — but consistently blowing past it is the most common cause of a permanently tight budget.</p>
+<h2>Why your other debts change the answer</h2>
+<p>The 30% rule assumes typical debt levels. If you already carry heavy car or loan payments, the same rent becomes a squeeze. That's why this calculator also shows a ceiling based on a 43% total debt-to-income limit minus your existing payments — the same logic landlords and lenders use. The lower of "30% of income" and "what's left under the DTI cap" is your honest maximum.</p>
+<h2>Costs renters forget</h2>
+<ul>
+<li><strong>Utilities</strong> (electricity, gas, water, internet) can add $150–$300+ monthly on top of rent.</li>
+<li><strong>Renter's insurance</strong> — inexpensive but real.</li>
+<li><strong>Upfront cash:</strong> most leases need first month plus a deposit (sometimes last month too), so budget 2–3× the monthly rent to move in.</li>
+</ul>
+<h2>When 30% is impossible</h2>
+<p>In expensive cities, 30% may not rent anything livable, and many people spend 40–50% out of necessity. If that's you, protect savings at all costs (even 10%), consider roommates to split fixed costs, or weigh a longer commute against the rent difference. High rent relative to income is a structural signal — sometimes the real fix is location or housemates, not tighter budgeting.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is the 30% rule based on gross or net income?</summary>
+      <p>Traditionally gross (pre-tax) income, which is what landlords check. Budgeting against net income is stricter and safer, especially if your tax rate is high.</p>
+    </details>
+    
+    <details>
+      <summary>What if I can't find anything at 30%?</summary>
+      <p>In high-cost areas this is common. Prioritise keeping some savings, consider roommates to share fixed costs, and treat any rent above ~40% of income as a temporary situation to plan your way out of.</p>
+    </details>
+    
+    <details>
+      <summary>Do landlords have income requirements?</summary>
+      <p>Many require gross income of about 3× the monthly rent (equivalent to the 33% rule) and check your debt-to-income and credit. Meeting the 30% guideline usually clears these checks comfortably.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const inc = val('income'), debts = val('debts');
+  if (inc <= 0) { show('<div class="result-main">Enter your gross monthly income.</div>'); return; }
+  const rule30 = inc * 0.30;
+  const conservative = inc * 0.25;
+  const stretch = inc * 0.35;
+  const dtiCap = inc * 0.43 - debts;
+  const affordable = Math.max(0, Math.min(stretch, dtiCap));
+  show(`<div class="result-main">$${fmt(rule30,0)} / month<small>The classic 30%-of-income rent target</small></div>
+  <table>
+    <tr><td>Conservative (25%)</td><td>$${fmt(conservative,0)}</td></tr>
+    <tr><td>Comfortable (30%)</td><td>$${fmt(rule30,0)}</td></tr>
+    <tr><td>Stretch ceiling (35%)</td><td>$${fmt(stretch,0)}</td></tr>
+    <tr><td>Max once other debts counted</td><td>$${fmt(affordable,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

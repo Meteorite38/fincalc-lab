@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAT Calculator — Add or Remove Value-Added Tax</title>
+<meta name="description" content="Add VAT to a net price or remove VAT from a gross (VAT-inclusive) price at any rate. Essential for invoicing, expenses and shopping in VAT countries.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/vat-calculator/">
+<meta property="og:title" content="VAT Calculator — Add or Remove Value-Added Tax">
+<meta property="og:description" content="Add VAT to a net price or remove VAT from a gross (VAT-inclusive) price at any rate. Essential for invoicing, expenses and shopping in VAT countries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/vat-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I remove VAT from a price?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the gross (VAT-inclusive) price by (1 + VAT rate). At 20% VAT, divide by 1.2. Subtracting 20% overstates the VAT because it was calculated on the lower net price."}}, {"@type": "Question", "name": "What's the difference between net and gross?", "acceptedAnswer": {"@type": "Answer", "text": "Net is the price before VAT; gross is the price after VAT is added — the amount the customer pays. VAT is the difference between them."}}, {"@type": "Question", "name": "Is VAT the same everywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Rates vary widely by country (commonly 15–25%), and many places apply reduced or zero rates to essentials. Always use the rate that applies to your specific transaction and location."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; VAT Calculator</nav>
+  <h1>🧾 VAT Calculator</h1>
+  <p class="lead">Work with value-added tax in either direction: add VAT to a net price, or pull the VAT out of a gross price that already includes it. Enter an amount and rate, and pick the direction.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Amount ($/€/£)</span>
+      
+      <input type="number" id="amount" value="100" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">VAT rate (%)</span>
+      
+      <input type="number" id="rate" value="20" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">The amount above is</span>
+      
+      <select id="mode">
+        
+        <option value="net" selected>a net price (add VAT)</option>
+        
+        <option value="gross">a gross VAT-inclusive price (remove VAT)</option>
+        
+      </select>
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Net, VAT, and gross</h2>
+<p>VAT terminology: the <strong>net</strong> price is before tax, the <strong>VAT</strong> is the tax itself, and the <strong>gross</strong> price is net plus VAT — what the customer actually pays. Adding VAT multiplies the net by (1 + rate). Removing it <em>divides</em> the gross by (1 + rate): a £120 gross price at 20% VAT contains £100 net and £20 VAT, not £24, because the 20% was charged on £100.</p>
+<h2>Why removing VAT matters for businesses</h2>
+<p>VAT-registered businesses record the net amount as their cost or revenue and account for the VAT separately (reclaiming VAT paid on purchases, remitting VAT collected on sales). So extracting the net from a gross invoice is a daily bookkeeping task. Getting the division right — rather than naively subtracting the percentage — keeps your accounts and tax returns accurate.</p>
+<h2>VAT vs US sales tax</h2>
+<ul>
+<li><strong>Displayed price:</strong> VAT is usually included on the shelf/label; US sales tax is added at checkout.</li>
+<li><strong>Collection:</strong> VAT is collected at each stage of production with credits along the chain; sales tax is charged once at the final sale.</li>
+<li><strong>Rates:</strong> VAT rates are often higher (commonly 15–25%) and may have reduced rates for essentials like food or books.</li>
+</ul>
+<p>Whatever the label on the tax, this calculator handles the arithmetic — just enter the correct rate for your country and choose whether you're adding or removing.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I remove VAT from a price?</summary>
+      <p>Divide the gross (VAT-inclusive) price by (1 + VAT rate). At 20% VAT, divide by 1.2. Subtracting 20% overstates the VAT because it was calculated on the lower net price.</p>
+    </details>
+    
+    <details>
+      <summary>What's the difference between net and gross?</summary>
+      <p>Net is the price before VAT; gross is the price after VAT is added — the amount the customer pays. VAT is the difference between them.</p>
+    </details>
+    
+    <details>
+      <summary>Is VAT the same everywhere?</summary>
+      <p>No. Rates vary widely by country (commonly 15–25%), and many places apply reduced or zero rates to essentials. Always use the rate that applies to your specific transaction and location.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/sales-tax-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Sales Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/discount-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Discount Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tip-calculator/">
+        <span class="card-emoji">🍽️</span>
+        <span class="card-title">Tip Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const a = val('amount'), r = val('rate')/100, mode = document.getElementById('mode').value;
+  if (mode === 'net') {
+    const vat = a * r, gross = a + vat;
+    show(`<div class="result-main">${fmt(gross)}<small>Gross price including ${fmt(r*100,1)}% VAT</small></div>
+    <table><tr><td>Net price</td><td>${fmt(a)}</td></tr>
+    <tr><td>VAT</td><td>${fmt(vat)}</td></tr>
+    <tr><td>Gross price</td><td>${fmt(gross)}</td></tr></table>`);
+  } else {
+    const net = a / (1 + r), vat = a - net;
+    show(`<div class="result-main">${fmt(net)}<small>Net price inside a ${fmt(a)} gross total</small></div>
+    <table><tr><td>Net price</td><td>${fmt(net)}</td></tr>
+    <tr><td>VAT portion</td><td>${fmt(vat)}</td></tr>
+    <tr><td>Gross price</td><td>${fmt(a)}</td></tr></table>`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

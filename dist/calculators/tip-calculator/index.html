@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator — Gratuity and Bill Split</title>
+<meta name="description" content="Calculate a tip at any percentage and split the total between any number of people, with per-person amounts. Fast and simple.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/tip-calculator/">
+<meta property="og:title" content="Tip Calculator — Gratuity and Bill Split">
+<meta property="og:description" content="Calculate a tip at any percentage and split the total between any number of people, with per-person amounts. Fast and simple.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/tip-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I tip on the pre-tax or post-tax amount?", "acceptedAnswer": {"@type": "Answer", "text": "Technically the pre-tax bill reflects the service. In practice many people tip on the total for simplicity; the difference is small on a normal bill."}}, {"@type": "Question", "name": "What's a standard restaurant tip in the US?", "acceptedAnswer": {"@type": "Answer", "text": "15% for satisfactory service, 18–20% for good, and more for exceptional. In the US, tips are a significant part of servers' pay, so under-tipping for good service is discouraged."}}, {"@type": "Question", "name": "How do I split a bill with different orders?", "acceptedAnswer": {"@type": "Answer", "text": "This tool splits evenly, which suits most shared meals. For very uneven orders, calculate each person's tip on their own subtotal, or use the even split as a friendly approximation."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Tip Calculator</nav>
+  <h1>🍽️ Tip Calculator</h1>
+  <p class="lead">Figure out the tip and, if you're with others, split the whole bill evenly. Enter the bill, choose a tip percentage, and set how many people are sharing.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Bill amount ($)</span>
+      
+      <input type="number" id="bill" value="60" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Tip (%)</span>
+      
+      <input type="number" id="tip" value="18" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Split between (people)</span>
+      
+      <input type="number" id="people" value="2" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Quick tipping guide</h2>
+<p>Tip = bill × percentage. In the US, restaurant tipping norms are roughly <strong>15% for adequate service, 18–20% for good, and 20%+ for excellent</strong>. A fast mental trick: 10% is the bill with the decimal moved one place left; double it for 20%, or add half of the 10% for 15%.</p>
+<h2>Splitting the bill fairly</h2>
+<p>This calculator divides the tipped total evenly across your group — the simplest approach for shared meals. For uneven orders, some prefer to tip on their own item subtotal, but an even split is faster and usually close enough among friends. Either way, tip on the pre-tax bill if you want to be precise, though many people simply tip on the total for ease.</p>
+<h2>Tipping around the world</h2>
+<ul>
+<li><strong>United States:</strong> tipping is expected and part of service workers' income; 15–20% is standard.</li>
+<li><strong>Europe:</strong> service is often included; rounding up or ~5–10% is generous.</li>
+<li><strong>Japan and others:</strong> tipping can be unusual or even unwelcome.</li>
+</ul>
+<p>When traveling, a quick check of local custom avoids both under-tipping and needlessly overpaying. This tool works for any percentage, so it adapts to wherever you are.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Should I tip on the pre-tax or post-tax amount?</summary>
+      <p>Technically the pre-tax bill reflects the service. In practice many people tip on the total for simplicity; the difference is small on a normal bill.</p>
+    </details>
+    
+    <details>
+      <summary>What's a standard restaurant tip in the US?</summary>
+      <p>15% for satisfactory service, 18–20% for good, and more for exceptional. In the US, tips are a significant part of servers' pay, so under-tipping for good service is discouraged.</p>
+    </details>
+    
+    <details>
+      <summary>How do I split a bill with different orders?</summary>
+      <p>This tool splits evenly, which suits most shared meals. For very uneven orders, calculate each person's tip on their own subtotal, or use the even split as a friendly approximation.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/sales-tax-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Sales Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/discount-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Discount Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/vat-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">VAT Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const bill = val('bill'), t = val('tip')/100, people = Math.max(1, Math.round(val('people')));
+  const tip = bill * t, total = bill + tip;
+  show(`<div class="result-main">$${fmt(total)}<small>Total with ${fmt(t*100,0)}% tip ($${fmt(tip)})</small></div>
+  <table>
+    <tr><td>Tip amount</td><td>$${fmt(tip)}</td></tr>
+    <tr><td>Total bill</td><td>$${fmt(total)}</td></tr>
+    <tr><td>Per person (${people})</td><td>$${fmt(total/people)}</td></tr>
+    <tr><td>Tip per person</td><td>$${fmt(tip/people)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

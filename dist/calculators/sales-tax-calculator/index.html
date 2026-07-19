@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Tax Calculator — Add or Remove Tax from a Price</title>
+<meta name="description" content="Add sales tax to a price or extract the tax from a tax-inclusive total. Fast, accurate sales tax calculations for any rate.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/sales-tax-calculator/">
+<meta property="og:title" content="Sales Tax Calculator — Add or Remove Tax from a Price">
+<meta property="og:description" content="Add sales tax to a price or extract the tax from a tax-inclusive total. Fast, accurate sales tax calculations for any rate.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/sales-tax-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I remove sales tax from a total?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the total by (1 + tax rate). For 8% tax, divide by 1.08. Subtracting 8% from the total gives the wrong answer because the tax was based on the lower pre-tax price."}}, {"@type": "Question", "name": "Why is sales tax different everywhere?", "acceptedAnswer": {"@type": "Answer", "text": "In the US it's layered from state, county, and city rates, and some categories (like groceries) may be exempt. Always apply the combined rate for the exact location of the sale."}}, {"@type": "Question", "name": "Is sales tax the same as VAT?", "acceptedAnswer": {"@type": "Answer", "text": "They're similar consumption taxes but administered differently. VAT/GST is typically included in the shelf price and collected at each production stage; US sales tax is added at the final sale. Use the VAT calculator for inclusive-price countries."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Sales Tax Calculator</nav>
+  <h1>🧾 Sales Tax Calculator</h1>
+  <p class="lead">Add tax to a pre-tax price, or work out how much tax is hidden inside a total you've already been charged. Enter a price and rate, and choose which direction you need.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Amount ($)</span>
+      
+      <input type="number" id="amount" value="100" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Sales tax rate (%)</span>
+      
+      <input type="number" id="rate" value="8" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">The amount above is</span>
+      
+      <select id="mode">
+        
+        <option value="pre" selected>a pre-tax price (add tax)</option>
+        
+        <option value="incl">a tax-included total (remove tax)</option>
+        
+      </select>
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Adding tax vs removing tax</h2>
+<p>Adding tax is simple: multiply the price by the rate and add it on. <em>Removing</em> tax from a tax-inclusive total trips people up — you can't just subtract the rate. If a $108 total includes 8% tax, the pre-tax price isn't $99.36 (108 − 8%); it's $100, because the 8% was calculated on $100, not on $108. The correct formula divides: <code>pre-tax = total ÷ (1 + rate)</code>.</p>
+<h2>When you need each direction</h2>
+<ul>
+<li><strong>Adding tax:</strong> budgeting a purchase, quoting a customer, checking a receipt total.</li>
+<li><strong>Removing tax:</strong> expense reports and bookkeeping that need the pre-tax amount, or figuring out the "real" price of a tax-inclusive item.</li>
+</ul>
+<h2>A note on rates</h2>
+<p>Sales tax varies enormously by location. In the US it's set by state, county, and city combined — so a single street can differ from the next town. Many US states also exempt groceries or clothing. Elsewhere, value-added tax (VAT) or goods-and-services tax (GST) is usually built into the displayed price rather than added at the register. Always use the rate that actually applies where the sale happens; this calculator handles any rate you enter.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I remove sales tax from a total?</summary>
+      <p>Divide the total by (1 + tax rate). For 8% tax, divide by 1.08. Subtracting 8% from the total gives the wrong answer because the tax was based on the lower pre-tax price.</p>
+    </details>
+    
+    <details>
+      <summary>Why is sales tax different everywhere?</summary>
+      <p>In the US it's layered from state, county, and city rates, and some categories (like groceries) may be exempt. Always apply the combined rate for the exact location of the sale.</p>
+    </details>
+    
+    <details>
+      <summary>Is sales tax the same as VAT?</summary>
+      <p>They're similar consumption taxes but administered differently. VAT/GST is typically included in the shelf price and collected at each production stage; US sales tax is added at the final sale. Use the VAT calculator for inclusive-price countries.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/discount-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Discount Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tip-calculator/">
+        <span class="card-emoji">🍽️</span>
+        <span class="card-title">Tip Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/vat-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">VAT Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const a = val('amount'), r = val('rate')/100, mode = document.getElementById('mode').value;
+  if (mode === 'pre') {
+    const tax = a * r, total = a + tax;
+    show(`<div class="result-main">$${fmt(total)}<small>Total including ${fmt(r*100,2)}% sales tax</small></div>
+    <table><tr><td>Pre-tax price</td><td>$${fmt(a)}</td></tr>
+    <tr><td>Sales tax</td><td>$${fmt(tax)}</td></tr>
+    <tr><td>Total</td><td>$${fmt(total)}</td></tr></table>`);
+  } else {
+    const pre = a / (1 + r), tax = a - pre;
+    show(`<div class="result-main">$${fmt(pre)}<small>Pre-tax price inside a $${fmt(a)} total</small></div>
+    <table><tr><td>Pre-tax price</td><td>$${fmt(pre)}</td></tr>
+    <tr><td>Sales tax portion</td><td>$${fmt(tax)}</td></tr>
+    <tr><td>Total charged</td><td>$${fmt(a)}</td></tr></table>`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

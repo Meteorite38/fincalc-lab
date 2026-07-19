@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Rate Calculator — What to Charge Per Hour</title>
+<meta name="description" content="Calculate the freelance hourly rate you need from your income goal, business expenses, time off, and realistic billable hours. Stop underpricing your work.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/freelance-hourly-rate-calculator/">
+<meta property="og:title" content="Freelance Rate Calculator — What to Charge Per Hour">
+<meta property="og:description" content="Calculate the freelance hourly rate you need from your income goal, business expenses, time off, and realistic billable hours. Stop underpricing your work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/freelance-hourly-rate-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my freelance rate so much higher than my old salary rate?", "acceptedAnswer": {"@type": "Answer", "text": "Because it must cover self-employment taxes, your own benefits and time off, business expenses, and the many unpaid hours spent running the business. A rate 1.5–2× your old hourly salary is common just to match the same take-home."}}, {"@type": "Question", "name": "What are 'billable hours'?", "acceptedAnswer": {"@type": "Answer", "text": "Hours you can actually charge a client for. Time spent on marketing, admin, invoicing, and learning is real work but usually unpaid, so most freelancers bill only 50–70% of their working hours."}}, {"@type": "Question", "name": "Should I charge hourly or per project?", "acceptedAnswer": {"@type": "Answer", "text": "Project pricing often earns more because it's tied to the value delivered, not the time spent, and it rewards you for being efficient. Use this hourly figure as your cost floor when quoting projects."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Freelance Hourly Rate Calculator</nav>
+  <h1>🧑‍💻 Freelance Hourly Rate Calculator</h1>
+  <p class="lead">New freelancers routinely charge too little by copying an old salary's hourly rate — forgetting that they now pay their own taxes, benefits, and downtime. Enter your target income and realities to find the rate you actually need to charge.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Desired annual take-home ($)</span>
+      
+      <input type="number" id="income" value="60000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual business expenses ($) <em class="hint">(software, gear, insurance)</em></span>
+      
+      <input type="number" id="expenses" value="6000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Tax + benefits set-aside (%)</span>
+      
+      <input type="number" id="tax" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Working weeks per year <em class="hint">(52 minus holidays/sick)</em></span>
+      
+      <input type="number" id="weeks" value="46" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Billable hours per week <em class="hint">(not every hour is billable)</em></span>
+      
+      <input type="number" id="billable" value="25" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why freelancers underprice</h2>
+<p>The classic mistake: "I made $60,000 as an employee, that's about $30/hour, so I'll charge $30." This ignores three brutal realities of self-employment: you now pay <strong>both halves of taxes</strong> and all your own benefits, you <strong>can't bill every hour</strong> (admin, sales, and marketing are unpaid), and you have <strong>no paid time off</strong>. Charging your old salary rate is a fast route to earning far less while working more.</p>
+<h2>How the real rate is built</h2>
+<p>This calculator works backwards from what you want to keep. It grosses up your target income to cover taxes and benefits, adds business expenses, then divides by your <em>billable</em> hours — not total hours. Compare the result to the "naive rate": the honest number is typically 50–100% higher. That gap is exactly what underpriced freelancers lose.</p>
+<h2>Billable hours: the number that surprises people</h2>
+<p>A 40-hour week rarely yields 40 billable hours. Between finding clients, invoicing, email, and admin, 20–30 billable hours is realistic for many solo freelancers. Fewer billable hours means each one must cost more to hit your goal — which is why "I'll just work more hours" isn't the same as "I'll earn more."</p>
+<h2>Beyond the minimum</h2>
+<ul>
+<li><strong>This is your floor, not your price.</strong> It's the rate to break even on your goal — value-based pricing can go well above it.</li>
+<li><strong>Raise rates with experience.</strong> Your first rate shouldn't be your rate three years and a portfolio later.</li>
+<li><strong>Consider project pricing.</strong> Charging for outcomes rather than hours often pays better and rewards efficiency instead of penalising it.</li>
+</ul>
+<p>Price to sustain the business you actually run — taxes, gaps, downtime and all — not the salaried job you left behind.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Why is my freelance rate so much higher than my old salary rate?</summary>
+      <p>Because it must cover self-employment taxes, your own benefits and time off, business expenses, and the many unpaid hours spent running the business. A rate 1.5–2× your old hourly salary is common just to match the same take-home.</p>
+    </details>
+    
+    <details>
+      <summary>What are 'billable hours'?</summary>
+      <p>Hours you can actually charge a client for. Time spent on marketing, admin, invoicing, and learning is real work but usually unpaid, so most freelancers bill only 50–70% of their working hours.</p>
+    </details>
+    
+    <details>
+      <summary>Should I charge hourly or per project?</summary>
+      <p>Project pricing often earns more because it's tied to the value delivered, not the time spent, and it rewards you for being efficient. Use this hourly figure as your cost floor when quoting projects.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const income = val('income'), exp = val('expenses'), taxRate = val('tax')/100;
+  const weeks = val('weeks'), billable = val('billable');
+  const hours = weeks * billable;
+  if (hours <= 0 || taxRate >= 1) { show('<div class="result-main">Check your inputs — hours and tax rate must be sensible.</div>'); return; }
+  const grossNeeded = (income / (1 - taxRate)) + exp;
+  const rate = grossNeeded / hours;
+  show(`<div class="result-main">$${fmt(rate)} / hour<small>to net $${fmt(income,0)} after tax &amp; expenses</small></div>
+  <table>
+    <tr><td>Billable hours / year</td><td>${fmt(hours,0)}</td></tr>
+    <tr><td>Gross revenue needed</td><td>$${fmt(grossNeeded,0)}</td></tr>
+    <tr><td>Naive rate (income ÷ 2000)</td><td>$${fmt(income/2000)} — too low</td></tr>
+    <tr><td>Suggested day rate (8h)</td><td>$${fmt(rate*8,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

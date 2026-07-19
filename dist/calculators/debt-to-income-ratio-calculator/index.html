@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt-to-Income Ratio Calculator — The Number Lenders Check</title>
+<meta name="description" content="Calculate your debt-to-income ratio (DTI) from monthly debt payments and gross income — the key number mortgage and loan approvals depend on.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/debt-to-income-ratio-calculator/">
+<meta property="og:title" content="Debt-to-Income Ratio Calculator — The Number Lenders Check">
+<meta property="og:description" content="Calculate your debt-to-income ratio (DTI) from monthly debt payments and gross income — the key number mortgage and loan approvals depend on.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/debt-to-income-ratio-calculator/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What DTI do I need for a mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "Many conventional loans cap back-end DTI at 43%, though some programs allow higher with strong credit or reserves. Below 36% generally earns the best terms and widest approval odds."}}, {"@type": "Question", "name": "Does DTI use gross or net income?", "acceptedAnswer": {"@type": "Answer", "text": "Gross — your income before taxes and deductions. That's the figure lenders standardise on, so use pre-tax income for an accurate comparison to their thresholds."}}, {"@type": "Question", "name": "Do utilities and insurance count?", "acceptedAnswer": {"@type": "Answer", "text": "No. DTI includes only debt payments (loans, cards, mortgage/rent). Regular living expenses like utilities, groceries, and insurance are excluded."}}]}</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Debt-to-Income (DTI) Calculator</nav>
+  <h1>⚖️ Debt-to-Income (DTI) Calculator</h1>
+  <p class="lead">Your debt-to-income ratio is the first thing a lender checks before approving a mortgage or loan. Enter your monthly debt payments and gross income to see your DTI and where you stand against common lending thresholds.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Gross monthly income ($) <em class="hint">(before tax)</em></span>
+      
+      <input type="number" id="income" value="6000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Housing payment (rent/mortgage) ($)</span>
+      
+      <input type="number" id="housing" value="1500" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Car & other loan payments ($)</span>
+      
+      <input type="number" id="car" value="400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Minimum credit card payments ($)</span>
+      
+      <input type="number" id="cards" value="150" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Other monthly debt ($)</span>
+      
+      <input type="number" id="other" value="0" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What DTI is and why lenders obsess over it</h2>
+<p>Debt-to-income ratio is your total monthly debt payments divided by your gross (pre-tax) monthly income. It's the clearest single signal of whether you can take on another payment without overstretching. Lenders use it because it predicts default risk better than income alone — a high earner drowning in payments is riskier than a modest earner with little debt.</p>
+<h2>Front-end vs back-end</h2>
+<ul>
+<li><strong>Front-end ratio</strong> counts only housing costs. Many mortgage guidelines want this under ~28%.</li>
+<li><strong>Back-end ratio</strong> (the main DTI here) counts <em>all</em> debt payments. The common conforming-mortgage ceiling is 43%, with the sweet spot at 36% or below.</li>
+</ul>
+<h2>What counts — and what doesn't</h2>
+<p>Include: rent or mortgage, car loans, minimum credit card payments, student loans, personal loans, and other required debt. Exclude: utilities, groceries, insurance, subscriptions, and taxes — DTI measures <em>debt obligations</em>, not general living costs. Use the minimum required payment on revolving debt, since that's what lenders assume.</p>
+<h2>Lowering your DTI</h2>
+<p>Two levers: reduce debt or raise income. Paying off a small loan entirely removes its whole payment from the numerator and can noticeably drop your ratio — sometimes more effectively than chipping at a large balance. Avoid taking on new debt (or even large credit inquiries) in the months before a mortgage application, since lenders re-check DTI right up to closing. A DTI under 36% not only unlocks better loan terms; it's a sign your budget has genuine breathing room.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What DTI do I need for a mortgage?</summary>
+      <p>Many conventional loans cap back-end DTI at 43%, though some programs allow higher with strong credit or reserves. Below 36% generally earns the best terms and widest approval odds.</p>
+    </details>
+    
+    <details>
+      <summary>Does DTI use gross or net income?</summary>
+      <p>Gross — your income before taxes and deductions. That's the figure lenders standardise on, so use pre-tax income for an accurate comparison to their thresholds.</p>
+    </details>
+    
+    <details>
+      <summary>Do utilities and insurance count?</summary>
+      <p>No. DTI includes only debt payments (loans, cards, mortgage/rent). Regular living expenses like utilities, groceries, and insurance are excluded.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const inc = val('income');
+  if (inc <= 0) { show('<div class="result-main">Enter your gross monthly income.</div>'); return; }
+  const housing = val('housing');
+  const totalDebt = housing + val('car') + val('cards') + val('other');
+  const dti = totalDebt / inc * 100;
+  const frontEnd = housing / inc * 100;
+  let verdict;
+  if (dti <= 36) verdict = 'Healthy — comfortably within most lending limits';
+  else if (dti <= 43) verdict = 'Acceptable — near the common mortgage ceiling of 43%';
+  else if (dti <= 50) verdict = 'High — many lenders will hesitate; focus on reducing debt';
+  else verdict = 'Very high — approvals unlikely; prioritise paying down debt';
+  show(`<div class="result-main">${fmt(dti,1)}%<small>${verdict}</small></div>
+  <table>
+    <tr><td>Total monthly debt</td><td>$${fmt(totalDebt,0)}</td></tr>
+    <tr><td>Front-end ratio (housing only)</td><td>${fmt(frontEnd,1)}%</td></tr>
+    <tr><td>Income free of debt</td><td>${fmt(100-dti,1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
