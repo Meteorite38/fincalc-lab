@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refinance Calculator — Should You Refinance Your Mortgage?</title>
+<meta name="description" content="See if refinancing your mortgage is worth it: compare your current payment to a new one, and find the break-even point where closing costs are recovered.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/mortgage-refinance-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Refinance Calculator — Should You Refinance Your Mortgage?">
+<meta property="og:description" content="See if refinancing your mortgage is worth it: compare your current payment to a new one, and find the break-even point where closing costs are recovered.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/mortgage-refinance-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Refinance Calculator — Should You Refinance Your Mortgage?">
+<meta name="twitter:description" content="See if refinancing your mortgage is worth it: compare your current payment to a new one, and find the break-even point where closing costs are recovered.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the break-even point on a refinance?", "acceptedAnswer": {"@type": "Answer", "text": "The number of months of payment savings needed to recover the closing costs. If you'll stay in the home longer than the break-even, refinancing generally pays off; if not, it doesn't."}}, {"@type": "Question", "name": "Does refinancing reset my loan term?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes — a new mortgage starts a fresh term. That lowers the payment but can increase total interest if it extends how long you'll be paying. Compare total interest, not just the monthly figure."}}, {"@type": "Question", "name": "How much does refinancing cost?", "acceptedAnswer": {"@type": "Answer", "text": "Closing costs typically run 2–5% of the loan amount — commonly $3,000–$6,000 — covering lender fees, appraisal, title, and taxes. These are central to the break-even calculation."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Mortgage Refinance Calculator", "item": "https://fincalc-lab.pages.dev/calculators/mortgage-refinance-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Mortgage Refinance Calculator</nav>
+  <h1>🔄 Mortgage Refinance Calculator</h1>
+  <p class="lead">Refinancing can lower your payment — but closing costs mean it only pays off if you stay long enough to recover them. Enter your current loan and the new offer to see your monthly savings and break-even point.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Remaining loan balance ($)</span>
+      
+      <input type="number" id="balance" value="250000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current monthly payment (P&I) ($)</span>
+      
+      <input type="number" id="current_pmt" value="1580" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">New interest rate (%)</span>
+      
+      <input type="number" id="new_rate" value="5.5" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">New loan term (years)</span>
+      
+      <input type="number" id="new_years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Refinance closing costs ($)</span>
+      
+      <input type="number" id="closing" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The refinance decision in one number</h2>
+<p>Refinancing replaces your existing mortgage with a new one — usually to grab a lower rate and shrink your payment. But it isn't free: closing costs (often $3,000–$6,000) apply just like a new purchase. The question that decides everything is the <strong>break-even point</strong>: how many months of savings it takes to recover those costs. <code>Break-even = closing costs ÷ monthly savings.</code></p>
+<h2>The rule of thumb</h2>
+<p>If you'll stay in the home <em>well beyond</em> the break-even point, refinancing usually makes sense. If you might move or sell before then, you'd pay the closing costs without recouping them — a losing trade. A refinance that saves $200/month with $5,000 of costs breaks even at 25 months; stay five years and you're roughly $7,000 ahead, but sell in 18 months and you've lost money.</p>
+<h2>Beyond the monthly payment</h2>
+<ul>
+<li><strong>Watch the term reset.</strong> Refinancing a 30-year loan you're 6 years into back to a fresh 30 years lowers the payment but can increase <em>total</em> interest by stretching the loan to 36 years overall. A lower rate helps; a longer term hurts.</li>
+<li><strong>Shortening the term</strong> (e.g. 30→15 years) often barely changes — or raises — the payment while saving enormous interest and building equity faster.</li>
+<li><strong>Cash-out refinancing</strong> lets you borrow against equity, but increases your balance and payment; treat it as taking on new debt, not "free money."</li>
+</ul>
+<h2>When to seriously consider it</h2>
+<p>The old guideline was to refinance when rates drop about 1% below your current rate, but the honest test is simply whether the break-even point comfortably fits inside how long you'll stay. Run your real numbers, confirm the closing costs, and make sure a lower payment isn't quietly costing you more interest over a longer term.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is the break-even point on a refinance?</summary>
+      <p>The number of months of payment savings needed to recover the closing costs. If you'll stay in the home longer than the break-even, refinancing generally pays off; if not, it doesn't.</p>
+    </details>
+    
+    <details>
+      <summary>Does refinancing reset my loan term?</summary>
+      <p>Usually yes — a new mortgage starts a fresh term. That lowers the payment but can increase total interest if it extends how long you'll be paying. Compare total interest, not just the monthly figure.</p>
+    </details>
+    
+    <details>
+      <summary>How much does refinancing cost?</summary>
+      <p>Closing costs typically run 2–5% of the loan amount — commonly $3,000–$6,000 — covering lender fees, appraisal, title, and taxes. These are central to the break-even calculation.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const b = val('balance'), cur = val('current_pmt'), r = val('new_rate')/100, y = val('new_years'), cost = val('closing');
+  const i = r/12, n = y*12;
+  const newPmt = i>0 ? b*i/(1-Math.pow(1+i,-n)) : b/n;
+  const savings = cur - newPmt;
+  if (savings <= 0) {
+    show(`<div class="result-main">$${fmt(newPmt)} / mo new payment<small>This refinance does not lower your monthly payment (it may still shorten your term).</small></div>`);
+    return;
+  }
+  const breakeven = cost / savings;
+  show(`<div class="result-main">$${fmt(savings)} / month saved<small>New payment $${fmt(newPmt)} vs current $${fmt(cur)}</small></div>
+  <table>
+    <tr><td>Break-even point</td><td>${fmt(breakeven,1)} months (${fmt(breakeven/12,1)} yrs)</td></tr>
+    <tr><td>Savings in year 1 (after costs)</td><td>$${fmt(savings*12 - cost,0)}</td></tr>
+    <tr><td>Savings over 5 years</td><td>$${fmt(savings*60 - cost,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

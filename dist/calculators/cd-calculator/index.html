@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CD Calculator — Certificate of Deposit Maturity Value</title>
+<meta name="description" content="Calculate the maturity value and interest of a certificate of deposit (CD) from your deposit, APY and term, with compounding handled automatically.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/cd-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="CD Calculator — Certificate of Deposit Maturity Value">
+<meta property="og:description" content="Calculate the maturity value and interest of a certificate of deposit (CD) from your deposit, APY and term, with compounding handled automatically.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/cd-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CD Calculator — Certificate of Deposit Maturity Value">
+<meta name="twitter:description" content="Calculate the maturity value and interest of a certificate of deposit (CD) from your deposit, APY and term, with compounding handled automatically.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens if I withdraw from a CD early?", "acceptedAnswer": {"@type": "Answer", "text": "You typically pay an early-withdrawal penalty, often equal to several months of interest. For longer terms the penalty is larger. Only put money in a CD that you're confident you won't need before maturity."}}, {"@type": "Question", "name": "Is a CD better than a savings account?", "acceptedAnswer": {"@type": "Answer", "text": "CDs usually pay a higher rate in exchange for locking up your money. If you need flexible access, a high-yield savings account is better; if you have money earmarked for a future date, a CD earns more."}}, {"@type": "Question", "name": "What is CD laddering?", "acceptedAnswer": {"@type": "Answer", "text": "Splitting your money across CDs with staggered maturity dates so one matures periodically. It balances earning higher long-term rates with keeping regular access to a portion of your funds."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "CD Calculator", "item": "https://fincalc-lab.pages.dev/calculators/cd-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; CD Calculator</nav>
+  <h1>🏦 CD Calculator</h1>
+  <p class="lead">A certificate of deposit locks your money for a fixed term in exchange for a guaranteed rate. Enter your deposit, the APY and the term to see exactly what it will be worth at maturity.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Initial deposit ($)</span>
+      
+      <input type="number" id="deposit" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">APY (%)</span>
+      
+      <input type="number" id="apy" value="4.5" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Term (months)</span>
+      
+      <input type="number" id="months" value="12" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How CDs work</h2>
+<p>A certificate of deposit (called a term deposit or fixed deposit in many countries) pays a fixed, guaranteed rate in return for you agreeing not to touch the money for a set term — commonly 3 months to 5 years. Because the bank can count on the funds, CDs usually pay more than an ordinary savings account. Since the APY already reflects compounding, this calculator applies it over your term to give the maturity value.</p>
+<h2>The trade-off: rate for access</h2>
+<p>The catch is liquidity. Withdraw before maturity and you'll typically pay an early-withdrawal penalty — often several months of interest — that can wipe out much of your gain. CDs suit money you know you won't need until a specific date: a planned purchase, an emergency-fund tier you won't touch, or the safe portion of a portfolio.</p>
+<h2>Strategies worth knowing</h2>
+<ul>
+<li><strong>CD laddering:</strong> split money across CDs of staggered maturities (say 1, 2, 3, 4, 5 years). One matures each year, giving regular access while most of your money earns the higher long-term rates.</li>
+<li><strong>Rate environment matters:</strong> lock in long terms when rates are high; stay short when you expect rates to rise, so you can reinvest sooner.</li>
+<li><strong>Compare APY, not the nominal rate</strong> — APY includes compounding and is the honest basis for comparing CDs across banks.</li>
+</ul>
+<h2>Safety</h2>
+<p>In many countries CDs held at insured banks are protected up to a limit (e.g. FDIC insurance in the US), making them one of the safest places to earn a return. That safety is exactly why their rate, while better than checking, trails riskier investments like stocks over the long run. A CD is a place to preserve money with a modest guaranteed gain — not to grow wealth aggressively.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What happens if I withdraw from a CD early?</summary>
+      <p>You typically pay an early-withdrawal penalty, often equal to several months of interest. For longer terms the penalty is larger. Only put money in a CD that you're confident you won't need before maturity.</p>
+    </details>
+    
+    <details>
+      <summary>Is a CD better than a savings account?</summary>
+      <p>CDs usually pay a higher rate in exchange for locking up your money. If you need flexible access, a high-yield savings account is better; if you have money earmarked for a future date, a CD earns more.</p>
+    </details>
+    
+    <details>
+      <summary>What is CD laddering?</summary>
+      <p>Splitting your money across CDs with staggered maturity dates so one matures periodically. It balances earning higher long-term rates with keeping regular access to a portion of your funds.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/simple-interest-calculator/">
+        <span class="card-emoji">📐</span>
+        <span class="card-title">Simple Interest Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const p = val('deposit'), apy = val('apy')/100, m = val('months');
+  const years = m / 12;
+  const maturity = p * Math.pow(1 + apy, years);
+  const interest = maturity - p;
+  show(`<div class="result-main">$${fmt(maturity)}<small>Value at maturity after ${m} months</small></div>
+  <table>
+    <tr><td>Initial deposit</td><td>$${fmt(p)}</td></tr>
+    <tr><td>Interest earned</td><td>$${fmt(interest)}</td></tr>
+    <tr><td>Effective total return</td><td>${p>0 ? fmt(interest/p*100,2) : '—'}%</td></tr>
+    <tr><td>Approx. monthly interest</td><td>$${fmt(interest/m)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTV:CAC Ratio Calculator — Customer Economics</title>
+<meta name="description" content="Calculate customer lifetime value (LTV), customer acquisition cost (CAC), and the LTV:CAC ratio that tells you whether your growth is profitable and sustainable.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/cac-ltv-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="LTV:CAC Ratio Calculator — Customer Economics">
+<meta property="og:description" content="Calculate customer lifetime value (LTV), customer acquisition cost (CAC), and the LTV:CAC ratio that tells you whether your growth is profitable and sustainable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/cac-ltv-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LTV:CAC Ratio Calculator — Customer Economics">
+<meta name="twitter:description" content="Calculate customer lifetime value (LTV), customer acquisition cost (CAC), and the LTV:CAC ratio that tells you whether your growth is profitable and sustainable.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good LTV:CAC ratio?", "acceptedAnswer": {"@type": "Answer", "text": "Around 3:1 to 5:1 is the healthy benchmark. Below 3 suggests you're overspending to acquire customers; above 5 may mean you're under-investing and could grow faster."}}, {"@type": "Question", "name": "What is CAC payback period?", "acceptedAnswer": {"@type": "Answer", "text": "The number of months of gross profit from a customer needed to recover their acquisition cost. Under 12 months is a common target for healthy, cash-efficient growth."}}, {"@type": "Question", "name": "How do I calculate customer lifetime value?", "acceptedAnswer": {"@type": "Answer", "text": "A simple version: average monthly revenue × gross margin × average customer lifespan in months. More advanced models discount future value and account for expansion revenue, but this captures the core."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "LTV : CAC Ratio Calculator", "item": "https://fincalc-lab.pages.dev/calculators/cac-ltv-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; LTV : CAC Ratio Calculator</nav>
+  <h1>🎯 LTV : CAC Ratio Calculator</h1>
+  <p class="lead">For any subscription or repeat-purchase business, one ratio reveals whether growth is healthy: lifetime value versus what it costs to acquire a customer. Enter your numbers to get LTV, CAC and the ratio investors look for.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Average revenue per customer / month ($)</span>
+      
+      <input type="number" id="revenue" value="50" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Gross margin (%) <em class="hint">(share of revenue that's profit)</em></span>
+      
+      <input type="number" id="margin" value="80" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Average customer lifespan (months)</span>
+      
+      <input type="number" id="months" value="24" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Total sales & marketing spend ($)</span>
+      
+      <input type="number" id="spend" value="20000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">New customers acquired</span>
+      
+      <input type="number" id="customers" value="100" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The two numbers that decide a subscription business</h2>
+<p><strong>LTV (lifetime value)</strong> is the total gross profit a customer generates before they leave: <code>monthly revenue × gross margin × average lifespan</code>. <strong>CAC (customer acquisition cost)</strong> is what you spend on sales and marketing to win one customer: <code>total spend ÷ new customers</code>. Together they answer the only question that matters for growth: does each customer bring in more than they cost to acquire?</p>
+<h2>The 3:1 rule</h2>
+<p>The widely-cited benchmark is an <strong>LTV:CAC ratio around 3:1 to 5:1</strong>. Below 3, you're spending too much relative to what customers are worth — growth burns cash. Above 5, counterintuitively, you may be <em>under-investing</em>: you could likely spend more to acquire customers faster and still profit. Exactly 1:1 means each customer just barely pays back their acquisition cost, leaving nothing for overhead or profit.</p>
+<h2>Payback period: the cash-flow reality</h2>
+<p>A great ratio can still strain cash if it takes too long to recover CAC. The <strong>CAC payback period</strong> — months of gross profit needed to earn back acquisition cost — should ideally be under 12 months for a healthy startup. A 3:1 ratio with a 3-month payback is a money machine; the same ratio with a 30-month payback can bankrupt you before the value arrives, because you fund acquisition today and collect slowly.</p>
+<h2>Improving the ratio</h2>
+<ul>
+<li><strong>Raise LTV:</strong> reduce churn (longer lifespan is the biggest lever), increase prices, or expand revenue per customer through upsells.</li>
+<li><strong>Lower CAC:</strong> improve conversion, lean on organic and referral channels, and target higher-intent audiences.</li>
+<li><strong>Watch churn above all</strong> — because LTV multiplies by lifespan, cutting churn compounds through the whole model.</li>
+</ul>
+<p>These unit economics are what separate a business that grows profitably from one that simply buys revenue at a loss. Get the ratio and payback right, and scaling makes you money; get them wrong, and scaling accelerates the losses.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a good LTV:CAC ratio?</summary>
+      <p>Around 3:1 to 5:1 is the healthy benchmark. Below 3 suggests you're overspending to acquire customers; above 5 may mean you're under-investing and could grow faster.</p>
+    </details>
+    
+    <details>
+      <summary>What is CAC payback period?</summary>
+      <p>The number of months of gross profit from a customer needed to recover their acquisition cost. Under 12 months is a common target for healthy, cash-efficient growth.</p>
+    </details>
+    
+    <details>
+      <summary>How do I calculate customer lifetime value?</summary>
+      <p>A simple version: average monthly revenue × gross margin × average customer lifespan in months. More advanced models discount future value and account for expansion revenue, but this captures the core.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+        <span class="card-emoji">🧑‍💻</span>
+        <span class="card-title">Freelance Hourly Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/markup-calculator/">
+        <span class="card-emoji">🏷️</span>
+        <span class="card-title">Markup Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const rev = val('revenue'), gm = val('margin')/100, life = val('months');
+  const spend = val('spend'), cust = Math.max(1, val('customers'));
+  const ltv = rev * gm * life;
+  const cac = spend / cust;
+  const ratio = cac>0 ? ltv/cac : 0;
+  const payback = (rev*gm)>0 ? cac/(rev*gm) : 0;
+  let verdict;
+  if (ratio >= 3 && ratio <= 5) verdict = 'Healthy — the classic 3–5x sweet spot';
+  else if (ratio > 5) verdict = 'Very high — you may be under-investing in growth';
+  else if (ratio >= 1) verdict = 'Weak — each customer barely pays back acquisition';
+  else verdict = 'Unprofitable — you lose money on every customer';
+  show(`<div class="result-main">${fmt(ratio,1)} : 1<small>LTV to CAC ratio &mdash; ${verdict}</small></div>
+  <table>
+    <tr><td>Customer lifetime value (LTV)</td><td>$${fmt(ltv)}</td></tr>
+    <tr><td>Customer acquisition cost (CAC)</td><td>$${fmt(cac)}</td></tr>
+    <tr><td>CAC payback period</td><td>${fmt(payback,1)} months</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

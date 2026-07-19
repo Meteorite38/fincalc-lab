@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator — Percent Of, Is What Percent, and % Change</title>
+<meta name="description" content="A simple percentage calculator: find X% of a number, work out what percent one number is of another, or calculate the percentage increase or decrease between two values.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/percentage-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Percentage Calculator — Percent Of, Is What Percent, and % Change">
+<meta property="og:description" content="A simple percentage calculator: find X% of a number, work out what percent one number is of another, or calculate the percentage increase or decrease between two values.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/percentage-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Percentage Calculator — Percent Of, Is What Percent, and % Change">
+<meta name="twitter:description" content="A simple percentage calculator: find X% of a number, work out what percent one number is of another, or calculate the percentage increase or decrease between two values.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I find what percent one number is of another?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the part by the whole and multiply by 100. For example, 25 out of 200 is 25 ÷ 200 × 100 = 12.5%. Use the 'X is what % of Y' mode above."}}, {"@type": "Question", "name": "What's the difference between percent and percentage points?", "acceptedAnswer": {"@type": "Answer", "text": "Percentage points measure the absolute gap between two percentages (5% to 6% is 1 point). Percent change measures it relative to the start (5% to 6% is a 20% increase). They're easily and often confused."}}, {"@type": "Question", "name": "Why does a 50% loss need a 100% gain to recover?", "acceptedAnswer": {"@type": "Answer", "text": "Because percentage change is measured against the current (reduced) value. Falling 50% halves your money; getting back to the start means doubling what remains, which is a 100% gain."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Percentage Calculator", "item": "https://fincalc-lab.pages.dev/calculators/percentage-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Percentage Calculator</nav>
+  <h1>🔢 Percentage Calculator</h1>
+  <p class="lead">The three percentage questions everyone actually needs, in one place. Pick the type, enter two numbers, and get a clear answer with the working shown.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">What do you want to calculate?</span>
+      
+      <select id="mode">
+        
+        <option value="of" selected>What is X% of Y</option>
+        
+        <option value="ispct">X is what % of Y</option>
+        
+        <option value="change">% change from X to Y</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">First number (X)</span>
+      
+      <input type="number" id="a" value="25" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Second number (Y)</span>
+      
+      <input type="number" id="b" value="200" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The three percentage questions</h2>
+<p>Almost every real percentage problem is one of three types, and this calculator covers all of them:</p>
+<ul>
+<li><strong>What is X% of Y?</strong> — finding a portion. 25% of 200 is 50. Formula: <code>X ÷ 100 × Y</code>. Use it for discounts, tips, tax, and commissions.</li>
+<li><strong>X is what percent of Y?</strong> — expressing a part as a percentage. 25 out of 200 is 12.5%. Formula: <code>X ÷ Y × 100</code>. Use it for test scores, market share, and progress toward a goal.</li>
+<li><strong>Percentage change from X to Y</strong> — measuring growth or decline. From 200 to 250 is a +25% increase. Formula: <code>(Y − X) ÷ X × 100</code>. Use it for price changes, investment returns, and any before-and-after comparison.</li>
+</ul>
+<h2>The mistake to avoid: percentage points vs percent</h2>
+<p>A rate rising from 5% to 6% is a <em>1 percentage point</em> increase — but a <em>20% increase</em> in relative terms. News and marketing exploit this ambiguity constantly. "Approval rose 3 points" and "approval rose 3%" can mean very different things. When a percentage is itself changing, be clear whether you mean the absolute point difference or the relative percent change.</p>
+<h2>Why percentage change uses the starting value</h2>
+<p>Percentage change is always measured against the <em>original</em> number, which creates an asymmetry people forget: a value that drops 50% must then rise 100% to recover, because the base shrank. A $100 stock that falls to $50 (−50%) needs a +100% gain to return to $100. This is why big losses hurt disproportionately — and why "up 50%, down 50%" leaves you down 25%, not even.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I find what percent one number is of another?</summary>
+      <p>Divide the part by the whole and multiply by 100. For example, 25 out of 200 is 25 ÷ 200 × 100 = 12.5%. Use the 'X is what % of Y' mode above.</p>
+    </details>
+    
+    <details>
+      <summary>What's the difference between percent and percentage points?</summary>
+      <p>Percentage points measure the absolute gap between two percentages (5% to 6% is 1 point). Percent change measures it relative to the start (5% to 6% is a 20% increase). They're easily and often confused.</p>
+    </details>
+    
+    <details>
+      <summary>Why does a 50% loss need a 100% gain to recover?</summary>
+      <p>Because percentage change is measured against the current (reduced) value. Falling 50% halves your money; getting back to the start means doubling what remains, which is a 100% gain.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const mode = document.getElementById('mode').value, a = val('a'), b = val('b');
+  if (mode === 'of') {
+    const res = a/100 * b;
+    show(`<div class="result-main">${fmt(res)}<small>${fmt(a)}% of ${fmt(b)}</small></div>
+    <table><tr><td>Calculation</td><td>${fmt(a)} ÷ 100 × ${fmt(b)}</td></tr><tr><td>Result</td><td>${fmt(res)}</td></tr></table>`);
+  } else if (mode === 'ispct') {
+    if (b === 0) { show('<div class="result-main">Y can\'t be zero for this.</div>'); return; }
+    const res = a/b*100;
+    show(`<div class="result-main">${fmt(res)}%<small>${fmt(a)} is ${fmt(res)}% of ${fmt(b)}</small></div>
+    <table><tr><td>Calculation</td><td>${fmt(a)} ÷ ${fmt(b)} × 100</td></tr><tr><td>Result</td><td>${fmt(res)}%</td></tr></table>`);
+  } else {
+    if (a === 0) { show('<div class="result-main">Starting value can\'t be zero for % change.</div>'); return; }
+    const diff = b - a, res = diff/Math.abs(a)*100;
+    show(`<div class="result-main">${res>=0?'+':''}${fmt(res)}%<small>change from ${fmt(a)} to ${fmt(b)} (${diff>=0?'increase':'decrease'})</small></div>
+    <table><tr><td>Difference</td><td>${fmt(diff)}</td></tr><tr><td>Calculation</td><td>(${fmt(b)} − ${fmt(a)}) ÷ ${fmt(a)} × 100</td></tr></table>`);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

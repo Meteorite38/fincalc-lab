@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markup Calculator — Selling Price from Cost and Markup</title>
+<meta name="description" content="Calculate selling price from cost and markup percentage, and see the resulting profit margin. Understand the crucial difference between markup and margin.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/markup-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Markup Calculator — Selling Price from Cost and Markup">
+<meta property="og:description" content="Calculate selling price from cost and markup percentage, and see the resulting profit margin. Understand the crucial difference between markup and margin.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/markup-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Markup Calculator — Selling Price from Cost and Markup">
+<meta name="twitter:description" content="Calculate selling price from cost and markup percentage, and see the resulting profit margin. Understand the crucial difference between markup and margin.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between markup and margin?", "acceptedAnswer": {"@type": "Answer", "text": "Markup is profit as a percentage of cost; margin is profit as a percentage of selling price. A 50% markup equals a 33% margin. Confusing them leads to underpricing."}}, {"@type": "Question", "name": "How do I convert markup to margin?", "acceptedAnswer": {"@type": "Answer", "text": "Margin = markup ÷ (1 + markup). A 50% markup gives 0.5 ÷ 1.5 = 33% margin. This calculator shows both automatically so you don't have to."}}, {"@type": "Question", "name": "What is keystone pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Doubling the cost — a 100% markup, which is a 50% margin. It's a traditional retail starting point, though competitive or specialty markets often use higher or lower markups."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Markup Calculator", "item": "https://fincalc-lab.pages.dev/calculators/markup-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Markup Calculator</nav>
+  <h1>🏷️ Markup Calculator</h1>
+  <p class="lead">Set a price by adding a markup to your cost — and instantly see the profit margin it produces. Enter your unit cost and the markup percentage you want to apply.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Unit cost ($)</span>
+      
+      <input type="number" id="cost" value="40" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Markup (%)</span>
+      
+      <input type="number" id="markup" value="50" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Markup and margin are not the same</h2>
+<p>This is the single most costly confusion in pricing. <strong>Markup</strong> is profit as a percentage of <em>cost</em>; <strong>margin</strong> is profit as a percentage of the <em>selling price</em>. A 50% markup on a $40 cost gives a $60 price — but that's only a 33% margin, because the $20 profit is one-third of the $60 price, not half. Every markup produces a smaller-looking margin, and mixing them up quietly erodes profitability.</p>
+<h2>Setting price from markup</h2>
+<p><code>Price = Cost × (1 + markup)</code>. Retailers often think in markup because they buy at a cost and add a percentage. "Keystone" pricing — a 100% markup (doubling the cost) — is a traditional retail default that produces a 50% margin. This calculator shows both numbers so you always know the margin your markup actually delivers.</p>
+<h2>Choosing a markup</h2>
+<ul>
+<li><strong>Cover more than product cost.</strong> Your markup must fund not just profit but overhead — rent, salaries, marketing, returns. A markup that only beats unit cost can still lose money once fixed costs are counted.</li>
+<li><strong>Match your industry.</strong> Grocery runs on thin markups and high volume; jewelry, software, and specialty goods carry much higher ones. Compare to your sector, not a universal figure.</li>
+<li><strong>Mind competition and value.</strong> Markup sets a floor; what customers will pay sets the ceiling. Price within that band.</li>
+</ul>
+<h2>From price to profit</h2>
+<p>Remember that gross profit per unit still has to cover all your fixed costs before anything is true profit — see the <a href="/calculators/break-even-point-calculator/">break-even calculator</a> for how many units that takes. And if you prefer to work backwards from a target margin instead of a markup, the <a href="/calculators/profit-margin-calculator/">profit margin calculator</a> handles that direction.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What's the difference between markup and margin?</summary>
+      <p>Markup is profit as a percentage of cost; margin is profit as a percentage of selling price. A 50% markup equals a 33% margin. Confusing them leads to underpricing.</p>
+    </details>
+    
+    <details>
+      <summary>How do I convert markup to margin?</summary>
+      <p>Margin = markup ÷ (1 + markup). A 50% markup gives 0.5 ÷ 1.5 = 33% margin. This calculator shows both automatically so you don't have to.</p>
+    </details>
+    
+    <details>
+      <summary>What is keystone pricing?</summary>
+      <p>Doubling the cost — a 100% markup, which is a 50% margin. It's a traditional retail starting point, though competitive or specialty markets often use higher or lower markups.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+        <span class="card-emoji">🧑‍💻</span>
+        <span class="card-title">Freelance Hourly Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cac-ltv-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">LTV : CAC Ratio Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const c = val('cost'), mk = val('markup')/100;
+  const profit = c * mk;
+  const price = c + profit;
+  const margin = price>0 ? profit/price*100 : 0;
+  show(`<div class="result-main">$${fmt(price)}<small>Selling price at ${val('markup')}% markup</small></div>
+  <table>
+    <tr><td>Unit cost</td><td>$${fmt(c)}</td></tr>
+    <tr><td>Profit per unit</td><td>$${fmt(profit)}</td></tr>
+    <tr><td>Resulting profit margin</td><td>${fmt(margin,1)}%</td></tr>
+    <tr><td>Markup applied</td><td>${val('markup')}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

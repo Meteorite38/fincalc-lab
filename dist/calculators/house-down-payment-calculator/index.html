@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Down Payment Calculator — Save for a Home Deposit</title>
+<meta name="description" content="Calculate the down payment you need for a home at any percentage, plus how much to save each month to reach it by your target date.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/house-down-payment-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Down Payment Calculator — Save for a Home Deposit">
+<meta property="og:description" content="Calculate the down payment you need for a home at any percentage, plus how much to save each month to reach it by your target date.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/house-down-payment-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Down Payment Calculator — Save for a Home Deposit">
+<meta name="twitter:description" content="Calculate the down payment you need for a home at any percentage, plus how much to save each month to reach it by your target date.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I really need 20% down?", "acceptedAnswer": {"@type": "Answer", "text": "No, but it helps. 20% avoids PMI and improves your rate. Many buyers put down less and pay PMI to buy sooner — a valid choice if you keep an emergency fund and can afford the higher payment."}}, {"@type": "Question", "name": "What are closing costs?", "acceptedAnswer": {"@type": "Answer", "text": "Fees paid at the completion of a home purchase — lender charges, title, appraisal, taxes, and more — typically 2–5% of the price. They're separate from and on top of your down payment."}}, {"@type": "Question", "name": "Where should I keep my down payment savings?", "acceptedAnswer": {"@type": "Answer", "text": "In a safe, liquid, interest-bearing account like a high-yield savings account — not the stock market, since a downturn right before you buy could shrink the funds you're counting on."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "House Down Payment Calculator", "item": "https://fincalc-lab.pages.dev/calculators/house-down-payment-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; House Down Payment Calculator</nav>
+  <h1>🔑 House Down Payment Calculator</h1>
+  <p class="lead">See how much you need for a home down payment — and the monthly saving that gets you there by your target. Enter the home price, your target percentage, and your timeline.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home price ($)</span>
+      
+      <input type="number" id="price" value="350000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment (%)</span>
+      
+      <input type="number" id="percent" value="20" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Already saved ($)</span>
+      
+      <input type="number" id="saved" value="15000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Months until you buy</span>
+      
+      <input type="number" id="months" value="36" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How much down payment do you need?</h2>
+<p>The classic target is <strong>20% of the home price</strong>, because it lets you avoid private mortgage insurance (PMI) in many markets and secures better loan terms. But it's not mandatory — many first-time buyers put down far less (often 5–10%), accepting PMI and a larger loan in exchange for buying sooner. This calculator works for any percentage so you can compare scenarios.</p>
+<h2>Don't forget closing costs</h2>
+<p>The down payment isn't the only cash you need at the table. <strong>Closing costs</strong> — lender fees, title, appraisal, taxes, and more — typically add 2–5% of the price (this tool estimates 3%). On a $350,000 home that's around $10,500 on top of the down payment. Budgeting only for the down payment is a common way buyers get caught short right before closing.</p>
+<h2>20% vs less: the real trade-off</h2>
+<ul>
+<li><strong>20% down:</strong> no PMI, smaller loan, lower monthly payment, more equity from day one — but it takes longer to save and ties up more cash.</li>
+<li><strong>Less than 20%:</strong> buy sooner and keep cash liquid, but pay PMI (often 0.5–1.5% of the loan yearly) and carry a bigger balance.</li>
+</ul>
+<p>A balanced approach many advisors favor: arrive with a solid down payment <em>and</em> a preserved emergency fund, rather than draining every dollar into equity you can't easily access. Home equity doesn't fix a broken furnace — cash does.</p>
+<h2>Saving the gap</h2>
+<p>Once you know the monthly figure, automate it into a separate high-yield savings account so it grows a little while you save and stays out of spending reach. Windfalls — bonuses, tax refunds, gifts — are down-payment accelerators precisely because they were never in your monthly budget.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Do I really need 20% down?</summary>
+      <p>No, but it helps. 20% avoids PMI and improves your rate. Many buyers put down less and pay PMI to buy sooner — a valid choice if you keep an emergency fund and can afford the higher payment.</p>
+    </details>
+    
+    <details>
+      <summary>What are closing costs?</summary>
+      <p>Fees paid at the completion of a home purchase — lender charges, title, appraisal, taxes, and more — typically 2–5% of the price. They're separate from and on top of your down payment.</p>
+    </details>
+    
+    <details>
+      <summary>Where should I keep my down payment savings?</summary>
+      <p>In a safe, liquid, interest-bearing account like a high-yield savings account — not the stock market, since a downturn right before you buy could shrink the funds you're counting on.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), pct = val('percent')/100, saved = val('saved'), m = Math.max(1, val('months'));
+  const target = price * pct;
+  const closing = price * 0.03;
+  const gap = Math.max(0, target - saved);
+  const monthly = gap / m;
+  show(`<div class="result-main">$${fmt(target,0)}<small>${val('percent')}% down payment on a $${fmt(price,0)} home</small></div>
+  <table>
+    <tr><td>Still to save</td><td>$${fmt(gap,0)}</td></tr>
+    <tr><td>Save per month (${m} mo)</td><td>$${fmt(monthly,0)}</td></tr>
+    <tr><td>Est. closing costs (~3%)</td><td>$${fmt(closing,0)} extra</td></tr>
+    <tr><td>Total cash needed to buy</td><td>$${fmt(target + closing,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

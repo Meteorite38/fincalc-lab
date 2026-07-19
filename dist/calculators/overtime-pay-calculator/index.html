@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overtime Pay Calculator — Time-and-a-Half and Total Pay</title>
+<meta name="description" content="Calculate overtime pay at time-and-a-half (or any multiplier) and your total weekly earnings from regular and overtime hours.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/overtime-pay-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Overtime Pay Calculator — Time-and-a-Half and Total Pay">
+<meta property="og:description" content="Calculate overtime pay at time-and-a-half (or any multiplier) and your total weekly earnings from regular and overtime hours.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/overtime-pay-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Overtime Pay Calculator — Time-and-a-Half and Total Pay">
+<meta name="twitter:description" content="Calculate overtime pay at time-and-a-half (or any multiplier) and your total weekly earnings from regular and overtime hours.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is time-and-a-half?", "acceptedAnswer": {"@type": "Answer", "text": "Overtime paid at 1.5 times your regular hourly rate. If you earn $20/hour, time-and-a-half is $30/hour for each qualifying overtime hour."}}, {"@type": "Question", "name": "Is overtime taxed more?", "acceptedAnswer": {"@type": "Answer", "text": "No — it's taxed as ordinary income. A large overtime paycheck may have more tax withheld that week, but it's reconciled at year-end. There's no special penalty rate on overtime earnings."}}, {"@type": "Question", "name": "When am I entitled to overtime?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your country, region, and employment status. Many places require it beyond 40 hours a week for non-exempt employees; some add daily thresholds. Check local law and your contract."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Overtime Pay Calculator", "item": "https://fincalc-lab.pages.dev/calculators/overtime-pay-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Overtime Pay Calculator</nav>
+  <h1>⏰ Overtime Pay Calculator</h1>
+  <p class="lead">Work out your overtime earnings and total weekly pay. Enter your regular hourly rate, the hours you worked, and the overtime multiplier (1.5× is standard time-and-a-half).</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Regular hourly rate ($)</span>
+      
+      <input type="number" id="rate" value="20" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Regular hours</span>
+      
+      <input type="number" id="regular" value="40" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Overtime hours</span>
+      
+      <input type="number" id="ot" value="8" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Overtime multiplier <em class="hint">(1.5 = time-and-a-half, 2 = double time)</em></span>
+      
+      <input type="number" id="mult" value="1.5" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How overtime pay works</h2>
+<p>Overtime is paid at a premium above your regular rate. The most common is <strong>time-and-a-half (1.5×)</strong>: an extra 50% for each overtime hour. Some situations pay <strong>double time (2×)</strong> — holidays, excessive hours, or certain union agreements. Your overtime pay is simply <code>regular rate × multiplier × overtime hours</code>, added to your regular pay.</p>
+<h2>When does overtime kick in?</h2>
+<p>Rules vary by country and region. In the US, federal law generally requires time-and-a-half for hours worked beyond 40 in a week for non-exempt employees; some states add daily overtime (e.g. beyond 8 hours in a day). Salaried "exempt" employees often don't qualify. Always check your local labour laws and employment contract — this calculator handles the math once you know your rules and multiplier.</p>
+<h2>The value of overtime hours</h2>
+<p>Overtime is one of the few ways an hourly worker earns a premium rate, which is why it can meaningfully boost income. At $20/hour, eight overtime hours at 1.5× adds $240 — a 30% bump on top of a $800 regular week. But weigh it against the real cost: fatigue, lost personal time, and (in progressive tax systems) a slightly higher marginal tax rate on the extra income. Overtime is valuable; unlimited overtime is often a sign a role is understaffed.</p>
+<h2>A tax note</h2>
+<p>Overtime pay isn't taxed at a special higher rate — it's ordinary income. It can <em>appear</em> to be taxed more if a big overtime week pushes that paycheck into higher withholding, but at year-end it's all reconciled as normal income. The figures here are gross (pre-tax); your take-home depends on your tax situation.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is time-and-a-half?</summary>
+      <p>Overtime paid at 1.5 times your regular hourly rate. If you earn $20/hour, time-and-a-half is $30/hour for each qualifying overtime hour.</p>
+    </details>
+    
+    <details>
+      <summary>Is overtime taxed more?</summary>
+      <p>No — it's taxed as ordinary income. A large overtime paycheck may have more tax withheld that week, but it's reconciled at year-end. There's no special penalty rate on overtime earnings.</p>
+    </details>
+    
+    <details>
+      <summary>When am I entitled to overtime?</summary>
+      <p>It depends on your country, region, and employment status. Many places require it beyond 40 hours a week for non-exempt employees; some add daily thresholds. Check local law and your contract.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/paycheck-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Paycheck Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const rate = val('rate'), reg = val('regular'), ot = val('ot'), mult = val('mult');
+  const regPay = rate * reg;
+  const otRate = rate * mult;
+  const otPay = otRate * ot;
+  const total = regPay + otPay;
+  show(`<div class="result-main">$${fmt(total)}<small>Total weekly pay (${reg}h regular + ${ot}h overtime)</small></div>
+  <table>
+    <tr><td>Regular pay</td><td>$${fmt(regPay)}</td></tr>
+    <tr><td>Overtime rate (${mult}x)</td><td>$${fmt(otRate)}/hr</td></tr>
+    <tr><td>Overtime pay</td><td>$${fmt(otPay)}</td></tr>
+    <tr><td>Annualized (52 weeks)</td><td>$${fmt(total*52,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

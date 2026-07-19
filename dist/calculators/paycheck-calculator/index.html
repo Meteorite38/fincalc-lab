@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator — Pay Per Period from Annual Salary</title>
+<meta name="description" content="Convert an annual salary into per-paycheck amounts for weekly, biweekly, semimonthly or monthly pay schedules, with an optional estimate of take-home pay.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/paycheck-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Paycheck Calculator — Pay Per Period from Annual Salary">
+<meta property="og:description" content="Convert an annual salary into per-paycheck amounts for weekly, biweekly, semimonthly or monthly pay schedules, with an optional estimate of take-home pay.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/paycheck-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Paycheck Calculator — Pay Per Period from Annual Salary">
+<meta name="twitter:description" content="Convert an annual salary into per-paycheck amounts for weekly, biweekly, semimonthly or monthly pay schedules, with an optional estimate of take-home pay.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between biweekly and semimonthly?", "acceptedAnswer": {"@type": "Answer", "text": "Biweekly means every two weeks — 26 paychecks a year, with two months getting a third check. Semimonthly means twice a month — 24 paychecks, always two per month. Biweekly checks are slightly smaller but more numerous."}}, {"@type": "Question", "name": "Why are two months bigger when I'm paid biweekly?", "acceptedAnswer": {"@type": "Answer", "text": "Because 26 biweekly paychecks don't divide evenly into 12 months, two months each contain three paydays. Planning for these 'extra' paychecks makes them a useful savings or debt-payoff boost."}}, {"@type": "Question", "name": "Is this my take-home pay?", "acceptedAnswer": {"@type": "Answer", "text": "The gross figure isn't; the take-home estimate uses the effective rate you enter. Actual net pay depends on your specific taxes, benefits, and retirement contributions, which vary by location and choices."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Paycheck Calculator", "item": "https://fincalc-lab.pages.dev/calculators/paycheck-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/#calculators">Calculators</a>
+      <a href="/#articles">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Paycheck Calculator</nav>
+  <h1>💵 Paycheck Calculator</h1>
+  <p class="lead">Turn your annual salary into what actually lands each payday. Choose your pay frequency and, optionally, an effective tax rate to estimate net pay per paycheck.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual salary ($)</span>
+      
+      <input type="number" id="salary" value="65000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Pay frequency</span>
+      
+      <select id="freq">
+        
+        <option value="weekly">Weekly (52/year)</option>
+        
+        <option value="biweekly" selected>Biweekly (26/year)</option>
+        
+        <option value="semimonthly">Semimonthly (24/year)</option>
+        
+        <option value="monthly">Monthly (12/year)</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Effective tax & deductions (%) <em class="hint">(optional, for take-home estimate)</em></span>
+      
+      <input type="number" id="tax" value="20" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why pay frequency matters</h2>
+<p>Your annual salary is the same regardless of schedule, but the size and rhythm of each paycheck differ — and that affects budgeting. The four common schedules:</p>
+<ul>
+<li><strong>Weekly (52/year):</strong> smaller, frequent checks; easiest to match to weekly expenses.</li>
+<li><strong>Biweekly (26/year):</strong> every two weeks — the most common in the US. Note the quirk: two months a year have <em>three</em> paychecks, a budgeting bonus if you plan for it.</li>
+<li><strong>Semimonthly (24/year):</strong> twice a month (e.g. 15th and last day). Always two per month, slightly larger than biweekly.</li>
+<li><strong>Monthly (12/year):</strong> one large check; requires the most disciplined budgeting to stretch across the month.</li>
+</ul>
+<h2>Biweekly vs semimonthly — the confusing pair</h2>
+<p>They sound alike but differ: biweekly is <em>every 14 days</em> (26 checks), semimonthly is <em>twice a month</em> (24 checks). Biweekly checks are a bit smaller but there are two more of them, including those two "extra" three-paycheck months. Same annual pay, different cash-flow feel.</p>
+<h2>Gross vs net</h2>
+<p>The gross figure is before deductions. Real take-home is reduced by income tax, payroll/social contributions, health premiums, and retirement contributions. This tool lets you enter an effective rate for a rough net estimate, but your actual deductions depend on your location and elections. For budgeting, always plan around the net amount that hits your account — and if you're paid biweekly, consider treating the two annual "extra" paychecks as a savings or debt-payoff bonus rather than spending money.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What's the difference between biweekly and semimonthly?</summary>
+      <p>Biweekly means every two weeks — 26 paychecks a year, with two months getting a third check. Semimonthly means twice a month — 24 paychecks, always two per month. Biweekly checks are slightly smaller but more numerous.</p>
+    </details>
+    
+    <details>
+      <summary>Why are two months bigger when I'm paid biweekly?</summary>
+      <p>Because 26 biweekly paychecks don't divide evenly into 12 months, two months each contain three paydays. Planning for these 'extra' paychecks makes them a useful savings or debt-payoff boost.</p>
+    </details>
+    
+    <details>
+      <summary>Is this my take-home pay?</summary>
+      <p>The gross figure isn't; the take-home estimate uses the effective rate you enter. Actual net pay depends on your specific taxes, benefits, and retirement contributions, which vary by location and choices.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/overtime-pay-calculator/">
+        <span class="card-emoji">⏰</span>
+        <span class="card-title">Overtime Pay Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const s = val('salary'), t = val('tax')/100;
+  const freq = document.getElementById('freq').value;
+  const periods = {weekly:52, biweekly:26, semimonthly:24, monthly:12}[freq];
+  const gross = s / periods;
+  const net = gross * (1 - t);
+  show(`<div class="result-main">$${fmt(gross)}<small>Gross per paycheck (${periods} paychecks/year)</small></div>
+  <table>
+    <tr><td>Gross per paycheck</td><td>$${fmt(gross)}</td></tr>
+    <tr><td>Estimated take-home</td><td>$${fmt(net)}</td></tr>
+    <tr><td>Gross per month</td><td>$${fmt(s/12)}</td></tr>
+    <tr><td>Paychecks per year</td><td>${periods}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
