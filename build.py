@@ -124,6 +124,10 @@ def build():
         write(f"{p['slug']}/index.html", html)
         urls.append(f"{p['slug']}/")
 
+    # calculators directory page
+    write("calculators/index.html", env.get_template("calc_index.html").render(calcs=CALCS, articles=articles))
+    urls.append("calculators/")
+
     # home
     write("index.html", env.get_template("home.html").render(calcs=CALCS, articles=articles))
     urls.insert(0, "")

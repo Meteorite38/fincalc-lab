@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}All {{ calcs | length }} Financial Calculators — {{ site_name }}{% endblock %}
+{% block description %}Browse all {{ calcs | length }} free financial calculators — savings, retirement, loans, mortgages, taxes, business and everyday money math. No sign-up, nothing tracked.{% endblock %}
+{% block canonical %}calculators/{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "All Financial Calculators",
+  "url": "{{ site_url }}/calculators/",
+  "description": "The full directory of free financial calculators on {{ site_name }}."
+}
+</script>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; All calculators</nav>
+  <h1>All {{ calcs | length }} calculators</h1>
+  <p class="lead">Every free tool on {{ site_name }}, grouped by topic. Each one runs entirely in your browser, shows the formula it uses, and explains what the result means.</p>
+  <input type="search" id="calc-filter" class="calc-filter" placeholder="Search {{ calcs | length }} calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
+  <p id="calc-noresults" class="calc-noresults" hidden>No calculators match — try another word.</p>
+  {% for cat in ['Savings & Investing', 'Retirement', 'Loans & Debt', 'Income & Budgeting', 'Taxes & Shopping', 'Business', 'Everyday Math'] %}
+  {% set items = calcs | selectattr('category', 'equalto', cat) | list %}
+  {% if items %}
+  <h2 class="cat-label" data-catlabel>{{ cat }} <span class="cat-count">{{ items | length }}</span></h2>
+  <div class="grid" data-catgrid>
+    {% for c in items %}
+    <a class="card" href="/calculators/{{ c.slug }}/" data-name="{{ (c.h1 ~ ' ' ~ c.blurb ~ ' ' ~ cat) | lower }}">
+      <span class="card-emoji">{{ c.emoji }}</span>
+      <span class="card-title">{{ c.h1 }}</span>
+      <span class="card-desc">{{ c.blurb }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<script>
+function filterCalcs(q) {
+  q = (q || '').trim().toLowerCase();
+  var shown = 0;
+  document.querySelectorAll('[data-catgrid]').forEach(function(grid) {
+    var v = 0;
+    grid.querySelectorAll('.card').forEach(function(card) {
+      var m = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+      card.style.display = m ? '' : 'none';
+      if (m) { v++; shown++; }
+    });
+    var label = grid.previousElementSibling;
+    if (label && label.hasAttribute('data-catlabel')) label.style.display = v ? '' : 'none';
+  });
+  var nr = document.getElementById('calc-noresults');
+  if (nr) nr.hidden = shown !== 0;
+}
+</script>
+{% endblock %}
