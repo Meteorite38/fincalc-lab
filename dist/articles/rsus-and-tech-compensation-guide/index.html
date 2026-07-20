@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity" — FinCalc Lab</title>
+<meta name="description" content="How RSU grants actually work — vesting schedules, the 22% withholding trap, sell-vs-hold, comparing offers with equity, and building a life on lumpy income.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/articles/rsus-and-tech-compensation-guide/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content=""RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity" — FinCalc Lab">
+<meta property="og:description" content="How RSU grants actually work — vesting schedules, the 22% withholding trap, sell-vs-hold, comparing offers with equity, and building a life on lumpy income.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/articles/rsus-and-tech-compensation-guide/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content=""RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity" — FinCalc Lab">
+<meta name="twitter:description" content="How RSU grants actually work — vesting schedules, the 22% withholding trap, sell-vs-hold, comparing offers with equity, and building a life on lumpy income.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "\"RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity\"",
+  "description": "How RSU grants actually work \u2014 vesting schedules, the 22% withholding trap, sell-vs-hold, comparing offers with equity, and building a life on lumpy income.",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type": "Organization", "name": "FinCalc Lab"},
+  "publisher": {"@type": "Organization", "name": "FinCalc Lab"},
+  "mainEntityOfPage": "https://fincalc-lab.pages.dev/articles/rsus-and-tech-compensation-guide/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://fincalc-lab.pages.dev/guides/"},
+    {"@type": "ListItem", "position": 3, "name": "\"RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity\"", "item": "https://fincalc-lab.pages.dev/articles/rsus-and-tech-compensation-guide/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; "RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity"</nav>
+  <article class="explainer article-page">
+    <h1>"RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity"</h1>
+    <p class="article-meta">Last updated 2026-07-20</p>
+    
+    <details class="toc" open>
+      <summary>Contents</summary>
+      <div class="toc">
+<ul>
+<li><a href="#reading-a-grant-the-four-numbers-that-matter">Reading a grant: the four numbers that matter</a></li>
+<li><a href="#the-tax-mechanics-in-ninety-seconds">The tax mechanics in ninety seconds</a></li>
+<li><a href="#sell-or-hold-the-question-with-a-default-answer">Sell or hold: the question with a default answer</a></li>
+<li><a href="#comparing-offers-when-half-the-pay-is-stock">Comparing offers when half the pay is stock</a></li>
+<li><a href="#building-a-life-on-lumpy-income">Building a life on lumpy income</a></li>
+</ul>
+</div>
+
+    </details>
+    
+    <p>Equity has gone mainstream: RSUs now show up in offers far beyond Big Tech — mid-size software firms, banks, even retailers grant them. And most recipients manage five- or six-figure equity income with a strategy of "let it pile up and hope." This guide covers the whole lifecycle: reading a grant, the tax mechanics, the sell-or-hold decision, and how to compare job offers where half the pay is stock.</p>
+<h2 id="reading-a-grant-the-four-numbers-that-matter">Reading a grant: the four numbers that matter</h2>
+<p>An RSU grant letter reduces to four facts:</p>
+<ol>
+<li><strong>Grant value and share count.</strong> "$200,000 over 4 years" granted when the stock is $100 means 2,000 shares. From that moment, the <em>share count</em> is fixed — the dollar value floats with the stock.</li>
+<li><strong>The vesting schedule.</strong> Standard is 4 years with quarterly vests; the old 1-year cliff (nothing until month 12, then a lump) is less universal than it was. Amazon-style backloaded schedules (5/15/40/40) pay dramatically less if you leave early — read the curve, not the total.</li>
+<li><strong>What happens on departure.</strong> Unvested RSUs are almost always forfeited. Vested shares are yours forever.</li>
+<li><strong>Double-trigger provisions</strong> (private companies): pre-IPO RSUs often need both time <em>and</em> a liquidity event to fully vest — a different risk profile than public-company grants, closer to a lottery ticket with a work requirement.</li>
+</ol>
+<h2 id="the-tax-mechanics-in-ninety-seconds">The tax mechanics in ninety seconds</h2>
+<p>On each vest day, the market value of the vested shares is <strong>ordinary income</strong> — W-2 wages, exactly like salary, with Social Security and Medicare. Your cost basis is set at the vest price; only movement <em>after</em> vest is capital gain or loss. There is no election, no timing trick, no AMT (that's stock options — a different instrument).</p>
+<p>The operational trap is <strong>withholding</strong>: employers withhold the IRS flat supplemental rate of 22% (usually by auto-selling shares), while RSU recipients commonly sit in the 32-35% federal brackets. On $80,000 of annual vests, that's a <strong>five-figure hole</strong> discovered the following April — often with an underpayment penalty attached. The <a href="/calculators/rsu-tax-calculator/">RSU tax calculator</a> computes your exact gap; the fixes are extra <a href="/calculators/tax-withholding-calculator/">W-4 withholding</a> (which counts as paid evenly all year, even if added in November) or <a href="/calculators/quarterly-estimated-tax-calculator/">quarterly estimated payments</a>.</p>
+<p>The second trap is <strong>the 1099-B basis error</strong>: brokers frequently report sold RSU shares with a zero or blank cost basis. Filed uncorrected, you pay income tax on the same dollars twice. The correct basis — the vest-day value — is in the broker's supplemental statement. Every RSU holder makes this correction eventually; make it on purpose.</p>
+<h2 id="sell-or-hold-the-question-with-a-default-answer">Sell or hold: the question with a default answer</h2>
+<p>Holding vested RSUs has <strong>zero tax benefit</strong> — the income tax was charged at vest regardless. Holding is simply choosing to invest that after-tax money in your employer's stock. So run the clarifying test: <em>if the company had paid this vest in cash, would you buy company stock with all of it?</em> Almost nobody says yes — which makes sell-on-vest the honest default. Same-day sales have essentially no capital gain (proceeds ≈ basis), so the tax return stays clean.</p>
+<p>The case against holding is concentration with correlation: your salary, your unvested grants, and your portfolio all riding one ticker. The 40% stock drop scenario overlaps heavily with the hiring-freeze-and-layoffs scenario — income and assets failing together, the exact opposite of <a href="/articles/diversification-explained/">diversification</a>. A deliberate, small position (5-10% of net worth, sized on purpose) is defensible; 60% of net worth in employer stock by inertia is how tech workers repeatedly relearn 2000 and 2022.</p>
+<p>If you do hold, know what you're timing: shares held a year past vest get long-term capital gains rates on the <em>growth only</em>. On typical numbers that's a few hundred dollars of rate savings per $10,000 of gain — real, but never a reason to keep a concentrated position you otherwise wouldn't.</p>
+<h2 id="comparing-offers-when-half-the-pay-is-stock">Comparing offers when half the pay is stock</h2>
+<p>Two offers: $180k salary, versus $150k salary + $160k RSUs over 4 years. The naive math ($190k/year total comp!) treats equity as salary. Adjust for three things:</p>
+<ul>
+<li><strong>Vesting reality.</strong> Median tech tenure is ~2-3 years. Price the equity you'd plausibly collect, not the four-year total — especially against backloaded schedules.</li>
+<li><strong>Volatility.</strong> The grant's share count is fixed; a 30% stock drop cuts the equity portion 30%. Public mega-cap RSUs deserve maybe a 10-20% haircut for risk; pre-IPO paper deserves 50%+.</li>
+<li><strong>Refresh policy.</strong> Mature companies layer annual refresh grants so total comp doesn't cliff after year 4; startups often don't. Ask directly: "what does a typical year-3 refresh look like for this level?"</li>
+</ul>
+<p>A defensible comparison: salary + (grant value × your realistic tenure fraction × a volatility haircut). The <a href="/calculators/take-home-pay-calculator/">take-home pay calculator</a> handles the cash side; the equity side is your honest guess, made explicit.</p>
+<h2 id="building-a-life-on-lumpy-income">Building a life on lumpy income</h2>
+<p>The households that fumble RSUs usually made one structural mistake: <strong>budgeting on peak total comp.</strong> Grant values reset, stocks fall, refreshes disappoint — and a mortgage sized to last year's vest schedule becomes a problem. The durable pattern:</p>
+<ul>
+<li><strong>Run fixed costs on salary alone.</strong> Housing, cars, tuition — all inside the cash paycheck. The <a href="/calculators/budget-calculator/">budget calculator</a> makes the split explicit.</li>
+<li><strong>Treat vests as acceleration:</strong> tax set-aside first, then the <a href="/articles/financial-order-of-operations/">financial order of operations</a> — match, HSA, debt, index funds. Routed automatically on vest day, before the money starts feeling spendable.</li>
+<li><strong>Watch <a href="/articles/lifestyle-creep/">lifestyle creep</a> at refresh time.</strong> Every grant is a chance to re-anchor spending upward; the compounding alternative is what wins decades.</li>
+</ul>
+<p>Treated this way, RSUs become what they actually are — a powerful, lumpy, somewhat unreliable raise — and the stock market's opinion of your employer stops being the stress that decides whether the mortgage gets paid.</p>
+  </article>
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/rsu-tax-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">RSU Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tax-withholding-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Tax Withholding Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rental-property-calculator/">
+        <span class="card-emoji">🏘️</span>
+        <span class="card-title">Rental Property ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/commute-cost-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Commute Cost Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-conversion-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Roth Conversion Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+  
+  <section class="related">
+    <h2>Related guides</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/50-30-20-rule-in-real-life/">
+        <span class="card-title">"The 50/30/20 Rule in Real Life: Where It Works, Where It Breaks, How to Fix It"</span>
+        <span class="card-desc">An honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+      <a class="card" href="/articles/money-checklist-by-decade/">
+        <span class="card-title">"A Money Checklist for Every Decade of Life (20s to 60s)"</span>
+        <span class="card-desc">The key financial moves for each stage of life — from building habits in your 20s to preparing for retirement in your 60s — in one clear roadmap.</span>
+      </a>
+      
+      <a class="card" href="/articles/stop-living-paycheck-to-paycheck/">
+        <span class="card-title">"How to Stop Living Paycheck to Paycheck"</span>
+        <span class="card-desc">A practical, judgment-free plan to break the paycheck-to-paycheck cycle — even on a modest income — by creating breathing room and building it into a buffer.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
