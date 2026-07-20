@@ -23,7 +23,8 @@ Income is rising, and life is getting more complex (partners, kids, homes).
 
 - **Increase your [savings rate](/calculators/savings-rate-calculator/)** as you earn more — bank raises before lifestyle adjusts.
 - **Ramp up retirement investing** beyond the match; aim to max tax-advantaged accounts if you can.
-- **Get protection in place** if others depend on you — [life insurance](/articles/do-you-need-life-insurance/) and a [will](/articles/estate-planning-basics/).
+- **Get protection in place** if others depend on you — [life insurance](/articles/do-you-need-life-insurance/) sized with the [needs calculator](/calculators/life-insurance-needs-calculator/), and a [will](/articles/estate-planning-basics/).
+- **Open an HSA if you're on a high-deductible plan** — the [triple tax advantage](/calculators/hsa-calculator/) makes it arguably the best retirement account in the code, and your 30s-50s are its compounding window.
 - **Buy a home only if it fits** the [28/36 rule](/articles/how-much-house-can-you-afford/) and your life is stable — don't rush it.
 - **Save for kids' goals** without sacrificing your own retirement ([college savings](/calculators/college-savings-calculator/)).
 
@@ -53,7 +54,8 @@ The shift from accumulating to spending.
 
 - **Build a cash/bond buffer** of 1–3 years of expenses so a market drop doesn't force you to sell investments at the bottom.
 - **Plan your withdrawal strategy** — the [4% rule](/calculators/retirement-withdrawal-calculator/) is a starting point; stay flexible in bad years.
-- **Decide when to claim pensions/social security** — delaying often increases lifetime income.
+- **Decide when to claim pensions/social security** — delaying often increases lifetime income; run the [break-even math](/calculators/social-security-break-even-calculator/), and if a pension offers a buyout, the [lump-sum vs annuity calculator](/calculators/pension-lump-sum-vs-annuity-calculator/) prices it honestly.
+- **Use the low-income gap years.** Between the last paycheck and Social Security/RMDs, taxable income often collapses — prime season for [Roth conversions](/calculators/roth-conversion-calculator/) that shrink the [required distributions](/calculators/rmd-calculator/) coming at 73/75.
 - **Finalize estate documents** — will, powers of attorney, healthcare directives, beneficiaries.
 - **Keep some money invested** — retirement can last 30+ years, so your portfolio still needs to outpace [inflation](/articles/understanding-inflation/).
 
