@@ -21,9 +21,9 @@ A strong deal shows a healthy cap rate *and* positive cash flow with a solid cas
 
 The fastest way to fool yourself is to subtract only the mortgage from the rent and call the rest profit. Real operating expenses include:
 
-- **Property taxes and insurance**
+- **Property taxes and insurance** — the [property tax calculator](/calculators/property-tax-calculator/) estimates the tax line by state, and remember the sale usually triggers reassessment at your purchase price, not the seller's old bill
 - **Maintenance and repairs** — things break; budget for them continuously
-- **Capital expenditures** — big-ticket replacements (roof, HVAC, water heater) that don't happen yearly but are guaranteed eventually
+- **Capital expenditures** — big-ticket replacements (roof, HVAC, water heater) that don't happen yearly but are guaranteed eventually; the [maintenance budget calculator](/calculators/home-maintenance-budget-calculator/) prices the full component clock for the building's age and climate
 - **Property management** — 8–12% of rent if you don't self-manage (and your time isn't free if you do)
 - **Vacancy** — no property is rented 100% of the time; budget for empty months
 
