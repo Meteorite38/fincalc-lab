@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 vs 30 Year Mortgage Calculator — Which Should You Choose?</title>
+<meta name="description" content="Compare a 15-year vs 30-year mortgage: monthly payment, total interest saved, and whether investing the payment difference on a 30-year loan beats the guaranteed savings of a 15-year.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/15-vs-30-year-mortgage-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="15 vs 30 Year Mortgage Calculator — Which Should You Choose?">
+<meta property="og:description" content="Compare a 15-year vs 30-year mortgage: monthly payment, total interest saved, and whether investing the payment difference on a 30-year loan beats the guaranteed savings of a 15-year.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/15-vs-30-year-mortgage-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="15 vs 30 Year Mortgage Calculator — Which Should You Choose?">
+<meta name="twitter:description" content="Compare a 15-year vs 30-year mortgage: monthly payment, total interest saved, and whether investing the payment difference on a 30-year loan beats the guaranteed savings of a 15-year.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is a 15-year mortgage worth the higher payment?", "acceptedAnswer": {"@type": "Answer", "text": "If you can afford it comfortably, usually yes: you save a large amount of interest (often $200k+ on a typical loan), get a lower rate, and are debt-free in half the time. The catch is the higher payment, which must fit your budget without crowding out saving and emergencies."}}, {"@type": "Question", "name": "Is it better to get a 30-year and invest the difference?", "acceptedAnswer": {"@type": "Answer", "text": "It can be, if you actually invest the difference and earn more than the mortgage rate after tax. The 30-year's benefit is an expected (uncertain) investment return; the 15-year's is a guaranteed interest saving. Many people prefer the certainty — and most don't reliably invest the difference."}}, {"@type": "Question", "name": "Can I pay off a 30-year mortgage in 15 years?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Take the 30-year for its lower required payment, then make extra principal payments to match a 15-year schedule. You get most of the interest savings while keeping the flexibility to drop back to the lower payment if money gets tight."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "15 vs 30 Year Mortgage Calculator", "item": "https://fincalc-lab.pages.dev/calculators/15-vs-30-year-mortgage-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; 15 vs 30 Year Mortgage Calculator</nav>
+  <h1>🏦 15 vs 30 Year Mortgage Calculator</h1>
+  <p class="lead">A 15-year mortgage saves a fortune in interest but costs much more each month. A 30-year frees up cash you could invest. This calculator shows the payment and total interest for each — and settles the real debate by comparing net wealth after 30 years.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Loan amount ($)</span>
+      
+      <input type="number" id="amount" value="300000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">15-year interest rate (%) <em class="hint">(usually ~0.5-0.75% below the 30-yr)</em></span>
+      
+      <input type="number" id="rate15" value="5.75" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">30-year interest rate (%)</span>
+      
+      <input type="number" id="rate30" value="6.5" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Return if you invest the difference (%/yr)</span>
+      
+      <input type="number" id="invreturn" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The trade-off in one sentence</h2>
+<p>A 15-year mortgage charges a lower interest rate and slashes total interest, but the monthly payment is much higher. A 30-year mortgage has an affordable payment and frees up cash — but you pay far more interest over time and stay in debt twice as long. This calculator shows both numbers, then answers the question that actually matters: <strong>which leaves you wealthier after 30 years if you commit the same monthly cash either way?</strong></p>
+<h2>The raw numbers</h2>
+<p>On a $300,000 loan at 5.75% (15-year) vs 6.5% (30-year), the 15-year payment is roughly $2,490/month versus about $1,896 — nearly $600 more. But the 15-year borrower pays around $148,000 in total interest versus about $383,000 on the 30-year. That's roughly <strong>$235,000 of interest avoided</strong>, plus being mortgage-free 15 years sooner. Purely on interest, the 15-year is a landslide.</p>
+<h2>The honest counterargument: invest the difference</h2>
+<p>The 30-year's defenders make a fair point: its lower payment frees up ~$600/month that could be invested. If that money earns more than the mortgage rate, the 30-year borrower could come out ahead in total wealth despite paying more interest. This calculator tests that directly — it assumes you spend the <em>same</em> monthly amount either way (the higher 15-year payment), and compares two paths over 30 years:</p>
+<ul>
+<li><strong>15-year:</strong> pay it off in 15 years, then invest the (now freed-up) full payment for the remaining 15 years.</li>
+<li><strong>30-year:</strong> invest the payment difference every month for the full 30 years.</li>
+</ul>
+<p>The winner depends heavily on your assumed investment return versus the rate gap. At high assumed returns (say 8–10%), investing the difference in the early years — when compounding has longest to work — often edges ahead. At modest returns (5–6%), the 15-year's guaranteed interest savings usually win. Because the 15-year's benefit is <em>certain</em> and the investment's is <em>expected</em>, many people rationally prefer the guaranteed path even when the projected numbers are close.</p>
+<h2>Which should you choose?</h2>
+<ul>
+<li><strong>Choose the 15-year if:</strong> you can comfortably afford the higher payment, value guaranteed interest savings and being debt-free sooner, and worry you wouldn't actually invest the difference (most people don't).</li>
+<li><strong>Choose the 30-year if:</strong> you want payment flexibility, will genuinely invest the difference (ideally automatically), or need the lower payment to keep housing costs within a safe share of income.</li>
+<li><strong>A middle path:</strong> take the 30-year for flexibility but make extra principal payments toward a 15-year pace — see our <a href="/calculators/extra-mortgage-payment-calculator/">extra payment calculator</a>. You keep the option to fall back to the lower required payment in a tight month.</li>
+</ul>
+<p>Whatever the term, make sure the payment fits your budget first with the <a href="/calculators/home-affordability-calculator/">home affordability calculator</a>, and see the full monthly picture with the <a href="/calculators/mortgage-calculator/">mortgage calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is a 15-year mortgage worth the higher payment?</summary>
+      <p>If you can afford it comfortably, usually yes: you save a large amount of interest (often $200k+ on a typical loan), get a lower rate, and are debt-free in half the time. The catch is the higher payment, which must fit your budget without crowding out saving and emergencies.</p>
+    </details>
+    
+    <details>
+      <summary>Is it better to get a 30-year and invest the difference?</summary>
+      <p>It can be, if you actually invest the difference and earn more than the mortgage rate after tax. The 30-year's benefit is an expected (uncertain) investment return; the 15-year's is a guaranteed interest saving. Many people prefer the certainty — and most don't reliably invest the difference.</p>
+    </details>
+    
+    <details>
+      <summary>Can I pay off a 30-year mortgage in 15 years?</summary>
+      <p>Yes. Take the 30-year for its lower required payment, then make extra principal payments to match a 15-year schedule. You get most of the interest savings while keeping the flexibility to drop back to the lower payment if money gets tight.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/pay-off-debt-vs-invest-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Pay Off Debt vs Invest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-vs-buy-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent vs Buy a Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/lease-vs-buy-car-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Lease vs Buy a Car Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-points-calculator/">
+        <span class="card-emoji">📍</span>
+        <span class="card-title">Mortgage Points Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/first-time-home-buyer-guide/">
+        <span class="card-title">"First-Time Home Buyer Guide: From Saving to Closing"</span>
+        <span class="card-desc">A step-by-step guide for first-time buyers — how much to save, what you can afford, the full costs, and the process from pre-approval to getting the keys.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function amort(P, annual, years) {
+  const i = annual/100/12, n = Math.round(years*12);
+  return n > 0 ? (i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n) : 0;
+}
+function calculate() {
+  const P = val('amount'), r15 = val('rate15'), r30 = val('rate30'), ir = val('invreturn')/100/12;
+  if (P <= 0) { show('<div class="result-main">Enter a loan amount above zero.</div>'); return; }
+  const pmt15 = amort(P, r15, 15), pmt30 = amort(P, r30, 30);
+  const int15 = pmt15*180 - P, int30 = pmt30*360 - P;
+  const diff = pmt15 - pmt30;   // extra the 15-yr costs each month
+  // Fair 30-year comparison, both spending pmt15/month:
+  //  A) 15-yr: house paid at yr15, then invest pmt15/mo for months 181-360
+  let invA = 0;
+  for (let m=1; m<=360; m++){ invA*=(1+ir); if (m>180) invA += pmt15; }
+  //  B) 30-yr: invest (pmt15 - pmt30)/mo for all 360 months
+  let invB = 0;
+  for (let m=1; m<=360; m++){ invB = invB*(1+ir) + Math.max(0,diff); }
+  const aWins = invA > invB;
+  const gap = Math.abs(invA - invB);
+  show(`<div class="result-main">$${fmt(int30-int15,0)} interest saved with 15-year<small>but it costs $${fmt(diff,0)} more per month</small></div>
+  <table>
+    <tr><td>15-year payment</td><td>$${fmt(pmt15)}/mo &middot; $${fmt(int15,0)} total interest</td></tr>
+    <tr><td>30-year payment</td><td>$${fmt(pmt30)}/mo &middot; $${fmt(int30,0)} total interest</td></tr>
+    <tr><td colspan="2"><strong>If you spend $${fmt(pmt15,0)}/mo either way, after 30 years:</strong></td></tr>
+    <tr><td>15-yr then invest the freed payment</td><td>$${fmt(invA,0)} invested</td></tr>
+    <tr><td>30-yr &amp; invest the difference now</td><td>$${fmt(invB,0)} invested</td></tr>
+    <tr><td>Wealthier path (both own the home)</td><td>${aWins ? '15-year' : '30-year + invest'} by $${fmt(gap,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
