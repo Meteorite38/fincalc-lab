@@ -49,7 +49,7 @@ A common rule of thumb is **10–12 times your annual income**, adjusted for you
 - Future costs like children's education
 - Minus existing savings and assets
 
-Buy enough to cover the real gap, for a term that lasts until your dependents no longer rely on you — often until the kids are grown and the [mortgage](/calculators/mortgage-calculator/) is paid off.
+Our [life insurance needs calculator](/calculators/life-insurance-needs-calculator/) runs exactly that arithmetic — debts, income years, college, minus what you already have — and suggests a matching term length. Buy enough to cover the real gap, for a term that lasts until your dependents no longer rely on you — often until the kids are grown and the [mortgage](/calculators/mortgage-calculator/) is paid off.
 
 ## The bottom line
 
