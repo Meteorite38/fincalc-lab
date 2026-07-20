@@ -215,11 +215,13 @@ def build():
         _cmp_group("Debt vs investing", [
             ("pay-off-debt-vs-invest-calculator", "Extra money each month: kill the debt first, or invest and pay the minimum?"),
             ("debt-snowball-vs-avalanche-calculator", "Smallest-balance-first motivation vs highest-rate-first math — what does each cost?"),
+            ("balance-transfer-calculator", "Move the balance to a 0% card and pay the fee, or stay put — which costs less?"),
             ("loan-comparison-calculator", "Two loan offers, different rates and fees — which is genuinely cheaper?"),
             ("debt-consolidation-calculator", "Keep juggling separate debts, or roll them into one loan — what changes?"),
         ]),
         _cmp_group("Retirement", [
             ("roth-vs-traditional-401k-calculator", "Pay tax now (Roth) or later (traditional) — which leaves more spendable income?"),
+            ("roth-conversion-calculator", "Convert IRA money at today's tax rate, or let it ride and pay at withdrawal?"),
             ("social-security-break-even-calculator", "Claim at 62, full retirement age or 70 — where's the break-even for each?"),
             ("cost-of-waiting-calculator", "Start investing now vs in five years — what does waiting actually cost?"),
         ]),

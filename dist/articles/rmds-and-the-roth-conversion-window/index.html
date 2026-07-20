@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb" — FinCalc Lab</title>
+<meta name="description" content="Big pre-tax balances turn into forced taxable income at 73 or 75. How RMDs snowball, why the years just after retirement are prime conversion season, and how bracket-filling works in practice.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/articles/rmds-and-the-roth-conversion-window/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content=""RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb" — FinCalc Lab">
+<meta property="og:description" content="Big pre-tax balances turn into forced taxable income at 73 or 75. How RMDs snowball, why the years just after retirement are prime conversion season, and how bracket-filling works in practice.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/articles/rmds-and-the-roth-conversion-window/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content=""RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb" — FinCalc Lab">
+<meta name="twitter:description" content="Big pre-tax balances turn into forced taxable income at 73 or 75. How RMDs snowball, why the years just after retirement are prime conversion season, and how bracket-filling works in practice.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "\"RMDs and the Roth Conversion Window: Defusing Retirement\u0027s Tax Time Bomb\"",
+  "description": "Big pre-tax balances turn into forced taxable income at 73 or 75. How RMDs snowball, why the years just after retirement are prime conversion season, and how bracket-filling works in practice.",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type": "Organization", "name": "FinCalc Lab"},
+  "publisher": {"@type": "Organization", "name": "FinCalc Lab"},
+  "mainEntityOfPage": "https://fincalc-lab.pages.dev/articles/rmds-and-the-roth-conversion-window/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://fincalc-lab.pages.dev/guides/"},
+    {"@type": "ListItem", "position": 3, "name": "\"RMDs and the Roth Conversion Window: Defusing Retirement\u0027s Tax Time Bomb\"", "item": "https://fincalc-lab.pages.dev/articles/rmds-and-the-roth-conversion-window/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; "RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb"</nav>
+  <article class="explainer article-page">
+    <h1>"RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb"</h1>
+    <p class="article-meta">Last updated 2026-07-20</p>
+    
+    <details class="toc" open>
+      <summary>Contents</summary>
+      <div class="toc">
+<ul>
+<li><a href="#how-rmds-snowball">How RMDs snowball</a></li>
+<li><a href="#the-window-your-lowest-bracket-years-since-college">The window: your lowest-bracket years since college</a></li>
+<li><a href="#bracket-filling-the-actual-technique">Bracket-filling, the actual technique</a></li>
+<li><a href="#what-the-window-is-worth">What the window is worth</a></li>
+<li><a href="#mistakes-that-undo-the-benefit">Mistakes that undo the benefit</a></li>
+<li><a href="#the-order-of-operations">The order of operations</a></li>
+</ul>
+</div>
+
+    </details>
+    
+    <p>Save diligently in a 401(k) for 35 years and you can end up with a strange problem: <strong>too much money in the wrong wrapper</strong>. Every dollar in a traditional 401(k) or IRA is a dollar the IRS eventually forces out and taxes — on a schedule, whether you need the income or not. Retirees with seven-figure pre-tax balances routinely find their tax rate at 75 is <em>higher</em> than it was while working, which is exactly backwards from the deal they thought they signed.</p>
+<p>The good news: for most people there's a window of several years where this problem can be dismantled at a discount. Here's the mechanics.</p>
+<h2 id="how-rmds-snowball">How RMDs snowball</h2>
+<p>Required minimum distributions start at <strong>age 73</strong> if you were born 1951-1959, and <strong>75</strong> if 1960 or later. The formula is the account balance divided by an IRS life-expectancy factor: about <strong>3.8% of the balance at 73</strong>, rising to roughly 5% at 80, 8% at 90 and 11% at 95. Run your own numbers in the <a href="/calculators/rmd-calculator/">RMD calculator</a>.</p>
+<p>The percentages sound modest until you attach dollars. A $1.5 million IRA at 73 forces out about $56,600 of taxable income. If the account keeps growing at 6-7%, the RMD grows too — often faster than a retiree spends it. And that forced income doesn't arrive alone:</p>
+<ul>
+<li>It stacks on top of Social Security, pensions and dividends, potentially pushing you into the 24% or 32% bracket.</li>
+<li>It can drag <strong>up to 85% of your Social Security benefit</strong> into taxable income.</li>
+<li>Cross an IRMAA threshold and <strong>Medicare premiums jump</strong> — the surcharge tiers add roughly $1,000 to $5,000+ per person per year, and they're cliff-edged: one dollar over the line prices the whole year at the higher tier.</li>
+</ul>
+<p>That cascade — ordinary tax, Social Security taxation, IRMAA — is why planners talk about pre-tax balances as a <em>tax time bomb</em> rather than just deferred income.</p>
+<h2 id="the-window-your-lowest-bracket-years-since-college">The window: your lowest-bracket years since college</h2>
+<p>For most retirees there's a stretch — <strong>from the last paycheck until Social Security and RMDs begin</strong> — when taxable income collapses. No salary. Social Security not yet claimed (often deliberately delayed to 70; see <a href="/articles/when-to-claim-social-security/">when to claim</a>). Living expenses drawn from taxable savings, which generate little taxable income beyond some capital gains.</p>
+<p>In those years a married couple can have $30,000 of income sitting in the 10-12% brackets with tens of thousands of dollars of headroom before the 22% line. That headroom is the raw material. A <strong>Roth conversion</strong> — moving money from the traditional IRA to a Roth, paying ordinary tax on the amount moved — lets you <em>choose</em> to realize income in a 12% or 22% year instead of having it forced out at 24-32% later. The <a href="/calculators/roth-conversion-calculator/">Roth conversion calculator</a> runs the rate-vs-rate math for your numbers.</p>
+<p>Every converted dollar also shrinks the future RMD base. Convert $300,000 across the window and the account that would have forced out $56,600 at 73 might force out $45,000 instead — smaller bracket creep, less Social Security taxed, lower IRMAA risk, and the converted money now grows tax-free with no distribution schedule at all.</p>
+<h2 id="bracket-filling-the-actual-technique">Bracket-filling, the actual technique</h2>
+<p>The practical method is boring and effective — done once a year, usually in December when the year's income is nearly known:</p>
+<ol>
+<li><strong>Project this year's taxable income</strong> — interest, dividends, capital gains, any part-time work, pension payments.</li>
+<li><strong>Pick a target ceiling.</strong> The top of the 12% bracket if you're playing it safe; top of the 22% or 24% bracket if your future RMDs look large. The <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a> shows where the lines sit for your filing status.</li>
+<li><strong>Convert the gap.</strong> If income is $40,000 and the target ceiling is $94,300 of taxable income, convert roughly the difference (after the standard deduction does its work).</li>
+<li><strong>Pay the tax from taxable savings, not from the conversion.</strong> Paying from outside cash effectively moves extra money into the tax-free bucket — and if you're under 59½, tax withheld from the conversion itself gets hit with the 10% early-withdrawal penalty on top.</li>
+<li><strong>Repeat annually</strong> until RMD age, re-projecting each year.</li>
+</ol>
+<p>Two timing details matter. Conversions are due by <strong>December 31</strong>, not April 15. And a large conversion usually requires a <strong>quarterly estimated tax payment</strong> in the quarter it happens — paycheck withholding no longer exists to cover it.</p>
+<h2 id="what-the-window-is-worth">What the window is worth</h2>
+<p>Take a couple retiring at 62 with $1.2 million pre-tax, delaying Social Security to 70, RMDs at 73. Eleven window years. Converting ~$60,000 a year at an average federal cost around 15% moves roughly $660,000 into Roth for about $100,000 of tax. Left alone, that same money plus growth would likely have come out at 22-24% — call it $160,000-175,000 of tax — while inflating Medicare premiums along the way. The window saved them something like $60,000-75,000, and bought a tax-free inheritance for their kids as a side effect: heirs inherit Roth money income-tax-free, while an inherited traditional IRA must be drained (and taxed) within 10 years.</p>
+<p>The numbers scale with the balance. Under about $500,000 of pre-tax money, RMDs rarely push a couple past the 22% bracket and the urgency drops; past $2 million, the window years are worth six figures and ignoring them is expensive.</p>
+<h2 id="mistakes-that-undo-the-benefit">Mistakes that undo the benefit</h2>
+<ul>
+<li><strong>Converting at your career-peak rate.</strong> The whole trade is rate arbitrage. Converting at 32% while working, to avoid a projected 24% later, is backwards. The window exists <em>because</em> income dropped.</li>
+<li><strong>Overfilling the bracket.</strong> Converting $20,000 too much doesn't just tax that slice at the next rate up — it can also tip IRMAA (from age 63, since Medicare looks back two years) and capital-gains thresholds. Convert to the line, not past it.</li>
+<li><strong>Paying conversion tax from the IRA while under 59½.</strong> Income tax plus 10% penalty on the withheld portion. Use outside cash or shrink the conversion.</li>
+<li><strong>Forgetting conversions are irreversible.</strong> The recharacterization undo button was abolished in 2018. Size conservatively; you can always convert more next December.</li>
+<li><strong>Ignoring state taxes.</strong> Converting while living in a 9%-tax state, then retiring to Florida, donates money for nothing. Sequence matters — sometimes the right move is waiting a year for the move.</li>
+<li><strong>Treating the RMD itself as a spending mandate.</strong> If you're past RMD age, the requirement is only that money leaves the wrapper and gets taxed. Reinvesting it in a taxable brokerage account the same day is fine — and from 70½, a <a href="/calculators/rmd-calculator/">qualified charitable distribution</a> can satisfy up to $108,000 of RMD without it ever touching your taxable income.</li>
+</ul>
+<h2 id="the-order-of-operations">The order of operations</h2>
+<p>If this describes you — meaningful pre-tax balance, retirement (or a low-income year) on the horizon — the sequence is: estimate future RMDs with the <a href="/calculators/rmd-calculator/">RMD calculator</a>; if they'd land in a higher bracket than you can convert at today, map your window years and pick a bracket ceiling; run conversions annually with the <a href="/calculators/roth-conversion-calculator/">Roth conversion calculator</a>; and coordinate with the Social Security claiming decision, since delaying benefits both grows the check 8% a year and keeps the window's income floor low. The pieces reinforce each other — which is exactly why the years between the last paycheck and the first RMD are, tax-wise, the most valuable planning years of a lifetime.</p>
+  </article>
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-conversion-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Roth Conversion Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rmd-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">RMD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-vs-traditional-401k-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Roth vs Traditional 401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/balance-transfer-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Balance Transfer Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hsa-calculator/">
+        <span class="card-emoji">🩹</span>
+        <span class="card-title">HSA Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+  
+  <section class="related">
+    <h2>Related guides</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-credit-card-interest-works/">
+        <span class="card-title">"How Credit Card Interest Really Works (and How to Pay Zero)"</span>
+        <span class="card-desc">How credit card APR, daily compounding and the grace period actually work — why balances snowball, and the simple habit that lets you pay no interest at all.</span>
+      </a>
+      
+      <a class="card" href="/articles/roth-vs-traditional-decision/">
+        <span class="card-title">"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)"</span>
+        <span class="card-desc">The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.</span>
+      </a>
+      
+      <a class="card" href="/articles/50-30-20-rule-in-real-life/">
+        <span class="card-title">"The 50/30/20 Rule in Real Life: Where It Works, Where It Breaks, How to Fix It"</span>
+        <span class="card-desc">An honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
