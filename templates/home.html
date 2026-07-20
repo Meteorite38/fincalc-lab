@@ -41,6 +41,23 @@
   </div>
 </section>
 
+<section class="container section">
+  <h2>Popular right now</h2>
+  <div class="grid">
+    {% set featured = ['mortgage-calculator', 'compound-interest-calculator', 'rent-vs-buy-calculator', 'lease-vs-buy-car-calculator', '15-vs-30-year-mortgage-calculator', 'fire-number-calculator', 'take-home-pay-calculator', 'pay-off-debt-vs-invest-calculator'] %}
+    {% for s in featured %}
+    {% set c = (calcs | selectattr('slug', 'equalto', s) | list | first) %}
+    {% if c %}
+    <a class="card" href="/calculators/{{ c.slug }}/">
+      <span class="card-emoji">{{ c.emoji }}</span>
+      <span class="card-title">{{ c.h1 }}</span>
+      <span class="card-desc">{{ c.blurb }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
 <section id="calculators" class="container section">
   <h2>All calculators</h2>
   <input type="search" id="calc-filter" class="calc-filter" placeholder="Search {{ calcs | length }} calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
