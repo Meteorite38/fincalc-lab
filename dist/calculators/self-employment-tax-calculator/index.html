@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Employment Tax Calculator 2025 — SE Tax + Quarterly Estimates</title>
+<meta name="description" content="2025 self-employment tax calculator: the 15.3% SE tax with the Social Security wage-base cap and W-2 coordination, the half-SE deduction, estimated income tax, and what to send the IRS each quarter.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/self-employment-tax-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Self-Employment Tax Calculator 2025 — SE Tax + Quarterly Estimates">
+<meta property="og:description" content="2025 self-employment tax calculator: the 15.3% SE tax with the Social Security wage-base cap and W-2 coordination, the half-SE deduction, estimated income tax, and what to send the IRS each quarter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/self-employment-tax-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-business.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Employment Tax Calculator 2025 — SE Tax + Quarterly Estimates">
+<meta name="twitter:description" content="2025 self-employment tax calculator: the 15.3% SE tax with the Social Security wage-base cap and W-2 coordination, the half-SE deduction, estimated income tax, and what to send the IRS each quarter.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-business.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I set aside for taxes as a freelancer?", "acceptedAnswer": {"@type": "Answer", "text": "For most mid-bracket freelancers, 25-30% of net profit covers SE tax plus federal income tax; add your state's rate on top. This calculator's effective-rate line gives your personal number — skim that percentage of every payment into a separate account and quarterlies stop being scary."}}, {"@type": "Question", "name": "Do I owe SE tax if freelancing is just a side gig?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — SE tax starts at $400 of annual net profit regardless of your day job. The silver lining: your W-2 wages use up the Social Security wage base first, so a well-paid employee's side income may owe only the 2.9% Medicare portion rather than the full 15.3%."}}, {"@type": "Question", "name": "What happens if I skip quarterly estimated payments?", "acceptedAnswer": {"@type": "Answer", "text": "The IRS charges an underpayment penalty that works like interest (currently ~8% annualized) on each quarter's shortfall — even if you pay everything at filing. Hitting a safe harbor (90% of this year or 100-110% of last year's tax) makes penalties disappear."}}, {"@type": "Question", "name": "Does an LLC reduce self-employment tax?", "acceptedAnswer": {"@type": "Answer", "text": "Not by itself — a single-member LLC is taxed exactly like a sole proprietor. The structure that changes SE tax is an S-corp election (through an LLC or corporation), which puts only your reasonable salary through payroll taxes. It has real costs and only pays off above roughly $80-100k of steady profit."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Self-Employment Tax Calculator", "item": "https://fincalc-lab.pages.dev/calculators/self-employment-tax-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Self-Employment Tax Calculator</nav>
+  <h1>🧑‍💻 Self-Employment Tax Calculator</h1>
+  <p class="lead">Freelancers and side-hustlers pay both halves of Social Security and Medicare — the 15.3% self-employment tax — on top of income tax. Enter your profit (and any W-2 wages, which shrink the Social Security portion) to see the full bill and what each quarterly payment should be.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Net self-employment profit ($/yr) <em class="hint">(income minus business expenses)</em></span>
+      
+      <input type="number" id="profit" value="60000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">W-2 wages this year ($) <em class="hint">(if you also have a day job)</em></span>
+      
+      <input type="number" id="w2" value="0" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Marginal income tax rate (%) <em class="hint">(see our tax bracket calculator)</em></span>
+      
+      <input type="number" id="taxrate" value="22" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why self-employment tax exists (and why it stings)</h2>
+<p>Employees split Social Security and Medicare with their employer: 7.65% withheld, 7.65% paid invisibly by the company. Work for yourself and you are both parties — <strong>12.4% Social Security plus 2.9% Medicare, a combined 15.3%</strong>, on top of ordinary income tax. It applies from the first dollar of profit (once you clear $400/year), which is why a modest side hustle can generate a surprising April bill if nothing was set aside.</p>
+<h2>The three quirks the math has to get right</h2>
+<ul>
+<li><strong>The 92.35% base.</strong> SE tax isn't charged on all your profit — it's charged on 92.35% of it. That mirrors the employee world, where the employer's 7.65% share isn't part of the wages being taxed. Small mercy, but it's why the effective SE rate is 14.13% of profit, not 15.3%.</li>
+<li><strong>The Social Security cap — and W-2 coordination.</strong> The 12.4% portion stops at the wage base ($176,100 in 2025). If you also have a day job, your W-2 wages use up that cap <em>first</em>, so high earners with side income may owe little or no Social Security on the side hustle — just Medicare, which never caps (and adds 0.9% above $200,000). Enter your W-2 wages above and the calculator handles it.</li>
+<li><strong>Half is deductible.</strong> You deduct the employer-equivalent half of SE tax from taxable income (an above-the-line deduction — no itemizing needed). It doesn't reduce SE tax itself, but it trims the income tax bill on top.</li>
+</ul>
+<h2>Quarterly estimated taxes: the rhythm of self-employment</h2>
+<p>No employer means no withholding, and the IRS doesn't wait until April: if you'll owe $1,000+, you're expected to prepay through <strong>quarterly estimated payments</strong> — due roughly April 15, June 15, September 15 and January 15. Underpay and you're charged interest-based penalties even if you settle in full at filing.</p>
+<p>Two safe-harbor rules protect you: pay at least <strong>90% of this year's tax</strong>, or <strong>100% of last year's</strong> (110% if your AGI topped $150k). For stable earners, last year's number divided by four is the low-stress play. A practical system: skim a fixed percentage of every client payment — for most mid-bracket freelancers 25-30% covers SE plus income tax, which is exactly what this calculator's effective-rate line tells you — into a separate tax account, then pay quarterlies from there. Set your rates so tax is priced in from the start with the <a href="/calculators/freelance-hourly-rate-calculator/">freelance rate calculator</a>.</p>
+<h2>Ways to legitimately shrink the bill</h2>
+<ul>
+<li><strong>Expenses first.</strong> SE tax is charged on <em>net</em> profit, so every legitimate business expense saves both income tax and 14.13% SE tax. Mid-bracket, each $100 of deductions saves roughly $36.</li>
+<li><strong>Retirement plans for the self-employed.</strong> A solo 401(k) or SEP-IRA shelters far more than a regular IRA — up to $70,000 (2025) in a solo 401(k) between employee deferral and employer profit share. These cut income tax (not SE tax) — project the growth with the <a href="/calculators/401k-calculator/">401(k) calculator</a>.</li>
+<li><strong>The S-corp question.</strong> Above roughly $80-100k of consistent profit, electing S-corp status and paying yourself a reasonable W-2 salary can move the remaining profit out of SE tax entirely. It adds payroll, a separate return and state fees — worth a professional's opinion, not a default.</li>
+<li><strong>The QBI deduction.</strong> Most self-employed people currently deduct up to 20% of qualified business income for income-tax purposes (not SE tax) — another reason your true rate is lower than the sticker suggests.</li>
+</ul>
+<p>Estimate the income-tax side precisely with the <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a>, and see how the total load compares to employment with the <a href="/calculators/take-home-pay-calculator/">take-home pay calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much should I set aside for taxes as a freelancer?</summary>
+      <p>For most mid-bracket freelancers, 25-30% of net profit covers SE tax plus federal income tax; add your state's rate on top. This calculator's effective-rate line gives your personal number — skim that percentage of every payment into a separate account and quarterlies stop being scary.</p>
+    </details>
+    
+    <details>
+      <summary>Do I owe SE tax if freelancing is just a side gig?</summary>
+      <p>Yes — SE tax starts at $400 of annual net profit regardless of your day job. The silver lining: your W-2 wages use up the Social Security wage base first, so a well-paid employee's side income may owe only the 2.9% Medicare portion rather than the full 15.3%.</p>
+    </details>
+    
+    <details>
+      <summary>What happens if I skip quarterly estimated payments?</summary>
+      <p>The IRS charges an underpayment penalty that works like interest (currently ~8% annualized) on each quarter's shortfall — even if you pay everything at filing. Hitting a safe harbor (90% of this year or 100-110% of last year's tax) makes penalties disappear.</p>
+    </details>
+    
+    <details>
+      <summary>Does an LLC reduce self-employment tax?</summary>
+      <p>Not by itself — a single-member LLC is taxed exactly like a sole proprietor. The structure that changes SE tax is an S-corp election (through an LLC or corporation), which puts only your reasonable salary through payroll taxes. It has real costs and only pays off above roughly $80-100k of steady profit.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/freelance-hourly-rate-calculator/">
+        <span class="card-emoji">🧑‍💻</span>
+        <span class="card-title">Freelance Hourly Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/break-even-point-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Break-Even Point Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rental-property-calculator/">
+        <span class="card-emoji">🏘️</span>
+        <span class="card-title">Rental Property ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/startup-runway-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Startup Runway Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cac-ltv-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">LTV : CAC Ratio Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/profit-margin-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Profit Margin Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-price-freelance-work/">
+        <span class="card-title">"How to Price Freelance Work Without Underselling Yourself"</span>
+        <span class="card-desc">Why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const profit = val('profit'), w2 = Math.max(0, val('w2')), t = val('taxrate')/100;
+  if (profit <= 0) { show('<div class="result-main">Enter a net profit above zero.</div>'); return; }
+  const SS_CAP = 176100;                       // 2025 Social Security wage base
+  const base = profit * 0.9235;                // SE earnings subject to tax
+  const ssRoom = Math.max(0, SS_CAP - w2);     // W-2 wages use up the cap first
+  const ssTaxable = Math.min(base, ssRoom);
+  const ssTax = ssTaxable * 0.124;
+  const medTax = base * 0.029;
+  const addMed = Math.max(0, base - Math.max(0, 200000 - w2)) * 0.009;
+  const seTax = ssTax + medTax + addMed;
+  const halfDeduct = (ssTax + medTax) / 2;
+  const incomeTax = Math.max(0, (profit - halfDeduct)) * t;
+  const total = seTax + incomeTax;
+  const quarterly = total / 4;
+  const eff = total / profit * 100;
+  const capNote = ssTaxable < base ? `<tr><td>Social Security cap reached</td><td>only $${fmt(ssTaxable,0)} of $${fmt(base,0)} SE earnings hit the 12.4%</td></tr>` : '';
+  show(`<div class="result-main">$${fmt(seTax,0)} SE tax + ~$${fmt(incomeTax,0)} income tax<small>set aside about $${fmt(quarterly,0)} per quarter (${fmt(eff,1)}% of profit overall)</small></div>
+  <table>
+    <tr><td>SE earnings base (profit &times; 92.35%)</td><td>$${fmt(base,0)}</td></tr>
+    ${capNote}
+    <tr><td>Social Security portion (12.4%)</td><td>$${fmt(ssTax,0)}</td></tr>
+    <tr><td>Medicare portion (2.9%${addMed>0 ? ' + 0.9% additional' : ''})</td><td>$${fmt(medTax + addMed,0)}</td></tr>
+    <tr><td><strong>Self-employment tax</strong></td><td><strong>$${fmt(seTax,0)}</strong></td></tr>
+    <tr><td>Deductible half of SE tax</td><td>&minus;$${fmt(halfDeduct,0)} off taxable income</td></tr>
+    <tr><td>Estimated federal income tax (${fmt(t*100,1)}% on profit after the half-deduction)</td><td>$${fmt(incomeTax,0)}</td></tr>
+    <tr><td><strong>Total federal bill</strong></td><td><strong>$${fmt(total,0)}</strong> &middot; ${fmt(eff,1)}% of profit</td></tr>
+    <tr><td>Suggested quarterly estimated payment</td><td>$${fmt(quarterly,0)} (due Apr 15, Jun 15, Sep 15, Jan 15)</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
