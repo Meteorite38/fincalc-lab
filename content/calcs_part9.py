@@ -331,6 +331,7 @@ function calculate() {
 <li><strong>Anchor to data.</strong> Cite comparable local rents and the inflation rate; propose a specific lower number rather than just objecting.</li>
 <li><strong>Offer something back.</strong> A longer lease commitment in exchange for a smaller increase can suit both sides.</li>
 <li><strong>Check local rules.</strong> Some areas cap increases or require notice periods — know your rights before negotiating.</li>
+<li><strong>Price the move-out threat honestly.</strong> The <a href="/calculators/move-or-stay-calculator/">move or stay calculator</a> compares the renewal against the true all-in cost of moving — and computes the exact renewal rent at which staying equals leaving, which is the strongest number to negotiate from.</li>
 </ul>
 <h2>The bigger budget picture</h2>
 <p>Housing is most people's largest expense, so a rent rise ripples through everything. Re-run your numbers with the <a href="/calculators/rent-affordability-calculator/">rent affordability calculator</a> to check the new rent still fits comfortably within your income — and if it pushes past a healthy share of take-home pay, that's a signal to negotiate harder or weigh alternatives.</p>
