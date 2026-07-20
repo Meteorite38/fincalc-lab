@@ -40,6 +40,7 @@
       <summary>Contents</summary>
       {{ a.toc }}
     </details>
+    <script>if (window.innerWidth < 640) { var t = document.querySelector('.toc'); if (t) t.removeAttribute('open'); }</script>
     {% endif %}
     {{ a.html }}
   </article>
