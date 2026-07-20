@@ -66,7 +66,11 @@ def load_md_dir(folder):
             for line in fm.strip().splitlines():
                 if ":" in line:
                     k, v = line.split(":", 1)
-                    meta[k.strip()] = v.strip()
+                    v = v.strip()
+                    # strip matching wrapping quotes (simple front-matter, not full YAML)
+                    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
+                        v = v[1:-1]
+                    meta[k.strip()] = v
         MD.reset()
         html = MD.convert(body)
         toc_tokens = getattr(MD, "toc_tokens", [])
