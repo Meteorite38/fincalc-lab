@@ -38,6 +38,14 @@ For a long-term investor in low-cost index products, honestly: **either is fine,
 - **Choose mutual funds if** you want effortless automatic recurring investing in fixed dollar amounts, especially inside a workplace retirement plan (which often offers mutual funds).
 - **In a workplace 401(k),** you'll usually be offered mutual funds (often target-date funds) — just pick the low-cost broad index option and move on.
 
+## The tax difference, quantified
+
+"More tax-efficient" deserves a number. Actively-managed mutual funds routinely distribute 5-10% of their value as capital gains in good years — even to investors who bought in November and sold nothing. On a $100,000 taxable position, a 7% distribution taxed at 15% is a **$1,050 tax bill you didn't choose**, repeated most years, compounding as a drag. Index mutual funds distribute far less (low turnover), and index ETFs usually distribute near zero thanks to their in-kind redemption mechanism. Ranked for a taxable account: index ETF ≥ index mutual fund >> active mutual fund. Two footnotes: Vanguard's flagship index mutual funds share the ETF structure's efficiency (a patented quirk), so they're effectively tied — and none of this matters inside a 401(k), IRA or [HSA](/calculators/hsa-calculator/), where distributions are invisible. The place this bites hardest: holding an *active* mutual fund in a *taxable* account — if that's you, the switch to an index ETF often pays for itself in one year's distributions, though check the embedded gains before selling ([capital gains calculator](/calculators/capital-gains-tax-calculator/)).
+
+## Buying mechanics: the one ETF mistake worth avoiding
+
+Mutual fund orders can't go wrong — everyone gets the day's closing NAV. ETFs, trading live, add two small foot-guns. **Use limit orders, not market orders**: in a calm market for a big index ETF the spread is a penny and nothing matters, but in volatile opens (or thin ETFs), market orders can fill unpleasantly far from fair value — the flash-crash casualties were market orders. And **avoid trading the first and last 15 minutes** when spreads are widest. For a monthly auto-investor this is all theoretical — brokers' recurring-investment features handle it fine — but the habit of "limit order, mid-day, big liquid funds" costs nothing and removes the tail risk entirely.
+
 ## What actually matters more
 
 Don't get paralyzed by ETF-vs-mutual-fund. The decisions that genuinely drive your returns are:

@@ -36,6 +36,14 @@ Rough guide for back-end DTI:
 - **43–50%** — difficult; fewer lenders, worse terms, and a sign your budget is stretched.
 - **Over 50%** — most of your income goes to debt; new borrowing is usually declined, and this is a signal to focus on paying down debt.
 
+## What counts (and what doesn't) — where applications go sideways
+
+Lenders count **contractual monthly obligations**: the proposed housing payment (with taxes, insurance, PMI and HOA dues), car loans and leases, student loans (even in deferral — lenders typically impute ~0.5-1% of the balance monthly if no payment shows), minimum credit card payments (not what you actually pay), personal loans, child support and alimony, and co-signed debts (yes — the whole payment counts against *you*, even if the other person pays it faithfully). They don't count living expenses: utilities, insurance you could cancel, groceries, subscriptions, daycare, phone plans. Two practical consequences: the ratio flatters people with expensive lifestyles but no debt, so passing the DTI test isn't the same as affording the loan — and co-signing a relative's car loan quietly eats mortgage capacity years later, a favor that costs more than most people realize when they agree to it.
+
+## A worked example: making room for a mortgage
+
+A couple grossing $9,000/month wants a house whose full payment (P&I + taxes + insurance) is $2,350. Current debts: two car payments ($480 + $390), student loans ($310), card minimums ($120) — $1,300 total. Back-end DTI with the new mortgage: (2,350 + 1,300) ÷ 9,000 = **40.6%** — approvable at many lenders but past the comfortable 36%, and pricing worsens near the edges. The fix with the highest leverage: the $390 car has a $5,200 balance — paying it off removes the whole payment and drops DTI to **36.2%**, back inside the zone, for $5,200 of cash. Note the asymmetry: $5,200 against the $310/month student loan balance would have changed *nothing* (the payment survives partial paydown). Before a mortgage application, the winning move is usually **killing the smallest balance with the largest payment** — the [DTI calculator](/calculators/debt-to-income-ratio-calculator/) makes the experiment free.
+
 ## How to improve your DTI
 
 Because DTI is a ratio, you improve it by lowering debt payments *or* raising income:
