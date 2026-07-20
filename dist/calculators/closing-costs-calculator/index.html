@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Closing Costs Calculator — What You'll Actually Pay at the Table</title>
+<meta name="description" content="Free closing costs calculator: itemized estimate of lender fees, title insurance, appraisal, escrow prepaids and transfer taxes — plus total cash needed at closing on top of your down payment.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/closing-costs-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Closing Costs Calculator — What You'll Actually Pay at the Table">
+<meta property="og:description" content="Free closing costs calculator: itemized estimate of lender fees, title insurance, appraisal, escrow prepaids and transfer taxes — plus total cash needed at closing on top of your down payment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/closing-costs-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Closing Costs Calculator — What You'll Actually Pay at the Table">
+<meta name="twitter:description" content="Free closing costs calculator: itemized estimate of lender fees, title insurance, appraisal, escrow prepaids and transfer taxes — plus total cash needed at closing on top of your down payment.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much are closing costs on a $400,000 house?", "acceptedAnswer": {"@type": "Answer", "text": "Typically $8,000-18,000 for a buyer (2-5% of the loan), with the spread driven mostly by state transfer taxes and title insurance rates. In Texas or Missouri expect the low end; in New York, Pennsylvania, Washington or Delaware the government line alone can add 1.5-3% of the price. Prepaid insurance and tax escrow — your own future bills — are usually a quarter to a third of the total."}}, {"@type": "Question", "name": "Can closing costs be rolled into the mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "On a purchase, generally no for conventional loans — costs must be paid at the table (seller and lender credits are the workarounds). On a refinance, yes: most lenders let you finance the costs into the new balance, which preserves cash but accrues interest on the fees for the life of the loan. USDA and VA purchases allow limited financing of specific fees."}}, {"@type": "Question", "name": "Who pays closing costs — buyer or seller?", "acceptedAnswer": {"@type": "Answer", "text": "Both, different bills. Buyers pay lender, title, escrow and prepaid items (2-5% of the loan). Sellers traditionally pay the agent commissions plus, depending on local custom, the owner's title policy and part of the transfer tax. Almost everything is negotiable in the purchase contract — in soft markets, seller credits covering 1-3% of the buyer's costs are routine."}}, {"@type": "Question", "name": "Why did my cash-to-close change between the Loan Estimate and closing?", "acceptedAnswer": {"@type": "Answer", "text": "The usual movers are the prepaid and escrow lines — the exact per-diem interest depends on your closing date, and the tax escrow depends on the county's billing calendar. Lender fees can't legally increase from the Loan Estimate, and shopped third-party services are capped at 10% aggregate. Compare the two documents line by line; the CFPB's rules make any true fee increase the lender's problem, not yours."}}, {"@type": "Question", "name": "Are closing costs tax-deductible?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly no. The exceptions: discount points on a purchase are deductible (immediately, if you itemize and meet the tests), prepaid mortgage interest is deductible like any mortgage interest, and property taxes paid at closing count toward the SALT deduction. Appraisal, title, origination and transfer fees aren't deductible — but they do add to your cost basis, trimming future capital gains when you sell."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Closing Costs Calculator", "item": "https://fincalc-lab.pages.dev/calculators/closing-costs-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Closing Costs Calculator</nav>
+  <h1>🔑 Closing Costs Calculator</h1>
+  <p class="lead">Closing costs are the least transparent part of buying a home: a dozen fees from four different parties, most quoted only after you're emotionally committed. Typical total: 2-5% of the loan. This calculator itemizes a realistic estimate and answers the question that actually matters — how much cash you need at the table.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home price ($)</span>
+      
+      <input type="number" id="price" value="400000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment (%)</span>
+      
+      <input type="number" id="downpct" value="10" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Mortgage rate (%)</span>
+      
+      <input type="number" id="rate" value="6.5" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Transfer tax & recording level</span>
+      
+      <select id="state">
+        
+        <option value="low">Low-tax state (~0.1% — e.g. TX, MO, IN)</option>
+        
+        <option value="med" selected>Typical (~0.5%)</option>
+        
+        <option value="high">High-tax metro (1.5%+ — e.g. NY, PA, WA, DE)</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Discount points purchased <em class="hint">(1 point = 1% of loan, buys ~0.25% off the rate)</em></span>
+      
+      <input type="number" id="points" value="0" step="0.25" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Seller or lender credits ($) <em class="hint">(negotiated credits toward your costs)</em></span>
+      
+      <input type="number" id="credit" value="0" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Where the money actually goes</h2>
+<p>"Closing costs" bundles four unrelated bills into one scary number. <strong>Lender fees</strong> (origination, underwriting, points) pay for making the loan — typically 0.5-1% of it. <strong>Third-party services</strong> (appraisal ~$550, credit report, flood certification) are mostly fixed-price and non-negotiable. <strong>Title and escrow</strong> — the two title insurance policies, settlement agent, recording — scale with the price and vary enormously by state. <strong>Government transfer taxes</strong> range from trivial (Texas: none) to brutal (NYC, Philadelphia, Seattle: 1.5-3%+). And then there are <strong>prepaids</strong>, which aren't fees at all: your first year of homeowners insurance, a few months of property-tax escrow, and interest from closing day to month-end — money you'd owe anyway, just collected early. Separating the categories matters because only some of them can be shopped or negotiated.</p>
+<h2>The Loan Estimate: your comparison weapon</h2>
+<p>Within three business days of applying, every lender must send a standardized <strong>Loan Estimate</strong> — same three pages, same line items, by law. Page 2 splits costs into sections A (the lender's own fees — compare these hardest), B (required services the lender picks), and C (<strong>services you can shop for</strong> — title insurance and settlement are the big ones). Collect Loan Estimates from 2-3 lenders in the same week and the differences leap out: identical rates can hide a $2,000 gap in section A. At closing, the final <strong>Closing Disclosure</strong> must reconcile against the estimate — lender fees legally can't rise at all, and most shopped services are capped at 10% aggregate increase. Combine this with rate shopping via the <a href="/calculators/loan-comparison-calculator/">loan comparison calculator</a> and the <a href="/calculators/mortgage-points-calculator/">points break-even</a>.</p>
+<h2>What's negotiable (more than you think)</h2>
+<ul>
+<li><strong>Origination and underwriting fees</strong> — banks waive or discount these routinely for strong applicants, especially with a competing Loan Estimate in hand.</li>
+<li><strong>Owner's title insurance</strong> — premiums are regulated in some states and pure list-price in others; independent title companies often beat the agent's default referral by hundreds. Ask for the "reissue rate" if the home changed hands within the last ~10 years — commonly 25-40% off.</li>
+<li><strong>Seller credits</strong> — in a balanced or buyer's market, asking the seller to cover 1-3% of costs is standard practice. Conventional loans cap seller credits at 3% (under 10% down), 6% (10-25% down); the credit often costs the seller less than an equivalent price cut would save you monthly.</li>
+<li><strong>Lender credits</strong> — the reverse of points: accept a slightly higher rate (+0.125-0.25%) and the lender pays part of your costs. Worth it when cash is tight or you expect to refinance within a few years anyway.</li>
+</ul>
+<h2>Budgeting: the cash-to-close surprise</h2>
+<p>The number that derails first-time buyers isn't the down payment — it's everything stacked on top. A 10%-down purchase of a $400,000 home needs $40,000 down <em>plus</em> $10,000-14,000 at the table, and the earnest-money deposit (1-3%) has to be liquid weeks earlier. Lenders also want to see <strong>reserves</strong> — often 2 months of payments still in the bank <em>after</em> closing. Practical sequence: size the down payment with the <a href="/calculators/house-down-payment-calculator/">down payment calculator</a>, add this calculator's estimate, add two months of the payment from the <a href="/calculators/mortgage-calculator/">mortgage calculator</a>, and that's the real savings target before house-hunting starts. If the down payment lands under 20%, price the <a href="/calculators/pmi-calculator/">PMI</a> into the monthly budget too.</p>
+<h2>Refinance closing costs work the same way</h2>
+<p>A refinance re-runs most of this list — origination, appraisal, title (lender's policy only), recording — typically <strong>2-3% of the loan</strong>, with two mercies: no transfer tax in most states, and no owner's title policy needed. Since the whole point of refinancing is saving money, the costs must be recovered by the monthly savings; the <a href="/calculators/mortgage-refinance-calculator/">refinance calculator</a> computes that break-even month directly. Beware "no-closing-cost" refinances — the costs are real, just rolled into the rate or balance; fine if you'll move soon, expensive if you stay 20 years.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much are closing costs on a $400,000 house?</summary>
+      <p>Typically $8,000-18,000 for a buyer (2-5% of the loan), with the spread driven mostly by state transfer taxes and title insurance rates. In Texas or Missouri expect the low end; in New York, Pennsylvania, Washington or Delaware the government line alone can add 1.5-3% of the price. Prepaid insurance and tax escrow — your own future bills — are usually a quarter to a third of the total.</p>
+    </details>
+    
+    <details>
+      <summary>Can closing costs be rolled into the mortgage?</summary>
+      <p>On a purchase, generally no for conventional loans — costs must be paid at the table (seller and lender credits are the workarounds). On a refinance, yes: most lenders let you finance the costs into the new balance, which preserves cash but accrues interest on the fees for the life of the loan. USDA and VA purchases allow limited financing of specific fees.</p>
+    </details>
+    
+    <details>
+      <summary>Who pays closing costs — buyer or seller?</summary>
+      <p>Both, different bills. Buyers pay lender, title, escrow and prepaid items (2-5% of the loan). Sellers traditionally pay the agent commissions plus, depending on local custom, the owner's title policy and part of the transfer tax. Almost everything is negotiable in the purchase contract — in soft markets, seller credits covering 1-3% of the buyer's costs are routine.</p>
+    </details>
+    
+    <details>
+      <summary>Why did my cash-to-close change between the Loan Estimate and closing?</summary>
+      <p>The usual movers are the prepaid and escrow lines — the exact per-diem interest depends on your closing date, and the tax escrow depends on the county's billing calendar. Lender fees can't legally increase from the Loan Estimate, and shopped third-party services are capped at 10% aggregate. Compare the two documents line by line; the CFPB's rules make any true fee increase the lender's problem, not yours.</p>
+    </details>
+    
+    <details>
+      <summary>Are closing costs tax-deductible?</summary>
+      <p>Mostly no. The exceptions: discount points on a purchase are deductible (immediately, if you itemize and meet the tests), prepaid mortgage interest is deductible like any mortgage interest, and property taxes paid at closing count toward the SALT deduction. Appraisal, title, origination and transfer fees aren't deductible — but they do add to your cost basis, trimming future capital gains when you sell.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/pmi-calculator/">
+        <span class="card-emoji">🚪</span>
+        <span class="card-title">PMI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/arm-vs-fixed-mortgage-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">ARM vs Fixed Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/balance-transfer-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Balance Transfer Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/heloc-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">HELOC Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-vs-buy-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent vs Buy a Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/auto-loan-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Auto Loan Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/first-time-home-buyer-guide/">
+        <span class="card-title">"First-Time Home Buyer Guide: From Saving to Closing"</span>
+        <span class="card-desc">A step-by-step guide for first-time buyers — how much to save, what you can afford, the full costs, and the process from pre-approval to getting the keys.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-save-for-a-house-down-payment/">
+        <span class="card-title">"How to Save for a House Down Payment (Without It Taking Forever)"</span>
+        <span class="card-desc">How much to save for a down payment, where to keep it, and practical tactics to get there faster — plus why 20% isn't always the right target.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), dpct = Math.min(100, Math.max(0, val('downpct')))/100;
+  const rate = val('rate')/100, pts = Math.max(0, val('points')), credit = Math.max(0, val('credit'));
+  const lvl = document.getElementById('state').value;
+  if (price <= 0) { show('<div class="result-main">Enter a home price.</div>'); return; }
+  const down = price * dpct, L = price - down;
+  // lender fees
+  const origination = Math.max(995, L * 0.005);
+  const underwriting = 550;
+  const pointsCost = L * pts / 100;
+  // third-party
+  const appraisal = price > 1000000 ? 800 : 550;
+  const creditReport = 65, floodCert = 20, taxService = 85;
+  // title & escrow (scale with price)
+  const lenderTitle = Math.max(500, price * 0.0022);
+  const ownerTitle = Math.max(600, price * 0.0026);
+  const settlement = 450 + price * 0.0005;
+  const recording = 150;
+  // government
+  const xferRate = lvl === 'low' ? 0.001 : (lvl === 'high' ? 0.015 : 0.005);
+  const transfer = price * xferRate;
+  // prepaids & escrow reserves
+  const taxRate = 0.011, insRate = 0.0035;
+  const prepaidIns = price * insRate;                 // first year up front
+  const escrowTax = price * taxRate / 12 * 4;         // ~4 months reserves
+  const escrowIns = prepaidIns / 12 * 2;
+  const perDiem = L * rate / 365;
+  const prepaidInterest = perDiem * 15;               // mid-month close
+  const lenderFees = origination + underwriting + pointsCost;
+  const thirdParty = appraisal + creditReport + floodCert + taxService;
+  const titleFees = lenderTitle + ownerTitle + settlement + recording;
+  const prepaids = prepaidIns + escrowTax + escrowIns + prepaidInterest;
+  const total = lenderFees + thirdParty + titleFees + transfer + prepaids - credit;
+  const cashToClose = down + total;
+  const pctOfLoan = total / L * 100;
+  show(`<div class="result-main">~$${fmt(Math.max(0,total),0)} in closing costs<small>${fmt(pctOfLoan,1)}% of the $${fmt(L,0)} loan &middot; total cash to close: <strong>$${fmt(Math.max(0,cashToClose),0)}</strong> including the $${fmt(down,0)} down payment</small></div>
+  <table>
+    <tr><td><strong>Lender fees</strong> — origination, underwriting${pts > 0 ? `, ${pts} point${pts === 1 ? '' : 's'}` : ''}</td><td>$${fmt(lenderFees,0)}</td></tr>
+    <tr><td><strong>Third-party</strong> — appraisal, credit report, flood cert, tax service</td><td>$${fmt(thirdParty,0)}</td></tr>
+    <tr><td><strong>Title &amp; escrow</strong> — lender's + owner's title insurance, settlement, recording</td><td>$${fmt(titleFees,0)}</td></tr>
+    <tr><td><strong>Government</strong> — transfer tax &amp; stamps (${fmt(xferRate*100,2)}%)</td><td>$${fmt(transfer,0)}</td></tr>
+    <tr><td><strong>Prepaids &amp; escrow</strong> — 1st-yr insurance, ~4 mo tax reserves, ${15} days interest</td><td>$${fmt(prepaids,0)}</td></tr>
+    ${credit > 0 ? `<tr><td>Seller / lender credits</td><td>&minus;$${fmt(credit,0)}</td></tr>` : ''}
+    <tr><td><strong>Estimated closing costs</strong></td><td><strong>$${fmt(Math.max(0,total),0)}</strong></td></tr>
+    <tr><td>+ Down payment</td><td>$${fmt(down,0)}</td></tr>
+    <tr><td><strong>Cash to close</strong></td><td><strong>$${fmt(Math.max(0,cashToClose),0)}</strong></td></tr>
+  </table>
+  <p>Roughly $${fmt(prepaids,0)} of this isn't a fee at all — prepaid insurance, tax escrow and interest are your own future bills paid early. The negotiable money lives in the lender and title lines: $${fmt(lenderFees + titleFees,0)} here.</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
