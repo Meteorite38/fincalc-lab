@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blended Interest Rate Calculator — Your True Average Debt Rate</title>
+<meta name="description" content="Calculate the blended (weighted-average) interest rate across all your debts and total monthly interest — the real cost of your debt and where to attack first.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/blended-debt-rate-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Blended Interest Rate Calculator — Your True Average Debt Rate">
+<meta property="og:description" content="Calculate the blended (weighted-average) interest rate across all your debts and total monthly interest — the real cost of your debt and where to attack first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/blended-debt-rate-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blended Interest Rate Calculator — Your True Average Debt Rate">
+<meta name="twitter:description" content="Calculate the blended (weighted-average) interest rate across all your debts and total monthly interest — the real cost of your debt and where to attack first.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a blended interest rate?", "acceptedAnswer": {"@type": "Answer", "text": "The weighted-average rate across all your debts, where each debt's rate counts in proportion to its balance. It gives one honest figure for your overall cost of debt, unlike looking at each rate separately."}}, {"@type": "Question", "name": "How do I calculate my average debt interest rate?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply each balance by its rate, sum those products, and divide by your total balance. Larger balances influence the average more than smaller ones."}}, {"@type": "Question", "name": "Should I pay off debt in order of the blended rate?", "acceptedAnswer": {"@type": "Answer", "text": "No — pay off the highest-rate debt first (the avalanche method) to minimize total interest. The blended rate measures your overall cost; the highest individual rate tells you where to attack."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Blended Debt Interest Rate Calculator", "item": "https://fincalc-lab.pages.dev/calculators/blended-debt-rate-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Blended Debt Interest Rate Calculator</nav>
+  <h1>🧵 Blended Debt Interest Rate Calculator</h1>
+  <p class="lead">When you owe on several debts at different rates, your true cost is the weighted average. Enter up to four debts to see your blended rate, total balance and monthly interest.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Debt 1 balance ($)</span>
+      
+      <input type="number" id="bal1" value="6000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 1 rate (%)</span>
+      
+      <input type="number" id="rate1" value="22" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 2 balance ($)</span>
+      
+      <input type="number" id="bal2" value="15000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 2 rate (%)</span>
+      
+      <input type="number" id="rate2" value="6.5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 3 balance ($, 0 if none)</span>
+      
+      <input type="number" id="bal3" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 3 rate (%)</span>
+      
+      <input type="number" id="rate3" value="12" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 4 balance ($, 0 if none)</span>
+      
+      <input type="number" id="bal4" value="0" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt 4 rate (%)</span>
+      
+      <input type="number" id="rate4" value="0" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What a blended rate tells you</h2>
+<p>If you carry several debts at different interest rates, no single rate describes your situation — but the <strong>weighted average</strong> does. It blends each debt's rate in proportion to its balance, giving you one honest number for the true cost of your debt. A big balance at a moderate rate can matter more than a small balance at a scary rate, and the blended figure captures exactly that.</p>
+<h2>How it's calculated</h2>
+<p>Multiply each balance by its rate, add those up, and divide by the total balance: <code>blended rate = Σ(balance × rate) ÷ Σ(balance)</code>. For example, $6,000 at 22%, $15,000 at 6.5%, and $3,000 at 12% blend to about 10.2% across $24,000 of debt — higher than the biggest balance's rate, dragged up by the expensive credit card.</p>
+<h2>Why it's useful</h2>
+<ul>
+<li><strong>It reveals your real cost of debt.</strong> The total interest per month is money leaving your life for nothing — seeing it as one number is motivating.</li>
+<li><strong>It benchmarks consolidation.</strong> A <a href="/calculators/debt-consolidation-calculator/">consolidation loan</a> only helps if its rate beats your blended rate <em>without</em> stretching the term too far. Now you have the number to compare against.</li>
+<li><strong>It compares against investing.</strong> Paying off debt is a guaranteed return equal to its rate. If your blended rate exceeds what you'd realistically earn investing, paying down debt wins.</li>
+</ul>
+<h2>But pay off by rate, not by blend</h2>
+<p>The blended rate measures your overall cost — but when <em>attacking</em> debt, target the <strong>highest-rate debt first</strong> (the avalanche method), regardless of the average. That minimizes total interest. The calculator flags your highest-rate debt as the place to start. Watching your blended rate fall as you eliminate the expensive debts is a satisfying way to track progress — plan the order with our <a href="/calculators/debt-snowball-vs-avalanche-calculator/">avalanche vs snowball calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a blended interest rate?</summary>
+      <p>The weighted-average rate across all your debts, where each debt's rate counts in proportion to its balance. It gives one honest figure for your overall cost of debt, unlike looking at each rate separately.</p>
+    </details>
+    
+    <details>
+      <summary>How do I calculate my average debt interest rate?</summary>
+      <p>Multiply each balance by its rate, sum those products, and divide by your total balance. Larger balances influence the average more than smaller ones.</p>
+    </details>
+    
+    <details>
+      <summary>Should I pay off debt in order of the blended rate?</summary>
+      <p>No — pay off the highest-rate debt first (the avalanche method) to minimize total interest. The blended rate measures your overall cost; the highest individual rate tells you where to attack.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-equity-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">Home Equity Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Home Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-points-calculator/">
+        <span class="card-emoji">📍</span>
+        <span class="card-title">Mortgage Points Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-comparison-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Loan Comparison Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-sale-proceeds-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Home Sale Proceeds Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-build-credit/">
+        <span class="card-title">"How to Build Credit From Scratch (and Fix a Low Score)"</span>
+        <span class="card-desc">A practical, step-by-step guide to building a credit history from zero and raising a low score — what actually moves the needle and what to ignore.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const items = [[val('bal1'),val('rate1')],[val('bal2'),val('rate2')],[val('bal3'),val('rate3')],[val('bal4'),val('rate4')]].filter(x=>x[0]>0);
+  const totalBal = items.reduce((s,x)=>s+x[0],0);
+  if (totalBal <= 0) { show('<div class="result-main">Enter at least one debt balance above zero.</div>'); return; }
+  const weighted = items.reduce((s,x)=>s + x[0]*x[1], 0) / totalBal;
+  const annualInterest = items.reduce((s,x)=>s + x[0]*x[1]/100, 0);
+  let highest = items.reduce((a,b)=> b[1]>a[1]?b:a, items[0]);
+  show(`<div class="result-main">${fmt(weighted,2)}%<small>Your blended (weighted-average) interest rate across $${fmt(totalBal,0)} of debt</small></div>
+  <table>
+    <tr><td>Total debt</td><td>$${fmt(totalBal,0)}</td></tr>
+    <tr><td>Blended annual rate</td><td>${fmt(weighted,2)}%</td></tr>
+    <tr><td>Total interest per year</td><td>$${fmt(annualInterest,0)}</td></tr>
+    <tr><td>Total interest per month</td><td>$${fmt(annualInterest/12,0)}</td></tr>
+    <tr><td>Attack first (highest rate)</td><td>${fmt(highest[1],1)}% on $${fmt(highest[0],0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
