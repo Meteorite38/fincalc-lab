@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>401(k) Early Withdrawal Calculator — The True Cost of Cashing Out</title>
+<meta name="description" content="Free 401(k) early withdrawal calculator: federal and state tax plus the 10% penalty, the cash you'd actually keep, and what the balance would have grown to by retirement. Includes penalty exceptions and the loan alternative.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/401k-early-withdrawal-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="401(k) Early Withdrawal Calculator — The True Cost of Cashing Out">
+<meta property="og:description" content="Free 401(k) early withdrawal calculator: federal and state tax plus the 10% penalty, the cash you'd actually keep, and what the balance would have grown to by retirement. Includes penalty exceptions and the loan alternative.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/401k-early-withdrawal-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="401(k) Early Withdrawal Calculator — The True Cost of Cashing Out">
+<meta name="twitter:description" content="Free 401(k) early withdrawal calculator: federal and state tax plus the 10% penalty, the cash you'd actually keep, and what the balance would have grown to by retirement. Includes penalty exceptions and the loan alternative.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much tax will I pay on a $10,000 early 401(k) withdrawal?", "acceptedAnswer": {"@type": "Answer", "text": "Typically $3,000-4,500 all-in: your federal marginal rate (say 22%), state tax (0-10%), plus the 10% penalty if no exception applies. The plan usually withholds a flat 20% federal — if your true combined rate is higher, you'll owe the difference at filing. And the deeper cost: $10,000 removed at 35 is roughly $76,000 missing at 65 at a 7% return."}}, {"@type": "Question", "name": "Does the 10% penalty apply after I turn 59½?", "acceptedAnswer": {"@type": "Answer", "text": "No — 59½ ends the penalty for all 401(k) and IRA withdrawals (ordinary income tax still applies to pre-tax money). Before that, exceptions include the rule of 55 (job separation at 55+, that employer's plan only), SEPP/72(t) schedules, disability, major medical costs, QDROs, and several SECURE 2.0 carve-outs like the $1,000 emergency withdrawal."}}, {"@type": "Question", "name": "Is a 401(k) loan better than a withdrawal?", "acceptedAnswer": {"@type": "Answer", "text": "Almost always, if your job is stable: no tax, no penalty, and the interest goes back into your own account. The real risks are leaving (or losing) the job — the outstanding balance typically becomes due quickly, and unpaid amounts convert into a taxed, penalized withdrawal — plus the borrowed dollars missing any market gains while out. Cap it at what you can repay within a year or two."}}, {"@type": "Question", "name": "What happens to my 401(k) if I just leave it when changing jobs?", "acceptedAnswer": {"@type": "Answer", "text": "Balances over $7,000 can stay in the old plan indefinitely (fine if the plan is good); $1,000-7,000 can be force-rolled into an IRA; under $1,000 can be cashed out and mailed to you with taxes withheld. The clean move is a direct rollover to the new plan or an IRA — it takes one call, avoids all taxes, and keeps the compounding intact."}}, {"@type": "Question", "name": "Do hardship withdrawals avoid the penalty?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly no — 'hardship' lets you access the money while employed (the plan's rules), but the 10% penalty still applies unless a separate IRS exception (like medical costs above 7.5% of AGI) covers it. Ordinary income tax applies regardless. Hardship withdrawal ≠ penalty-free withdrawal — the two lists are different, which surprises a lot of people at tax time."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "401(k) Early Withdrawal Calculator", "item": "https://fincalc-lab.pages.dev/calculators/401k-early-withdrawal-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; 401(k) Early Withdrawal Calculator</nav>
+  <h1>🚨 401(k) Early Withdrawal Calculator</h1>
+  <p class="lead">Cashing out a 401(k) early is the most expensive way to get money that most people ever encounter: taxes and penalty routinely eat 30-45% up front, and the real bill — decades of lost compounding — is bigger still. Sometimes it's still the right call. This calculator prices it honestly so you decide with open eyes.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Amount to withdraw ($)</span>
+      
+      <input type="number" id="amount" value="30000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Federal marginal tax rate (%) <em class="hint">(the withdrawal stacks on top of your income)</em></span>
+      
+      <input type="number" id="fed" value="22" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">State income tax rate (%)</span>
+      
+      <input type="number" id="state" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Your age</span>
+      
+      <input type="number" id="age" value="35" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Penalty exception applies?</span>
+      
+      <select id="exception">
+        
+        <option value="no" selected>No — standard early withdrawal</option>
+        
+        <option value="55">Rule of 55 (left job at 55+)</option>
+        
+        <option value="other">Other exception (disability, medical, etc.)</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until retirement</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Return the money would have earned (%)</span>
+      
+      <input type="number" id="ret" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why the bite is bigger than people expect</h2>
+<p>An early 401(k) withdrawal is hit three times. It's <strong>ordinary income</strong> — stacked on top of your salary, taxed at your marginal rate, and sometimes big enough to push you into the next bracket (check where yours sits with the <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a>). It owes <strong>state income tax</strong> in most states. And under 59&frac12;, the IRS adds a <strong>10% penalty</strong> on the full amount. A 22%-bracket earner in a 5%-tax state loses 37 cents of every dollar before the money arrives. The plan will typically withhold a flat 20% for federal — often <em>less</em> than you actually owe, creating a second unpleasant surprise at filing.</p>
+<h2>The penalty has more exceptions than people think</h2>
+<ul>
+<li><strong>Rule of 55:</strong> leave your job (quit, fired, laid off — any reason) in or after the year you turn 55, and withdrawals <em>from that employer's plan</em> are penalty-free. It doesn't cover IRAs or old 401(k)s left at previous employers — a reason not to roll everything into an IRA right before an early retirement at 55-59.</li>
+<li><strong>SEPP / 72(t):</strong> commit to "substantially equal periodic payments" for 5+ years (or until 59&frac12;, whichever is later) and any account can pay out penalty-free at any age. Rigid — breaking the schedule triggers retroactive penalties — but it's the standard early-retiree bridge.</li>
+<li><strong>Hardship-adjacent exceptions:</strong> total disability, unreimbursed medical expenses above 7.5% of AGI, a QDRO in divorce, death (heirs), terminal illness, and — new under SECURE 2.0 — a $1,000/year emergency withdrawal, $22,000 for federally declared disasters, and domestic-abuse victim withdrawals. Each has fine print; the penalty vanishes but ordinary income tax always remains.</li>
+<li><strong>What doesn't qualify:</strong> buying a house and paying tuition are IRA exceptions, <em>not</em> 401(k) ones — a detail that catches people who assume the accounts share rules.</li>
+</ul>
+<h2>The alternatives, ranked</h2>
+<p>Before cashing out, walk down this list — each rung is usually cheaper than the one below:</p>
+<ul>
+<li><strong>401(k) loan:</strong> borrow up to 50% of the vested balance (max $50,000), pay yourself back with interest through payroll. No tax, no penalty, no credit check. The risks: leave the job and the balance typically comes due by the tax deadline (or converts to a taxed withdrawal), and the borrowed money misses market growth while out.</li>
+<li><strong>0% balance transfer or personal loan:</strong> a 12% personal loan looks expensive until you price the withdrawal above at 37%+ plus lost compounding — run the <a href="/calculators/balance-transfer-calculator/">balance transfer math</a> if it's card debt you're solving.</li>
+<li><strong>Roth IRA contributions</strong> (if you have them): contributions — not earnings — come out tax- and penalty-free at any age, making the Roth a de facto deep emergency fund.</li>
+<li><strong>The withdrawal</strong> — last, and ideally only for genuine crisis, not for consumption or even debt consolidation that a loan could handle.</li>
+</ul>
+<h2>The cash-out-at-job-change epidemic</h2>
+<p>The most common early withdrawal isn't a crisis — it's the path of least resistance when changing jobs: the old plan mails paperwork, the balance is $8,000, and "just send me a check" feels tidy. Roughly 40% of job-changers cash out some or all of their 401(k), and balances under $10,000 are the most likely to be taken — precisely the money with the most decades left to compound. A $8,000 cash-out at 30 nets maybe $5,000 after taxes and penalty, and costs roughly $60,000 of age-65 wealth at 7%. The right move takes one phone call: a <strong>direct rollover</strong> to the new employer's plan or an IRA — trustee-to-trustee, never a check made out to you (that route triggers 20% withholding and a 60-day deadline). Model what staying invested does with the <a href="/calculators/401k-calculator/">401(k) calculator</a>.</p>
+<h2>If you're going to do it anyway</h2>
+<p>Sometimes the honest answer is yes — eviction beats optimization. Minimize the damage: withdraw the minimum, not a round number "while you're at it." Time it into a low-income year if any flexibility exists (between jobs often qualifies — the bracket math can cut the tax cost by a third). Check every exception above first. Ask about a hardship withdrawal only after pricing the loan. Set withholding realistically so April doesn't bring a second bill. And afterwards, rebuild deliberately — restart contributions at least to the employer match, then work the <a href="/calculators/emergency-fund-calculator/">emergency fund</a> back up so the next crisis doesn't reach the retirement account.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much tax will I pay on a $10,000 early 401(k) withdrawal?</summary>
+      <p>Typically $3,000-4,500 all-in: your federal marginal rate (say 22%), state tax (0-10%), plus the 10% penalty if no exception applies. The plan usually withholds a flat 20% federal — if your true combined rate is higher, you'll owe the difference at filing. And the deeper cost: $10,000 removed at 35 is roughly $76,000 missing at 65 at a 7% return.</p>
+    </details>
+    
+    <details>
+      <summary>Does the 10% penalty apply after I turn 59½?</summary>
+      <p>No — 59½ ends the penalty for all 401(k) and IRA withdrawals (ordinary income tax still applies to pre-tax money). Before that, exceptions include the rule of 55 (job separation at 55+, that employer's plan only), SEPP/72(t) schedules, disability, major medical costs, QDROs, and several SECURE 2.0 carve-outs like the $1,000 emergency withdrawal.</p>
+    </details>
+    
+    <details>
+      <summary>Is a 401(k) loan better than a withdrawal?</summary>
+      <p>Almost always, if your job is stable: no tax, no penalty, and the interest goes back into your own account. The real risks are leaving (or losing) the job — the outstanding balance typically becomes due quickly, and unpaid amounts convert into a taxed, penalized withdrawal — plus the borrowed dollars missing any market gains while out. Cap it at what you can repay within a year or two.</p>
+    </details>
+    
+    <details>
+      <summary>What happens to my 401(k) if I just leave it when changing jobs?</summary>
+      <p>Balances over $7,000 can stay in the old plan indefinitely (fine if the plan is good); $1,000-7,000 can be force-rolled into an IRA; under $1,000 can be cashed out and mailed to you with taxes withheld. The clean move is a direct rollover to the new plan or an IRA — it takes one call, avoids all taxes, and keeps the compounding intact.</p>
+    </details>
+    
+    <details>
+      <summary>Do hardship withdrawals avoid the penalty?</summary>
+      <p>Mostly no — 'hardship' lets you access the money while employed (the plan's rules), but the 10% penalty still applies unless a separate IRS exception (like medical costs above 7.5% of AGI) covers it. Ordinary income tax applies regardless. Hardship withdrawal ≠ penalty-free withdrawal — the two lists are different, which surprises a lot of people at tax time.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-conversion-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Roth Conversion Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hsa-calculator/">
+        <span class="card-emoji">🩹</span>
+        <span class="card-title">HSA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rmd-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">RMD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-vs-traditional-401k-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Roth vs Traditional 401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/social-security-break-even-calculator/">
+        <span class="card-emoji">🏛</span>
+        <span class="card-title">Social Security Break-Even Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/rmds-and-the-roth-conversion-window/">
+        <span class="card-title">"RMDs and the Roth Conversion Window: Defusing Retirement's Tax Time Bomb"</span>
+        <span class="card-desc">Big pre-tax balances turn into forced taxable income at 73 or 75. How RMDs snowball, why the years just after retirement are prime conversion season, and how bracket-filling works in practice.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const W = val('amount'), tf = val('fed')/100, ts = Math.max(0, val('state'))/100;
+  const age = Math.round(val('age')), exc = document.getElementById('exception').value;
+  const yrs = Math.max(0, Math.round(val('years'))), r = val('ret')/100;
+  if (W <= 0) { show('<div class="result-main">Enter a withdrawal amount.</div>'); return; }
+  const penaltyFree = age >= 59.5 || exc !== 'no';
+  const pen = penaltyFree ? 0 : W * 0.10;
+  const fedTax = W * tf, stTax = W * ts;
+  const totalCost = fedTax + stTax + pen;
+  const keep = W - totalCost;
+  const costPct = totalCost / W * 100;
+  const fv = W * Math.pow(1 + r, yrs);
+  const needGross = penaltyFree ? keep / (1 - tf - ts) : keep / (1 - tf - ts - 0.10);
+  show(`<div class="result-main">$${fmt(keep,0)} actually reaches you<small>from a $${fmt(W,0)} withdrawal — ${fmt(costPct,1)}% lost to ${penaltyFree ? 'taxes' : 'taxes + penalty'} up front</small></div>
+  <table>
+    <tr><td>Federal income tax (${fmt(tf*100,0)}%)</td><td>&minus;$${fmt(fedTax,0)}</td></tr>
+    <tr><td>State income tax (${fmt(ts*100,1)}%)</td><td>&minus;$${fmt(stTax,0)}</td></tr>
+    <tr><td>Early-withdrawal penalty ${penaltyFree ? '(waived' + (age >= 59.5 ? ' — over 59½' : (exc === '55' ? ' — rule of 55' : ' — exception')) + ')' : '(10%)'}</td><td>${penaltyFree ? '$0' : '&minus;$' + fmt(pen,0)}</td></tr>
+    <tr><td><strong>You keep</strong></td><td><strong>$${fmt(keep,0)}</strong></td></tr>
+    <tr><td>What $${fmt(W,0)} would be worth in ${yrs} years at ${fmt(r*100,1)}%</td><td><strong>$${fmt(fv,0)}</strong> — the real price of this withdrawal</td></tr>
+    <tr><td>Withdrawal needed to net $${fmt(keep,0)} (grossing up)</td><td>$${fmt(needGross,0)}</td></tr>
+  </table>
+  <p>${penaltyFree
+    ? `No penalty applies, but the compounding cost stands: every $1,000 taken today is ~$${fmt(Math.pow(1+r,yrs)*1000,0)} missing at retirement.`
+    : `Put differently: to hold $${fmt(keep,0)} in hand you're spending $${fmt(W,0)} of retirement money that would have become $${fmt(fv,0)}. That's the comparison to make against every alternative — a 401(k) loan, a 0% card, even a personal loan at 12%.`}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
