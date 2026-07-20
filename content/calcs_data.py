@@ -12,5 +12,6 @@ from calcs_part9 import PART9
 from calcs_part10 import PART10
 from calcs_part11 import PART11
 from calcs_part12 import PART12
+from calcs_part13 import PART13
 
-CALCS = PART1 + PART2 + PART3 + PART4 + PART5 + PART6 + PART7 + PART8 + PART9 + PART10 + PART11 + PART12
+CALCS = PART1 + PART2 + PART3 + PART4 + PART5 + PART6 + PART7 + PART8 + PART9 + PART10 + PART11 + PART12 + PART13

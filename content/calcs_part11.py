@@ -157,13 +157,13 @@ function calculate() {
 <h2>The idea behind the "latte factor"</h2>
 <p>Popularized by author David Bach, the latte factor is the idea that small, habitual purchases — the daily coffee, the barely-used subscription, the impulse snack — quietly cost a fortune over a lifetime, especially when you count the returns that money could have earned instead. It's not really about coffee; it's about noticing where money leaks and what those leaks are truly worth.</p>
 <h2>The eye-opening math</h2>
-<p>A $5 daily coffee is $1,825 a year. Spent, it's gone. But invested at a 7% return for 30 years, those same daily $5 grow to roughly <strong>$185,000</strong> — because the deposits keep [compounding](/articles/how-compound-interest-builds-wealth/) year after year. The gap between "spent" and "invested" is the hidden cost of the habit, and it's often shockingly large.</p>
+<p>A $5 daily coffee is $1,825 a year. Spent, it's gone. But invested at a 7% return for 30 years, those same daily $5 grow to roughly <strong>$185,000</strong> — because the deposits keep <a href="/articles/how-compound-interest-builds-wealth/">compounding</a> year after year. The gap between "spent" and "invested" is the hidden cost of the habit, and it's often shockingly large.</p>
 <h2>How to use this — and how not to</h2>
 <p>The point isn't to never enjoy anything. A $5 coffee that genuinely brightens your day may be worth it. The point is <strong>intentionality</strong>: know what a recurring expense really costs so you can decide if it's worth that price. Run your own habits through the calculator and you'll usually find one or two that you'd happily trade for a six-figure future balance — and others you'll keep, guilt-free, because now you've chosen them on purpose.</p>
 <h2>The bigger lesson</h2>
 <ul>
 <li><strong>Recurring beats one-time.</strong> A single purchase is minor; a <em>daily</em> one is a subscription to poverty or wealth, depending on direction. Focus on habits, not one-offs.</li>
-<li><strong>Redirect, don't just cut.</strong> The magic only happens if the money you don't spend actually gets invested (ideally [automatically](/articles/dollar-cost-averaging-explained/)). Cutting a habit and spending it elsewhere changes nothing.</li>
+<li><strong>Redirect, don't just cut.</strong> The magic only happens if the money you don't spend actually gets invested (ideally <a href="/articles/dollar-cost-averaging-explained/">automatically</a>). Cutting a habit and spending it elsewhere changes nothing.</li>
 <li><strong>Big rocks matter more.</strong> Housing, transport, and food dwarf lattes. Apply the same "what could this be worth invested?" lens to the large recurring costs for the biggest wins.</li>
 </ul>
 <p>Used well, the latte factor isn't about deprivation — it's a lens that turns invisible small spending into a conscious choice between a habit today and a much larger sum tomorrow.</p>

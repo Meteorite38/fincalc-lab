@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Savings Calculator — How Much to Save for Education</title>
+<meta name="description" content="Estimate the future cost of a college education with tuition inflation, and the monthly amount you need to save now to fund it given your expected return.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/college-savings-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="College Savings Calculator — How Much to Save for Education">
+<meta property="og:description" content="Estimate the future cost of a college education with tuition inflation, and the monthly amount you need to save now to fund it given your expected return.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/college-savings-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-savings-investing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="College Savings Calculator — How Much to Save for Education">
+<meta name="twitter:description" content="Estimate the future cost of a college education with tuition inflation, and the monthly amount you need to save now to fund it given your expected return.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-savings-investing.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I save for my child's education?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the type of school, your timeline, and how much of the cost you want to cover. This calculator projects the inflated future cost and the monthly saving to reach it. Starting early dramatically lowers the monthly amount needed."}}, {"@type": "Question", "name": "Why use a higher inflation rate for education?", "acceptedAnswer": {"@type": "Answer", "text": "Education costs have historically risen faster than general inflation — often 4–6% a year. Using a higher rate reflects that reality; using the general inflation rate would understate the future cost."}}, {"@type": "Question", "name": "Should I prioritize education savings over retirement?", "acceptedAnswer": {"@type": "Answer", "text": "Generally no. Students can borrow or earn for education, but no one can borrow for your retirement. Fund your own retirement first or alongside education savings, not entirely in place of it."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "College Savings Calculator", "item": "https://fincalc-lab.pages.dev/calculators/college-savings-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; College Savings Calculator</nav>
+  <h1>🎓 College Savings Calculator</h1>
+  <p class="lead">Education costs rise faster than general inflation, so starting early matters. Enter today's annual cost and your timeline to see the projected total and the monthly saving needed.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual cost today ($)</span>
+      
+      <input type="number" id="cost" value="25000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until study starts</span>
+      
+      <input type="number" id="startyears" value="15" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years of study</span>
+      
+      <input type="number" id="studyyears" value="4" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Education cost inflation (%) <em class="hint">(often 4-6%, above general inflation)</em></span>
+      
+      <input type="number" id="edinf" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Already saved ($)</span>
+      
+      <input type="number" id="current" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="rate" value="6" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why education costs need their own plan</h2>
+<p>College and university costs have historically risen <strong>faster than general inflation</strong> — often 4–6% a year versus ~2–3% for everything else. That gap compounds brutally over the 10–18 years between a child's birth and their enrollment, which is why "we'll figure it out later" so often turns into loans. This calculator projects the real future cost and the monthly saving that funds it.</p>
+<h2>How the projection works</h2>
+<p>Each future year of study is today's cost grown by education inflation to the year it's incurred, then summed across the years of study. Your existing savings are grown forward at your expected return, and the remaining gap is converted into the level monthly contribution needed to reach it. Because your savings keep earning during the study years too, the estimate is deliberately a touch conservative — a small safety margin rather than a shortfall.</p>
+<h2>Levers that make it achievable</h2>
+<ul>
+<li><strong>Time is everything.</strong> Starting when a child is born versus at age 10 can cut the required monthly saving by more than half, because <a href="/articles/how-compound-interest-builds-wealth/">compounding</a> has far longer to work.</li>
+<li><strong>Use tax-advantaged education accounts</strong> where available (such as 529 plans in the US) — tax-free growth for education dramatically improves the outcome.</li>
+<li><strong>You don't have to fund 100%.</strong> Many families aim to cover a portion, with the rest coming from current income, scholarships, work, or student aid. Set a realistic target percentage and plan for that.</li>
+<li><strong>Invest for growth early, de-risk near the end.</strong> With a long horizon, stock-heavy <a href="/articles/index-funds-explained/">index funds</a> suit the early years; shift toward safer holdings as enrollment approaches so a crash can't derail the fund — the same <a href="/articles/stocks-vs-bonds-asset-allocation/">allocation</a> logic as retirement.</li>
+</ul>
+<h2>Keep it in perspective</h2>
+<p>The projected numbers can look daunting because education inflation is relentless — but broken into a monthly amount started early, the goal is usually far more reachable than the scary total suggests. And funding education is a balance: never sacrifice your own <a href="/calculators/retirement-savings-calculator/">retirement</a> saving entirely for it, since students have borrowing options that retirees do not. Fund education alongside, not instead of, your own future.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much should I save for my child's education?</summary>
+      <p>It depends on the type of school, your timeline, and how much of the cost you want to cover. This calculator projects the inflated future cost and the monthly saving to reach it. Starting early dramatically lowers the monthly amount needed.</p>
+    </details>
+    
+    <details>
+      <summary>Why use a higher inflation rate for education?</summary>
+      <p>Education costs have historically risen faster than general inflation — often 4–6% a year. Using a higher rate reflects that reality; using the general inflation rate would understate the future cost.</p>
+    </details>
+    
+    <details>
+      <summary>Should I prioritize education savings over retirement?</summary>
+      <p>Generally no. Students can borrow or earn for education, but no one can borrow for your retirement. Fund your own retirement first or alongside education savings, not entirely in place of it.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-savings-calculator/">
+        <span class="card-emoji">🌴</span>
+        <span class="card-title">Retirement Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-return-calculator/">
+        <span class="card-emoji">📊</span>
+        <span class="card-title">Investment Return (CAGR) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roi-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">ROI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/present-value-calculator/">
+        <span class="card-emoji">🕐</span>
+        <span class="card-title">Present Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/dividend-income-calculator/">
+        <span class="card-emoji">🪙</span>
+        <span class="card-title">Dividend Income Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/simple-interest-calculator/">
+        <span class="card-emoji">📐</span>
+        <span class="card-title">Simple Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cd-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">CD Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/apy-calculator/">
+        <span class="card-emoji">🔁</span>
+        <span class="card-title">APY Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/real-return-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Real Rate of Return Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/millionaire-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Millionaire Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/future-value-calculator/">
+        <span class="card-emoji">🔮</span>
+        <span class="card-title">Future Value Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/investment-fee-impact-calculator/">
+        <span class="card-emoji">🪤</span>
+        <span class="card-title">Investment Fee Impact Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/latte-factor-calculator/">
+        <span class="card-emoji">☕</span>
+        <span class="card-title">Latte Factor Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/understanding-your-paycheck/">
+        <span class="card-title">"Understanding Your Paycheck: Where Your Money Actually Goes"</span>
+        <span class="card-desc">A line-by-line guide to your pay stub — gross vs net, taxes, and deductions — so you know exactly why your take-home is less than your salary.</span>
+      </a>
+      
+      <a class="card" href="/articles/when-to-refinance-your-mortgage/">
+        <span class="card-title">"When Does Refinancing Your Mortgage Make Sense?"</span>
+        <span class="card-desc">How to tell whether refinancing will save you money — the break-even rule, the costs people forget, and the traps that make a lower rate a worse deal.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-match-free-money/">
+        <span class="card-title">"What Is a 401(k) Match, and Why It's the Best Deal in Finance"</span>
+        <span class="card-desc">How employer 401(k) matching works, why skipping it means leaving free money on the table, and how vesting and contribution limits affect you.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const cost = val('cost');
+  const n1 = Math.min(Math.max(0, Math.round(val('startyears'))), 60);
+  const sy = Math.min(Math.max(1, Math.round(val('studyyears'))), 12);
+  const g = val('edinf')/100, current = val('current'), r = val('rate')/100;
+  let total = 0;
+  for (let k = 0; k < sy; k++) total += cost * Math.pow(1+g, n1 + k);
+  const fvCurrent = current * Math.pow(1+r, n1);
+  const gap = Math.max(0, total - fvCurrent);
+  const i = r/12, months = n1*12;
+  const monthly = months > 0 ? (i>0 ? gap * i / (Math.pow(1+i, months) - 1) : gap/months) : gap;
+  let rows = `<tr><td>Projected total cost (${sy} yrs)</td><td>$${fmt(total,0)}</td></tr>
+    <tr><td>First-year cost when study starts</td><td>$${fmt(cost*Math.pow(1+g,n1),0)}</td></tr>
+    <tr><td>Growth of what you've saved</td><td>$${fmt(fvCurrent,0)}</td></tr>
+    <tr><td>Remaining to fund</td><td>$${fmt(gap,0)}</td></tr>`;
+  if (n1 <= 0) {
+    show(`<div class="result-main">$${fmt(total,0)}<small>Projected total cost — study starts now, so fund from savings/income</small></div><table>${rows}</table>`);
+    return;
+  }
+  show(`<div class="result-main">$${fmt(monthly,0)} / month<small>to save for ${sy} years of study starting in ${n1} years</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
