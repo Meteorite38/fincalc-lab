@@ -204,6 +204,7 @@ def build():
         _cmp_group("Housing", [
             ("rent-vs-buy-calculator", "Is renting really throwing money away — or is buying the costlier path in your city?"),
             ("15-vs-30-year-mortgage-calculator", "Guaranteed interest savings vs investing the payment difference — which builds more wealth?"),
+            ("arm-vs-fixed-mortgage-calculator", "Take the ARM discount or lock for 30 years — priced over the years you'll really stay?"),
             ("mortgage-points-calculator", "Pay points up front for a lower rate, or keep the cash — when do you break even?"),
             ("mortgage-refinance-calculator", "Does refinancing actually save money after closing costs, and how soon?"),
             ("biweekly-mortgage-calculator", "Biweekly payments vs monthly — how much time and interest do they really cut?"),
