@@ -154,6 +154,33 @@ def build():
     # IndexNow key file (lets us push new URLs to Bing/Yandex without any login)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
 
+    # RSS feed of guides (newest first)
+    def esc(s):
+        return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                .replace('"', "&quot;"))
+
+    arts_sorted = sorted(articles, key=lambda a: a["date"], reverse=True)
+    items = []
+    for a in arts_sorted:
+        link = f"{SITE_URL}/articles/{a['slug']}/"
+        pub = f"{a['date']}T09:00:00+00:00"
+        items.append(
+            f"    <item><title>{esc(a['title'])}</title>"
+            f"<link>{link}</link><guid>{link}</guid>"
+            f"<pubDate>{pub}</pubDate>"
+            f"<description>{esc(a['description'])}</description></item>"
+        )
+    rss = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0"><channel>\n'
+        f"  <title>{SITE_NAME} — Money Guides</title>\n"
+        f"  <link>{SITE_URL}/guides/</link>\n"
+        f"  <description>{SITE_TAGLINE}. Plain-English personal finance guides.</description>\n"
+        "  <language>en</language>\n"
+        + "\n".join(items) + "\n</channel></rss>\n"
+    )
+    write("rss.xml", rss)
+
     print(f"OK: built {len(urls)} pages -> dist/")
 
 
