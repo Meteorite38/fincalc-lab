@@ -242,6 +242,7 @@ def build():
             ("pay-off-debt-vs-invest-calculator", "Extra money each month: kill the debt first, or invest and pay the minimum?"),
             ("debt-snowball-vs-avalanche-calculator", "Smallest-balance-first motivation vs highest-rate-first math — what does each cost?"),
             ("balance-transfer-calculator", "Move the balance to a 0% card and pay the fee, or stay put — which costs less?"),
+            ("student-loan-refinance-calculator", "Refinance student debt for the lower rate, or keep the federal protections?"),
             ("loan-comparison-calculator", "Two loan offers, different rates and fees — which is genuinely cheaper?"),
             ("debt-consolidation-calculator", "Keep juggling separate debts, or roll them into one loan — what changes?"),
         ]),
