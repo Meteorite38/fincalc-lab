@@ -98,7 +98,12 @@ h1 { font-size: 1.9rem; margin: 8px 0 10px; }
 .result-main small { display: block; font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); }
 .result table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .result td { padding: 7px 10px; border-bottom: 1px solid var(--line); }
-.result td:last-child { text-align: right; font-weight: 600; }
+.result td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
+.result th:last-child { text-align: right; }
+@media (max-width: 480px) {
+  .result table { font-size: 0.88rem; }
+  .result td { padding: 6px 6px; }
+}
 
 /* explainer / article */
 .explainer h2 { font-size: 1.35rem; margin: 28px 0 10px; }
