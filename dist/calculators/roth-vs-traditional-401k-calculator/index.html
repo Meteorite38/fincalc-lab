@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roth vs Traditional 401(k) Calculator — Which Leaves You More?</title>
+<meta name="description" content="Roth or traditional 401(k)? Compare what each leaves you after tax in retirement — using a fair same-budget comparison or the max-out scenario where the traditional tax savings are invested on the side.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/roth-vs-traditional-401k-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Roth vs Traditional 401(k) Calculator — Which Leaves You More?">
+<meta property="og:description" content="Roth or traditional 401(k)? Compare what each leaves you after tax in retirement — using a fair same-budget comparison or the max-out scenario where the traditional tax savings are invested on the side.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/roth-vs-traditional-401k-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roth vs Traditional 401(k) Calculator — Which Leaves You More?">
+<meta name="twitter:description" content="Roth or traditional 401(k)? Compare what each leaves you after tax in retirement — using a fair same-budget comparison or the max-out scenario where the traditional tax savings are invested on the side.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I split between Roth and traditional?", "acceptedAnswer": {"@type": "Answer", "text": "Splitting is a legitimate hedge when you can't confidently predict your retirement bracket — common in the 22-24% brackets. You'll retire with both a taxable and a tax-free bucket, which also lets you manage your taxable income year by year in retirement."}}, {"@type": "Question", "name": "Does the employer match go into the Roth side?", "acceptedAnswer": {"@type": "Answer", "text": "No. Matching dollars are always pre-tax (traditional), even if your own contributions are Roth. Under SECURE 2.0 some plans now offer Roth matching if the employer opts in, but the default remains pre-tax — so most Roth contributors end up with a mix automatically."}}, {"@type": "Question", "name": "What if tax rates go up for everyone?", "acceptedAnswer": {"@type": "Answer", "text": "Broad rate increases favor Roth: you prepaid at the old, lower rate. Traditional contributions bet that your personal rate falls in retirement by more than any legislated increases. That asymmetry is one reason many planners lean Roth when the fair-math comparison is close."}}, {"@type": "Question", "name": "Is the Roth 401(k) limit really the same as traditional?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — $23,500 (2025) either way, plus catch-ups from age 50. That's the max-out subtlety: $23,500 of Roth is worth more after tax than $23,500 of traditional, because the Roth version has already paid its tax bill outside the cap."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Roth vs Traditional 401(k) Calculator", "item": "https://fincalc-lab.pages.dev/calculators/roth-vs-traditional-401k-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Roth vs Traditional 401(k) Calculator</nav>
+  <h1>⚖️ Roth vs Traditional 401(k) Calculator</h1>
+  <p class="lead">Traditional contributions skip tax now and pay it in retirement; Roth pays tax now and never again. Which wins depends almost entirely on your tax rate today versus in retirement — plus one subtlety when you're maxing out the account. This calculator shows both, honestly.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Annual contribution budget ($) <em class="hint">(pre-tax dollars you can commit each year)</em></span>
+      
+      <input type="number" id="contrib" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Marginal tax rate now (%)</span>
+      
+      <input type="number" id="nowtax" value="24" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected marginal tax rate in retirement (%)</span>
+      
+      <input type="number" id="rettax" value="18" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual return (%)</span>
+      
+      <input type="number" id="ret" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until retirement</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Comparison type</span>
+      
+      <select id="mode">
+        
+        <option value="fair" selected>Same pre-tax budget (the fair math)</option>
+        
+        <option value="maxout">Same dollar amount into the account (maxing out)</option>
+        
+      </select>
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The one-sentence rule</h2>
+<p>With the same pre-tax budget, <strong>traditional wins if your tax rate in retirement is lower than today's; Roth wins if it's higher; they tie exactly if it's the same.</strong> That's not an opinion — it's algebra. A dollar taxed at rate <em>t</em> grows to the same amount whether the tax comes out before or after compounding: <em>C·(1&minus;t)·growth = C·growth·(1&minus;t)</em>. Everything else about the decision is a forecast of those two tax rates.</p>
+<h2>So why does Roth so often win in practice?</h2>
+<ul>
+<li><strong>The contribution cap doesn't care about tax.</strong> The 401(k) limit ($23,500 in 2025) is the same for both types. Maxing out a Roth stuffs more <em>after-tax</em> value inside the tax shelter than maxing out a traditional — switch this calculator to the max-out mode to see it. The traditional path only keeps pace if you faithfully invest the tax savings on the side, and the side account suffers tax drag every year.</li>
+<li><strong>Marginal in, (mostly) average out.</strong> Contributions save tax at your top marginal rate, but withdrawals fill the empty lower brackets first — the standard deduction and 10-12% brackets. Many retirees' <em>effective</em> rate on traditional withdrawals lands well below their working marginal rate, which pushes the other way, toward traditional. The honest answer uses both effects.</li>
+<li><strong>RMDs and flexibility.</strong> Traditional accounts force required minimum distributions from your mid-70s, taxed whether you need the money or not. Roth 401(k)s can be rolled to a Roth IRA with no RMDs, no tax on withdrawal, and tax-free inheritance for heirs.</li>
+<li><strong>Rate risk runs asymmetric.</strong> If tax law shifts, current statutory rates are historically low; locking today's known rate (Roth) hedges against future increases better than betting on future cuts.</li>
+</ul>
+<h2>Practical guidance by situation</h2>
+<ul>
+<li><strong>Early career / low bracket (10-12%):</strong> Roth, almost always. You're prepaying tax at a rate you may never see again.</li>
+<li><strong>Peak earning years (32%+):</strong> traditional usually wins — you're very likely to withdraw at a lower rate than you're deferring at.</li>
+<li><strong>The murky middle (22-24%):</strong> genuinely close. Splitting contributions — or defaulting to traditional while doing Roth conversions in low-income years — hedges the forecast.</li>
+<li><strong>Any employer match is always pre-tax</strong> (it goes in traditional regardless), so choosing Roth for your own contributions automatically builds a mix.</li>
+</ul>
+<p>Project the actual balances with the <a href="/calculators/401k-calculator/">401(k) calculator</a> and <a href="/calculators/roth-ira-calculator/">Roth IRA calculator</a>, check what your withdrawals could sustainably be with the <a href="/calculators/retirement-withdrawal-calculator/">retirement withdrawal calculator</a>, and see how tax rates change your take-home today with the <a href="/calculators/take-home-pay-calculator/">take-home pay calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Should I split between Roth and traditional?</summary>
+      <p>Splitting is a legitimate hedge when you can't confidently predict your retirement bracket — common in the 22-24% brackets. You'll retire with both a taxable and a tax-free bucket, which also lets you manage your taxable income year by year in retirement.</p>
+    </details>
+    
+    <details>
+      <summary>Does the employer match go into the Roth side?</summary>
+      <p>No. Matching dollars are always pre-tax (traditional), even if your own contributions are Roth. Under SECURE 2.0 some plans now offer Roth matching if the employer opts in, but the default remains pre-tax — so most Roth contributors end up with a mix automatically.</p>
+    </details>
+    
+    <details>
+      <summary>What if tax rates go up for everyone?</summary>
+      <p>Broad rate increases favor Roth: you prepaid at the old, lower rate. Traditional contributions bet that your personal rate falls in retirement by more than any legislated increases. That asymmetry is one reason many planners lean Roth when the fair-math comparison is close.</p>
+    </details>
+    
+    <details>
+      <summary>Is the Roth 401(k) limit really the same as traditional?</summary>
+      <p>Yes — $23,500 (2025) either way, plus catch-ups from age 50. That's the max-out subtlety: $23,500 of Roth is worth more after tax than $23,500 of traditional, because the Roth version has already paid its tax bill outside the cap.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/social-security-break-even-calculator/">
+        <span class="card-emoji">🏛</span>
+        <span class="card-title">Social Security Break-Even Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/coast-fire-calculator/">
+        <span class="card-emoji">🏄</span>
+        <span class="card-title">Coast FIRE Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/annuity-payout-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Annuity Payout Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+      <a class="card" href="/articles/sequence-of-returns-risk/">
+        <span class="card-title">"Sequence of Returns Risk: Why When You Retire Matters as Much as How Much"</span>
+        <span class="card-desc">The retirement danger hiding inside average returns — why a crash early in retirement is far worse than the same crash later, and how to defend against it.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const C = val('contrib'), tNow = val('nowtax')/100, tRet = val('rettax')/100;
+  const r = val('ret')/100, yrs = Math.round(val('years'));
+  if (C <= 0 || yrs <= 0) { show('<div class="result-main">Enter a contribution and years above zero.</div>'); return; }
+  const F = r > 0 ? (Math.pow(1+r, yrs) - 1)/r : yrs;          // FV factor, end-of-year deposits
+  const rSide = r * 0.85;                                       // taxable side account: ~15% drag on returns
+  const Fside = rSide > 0 ? (Math.pow(1+rSide, yrs) - 1)/rSide : yrs;
+  const mode = document.getElementById('mode').value;
+  let trad, roth, note;
+  if (mode === 'fair') {
+    trad = C * F * (1 - tRet);
+    roth = C * (1 - tNow) * F;
+    note = 'Both paths give up the same take-home pay today.';
+  } else {
+    trad = C * F * (1 - tRet) + C * tNow * Fside;
+    roth = C * F;
+    note = 'Both put $' + fmt(C,0) + '/yr into the account; the traditional path also invests its tax savings in a taxable account (' + fmt(rSide*100,1) + '% after-drag return).';
+  }
+  const rothWins = roth > trad;
+  const gap = Math.abs(roth - trad);
+  const pct = trad > 0 ? gap/Math.min(roth,trad)*100 : 0;
+  show(`<div class="result-main">${rothWins ? 'Roth' : 'Traditional'} leaves you $${fmt(gap,0)} more<small>spendable in retirement after ${yrs} years &mdash; ${note}</small></div>
+  <table>
+    <tr><td>Traditional &mdash; after-tax value</td><td>$${fmt(trad,0)}</td></tr>
+    <tr><td>Roth &mdash; after-tax value</td><td>$${fmt(roth,0)}</td></tr>
+    <tr><td>Advantage</td><td>${rothWins ? 'Roth' : 'Traditional'} by ${fmt(pct,1)}%</td></tr>
+    <tr><td>Rate today vs in retirement</td><td>${fmt(tNow*100,1)}% now vs ${fmt(tRet*100,1)}% later ${tNow > tRet ? '&mdash; favors traditional' : (tNow < tRet ? '&mdash; favors Roth' : '&mdash; a wash on the fair math')}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
