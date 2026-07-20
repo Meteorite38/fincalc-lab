@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay Off Debt vs Invest Calculator — Which Builds More Wealth?</title>
+<meta name="description" content="Should you pay off debt or invest? This calculator compares your net worth after paying extra toward debt vs investing that money, so you can see which builds more wealth.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/pay-off-debt-vs-invest-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Pay Off Debt vs Invest Calculator — Which Builds More Wealth?">
+<meta property="og:description" content="Should you pay off debt or invest? This calculator compares your net worth after paying extra toward debt vs investing that money, so you can see which builds more wealth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/pay-off-debt-vs-invest-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pay Off Debt vs Invest Calculator — Which Builds More Wealth?">
+<meta name="twitter:description" content="Should you pay off debt or invest? This calculator compares your net worth after paying extra toward debt vs investing that money, so you can see which builds more wealth.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Should I pay off debt or invest?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the debt's interest rate to your expected after-tax investment return. High-rate debt (like credit cards) should be paid off first — it's a guaranteed high return. Low-rate debt (like a cheap mortgage) can often be paid on schedule while you invest, since expected returns exceed the interest saved."}}, {"@type": "Question", "name": "Is paying off debt a 'guaranteed return'?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Eliminating a loan at 8% interest saves you 8% a year with certainty and no tax — equivalent to a guaranteed, risk-free 8% investment. Very few investments can promise that, which is why high-rate debt payoff is so attractive."}}, {"@type": "Question", "name": "What should I do before either?", "acceptedAnswer": {"@type": "Answer", "text": "Capture any employer retirement match (an instant 50–100% return) and build a small emergency fund first. Both come ahead of the debt-vs-invest decision, because they protect you from taking on new high-rate debt."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Pay Off Debt vs Invest Calculator", "item": "https://fincalc-lab.pages.dev/calculators/pay-off-debt-vs-invest-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Pay Off Debt vs Invest Calculator</nav>
+  <h1>⚖️ Pay Off Debt vs Invest Calculator</h1>
+  <p class="lead">You have some spare cash each month. Attack the debt, or invest it? This calculator runs both strategies month by month and compares the net worth (investments minus remaining debt) each leaves you with — the honest way to settle the debate.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Debt balance ($)</span>
+      
+      <input type="number" id="balance" value="20000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Debt interest rate (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Minimum / current monthly payment ($)</span>
+      
+      <input type="number" id="minpay" value="400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra cash available per month ($)</span>
+      
+      <input type="number" id="extra" value="300" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected investment return (%/yr)</span>
+      
+      <input type="number" id="invreturn" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Comparison horizon (years)</span>
+      
+      <input type="number" id="years" value="10" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The core trade-off</h2>
+<p>Every extra dollar has two competing homes. Put it toward debt and you earn a <strong>guaranteed, risk-free return equal to the debt's interest rate</strong> — paying off an 8% loan is exactly as good as a guaranteed 8% investment. Put it into the market instead and you earn an <em>expected</em> return that's usually higher over the long run, but uncertain and taxable. This calculator settles the argument by simulating both strategies month by month and comparing the net worth — investments minus any remaining debt — each leaves you with.</p>
+<h2>How to read the result</h2>
+<p>The math almost always follows one simple rule: <strong>compare the debt's interest rate to your expected after-tax investment return.</strong></p>
+<ul>
+<li><strong>High-rate debt (credit cards, ~15–25%):</strong> paying it off wins decisively. Almost nothing reliably beats a guaranteed 20% return, which is why clearing expensive debt is treated as an emergency.</li>
+<li><strong>Low-rate debt (a ~3–4% mortgage or subsidised student loan):</strong> investing usually builds more wealth over long horizons, because expected market returns comfortably exceed the interest you'd save.</li>
+<li><strong>The middle (~5–8%):</strong> it's close, and the "right" answer depends on your assumed return, taxes and time horizon — exactly what you can test above.</li>
+</ul>
+<h2>Why the guaranteed vs expected distinction matters</h2>
+<p>Paying down debt delivers a <em>certain</em> outcome; investing delivers a <em>probable</em> one. Two people with identical numbers can rightly choose differently based on risk tolerance. The debt payoff is the lower-stress, lower-variance option; investing has higher expected wealth but real downside risk and requires you to actually stay invested through crashes. The calculator shows the expected-value winner — you weigh the certainty premium yourself.</p>
+<h2>What the simple comparison leaves out</h2>
+<ul>
+<li><strong>Employer retirement match comes first.</strong> A 50–100% match beats paying off any debt — always capture it before either strategy. See the <a href="/articles/financial-order-of-operations/">financial order of operations</a>.</li>
+<li><strong>Emergency fund first.</strong> Without cash reserves, a surprise expense lands on high-rate debt and undoes your progress.</li>
+<li><strong>Taxes and behaviour.</strong> Investment returns may be taxed; debt payoff is tax-free. And guaranteed progress keeps some people motivated in a way volatile markets don't.</li>
+</ul>
+<p>Pair this with our <a href="/calculators/loan-payoff-calculator/">debt payoff</a> and <a href="/calculators/investment-return-calculator/">investment return</a> calculators, and the <a href="/articles/good-debt-vs-bad-debt/">good debt vs bad debt</a> guide, to decide with the full picture.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Should I pay off debt or invest?</summary>
+      <p>Compare the debt's interest rate to your expected after-tax investment return. High-rate debt (like credit cards) should be paid off first — it's a guaranteed high return. Low-rate debt (like a cheap mortgage) can often be paid on schedule while you invest, since expected returns exceed the interest saved.</p>
+    </details>
+    
+    <details>
+      <summary>Is paying off debt a 'guaranteed return'?</summary>
+      <p>Yes. Eliminating a loan at 8% interest saves you 8% a year with certainty and no tax — equivalent to a guaranteed, risk-free 8% investment. Very few investments can promise that, which is why high-rate debt payoff is so attractive.</p>
+    </details>
+    
+    <details>
+      <summary>What should I do before either?</summary>
+      <p>Capture any employer retirement match (an instant 50–100% return) and build a small emergency fund first. Both come ahead of the debt-vs-invest decision, because they protect you from taking on new high-rate debt.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/rent-vs-buy-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent vs Buy a Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/lease-vs-buy-car-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Lease vs Buy a Car Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const B0 = val('balance'), dr = val('rate')/100/12, MP = val('minpay'), E = val('extra');
+  const ir = val('invreturn')/100/12, H = Math.round(Math.min(Math.max(val('years'),0),50)*12);
+  if (B0 <= 0 || H <= 0) { show('<div class="result-main">Enter a debt balance and a horizon above zero.</div>'); return; }
+  if (MP <= B0*dr) { show('<div class="result-main">Your minimum payment barely covers interest — increase it so the debt can actually shrink.</div>'); return; }
+
+  // Strategy A: throw MP+E at the debt; once cleared, invest the whole freed-up amount
+  let bal = B0, inv = 0;
+  for (let m=1; m<=H; m++) {
+    inv *= (1+ir);
+    let cash = MP + E;
+    if (bal > 0) { const int = bal*dr; bal += int; const pay = Math.min(cash, bal); bal -= pay; cash -= pay; }
+    if (cash > 0) inv += cash;   // leftover (after debt gone) is invested
+  }
+  const netA = inv - Math.max(0, bal);
+
+  // Strategy B: pay only the minimum, invest the extra; once debt is gone the freed
+  // minimum payment is invested too (same total monthly cash flow as strategy A).
+  let balB = B0, invB = 0;
+  for (let m=1; m<=H; m++) {
+    invB *= (1+ir);
+    let cash = E;
+    if (balB > 0) { const int = balB*dr; balB += int; const pay = Math.min(MP, balB); balB -= pay; }
+    else { cash += MP; }
+    invB += cash;
+  }
+  const netB = invB - Math.max(0, balB);
+
+  const aWins = netA > netB;
+  const diff = Math.abs(netA - netB);
+  show(`<div class="result-main">${aWins ? 'Paying off debt first' : 'Investing the extra'} wins by $${fmt(diff,0)}<small>higher net worth after ${val('years')} years</small></div>
+  <table>
+    <tr><td><strong>Debt first</strong> (extra \u2192 debt, then invest)</td><td>net worth $${fmt(netA,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Investments built</td><td>$${fmt(inv,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Debt remaining</td><td>$${fmt(Math.max(0,bal),0)}</td></tr>
+    <tr><td><strong>Invest first</strong> (min on debt, invest extra)</td><td>net worth $${fmt(netB,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Investments built</td><td>$${fmt(invB,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Debt remaining</td><td>$${fmt(Math.max(0,balB),0)}</td></tr>
+    <tr><td>Rule of thumb</td><td>debt rate ${fmt(val('rate'),1)}% vs return ${fmt(val('invreturn'),1)}%</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
