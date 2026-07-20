@@ -189,8 +189,33 @@ def build():
     write("calculators/index.html", env.get_template("calc_index.html").render(calcs=CALCS, articles=articles))
     urls.append("calculators/")
 
-    # guides directory page
-    write("guides/index.html", env.get_template("guides_index.html").render(calcs=CALCS, articles=articles))
+    # guides directory page — grouped by theme (first matching rule wins)
+    guide_groups_def = [
+        ("Investing", ["invest", "index-fund", "etf", "stock", "bond", "dollar-cost", "diversif",
+                       "compound", "passive-income", "market-crash", "myths", "time-value", "opportunity-cost"]),
+        ("Retirement", ["retire", "401k", "roth", "social-security", "fire", "rmd", "sequence"]),
+        ("Home & housing", ["house", "home", "mortgage", "rent", "refinanc", "down-payment"]),
+        ("Cars", ["car", "vehicle", "dealer"]),
+        ("Debt & credit", ["debt", "credit", "loan", "pay-later", "payday"]),
+        ("Budgeting & saving", ["budget", "saving", "save", "emergency", "paycheck", "sinking",
+                                "50-30-20", "lifestyle", "spend", "frugal", "goal"]),
+        ("Income & taxes", ["salary", "raise", "freelanc", "tax", "inflation", "job-loss", "negotiate", "windfall"]),
+    ]
+
+    def _guide_group(a):
+        hay = a["slug"] + " " + a["title"].lower()
+        for label, keys in guide_groups_def:
+            if any(k in hay for k in keys):
+                return label
+        return "Money & life"
+
+    guide_groups = []
+    for label, _ in guide_groups_def + [("Money & life", [])]:
+        items = [a for a in articles if _guide_group(a) == label]
+        if items:
+            guide_groups.append({"label": label, "items": items})
+    write("guides/index.html", env.get_template("guides_index.html").render(
+        calcs=CALCS, articles=articles, guide_groups=guide_groups))
     urls.append("guides/")
 
     # compare hub page — head-to-head decision tools

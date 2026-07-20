@@ -29,23 +29,31 @@
   <p class="lead">{{ articles | length }} plain-English guides to the money decisions that matter — no jargon, no sales pitch, just the reasoning and the numbers.</p>
   <input type="search" id="guide-filter" class="calc-filter" placeholder="Search {{ articles | length }} guides… (e.g. debt, retirement, investing)" aria-label="Search guides" oninput="filterGuides(this.value)">
   <p id="guide-noresults" class="calc-noresults" hidden>No guides match — try another word.</p>
-  <div class="grid" id="guide-grid">
-    {% for a in articles %}
+  {% for g in guide_groups %}
+  <h2 class="cat-label" data-guidelabel>{{ g.label }}</h2>
+  <div class="grid" data-guidegrid>
+    {% for a in g["items"] %}
     <a class="card" href="/articles/{{ a.slug }}/" data-name="{{ (a.title ~ ' ' ~ a.description) | lower }}">
       <span class="card-title">{{ a.title }}</span>
       <span class="card-desc">{{ a.description }}</span>
     </a>
     {% endfor %}
   </div>
+  {% endfor %}
 </div>
 <script>
 function filterGuides(q) {
   q = (q || '').trim().toLowerCase();
   var shown = 0;
-  document.querySelectorAll('#guide-grid .card').forEach(function(card) {
-    var m = !q || card.getAttribute('data-name').indexOf(q) !== -1;
-    card.style.display = m ? '' : 'none';
-    if (m) shown++;
+  document.querySelectorAll('[data-guidegrid]').forEach(function(grid) {
+    var vis = 0;
+    grid.querySelectorAll('.card').forEach(function(card) {
+      var m = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+      card.style.display = m ? '' : 'none';
+      if (m) { vis++; shown++; }
+    });
+    var label = grid.previousElementSibling;
+    if (label && label.hasAttribute('data-guidelabel')) label.style.display = vis ? '' : 'none';
   });
   var nr = document.getElementById('guide-noresults');
   if (nr) nr.hidden = shown !== 0;
