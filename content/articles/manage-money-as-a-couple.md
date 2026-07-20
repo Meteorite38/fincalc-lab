@@ -29,6 +29,7 @@ When partners earn different amounts, "split everything 50/50" can feel unfair �
 ## Build a shared system
 
 - **Set joint goals with numbers and dates.** A house down payment, a trip, retirement, becoming debt-free — shared goals turn money from a source of conflict into a team project. Use tools like the [savings goal](/calculators/savings-goal-calculator/) and [net worth](/calculators/net-worth-calculator/) calculators together.
+- **Run the big life decisions as a team, on real numbers.** Whether one partner scales back work when kids arrive is a household decision, not one person's — the [daycare vs staying home calculator](/calculators/daycare-vs-staying-home-calculator/) prices both futures honestly (including the career-compounding side most couples skip), which turns an emotional standoff into a shared spreadsheet.
 - **Automate the shared plan.** Auto-transfer each person's contribution to the joint account and to savings on payday, so the system runs without monthly negotiation.
 - **Agree on a "check-in" threshold.** Decide an amount above which purchases get a quick conversation (say, anything over $200). Below it, no guilt; above it, a heads-up. This prevents both overspending surprises and controlling micromanagement.
 - **Have a regular money date.** A short, calm monthly review of spending, goals, and any concerns keeps small issues from becoming big fights. Make it low-pressure — maybe over a nice meal.
