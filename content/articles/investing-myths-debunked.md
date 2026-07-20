@@ -8,7 +8,7 @@ More people are held back from building wealth by false beliefs than by lack of 
 
 ## Myth 1: "You need a lot of money to start"
 
-Reality: you can start with almost nothing. Fractional shares and zero-commission brokers mean you can buy into a diversified [index fund](/articles/index-funds-explained/) with a few dollars. Waiting until you have "enough" wastes your most valuable asset — time — as the [cost of waiting calculator](/calculators/cost-of-waiting-calculator/) makes painfully clear. Starting small and early beats starting big and late.
+Reality: you can start with almost nothing. Fractional shares and zero-commission brokers mean you can buy into a diversified [index fund](/articles/index-funds-explained/) with a few dollars. Waiting until you have "enough" wastes your most valuable asset — time — compare a start-now against a start-in-five-years run in the [compound interest calculator](/calculators/compound-interest-calculator/) and the cost of waiting becomes painfully clear. Starting small and early beats starting big and late.
 
 ## Myth 2: "Investing is basically gambling"
 

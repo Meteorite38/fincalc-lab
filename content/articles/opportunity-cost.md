@@ -16,7 +16,7 @@ Money has an explicit price. Opportunity cost is the *implicit* price — and ig
 
 Buy a $30,000 car and the sticker price isn't the whole story. If that $30,000 had instead been [invested](/articles/index-funds-explained/) at 7% for 30 years, it would grow to roughly [$228,000](/calculators/future-value-calculator/). So the *real* cost of the car — its opportunity cost — is closer to a quarter of a million dollars of forgone future wealth. That doesn't mean never buy a car; it means see the full trade-off so you're choosing deliberately, not blindly.
 
-This is why the [latte factor](/calculators/latte-factor-calculator/) and the [cost of waiting](/calculators/cost-of-waiting-calculator/) hit so hard: they're just opportunity cost made visible.
+This is why the [subscription-stack audit](/calculators/subscription-cost-calculator/) and a start-now-vs-start-later run through the [compound interest calculator](/calculators/compound-interest-calculator/) hit so hard: they're just opportunity cost made visible.
 
 ## Opportunity cost is everywhere in money
 

@@ -20,7 +20,7 @@ If your job offers a [401(k) match](/articles/401k-match-free-money/), contribut
 
 ## Step 3 — Kill high-interest debt
 
-Now attack expensive debt (roughly 8%+ — credit cards, payday loans, many personal loans). Paying off a 22% card is a guaranteed, tax-free 22% return no investment can promise. Use the [avalanche method](/calculators/debt-snowball-vs-avalanche-calculator/) (highest rate first) to minimize interest, and check your [blended rate](/calculators/blended-debt-rate-calculator/) to see the true cost.
+Now attack expensive debt (roughly 8%+ — credit cards, payday loans, many personal loans). Paying off a 22% card is a guaranteed, tax-free 22% return no investment can promise. Use the [avalanche method](/calculators/debt-snowball-vs-avalanche-calculator/) (highest rate first) to minimize interest, and if the debts might be cheaper as one loan, run the [consolidation math](/calculators/debt-consolidation-calculator/).
 
 ## Step 4 — Build a full emergency fund (3–6 months)
 
@@ -29,7 +29,7 @@ With expensive debt gone, grow your buffer to 3–6 months of essential expenses
 ## Step 5 — Invest for retirement (tax-advantaged first)
 
 Now invest in earnest, prioritizing tax-advantaged accounts:
-- Max out tax-advantaged retirement accounts (beyond the match) — see [Roth vs Traditional](/articles/roth-vs-traditional-retirement-accounts/).
+- Max out tax-advantaged retirement accounts (beyond the match) — see [Roth vs Traditional](/articles/roth-vs-traditional-decision/).
 - Then taxable brokerage accounts.
 - Keep it simple and cheap with [index funds](/articles/index-funds-explained/), invested [automatically](/articles/dollar-cost-averaging-explained/).
 

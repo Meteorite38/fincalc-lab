@@ -40,7 +40,7 @@ The most reliable path to passive income is deeply unglamorous: **earn money act
 
 1. **Build capital first.** You generally need money to generate passive income. Raise your [savings rate](/calculators/savings-rate-calculator/) and invest consistently.
 2. **Put it in income-producing assets** — diversified [index funds](/articles/index-funds-explained/) for growth, shifting toward income (dividends, bonds, interest) as the balance grows.
-3. **Let compounding do the work** over years — the [cost of waiting](/calculators/cost-of-waiting-calculator/) shows why starting now matters.
+3. **Let compounding do the work** over years — the [compound interest calculator](/calculators/compound-interest-calculator/) shows why starting now matters.
 4. **Optionally add a front-loaded project** (a product or rental) if you have the time and appetite — but treat it as a business, not a magic money machine.
 
 ## The bottom line

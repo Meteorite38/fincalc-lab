@@ -47,7 +47,7 @@ function calculate() {
 <li><strong>Automate it.</strong> Set up an automatic transfer of the monthly amount on payday so the timeline actually happens rather than slipping.</li>
 </ul>
 <h2>The power of the monthly habit</h2>
-<p>Seeing a concrete finish date turns a vague "someday" into a plan you can act on and track. And notice the interest line: over longer goals, compounding quietly does a growing share of the work, which is the whole argument for starting now rather than waiting — as the <a href="/calculators/cost-of-waiting-calculator/">cost of waiting calculator</a> shows.</p>
+<p>Seeing a concrete finish date turns a vague "someday" into a plan you can act on and track. And notice the interest line: over longer goals, compounding quietly does a growing share of the work, which is the whole argument for starting now rather than waiting — the <a href="/calculators/compound-interest-calculator/">compound interest calculator</a> makes the gap between a start-now and a start-later plan explicit.</p>
 """,
         "faqs": [
             ("How long will it take to reach my savings goal?", "It depends on your target, what you've already saved, how much you add each month, and your return. This calculator simulates the growth month by month and shows the exact time to reach the goal, including compounding."),

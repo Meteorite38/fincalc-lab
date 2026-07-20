@@ -34,7 +34,7 @@ Some employers make their matching contributions *vest* over time — meaning yo
 Beyond the match, a 401(k) is a powerful tax-advantaged account in its own right:
 
 - **Traditional 401(k):** contributions reduce your taxable income now; you pay tax on withdrawals in retirement.
-- **Roth 401(k):** contributions are after-tax now, but withdrawals in retirement are tax-free — see [Roth vs Traditional](/articles/roth-vs-traditional-retirement-accounts/) to choose.
+- **Roth 401(k):** contributions are after-tax now, but withdrawals in retirement are tax-free — see [Roth vs Traditional](/articles/roth-vs-traditional-decision/) to choose.
 
 There's an annual contribution limit set each year (well into five figures), separate from the employer match. Even if you can't max it out, the priority is clear: **capture the full match first**, then decide how much more to add. Project the long-run impact with our [401(k) calculator](/calculators/401k-calculator/).
 

@@ -35,7 +35,7 @@ Teens are ready for the mechanics of adult money:
 - **A bank account** (and a debit card) to practice managing real money and tracking spending.
 - **A first job or side income** — nothing teaches the value of money like earning it. It also introduces taxes and the reality of trading time for money.
 - **Budgeting their own money** — give them responsibility for certain expenses (their entertainment, clothes) with a set amount, so they learn to prioritize.
-- **Introduce [compound interest](/articles/how-compound-interest-builds-wealth/)** — show them how money grows. The concept that starting early matters enormously (the [cost of waiting](/calculators/cost-of-waiting-calculator/)) can genuinely change a life if learned at 16.
+- **Introduce [compound interest](/articles/how-compound-interest-builds-wealth/)** — show them how money grows in the [compound interest calculator](/calculators/compound-interest-calculator/). The concept that starting early matters enormously can genuinely change a life if learned at 16.
 - **Talk about debt and credit** honestly — how credit cards and [interest](/articles/how-credit-card-interest-works/) work, and why carrying a balance is a trap, before they're targeted by card offers.
 
 ## Young adults: investing and independence

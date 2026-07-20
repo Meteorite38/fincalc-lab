@@ -12,7 +12,7 @@ This is your highest-leverage decade because time is on your side. Habits matter
 
 - **Build a starter emergency fund,** then grow it toward 3–6 months.
 - **Capture any [employer retirement match](/articles/401k-match-free-money/)** — free money, from your first job.
-- **Start investing early,** even small amounts, in low-cost [index funds](/articles/index-funds-explained/). The [cost of waiting](/calculators/cost-of-waiting-calculator/) is enormous — this is when [compounding](/articles/how-compound-interest-builds-wealth/) has the most time to work.
+- **Start investing early,** even small amounts, in low-cost [index funds](/articles/index-funds-explained/). The cost of waiting is enormous — run a five-year-late scenario through the [compound interest calculator](/calculators/compound-interest-calculator/) and this is when [compounding](/articles/how-compound-interest-builds-wealth/) has the most time to work.
 - **Avoid and pay off high-interest debt;** learn how [credit cards](/articles/how-credit-card-interest-works/) and [credit scores](/articles/how-to-build-credit/) work.
 - **Invest in your earning power** — skills and career moves pay the biggest returns now.
 - **Dodge lifestyle creep** as your income rises (see [building wealth in your 20s and 30s](/articles/how-to-build-wealth-in-your-20s-and-30s/)).

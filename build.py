@@ -28,7 +28,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(HERE, "dist")
 
 sys.path.insert(0, os.path.join(HERE, "content"))
-from calcs_data import CALCS  # noqa: E402
+from calcs_data import CALCS, RETIRED  # noqa: E402
 
 MD = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
 
@@ -251,7 +251,6 @@ def build():
             ("roth-conversion-calculator", "Convert IRA money at today's tax rate, or let it ride and pay at withdrawal?"),
             ("social-security-break-even-calculator", "Claim at 62, full retirement age or 70 — where's the break-even for each?"),
             ("pension-lump-sum-vs-annuity-calculator", "Take the buyout or keep the monthly checks — what return would the lump have to earn?"),
-            ("cost-of-waiting-calculator", "Start investing now vs in five years — what does waiting actually cost?"),
         ]),
         _cmp_group("Taxes & self-employment", [
             ("tax-withholding-calculator", "Refund or bill next April — and which W-4 line fixes it before year-end?"),
@@ -290,6 +289,16 @@ def build():
 
     # IndexNow key file (lets us push new URLs to Bing/Yandex without any login)
     write(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
+
+    # Cloudflare Pages redirects for retired pages (301s preserve link equity)
+    retired_articles = {
+        "roth-vs-traditional-retirement-accounts": "/articles/roth-vs-traditional-decision/",
+    }
+    redirect_lines = [f"/calculators/{old}/ {new} 301" for old, new in sorted(RETIRED.items())]
+    redirect_lines += [f"/calculators/{old} {new} 301" for old, new in sorted(RETIRED.items())]
+    redirect_lines += [f"/articles/{old}/ {new} 301" for old, new in sorted(retired_articles.items())]
+    redirect_lines += [f"/articles/{old} {new} 301" for old, new in sorted(retired_articles.items())]
+    write("_redirects", "\n".join(redirect_lines) + "\n")
 
     # RSS feed of guides (newest first)
     def esc(s):

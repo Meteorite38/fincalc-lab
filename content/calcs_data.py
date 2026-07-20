@@ -55,4 +55,22 @@ from calcs_bunching import BUNCHING
 from calcs_joboffer import JOBOFFER
 from calcs_subscriptions import SUBSCRIPTIONS
 
-CALCS = PART1 + PART2 + PART3 + PART4 + PART5 + PART6 + PART7 + PART8 + PART9 + PART10 + PART11 + PART12 + PART13 + PART14 + PART15 + PART16 + PART17 + LEASEBUY + RENTBUY + DEBTINVEST + MORTGAGETERM + AUTOLOAN + SOCIALSECURITY + ROTHTRAD + HSA + TAXBRACKET + SETAX + BONUSTAX + RMD + BALXFER + ROTHCONV + HELOC + LIFEINS + ARMFIXED + PMI + CLOSING + CDLADDER + RECAST + K401WD + PENSIONLUMP + QUARTERLY + SOLO401K + WITHHOLDING + DAYCARE + RSU + STUDENTREFI + PROPTAX + COLLEGEROI + PAYDAY + MOVESTAY + HOMEMAINT + BUNCHING + JOBOFFER + SUBSCRIPTIONS
+_ALL = PART1 + PART2 + PART3 + PART4 + PART5 + PART6 + PART7 + PART8 + PART9 + PART10 + PART11 + PART12 + PART13 + PART14 + PART15 + PART16 + PART17 + LEASEBUY + RENTBUY + DEBTINVEST + MORTGAGETERM + AUTOLOAN + SOCIALSECURITY + ROTHTRAD + HSA + TAXBRACKET + SETAX + BONUSTAX + RMD + BALXFER + ROTHCONV + HELOC + LIFEINS + ARMFIXED + PMI + CLOSING + CDLADDER + RECAST + K401WD + PENSIONLUMP + QUARTERLY + SOLO401K + WITHHOLDING + DAYCARE + RSU + STUDENTREFI + PROPTAX + COLLEGEROI + PAYDAY + MOVESTAY + HOMEMAINT + BUNCHING + JOBOFFER + SUBSCRIPTIONS
+
+# 2026-07 slimming pass: retired slug -> 301 successor (rationale in docs/retired.md).
+# Definitions stay in their part files for easy resurrection; they're filtered out of CALCS
+# and build.py emits dist/_redirects from this map.
+RETIRED = {
+    "percentage-calculator": "/calculators/discount-calculator/",          # generic math, off-mission
+    "markup-calculator": "/calculators/profit-margin-calculator/",         # same coin, two faces
+    "required-return-calculator": "/calculators/savings-goal-calculator/", # 3rd solve-direction of same goal math
+    "latte-factor-calculator": "/calculators/subscription-cost-calculator/",  # modernized by subscription audit
+    "ebitda-calculator": "/calculators/profit-margin-calculator/",         # corporate finance, off-mission
+    "vat-calculator": "/calculators/sales-tax-calculator/",                # same mechanics, US-focused site
+    "cost-of-waiting-calculator": "/calculators/compound-interest-calculator/",  # teaching point of compounding
+    "salary-gross-up-calculator": "/calculators/take-home-pay-calculator/",  # niche HR reverse of take-home
+    "blended-debt-rate-calculator": "/calculators/debt-consolidation-calculator/",  # low-demand education stat
+    "how-much-can-i-borrow-calculator": "/calculators/home-affordability-calculator/",  # subset of 28/36 tool
+}
+
+CALCS = [c for c in _ALL if c["slug"] not in RETIRED]
