@@ -42,6 +42,14 @@ Whatever you decide, extra mortgage payments and taxable investing both sit *low
 
 A paid-off house with an empty retirement account and no emergency fund is a poor outcome — liquidity and free matches come first.
 
+## Run your own numbers, not the internet's
+
+The debate resolves differently at different rates, so plug in yours: the [debt vs invest calculator](/calculators/pay-off-debt-vs-invest-calculator/) runs the head-to-head with your mortgage rate, expected return and time horizon. As a sanity anchor: at a 3% mortgage vs 7% expected returns, investing a $500/month surplus for 20 years typically ends six figures ahead; at 6.5% vs 7%, the gap nearly vanishes and the guaranteed option quietly wins on risk-adjusted terms. The crossover sits near your mortgage rate minus any tax benefit — which for most post-2018 borrowers taking the standard deduction means simply your mortgage rate. Rates above ~5.5-6% make prepaying respectable math, not just respectable psychology.
+
+## The prepayment mechanics that matter
+
+If you do send extra money, three details protect it. **Mark it "apply to principal"** — some servicers otherwise treat extras as early payment of next month's bill (interest included), which does almost nothing; check the next statement to confirm the balance dropped by the full extra amount. **Prepaying doesn't lower the required payment** — it shortens the loan's tail. If payment relief is what you actually want, that's a [recast](/calculators/mortgage-recast-calculator/) (same lump sum, lender re-amortizes, payment falls). And **keep the money's liquidity in mind before sending it**: principal prepayments are a one-way door — the cash comes back out only via a [HELOC](/calculators/heloc-calculator/), refinance, or sale. A borrower with a thin emergency fund should fix that first; home equity does not pay surprise bills.
+
 ## A middle path
 
 You don't have to choose all-or-nothing. Many people do both: invest the bulk while making modest extra principal payments for the psychological win and gradual risk reduction. Even small extra payments meaningfully shorten the loan and cut total interest — see the [extra mortgage payment calculator](/calculators/extra-mortgage-payment-calculator/). Splitting the difference captures most of the market's upside while steadily building the security of a shrinking mortgage.
