@@ -9,7 +9,15 @@
   "@type": "CollectionPage",
   "name": "All Financial Calculators",
   "url": "{{ site_url }}/calculators/",
-  "description": "The full directory of free financial calculators on {{ site_name }}."
+  "description": "The full directory of free financial calculators on {{ site_name }}.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ calcs | length }},
+    "itemListElement": [
+      {% for c in calcs %}{"@type": "ListItem", "position": {{ loop.index }}, "name": {{ c.h1 | tojson }}, "url": "{{ site_url }}/calculators/{{ c.slug }}/"}{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
 }
 </script>
 {% endblock %}
