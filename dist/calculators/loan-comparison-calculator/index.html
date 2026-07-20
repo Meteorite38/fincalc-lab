@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Comparison Calculator — Compare Two Loan Offers</title>
+<meta name="description" content="Compare two loan offers side by side: monthly payment, total interest and total cost, so you can see which loan is genuinely cheaper — not just the lower payment.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/loan-comparison-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Loan Comparison Calculator — Compare Two Loan Offers">
+<meta property="og:description" content="Compare two loan offers side by side: monthly payment, total interest and total cost, so you can see which loan is genuinely cheaper — not just the lower payment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/loan-comparison-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loan Comparison Calculator — Compare Two Loan Offers">
+<meta name="twitter:description" content="Compare two loan offers side by side: monthly payment, total interest and total cost, so you can see which loan is genuinely cheaper — not just the lower payment.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I compare two loans fairly?", "acceptedAnswer": {"@type": "Answer", "text": "Compare total interest and total amount repaid, not just the monthly payment. A lower payment often means a longer term and more total interest. Also compare APR rather than the headline rate, since APR includes mandatory fees."}}, {"@type": "Question", "name": "Why does a lower monthly payment cost more?", "acceptedAnswer": {"@type": "Answer", "text": "Because the payment is usually lowered by extending the term. Borrowing over more years accrues more interest, so a smaller payment can hide a larger total cost."}}, {"@type": "Question", "name": "Should I always pick the shortest term?", "acceptedAnswer": {"@type": "Answer", "text": "Financially, shorter terms cost less interest — so choose the shortest term whose payment you can comfortably afford. If cash flow is tight, a longer term is a valid trade, as long as you know the extra total cost."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Loan Comparison Calculator", "item": "https://fincalc-lab.pages.dev/calculators/loan-comparison-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Loan Comparison Calculator</nav>
+  <h1>⚖️ Loan Comparison Calculator</h1>
+  <p class="lead">A lower monthly payment doesn't mean a cheaper loan. Enter two offers to compare their real cost — monthly payment, total interest, and total repaid — side by side.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Loan amount ($)</span>
+      
+      <input type="number" id="amount" value="25000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A — rate (%)</span>
+      
+      <input type="number" id="rateA" value="7.5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A — term (years)</span>
+      
+      <input type="number" id="yearsA" value="4" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B — rate (%)</span>
+      
+      <input type="number" id="rateB" value="6.9" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B — term (years)</span>
+      
+      <input type="number" id="yearsB" value="6" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why the lower payment can be the worse deal</h2>
+<p>Lenders love to advertise the monthly payment because it's the number that feels affordable. But a lower payment often just means a <em>longer term</em> — and stretching a loan over more years piles on interest even at a similar or lower rate. The only fair comparison is <strong>total interest</strong> and total amount repaid, which this calculator puts side by side.</p>
+<h2>A worked example</h2>
+<p>Borrow $25,000. Offer A is 7.5% over 4 years (~$605/month, ~$4,050 interest). Offer B is 6.9% over 6 years (~$425/month, ~$5,600 interest). Offer B has the lower rate <em>and</em> the lower payment — yet it costs about $1,550 more in total, because you're borrowing for two extra years. The "better-looking" offer is the more expensive one.</p>
+<h2>What to compare, and what to watch</h2>
+<ul>
+<li><strong>Total interest and total repaid</strong> — the true cost. Prioritise these over the monthly payment.</li>
+<li><strong>APR, not just the rate</strong> — APR folds in mandatory fees, so it's a fairer rate comparison. Origination fees can make a "lower rate" cost more.</li>
+<li><strong>Term trade-off</strong> — a shorter term means higher payments but far less interest. Choose the shortest term whose payment you can comfortably afford.</li>
+<li><strong>Prepayment penalties</strong> — a loan you can overpay freely is more valuable; check before signing.</li>
+</ul>
+<h2>How to use the result</h2>
+<p>If your goal is the lowest total cost, pick the offer with the least total interest you can afford the payment on. If cash flow is tight, you might knowingly accept more total interest for a lower payment — but make that trade with eyes open, seeing exactly what the flexibility costs. Either way, decide on the full numbers, not the headline payment.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I compare two loans fairly?</summary>
+      <p>Compare total interest and total amount repaid, not just the monthly payment. A lower payment often means a longer term and more total interest. Also compare APR rather than the headline rate, since APR includes mandatory fees.</p>
+    </details>
+    
+    <details>
+      <summary>Why does a lower monthly payment cost more?</summary>
+      <p>Because the payment is usually lowered by extending the term. Borrowing over more years accrues more interest, so a smaller payment can hide a larger total cost.</p>
+    </details>
+    
+    <details>
+      <summary>Should I always pick the shortest term?</summary>
+      <p>Financially, shorter terms cost less interest — so choose the shortest term whose payment you can comfortably afford. If cash flow is tight, a longer term is a valid trade, as long as you know the extra total cost.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-equity-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">Home Equity Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Home Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-points-calculator/">
+        <span class="card-emoji">📍</span>
+        <span class="card-title">Mortgage Points Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/index-funds-explained/">
+        <span class="card-title">"Index Funds Explained: Why the Boring Choice Beats the Pros"</span>
+        <span class="card-desc">What an index fund is, why it quietly outperforms most active managers after fees, and how to use one as the core of a simple, low-cost portfolio.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+      <a class="card" href="/articles/why-net-worth-is-the-only-number-that-matters/">
+        <span class="card-title">"Why Net Worth Is the Only Number That Really Matters"</span>
+        <span class="card-desc">Income tells you how fast you're rowing; net worth tells you where the boat actually is. How to calculate it, track it, and use it to build wealth.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function pay(P, annualPct, yrs) { const i = annualPct/100/12, n = Math.min(Math.round(yrs*12),1200); const p = i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n; return {p, n, total: p*n, interest: p*n - P}; }
+function calculate() {
+  const P = val('amount');
+  if (P<=0) { show('<div class="result-main">Enter a loan amount above zero.</div>'); return; }
+  const A = pay(P, val('rateA'), val('yearsA')), B = pay(P, val('rateB'), val('yearsB'));
+  const cheaper = A.interest < B.interest ? 'A' : (B.interest < A.interest ? 'B' : 'tie');
+  const diff = Math.abs(A.interest - B.interest);
+  show(`<div class="result-main">${cheaper==='tie' ? 'Both cost the same' : 'Offer '+cheaper+' costs $'+fmt(diff,0)+' less'}<small>in total interest over the life of the loan</small></div>
+  <table>
+    <tr><td></td><td><strong>Offer A</strong></td><td><strong>Offer B</strong></td></tr>
+    <tr><td>Monthly payment</td><td>$${fmt(A.p)}</td><td>$${fmt(B.p)}</td></tr>
+    <tr><td>Total interest</td><td>$${fmt(A.interest,0)}</td><td>$${fmt(B.interest,0)}</td></tr>
+    <tr><td>Total repaid</td><td>$${fmt(A.total,0)}</td><td>$${fmt(B.total,0)}</td></tr>
+    <tr><td>Term</td><td>${(A.n/12).toFixed(0)} yrs</td><td>${(B.n/12).toFixed(0)} yrs</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

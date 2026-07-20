@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salary Inflation Calculator — Has Your Pay Kept Up?</title>
+<meta name="description" content="Find out whether your salary has kept up with inflation: what your old salary is worth in today's money, and the raise you'd need just to break even.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/salary-inflation-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Salary Inflation Calculator — Has Your Pay Kept Up?">
+<meta property="og:description" content="Find out whether your salary has kept up with inflation: what your old salary is worth in today's money, and the raise you'd need just to break even.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/salary-inflation-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salary Inflation Calculator — Has Your Pay Kept Up?">
+<meta name="twitter:description" content="Find out whether your salary has kept up with inflation: what your old salary is worth in today's money, and the raise you'd need just to break even.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I know if my raise beat inflation?", "acceptedAnswer": {"@type": "Answer", "text": "Grow your old salary by the inflation rate over the period. If your current salary is higher than that figure, you gained real purchasing power; if it's lower, you had a real-terms pay cut despite the raise."}}, {"@type": "Question", "name": "What inflation rate should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Use the average annual inflation over the period in question — often 2–4% in normal times, higher in inflationary periods. Official consumer price index (CPI) figures are a reasonable basis."}}, {"@type": "Question", "name": "My salary rose but I feel poorer — why?", "acceptedAnswer": {"@type": "Answer", "text": "Because prices rose faster than your pay. A larger salary number can still buy less if inflation outpaced your raises. Purchasing power, not the headline figure, is what determines how well off you actually are."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Salary Inflation Calculator", "item": "https://fincalc-lab.pages.dev/calculators/salary-inflation-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Salary Inflation Calculator</nav>
+  <h1>📉 Salary Inflation Calculator</h1>
+  <p class="lead">A salary that stays flat is really a pay cut, because inflation erodes what it buys. Enter an old salary and your current one to see whether you've actually gained ground.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Salary a few years ago ($)</span>
+      
+      <input type="number" id="oldsalary" value="55000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current salary ($)</span>
+      
+      <input type="number" id="cursalary" value="62000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years between them</span>
+      
+      <input type="number" id="years" value="5" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Average annual inflation (%)</span>
+      
+      <input type="number" id="inflation" value="3.5" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why a flat salary is a pay cut</h2>
+<p>If prices rise 3.5% a year and your salary doesn't move, you can buy less each year — your <em>real</em> income falls even though the number on your contract is unchanged. To simply hold your ground, your pay has to rise at least as fast as inflation. This calculator shows whether it has, by comparing your current salary to what your old salary would need to be today just to break even.</p>
+<h2>A worked example</h2>
+<p>Suppose you earned $55,000 five years ago and now earn $62,000 — a 12.7% raise that feels decent. But at 3.5% average inflation, $55,000 would need to be about $65,300 today just to buy the same things. So despite the raise, your purchasing power has actually <strong>fallen about 5%</strong>. The headline increase masked a real-terms cut.</p>
+<h2>What to do with this</h2>
+<ul>
+<li><strong>Benchmark raises against inflation, not zero.</strong> A "3% raise" in a 4% inflation year is a real pay cut. Any pay negotiation should start from the inflation figure and add real value on top.</li>
+<li><strong>Track it over time.</strong> Small annual shortfalls compound. A few years of below-inflation raises quietly erode your standard of living even as your salary "grows."</li>
+<li><strong>Use it in negotiations.</strong> Framing a request as "cost-of-living adjustment plus recognition of my expanded role" is far stronger than a round number — see our <a href="/calculators/pay-raise-calculator/">pay raise calculator</a> to model the ask.</li>
+</ul>
+<h2>The bigger picture</h2>
+<p>Inflation is a quiet force that works against savers and wage-earners alike. The same logic that erodes a flat salary erodes idle cash — which is why keeping money invested (earning a return above inflation) matters, and why your <a href="/calculators/real-return-calculator/">real return</a> is the number that counts. Whether you're evaluating a job offer or your career trajectory, always translate the raise into real, after-inflation terms before deciding how good it really is.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How do I know if my raise beat inflation?</summary>
+      <p>Grow your old salary by the inflation rate over the period. If your current salary is higher than that figure, you gained real purchasing power; if it's lower, you had a real-terms pay cut despite the raise.</p>
+    </details>
+    
+    <details>
+      <summary>What inflation rate should I use?</summary>
+      <p>Use the average annual inflation over the period in question — often 2–4% in normal times, higher in inflationary periods. Official consumer price index (CPI) figures are a reasonable basis.</p>
+    </details>
+    
+    <details>
+      <summary>My salary rose but I feel poorer — why?</summary>
+      <p>Because prices rose faster than your pay. A larger salary number can still buy less if inflation outpaced your raises. Purchasing power, not the headline figure, is what determines how well off you actually are.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/overtime-pay-calculator/">
+        <span class="card-emoji">⏰</span>
+        <span class="card-title">Overtime Pay Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/paycheck-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Paycheck Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/pay-raise-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Pay Raise Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-rate-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">Savings Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-increase-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Rent Increase Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/why-net-worth-is-the-only-number-that-matters/">
+        <span class="card-title">"Why Net Worth Is the Only Number That Really Matters"</span>
+        <span class="card-desc">Income tells you how fast you're rowing; net worth tells you where the boat actually is. How to calculate it, track it, and use it to build wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/pay-off-debt-faster/">
+        <span class="card-title">"How to Pay Off Debt Faster: A Strategy Guide That Respects Both Math and Psychology"</span>
+        <span class="card-desc">Avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-price-freelance-work/">
+        <span class="card-title">"How to Price Freelance Work Without Underselling Yourself"</span>
+        <span class="card-desc">Why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const oldS = val('oldsalary'), cur = val('cursalary'), y = val('years'), inf = val('inflation')/100;
+  if (oldS<=0) { show('<div class="result-main">Enter your earlier salary above zero.</div>'); return; }
+  const needed = oldS * Math.pow(1+inf, y);   // what old salary must become to hold value
+  const realNow = cur / Math.pow(1+inf, y);   // current salary in old-year money
+  const gapPct = (cur - needed) / needed * 100;
+  const verdict = cur >= needed ? 'Ahead of inflation \u2705 — real raise' : 'Behind inflation — a real-terms pay cut';
+  show(`<div class="result-main">${gapPct>=0?'+':''}${fmt(gapPct,1)}% real change<small>${verdict}</small></div>
+  <table>
+    <tr><td>To just keep pace, you'd need</td><td>$${fmt(needed,0)}</td></tr>
+    <tr><td>Your current salary</td><td>$${fmt(cur,0)}</td></tr>
+    <tr><td>Difference vs breaking even</td><td>${cur>=needed?'+':''}$${fmt(cur-needed,0)}</td></tr>
+    <tr><td>Current salary in ${y}-years-ago money</td><td>$${fmt(realNow,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

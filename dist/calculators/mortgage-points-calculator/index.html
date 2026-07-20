@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Points Calculator — Should You Buy Discount Points?</title>
+<meta name="description" content="See whether buying mortgage discount points is worth it: the upfront cost, monthly savings, and break-even point where paying points starts to pay off.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/mortgage-points-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Mortgage Points Calculator — Should You Buy Discount Points?">
+<meta property="og:description" content="See whether buying mortgage discount points is worth it: the upfront cost, monthly savings, and break-even point where paying points starts to pay off.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/mortgage-points-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Points Calculator — Should You Buy Discount Points?">
+<meta name="twitter:description" content="See whether buying mortgage discount points is worth it: the upfront cost, monthly savings, and break-even point where paying points starts to pay off.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a mortgage point?", "acceptedAnswer": {"@type": "Answer", "text": "A discount point costs 1% of the loan amount and lowers your interest rate, typically by about 0.25% per point. It's a way to pre-pay interest upfront in exchange for a smaller rate over the life of the loan."}}, {"@type": "Question", "name": "Are mortgage points worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you keep the loan past the break-even point (upfront cost ÷ monthly savings). Stay longer and points save money; move or refinance sooner and you lose money. They suit long-term holders with spare cash."}}, {"@type": "Question", "name": "Is buying points better than a bigger down payment?", "acceptedAnswer": {"@type": "Answer", "text": "Often not. Reaching 20% down to eliminate private mortgage insurance frequently saves more than points, and keeps you from over-borrowing. Compare both uses of the cash before deciding."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Mortgage Points Calculator", "item": "https://fincalc-lab.pages.dev/calculators/mortgage-points-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Mortgage Points Calculator</nav>
+  <h1>📍 Mortgage Points Calculator</h1>
+  <p class="lead">Discount points let you pay cash upfront to lower your mortgage rate. Whether that's smart depends entirely on how long you keep the loan. Enter the numbers to find your break-even point.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Loan amount ($)</span>
+      
+      <input type="number" id="loan" value="300000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan term (years)</span>
+      
+      <input type="number" id="years" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Rate without points (%)</span>
+      
+      <input type="number" id="rate" value="6.75" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Points purchased <em class="hint">(1 point = 1% of loan)</em></span>
+      
+      <input type="number" id="points" value="2" step="0.25" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Rate cut per point (%) <em class="hint">(typically ~0.25% per point)</em></span>
+      
+      <input type="number" id="reduction" value="0.25" step="0.05" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What discount points are</h2>
+<p>A mortgage "discount point" costs 1% of your loan amount and buys a lower interest rate — typically around 0.25% off per point, though it varies by lender. On a $300,000 loan, one point costs $3,000. You're essentially <strong>pre-paying interest</strong> in a lump sum to get a smaller rate for the life of the loan.</p>
+<h2>It all comes down to break-even</h2>
+<p>Points are worth it only if you keep the loan long enough for the monthly savings to repay their upfront cost. The math is simple: <code>break-even months = cost of points ÷ monthly savings</code>. If two points cost $6,000 and save $95/month, you break even in about 63 months (5.3 years). Stay past that and points win; sell or refinance sooner and you've lost money.</p>
+<h2>When points make sense</h2>
+<ul>
+<li><strong>You'll keep the mortgage a long time</strong> — well beyond break-even. The longer you hold, the more the lower rate compounds in your favor.</li>
+<li><strong>You have spare cash</strong> that isn't better used on the down payment (to avoid PMI) or higher-return goals.</li>
+<li><strong>Rates are unlikely to fall soon</strong> — otherwise you might refinance before break-even and waste the points.</li>
+</ul>
+<h2>When to skip them</h2>
+<ul>
+<li><strong>You might move or refinance</strong> within a few years — you won't recoup the cost.</li>
+<li><strong>The cash is better spent</strong> reaching 20% down (removing PMI often beats buying points) or clearing higher-rate debt.</li>
+<li><strong>You're stretching to afford the home</strong> — paying points drains the reserves you'll want for emergencies.</li>
+</ul>
+<h2>The bottom line</h2>
+<p>Points are a bet that you'll stay put. Run your break-even, compare it honestly to how long you realistically expect to keep the loan, and remember the alternatives — a bigger down payment or simply keeping the cash. If you'll hold the mortgage for the long haul and have money to spare, points can be a solid, low-risk saving; otherwise, keep your cash. Pair this with the <a href="/calculators/mortgage-calculator/">mortgage calculator</a> to see the full payment picture.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a mortgage point?</summary>
+      <p>A discount point costs 1% of the loan amount and lowers your interest rate, typically by about 0.25% per point. It's a way to pre-pay interest upfront in exchange for a smaller rate over the life of the loan.</p>
+    </details>
+    
+    <details>
+      <summary>Are mortgage points worth it?</summary>
+      <p>Only if you keep the loan past the break-even point (upfront cost ÷ monthly savings). Stay longer and points save money; move or refinance sooner and you lose money. They suit long-term holders with spare cash.</p>
+    </details>
+    
+    <details>
+      <summary>Is buying points better than a bigger down payment?</summary>
+      <p>Often not. Reaching 20% down to eliminate private mortgage insurance frequently saves more than points, and keeps you from over-borrowing. Compare both uses of the cash before deciding.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/loan-payment-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Loan Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-calculator/">
+        <span class="card-emoji">🏠</span>
+        <span class="card-title">Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-snowball-vs-avalanche-calculator/">
+        <span class="card-emoji">🧊</span>
+        <span class="card-title">Debt Avalanche vs Snowball Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/biweekly-mortgage-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Biweekly Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-equity-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">Home Equity Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Home Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-comparison-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Loan Comparison Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-to-make-a-budget-that-sticks/">
+        <span class="card-title">"How to Make a Budget That Actually Sticks"</span>
+        <span class="card-desc">A practical guide to budgeting that survives real life — the main methods compared, how to set one up in an afternoon, and why most budgets fail.</span>
+      </a>
+      
+      <a class="card" href="/articles/index-funds-explained/">
+        <span class="card-title">"Index Funds Explained: Why the Boring Choice Beats the Pros"</span>
+        <span class="card-desc">What an index fund is, why it quietly outperforms most active managers after fees, and how to use one as the core of a simple, low-cost portfolio.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function pmt(P, annualPct, n) { const i = annualPct/100/12; return i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n; }
+function calculate() {
+  const P = val('loan'), n = Math.min(Math.round(val('years')*12),1200);
+  const rate = val('rate'), pts = val('points'), red = val('reduction');
+  if (P<=0 || n<=0) { show('<div class="result-main">Enter a loan amount and term above zero.</div>'); return; }
+  const cost = P * pts/100;
+  const newRate = Math.max(0, rate - pts*red);
+  const base = pmt(P, rate, n), lower = pmt(P, newRate, n);
+  const monthlySave = base - lower;
+  if (monthlySave <= 0) { show('<div class="result-main">These points don\'t lower the payment — check the rate cut per point.</div>'); return; }
+  const breakeven = cost / monthlySave;
+  const lifeSave = monthlySave*n - cost;
+  show(`<div class="result-main">${fmt(breakeven,0)} months to break even<small>Paying $${fmt(cost,0)} up front for a ${fmt(rate,3)}% \u2192 ${fmt(newRate,3)}% rate</small></div>
+  <table>
+    <tr><td>Upfront cost of points</td><td>$${fmt(cost,0)}</td></tr>
+    <tr><td>Monthly payment saving</td><td>$${fmt(monthlySave)}</td></tr>
+    <tr><td>Break-even</td><td>${fmt(breakeven/12,1)} years</td></tr>
+    <tr><td>Net saving if you keep the full term</td><td>$${fmt(lifeSave,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
