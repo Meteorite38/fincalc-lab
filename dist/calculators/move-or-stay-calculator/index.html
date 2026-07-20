@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move or Stay Calculator — Is the Rent Increase Worth Moving Over?</title>
+<meta name="description" content="Free move-or-stay calculator for renters: compare the renewal increase against the full cost of moving — movers, deposits, overlap rent, fees, time off — with the breakeven month and the concession worth asking your landlord for.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/move-or-stay-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Move or Stay Calculator — Is the Rent Increase Worth Moving Over?">
+<meta property="og:description" content="Free move-or-stay calculator for renters: compare the renewal increase against the full cost of moving — movers, deposits, overlap rent, fees, time off — with the breakeven month and the concession worth asking your landlord for.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/move-or-stay-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Move or Stay Calculator — Is the Rent Increase Worth Moving Over?">
+<meta name="twitter:description" content="Free move-or-stay calculator for renters: compare the renewal increase against the full cost of moving — movers, deposits, overlap rent, fees, time off — with the breakeven month and the concession worth asking your landlord for.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does moving to a new apartment actually cost?", "acceptedAnswer": {"@type": "Answer", "text": "For a typical local move, $1,500-3,500 all-in once you count movers or truck ($400-1,500), application/admin/broker fees ($100-2,000 by market), 3-10 days of overlap rent, deposit float, utility setup, and a day or two off work. The figure most people budget is just the truck — which is why increases that 'obviously justify moving' often don't."}}, {"@type": "Question", "name": "Is a $150/month rent increase worth moving over?", "acceptedAnswer": {"@type": "Answer", "text": "Only if a genuinely comparable place rents for meaningfully less and you'll stay long enough to repay the moving cost. At $150/month saved and $2,500 of moving cost, breakeven is 17 months — worth it on a 2+ year horizon, not for a one-year stay. If comparables cost the same as your renewal, the increase is the market and moving buys nothing."}}, {"@type": "Question", "name": "How do I negotiate a rent renewal?", "acceptedAnswer": {"@type": "Answer", "text": "Reply in writing with three things: comparable current listings (links, not vibes), your record as a tenant (on-time payments, no complaints), and a specific counteroffer — ideally near the number where staying equals moving, which this calculator computes. Offering a longer lease at a smaller increase is the highest-hit-rate trade because it directly attacks the landlord's turnover risk."}}, {"@type": "Question", "name": "When is the cheapest time to sign a lease?", "acceptedAnswer": {"@type": "Answer", "text": "Late fall through winter — demand bottoms, and effective rents (after concessions) run several percent below the summer peak. If your lease ends in July, one strategic move to a winter cycle (via a short renewal or an 18-month lease) can permanently shift you onto the cheaper calendar."}}, {"@type": "Question", "name": "Should I stay just because moving is exhausting?", "acceptedAnswer": {"@type": "Answer", "text": "The exhaustion is a real cost — this calculator literally prices your days off — but don't let it silently double every year. The failure mode is accepting increase after increase because 'moving is a hassle' until you're paying $300/month over market. Run the numbers annually; when the gap crosses breakeven inside 12-18 months, the hassle has become a subscription you're overpaying for."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Move or Stay Calculator", "item": "https://fincalc-lab.pages.dev/calculators/move-or-stay-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Move or Stay Calculator</nav>
+  <h1>📦 Move or Stay Calculator</h1>
+  <p class="lead">The renewal letter says +$150 a month and moving feels like the principled answer — until you price the truck, the deposit float, the overlap week, the application fees and two days off work. Moving has a fixed cost that a cheaper apartment repays only over time. This calculator finds the breakeven, and the number worth negotiating with instead.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current rent ($/mo)</span>
+      
+      <input type="number" id="current" value="1600" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Renewal offer ($/mo)</span>
+      
+      <input type="number" id="renewal" value="1750" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Comparable place elsewhere ($/mo) <em class="hint">(realistic listings, same quality band)</em></span>
+      
+      <input type="number" id="newrent" value="1600" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Movers / truck / supplies ($)</span>
+      
+      <input type="number" id="movers" value="900" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Application, admin & broker fees ($) <em class="hint">($50-150 per application; broker fee where applicable)</em></span>
+      
+      <input type="number" id="fees" value="300" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Overlap / double-rent days <em class="hint">(days paying both places)</em></span>
+      
+      <input type="number" id="overlap" value="7" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Unpaid days off to move</span>
+      
+      <input type="number" id="workdays" value="1" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Your daily pay ($) <em class="hint">(for valuing the time off)</em></span>
+      
+      <input type="number" id="dailypay" value="220" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Months you'd stay at the next place</span>
+      
+      <input type="number" id="horizon" value="24" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why moving costs more than the truck</h2>
+<p>The visible bill — movers or a truck weekend — is usually the minority of the real cost. The stack: <strong>application and admin fees</strong> ($50-150 per application, often across several attempts; broker fees of a month's rent in some markets), <strong>deposit float</strong> (the new deposit is due weeks before the old one returns — a cash-flow squeeze even when it nets to zero, and old deposits come back imperfect more often than not), <strong>overlap rent</strong> (nobody moves at midnight on the 31st; a livable transition costs 3-10 days of double rent), <strong>time</strong> (packing, hunting, applications, the move itself — days of it, some unpaid), and the <strong>re-setup drift</strong> — curtains that don't fit, the new parking permit, utility connection fees. Summed honestly, a local move runs $1,500-3,500 for most renters. That's the fixed cost a cheaper apartment has to amortize — and why a $50 increase is almost never worth moving over, while a $250 one very often is.</p>
+<h2>The landlord's math (your negotiation leverage)</h2>
+<p>Turnover costs the landlord too: a vacant month ($1,600+ right there), turnover prep (paint, cleaning, small repairs — $500-1,500), re-listing effort or a leasing fee, and the risk the next tenant is worse. Total: commonly <strong>$2,000-4,000</strong> — which is exactly why retention discounts exist and why the first renewal letter is an opening bid, not a verdict. The strongest counter is specific: comparable listings at $X (bring links), your on-time payment history, and a concrete counteroffer near the walk-away number this calculator computes. Sweeteners that cost the landlord little — a 18-24 month lease at a smaller bump, a parking spot, a paint refresh — often bridge the last $50. The <a href="/calculators/rent-increase-calculator/">rent increase calculator</a> checks the ask against inflation for one more data point in the email.</p>
+<h2>What the spreadsheet can't see</h2>
+<p>Run the money honestly, then weigh the rest at full value: a shorter <a href="/calculators/commute-cost-calculator/">commute</a> is worth real dollars <em>and</em> real life; school zones, noise, safety, a building you've outgrown — all legitimate reasons to move at a financial loss or stay at one. The calculator's job is making the <em>price</em> of the choice visible, not making the choice. Two structural notes worth folding in: staying usually preserves <strong>leverage for next year</strong> (a tenant who just unpacked won't move over $100; landlords know), so a hard-negotiated renewal this year beats a soft one; and if rent keeps outrunning your income, the durable fix is the <a href="/calculators/rent-affordability-calculator/">affordability check</a> — and eventually the <a href="/calculators/rent-vs-buy-calculator/">rent vs buy question</a> — not annual moving roulette.</p>
+<h2>If you do move: cutting the fixed cost</h2>
+<ul>
+<li><strong>Time the market:</strong> winter leases (Nov-Feb) list 3-7% below summer in most cities — the same apartment, cheaper, with a motivated landlord.</li>
+<li><strong>Negotiate the new place too:</strong> ask for a free month on a 13-month lease (common on new buildings), waived admin fees, or included parking — concessions are standard in soft markets.</li>
+<li><strong>Move mid-week, off-peak:</strong> movers quote 20-30% less Tuesday-Thursday and mid-month than on the month-end weekend everyone wants.</li>
+<li><strong>Document the old place</strong> on the way out (video walkthrough, meter photos) — the cheapest insurance for getting the full deposit back on schedule.</li>
+<li><strong>Purge before packing:</strong> every box not moved is money — and the <a href="/calculators/unit-price-calculator/">cost-per-use lens</a> applied to furniture usually shrinks the truck by a size.</li>
+</ul>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much does moving to a new apartment actually cost?</summary>
+      <p>For a typical local move, $1,500-3,500 all-in once you count movers or truck ($400-1,500), application/admin/broker fees ($100-2,000 by market), 3-10 days of overlap rent, deposit float, utility setup, and a day or two off work. The figure most people budget is just the truck — which is why increases that 'obviously justify moving' often don't.</p>
+    </details>
+    
+    <details>
+      <summary>Is a $150/month rent increase worth moving over?</summary>
+      <p>Only if a genuinely comparable place rents for meaningfully less and you'll stay long enough to repay the moving cost. At $150/month saved and $2,500 of moving cost, breakeven is 17 months — worth it on a 2+ year horizon, not for a one-year stay. If comparables cost the same as your renewal, the increase is the market and moving buys nothing.</p>
+    </details>
+    
+    <details>
+      <summary>How do I negotiate a rent renewal?</summary>
+      <p>Reply in writing with three things: comparable current listings (links, not vibes), your record as a tenant (on-time payments, no complaints), and a specific counteroffer — ideally near the number where staying equals moving, which this calculator computes. Offering a longer lease at a smaller increase is the highest-hit-rate trade because it directly attacks the landlord's turnover risk.</p>
+    </details>
+    
+    <details>
+      <summary>When is the cheapest time to sign a lease?</summary>
+      <p>Late fall through winter — demand bottoms, and effective rents (after concessions) run several percent below the summer peak. If your lease ends in July, one strategic move to a winter cycle (via a short renewal or an 18-month lease) can permanently shift you onto the cheaper calendar.</p>
+    </details>
+    
+    <details>
+      <summary>Should I stay just because moving is exhausting?</summary>
+      <p>The exhaustion is a real cost — this calculator literally prices your days off — but don't let it silently double every year. The failure mode is accepting increase after increase because 'moving is a hassle' until you're paying $300/month over market. Run the numbers annually; when the gap crosses breakeven inside 12-18 months, the hassle has become a subscription you're overpaying for.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rsu-tax-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">RSU Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-increase-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Rent Increase Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/commute-cost-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Commute Cost Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/lease-vs-buy-a-car/">
+        <span class="card-title">"Lease vs Buy a Car: The Honest Math (and When Each Wins)"</span>
+        <span class="card-desc">A clear framework for deciding whether to lease or buy your next car — what leasing really costs, why buying usually wins long-term, and the cases where leasing makes sense.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+        <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
+        <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const cur = val('current'), ren = val('renewal'), nw = val('newrent');
+  const movers = Math.max(0, val('movers')), fees = Math.max(0, val('fees'));
+  const overlapDays = Math.max(0, val('overlap')), workdays = Math.max(0, val('workdays')), daily = Math.max(0, val('dailypay'));
+  const H = Math.max(1, Math.round(val('horizon')));
+  if (cur <= 0 || ren <= 0 || nw <= 0) { show('<div class="result-main">Enter all three rents.</div>'); return; }
+  const overlapCost = nw / 30 * overlapDays;
+  const timeCost = workdays * daily;
+  const moveCost = movers + fees + overlapCost + timeCost;
+  const monthlySave = ren - nw;
+  const stayTotal = ren * H;
+  const moveTotal = nw * H + moveCost;
+  const diff = stayTotal - moveTotal;
+  const breakeven = monthlySave > 0 ? Math.ceil(moveCost / monthlySave) : -1;
+  const negotiate = monthlySave > 0 ? Math.max(0, ren - (nw + moveCost / H)) : 0;
+  const verdict = monthlySave <= 0
+    ? `Comparable places cost the same or more — staying wins outright, and the renewal ask is roughly market. Negotiate the extras (parking, a longer lease) rather than the headline rent.`
+    : (breakeven > 0 && breakeven <= H
+      ? `Moving pays for itself in <strong>month ${breakeven}</strong> and nets $${fmt(diff,0)} over ${H} months — the increase is genuinely above what the market charges.`
+      : `Moving never breaks even inside your ${H}-month horizon — the $${fmt(moveCost,0)} of moving friction outweighs the $${fmt(monthlySave,0)}/month gap. Stay, but use the math below to negotiate.`);
+  show(`<div class="result-main">${diff > 0 && monthlySave > 0 ? 'Moving saves $' + fmt(diff,0) : 'Staying saves $' + fmt(Math.max(0,-diff),0)}<small>over ${H} months, all-in &middot; true cost of the move: $${fmt(moveCost,0)}${breakeven > 0 && monthlySave > 0 ? ' &middot; breakeven month ' + breakeven : ''}</small></div>
+  <table>
+    <tr><th></th><th>Stay at renewal</th><th>Move</th></tr>
+    <tr><td>Rent over ${H} months</td><td>$${fmt(stayTotal,0)}</td><td>$${fmt(nw*H,0)}</td></tr>
+    <tr><td>Movers + supplies</td><td>—</td><td>$${fmt(movers,0)}</td></tr>
+    <tr><td>Fees (application/admin/broker)</td><td>—</td><td>$${fmt(fees,0)}</td></tr>
+    <tr><td>Overlap rent (${fmt(overlapDays,0)} days)</td><td>—</td><td>$${fmt(overlapCost,0)}</td></tr>
+    <tr><td>Time off (${fmt(workdays,1)} day${workdays === 1 ? '' : 's'})</td><td>—</td><td>$${fmt(timeCost,0)}</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>$${fmt(stayTotal,0)}</strong></td><td><strong>$${fmt(moveTotal,0)}</strong></td></tr>
+  </table>
+  <p>${verdict}</p>
+  ${negotiate > 5 && monthlySave > 0 ? `<p><strong>The negotiation number:</strong> a renewal at <strong>$${fmt(ren - negotiate,0)}</strong> makes staying exactly as cheap as moving — that's your walk-away line. Landlords face their own turnover cost (vacancy, turnover prep, re-listing — commonly $2,000-4,000), so an ask $${fmt(Math.min(negotiate, ren-nw),0)} below the renewal offer is credible precisely because your leaving costs them real money too.</p>` : ''}`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
