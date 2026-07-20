@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSU Tax Calculator — The Withholding Gap That Ambushes Tech Workers</title>
+<meta name="description" content="Free RSU tax calculator: vesting shares are ordinary income taxed at your marginal rate, but withheld at a flat 22%. See the true tax, the shares sold to cover, the year-end shortfall — and what selling vs holding actually changes.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/rsu-tax-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="RSU Tax Calculator — The Withholding Gap That Ambushes Tech Workers">
+<meta property="og:description" content="Free RSU tax calculator: vesting shares are ordinary income taxed at your marginal rate, but withheld at a flat 22%. See the true tax, the shares sold to cover, the year-end shortfall — and what selling vs holding actually changes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/rsu-tax-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RSU Tax Calculator — The Withholding Gap That Ambushes Tech Workers">
+<meta name="twitter:description" content="Free RSU tax calculator: vesting shares are ordinary income taxed at your marginal rate, but withheld at a flat 22%. See the true tax, the shares sold to cover, the year-end shortfall — and what selling vs holding actually changes.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I pay taxes twice on RSUs?", "acceptedAnswer": {"@type": "Answer", "text": "No — but sloppy filing can. Vest value is taxed once as W-2 income. When you later sell, only growth beyond the vest-day price is capital gain. The double-tax trap is the broker's 1099-B reporting zero basis for sell-to-cover or later sales: enter the correct vest-day basis (from the supplemental broker statement) or you'll re-pay income tax on money already taxed."}}, {"@type": "Question", "name": "Should I sell RSUs immediately when they vest?", "acceptedAnswer": {"@type": "Answer", "text": "For most people, yes — the tax was charged at vest regardless, so holding is simply choosing to invest that cash in your employer's stock. The test: would you buy that much company stock with a cash bonus? Holding also stacks portfolio risk on employment risk. Sell-on-vest, cover the withholding gap, diversify the rest is the standard answer; a deliberately-sized small position is a reasonable exception."}}, {"@type": "Question", "name": "Why did my RSUs push me into owing taxes in April?", "acceptedAnswer": {"@type": "Answer", "text": "The flat 22% supplemental withholding is below the 32-37% marginal rates most RSU recipients actually pay, so each vest under-withholds by 10-15 points — $6,000-9,000 per $60,000 vest. Fixes: set aside the gap in cash at each vest, add extra W-4 withholding (counts as evenly paid all year), or pay quarterly estimates. High earners should also check the 110% safe harbor to avoid penalties."}}, {"@type": "Question", "name": "Are RSUs taxed differently from stock options?", "acceptedAnswer": {"@type": "Answer", "text": "Completely. RSUs: ordinary income at vest, no elections, no AMT. ISOs: no regular tax at exercise but potential AMT, capital-gains treatment if holding periods are met. NSOs: ordinary income on the exercise spread. RSUs are the simple one — the planning is cash management (the withholding gap) and concentration (sell vs hold), not tax structuring."}}, {"@type": "Question", "name": "What happens to my RSUs if I leave the company?", "acceptedAnswer": {"@type": "Answer", "text": "Vested shares are yours — they're just stock. Unvested RSUs are almost always forfeited at departure, though treatment varies for retirement, disability, death, or acquisition (accelerated vesting clauses). Check your grant agreement before timing a resignation: leaving three weeks before a large vest is a very expensive scheduling mistake."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "RSU Tax Calculator", "item": "https://fincalc-lab.pages.dev/calculators/rsu-tax-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; RSU Tax Calculator</nav>
+  <h1>📦 RSU Tax Calculator</h1>
+  <p class="lead">RSUs have a simple tax story everyone manages to get wrong: vested shares are ordinary income at your marginal rate, but payroll withholds a flat 22% — and for the six-figure tech incomes that receive RSUs, the real rate is often 32-37%. The gap becomes an April bill nobody budgeted. This calculator computes your vest, the shortfall, and the sell-or-hold math.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Shares vesting</span>
+      
+      <input type="number" id="shares" value="400" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Share price at vest ($)</span>
+      
+      <input type="number" id="price" value="150" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Your marginal tax rate (%) <em class="hint">(federal bracket + state on your top dollars)</em></span>
+      
+      <input type="number" id="marginal" value="35" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Withholding rate applied (%) <em class="hint">(22% federal supplemental (37% above $1M) — check your stub for state extra)</em></span>
+      
+      <input type="number" id="whrate" value="22" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Include 7.65% FICA in withholding?</span>
+      
+      <select id="fica">
+        
+        <option value="yes" selected>Yes — under the SS wage cap</option>
+        
+        <option value="med">Medicare only (1.45%) — over the cap</option>
+        
+      </select>
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How RSUs are actually taxed (simpler than feared)</h2>
+<p>Restricted stock units have none of the exotic tax character of options: <strong>on vest day, the market value of the vested shares is ordinary income</strong> — added to your W-2, taxed exactly like salary, subject to Social Security (under the wage cap) and Medicare. There's no election to make, no AMT interaction, nothing to time. If 400 shares vest at $150, you earned $60,000 that day, full stop. Your cost basis in the shares becomes $150 — <strong>only growth after vest is capital gain</strong>. The complexity people feel isn't the tax rule; it's the two operational gaps below.</p>
+<h2>Gap #1: the withholding shortfall</h2>
+<p>Employers withhold RSU income at the IRS flat supplemental rate — <strong>22%</strong> (37% only above $1M of supplemental wages) — usually by auto-selling a slice of the vest ("sell-to-cover"). But RSU recipients earning $200-500k sit in the 32-35% federal brackets plus state tax. On a $60,000 vest for a 35%-bracket earner, withholding covers $13,200 of a $21,000 income-tax bill — a <strong>$7,800 hole per vest</strong>, times four vests a year, discovered the following April, sometimes with an underpayment penalty attached. The fixes are mechanical: a per-vest set-aside (this calculator's last row), extra salary withholding via <a href="/calculators/tax-withholding-calculator/">W-4 line 4(c)</a> — which counts as paid evenly across the year no matter when it happens — or <a href="/calculators/quarterly-estimated-tax-calculator/">quarterly estimated payments</a>. The same 22%-vs-bracket logic applies to cash bonuses (<a href="/calculators/bonus-tax-calculator/">bonus calculator</a>); RSUs just involve bigger numbers more often.</p>
+<h2>Gap #2: holding by default</h2>
+<p>After sell-to-cover, the remaining shares sit in your brokerage account — and inertia holds them. Recognize what holding is: <strong>there is no tax benefit to holding a vested RSU.</strong> The income tax was charged at vest either way; holding only changes what happens to growth (long-term capital gains after a year) versus decline (a capital loss capped at $3,000/year of deductibility against income). The clarifying question: <em>if the company paid this vest in cash, would you buy your employer's stock with all of it?</em> If not, holding the shares is the same decision wearing camouflage. And the concentration risk is correlated: the scenario where the stock drops 40% has meaningful overlap with the scenario where layoffs hit — income and portfolio failing together (the <a href="/articles/diversification-explained/">diversification logic</a> applies double to employer stock). The standard playbook — sell on vest, pay the tax gap, invest the rest in <a href="/articles/index-funds-explained/">broad index funds</a> — is boring precisely because it's right for most people. A deliberate, sized position (5-10% of net worth, chosen on purpose) is defensible; 60% of net worth in employer stock by inertia is not a strategy.</p>
+<h2>Vest-day mechanics worth knowing</h2>
+<ul>
+<li><strong>Sell-to-cover is the default</strong>, not the only option — some plans allow paying withholding in cash (keeping all shares) or selling everything at vest. Same-day sales have essentially zero capital gain: proceeds ≈ basis.</li>
+<li><strong>The W-2 does the reporting.</strong> Vest income appears in Box 1 automatically. What trips people is the 1099-B from the broker showing the sale with a <em>missing or zero basis</em> — file it uncorrected and you'll pay income tax on the same dollars twice. The basis is the vest-day value; brokers list it in the "supplemental" section.</li>
+<li><strong>Vests can't be timed, but sales can.</strong> If you do hold, the one-year clock from vest converts further growth to long-term rates (0/15/20%). This only matters for the <em>growth</em>, not the vest value — don't let a $2,000 rate difference on gains hold a $60,000 concentrated position hostage.</li>
+<li><strong>Quiet periods and 10b5-1 plans:</strong> employees with material information face trading windows; auto-sale-on-vest elections and 10b5-1 plans execute regardless — one more argument for the automatic sell.</li>
+<li><strong>Job change or layoff:</strong> unvested RSUs are typically forfeited — they're compensation for future service, not property. Factor that into offer comparisons: a $150k salary + $100k/yr vesting schedule is not $250k of certainty (the <a href="/calculators/take-home-pay-calculator/">take-home calculator</a> handles the cash; discount the equity by your tenure odds).</li>
+</ul>
+<h2>Fitting RSUs into the plan</h2>
+<p>Treat vests as what they are — <strong>lumpy salary</strong> — and route them like a raise rather than a windfall: tax set-aside first, then the same priority order as any dollar (match, <a href="/calculators/hsa-calculator/">HSA</a>, debt, index funds — the <a href="/articles/financial-order-of-operations/">order of operations</a>). Households whose RSUs are a large income share should budget on salary alone and treat vests as acceleration — grant values reset, stocks swing, and a lifestyle built on peak-vest income is the tech-industry version of the <a href="/articles/lifestyle-creep/">lifestyle creep</a> trap.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Do I pay taxes twice on RSUs?</summary>
+      <p>No — but sloppy filing can. Vest value is taxed once as W-2 income. When you later sell, only growth beyond the vest-day price is capital gain. The double-tax trap is the broker's 1099-B reporting zero basis for sell-to-cover or later sales: enter the correct vest-day basis (from the supplemental broker statement) or you'll re-pay income tax on money already taxed.</p>
+    </details>
+    
+    <details>
+      <summary>Should I sell RSUs immediately when they vest?</summary>
+      <p>For most people, yes — the tax was charged at vest regardless, so holding is simply choosing to invest that cash in your employer's stock. The test: would you buy that much company stock with a cash bonus? Holding also stacks portfolio risk on employment risk. Sell-on-vest, cover the withholding gap, diversify the rest is the standard answer; a deliberately-sized small position is a reasonable exception.</p>
+    </details>
+    
+    <details>
+      <summary>Why did my RSUs push me into owing taxes in April?</summary>
+      <p>The flat 22% supplemental withholding is below the 32-37% marginal rates most RSU recipients actually pay, so each vest under-withholds by 10-15 points — $6,000-9,000 per $60,000 vest. Fixes: set aside the gap in cash at each vest, add extra W-4 withholding (counts as evenly paid all year), or pay quarterly estimates. High earners should also check the 110% safe harbor to avoid penalties.</p>
+    </details>
+    
+    <details>
+      <summary>Are RSUs taxed differently from stock options?</summary>
+      <p>Completely. RSUs: ordinary income at vest, no elections, no AMT. ISOs: no regular tax at exercise but potential AMT, capital-gains treatment if holding periods are met. NSOs: ordinary income on the exercise spread. RSUs are the simple one — the planning is cash management (the withholding gap) and concentration (sell vs hold), not tax structuring.</p>
+    </details>
+    
+    <details>
+      <summary>What happens to my RSUs if I leave the company?</summary>
+      <p>Vested shares are yours — they're just stock. Unvested RSUs are almost always forfeited at departure, though treatment varies for retirement, disability, death, or acquisition (accelerated vesting clauses). Check your grant agreement before timing a resignation: leaving three weeks before a large vest is a very expensive scheduling mistake.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/bonus-tax-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Bonus Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/salary-inflation-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Salary Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/401k-rollover-options-job-change/">
+        <span class="card-title">"Changing Jobs? The Four Things You Can Do With Your Old 401(k)"</span>
+        <span class="card-desc">Leave it, roll it to the new plan, roll it to an IRA, or cash out — the real trade-offs of each, the direct-rollover rule that avoids a tax disaster, and who should pick which.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/etf-vs-mutual-fund/">
+        <span class="card-title">"ETFs vs Mutual Funds: Which Should You Choose?"</span>
+        <span class="card-desc">The real differences between ETFs and mutual funds — trading, fees, taxes and minimums — and why for most long-term investors it barely matters which you pick.</span>
+      </a>
+      
+      <a class="card" href="/articles/diversification-explained/">
+        <span class="card-title">"Diversification: Why You Shouldn't Bet Everything on One Thing"</span>
+        <span class="card-desc">What diversification is, why it's called the only free lunch in investing, and how to spread risk across companies, asset types and geographies the simple way.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const n = Math.max(0, Math.round(val('shares'))), p = val('price');
+  const tm = val('marginal')/100, wr = val('whrate')/100;
+  const ficaSel = document.getElementById('fica').value;
+  const ficaRate = ficaSel === 'yes' ? 0.0765 : 0.0145;
+  const V = n * p;
+  if (V <= 0) { show('<div class="result-main">Enter shares and a vest price.</div>'); return; }
+  const trueTax = V * tm;
+  const wh = V * (wr + ficaRate);
+  const sharesSold = Math.ceil(n * (wr + ficaRate));
+  const sharesKept = n - Math.ceil(n * (wr + ficaRate));
+  const gap = trueTax + V * ficaRate - wh; // income tax gap (FICA withheld correctly)
+  const incomeGap = V * tm - V * wr;
+  show(`<div class="result-main">${incomeGap > 0 ? '$' + fmt(incomeGap,0) + ' under-withheld' : 'Withholding roughly covers it'}<small>$${fmt(V,0)} of ordinary income at vest &middot; ~${Math.ceil(n * (wr + ficaRate))} of ${n} shares auto-sold to cover withholding</small></div>
+  <table>
+    <tr><td>Vest value (${n} × $${fmt(p,2)})</td><td>$${fmt(V,0)} — added to W-2 wages</td></tr>
+    <tr><td>True tax at your ${fmt(tm*100,0)}% marginal rate</td><td>$${fmt(trueTax,0)} income tax + $${fmt(V*ficaRate,0)} FICA</td></tr>
+    <tr><td>Withheld (${fmt(wr*100,0)}% + ${fmt(ficaRate*100,2)}% FICA)</td><td>$${fmt(wh,0)} — via ~${Math.ceil(n * (wr + ficaRate))} shares sold at vest</td></tr>
+    <tr><td><strong>Income-tax shortfall</strong></td><td><strong>${incomeGap > 0 ? '$' + fmt(incomeGap,0) + ' — due at filing (or via extra withholding now)' : '$0'}</strong></td></tr>
+    <tr><td>Shares landing in your account</td><td>~${sharesKept} shares (worth $${fmt(sharesKept*p,0)} at vest)</td></tr>
+    <tr><td>Set-aside per future vest at these numbers</td><td>${fmt(Math.max(0,(tm - wr))*100,1)}% of each vest's value</td></tr>
+  </table>
+  <p>${incomeGap > 0
+    ? `Fix options: sell ${Math.ceil(incomeGap/p)} more shares at vest and park the cash for taxes, add extra <a href="/calculators/tax-withholding-calculator/">W-4 withholding</a> (it counts as paid evenly all year), or make a <a href="/calculators/quarterly-estimated-tax-calculator/">quarterly estimated payment</a> for the vest quarter.`
+    : `Your withholding rate covers the bracket — the remaining decision is purely the hold-vs-sell one below.`}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
