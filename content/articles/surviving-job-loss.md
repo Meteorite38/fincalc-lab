@@ -37,7 +37,7 @@ Every dollar you don't spend extends your runway and reduces pressure.
 
 While handling the short term, avoid moves that cause lasting damage:
 
-- **Don't cash out retirement accounts** except as a true last resort — you'll pay taxes, penalties, and lose decades of [compounding](/articles/how-compound-interest-builds-wealth/). Leave them invested.
+- **Don't cash out retirement accounts** except as a true last resort — the [early withdrawal calculator](/calculators/401k-early-withdrawal-calculator/) shows the 30-45% immediate haircut plus the decades of lost [compounding](/articles/how-compound-interest-builds-wealth/). When the paperwork about your old 401(k) arrives, choose a direct rollover, never the check — the [rollover options guide](/articles/401k-rollover-options-job-change/) walks the decision.
 - **Don't panic-sell investments** to raise cash if you can avoid it, especially in a downturn (job losses often coincide with market drops — the [sequence risk](/articles/sequence-of-returns-risk/) that's exactly why you hold a cash buffer).
 - **Prioritize minimum debt payments** to protect your credit, but pause any *extra* debt payments to preserve cash.
 - **Be cautious with new debt.** Credit can bridge a short gap, but high-interest debt compounds a hard situation. Use it sparingly and strategically.
