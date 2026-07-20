@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Tax Calculator — Annual Bill, Monthly Escrow, and Your Effective Rate</title>
+<meta name="description" content="Free property tax calculator: estimate your annual property tax and monthly escrow from home value and state-level effective rates (NJ 2.2% to HI 0.3%), or enter your exact local millage. Includes assessment-ratio and homestead-exemption math.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/property-tax-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Property Tax Calculator — Annual Bill, Monthly Escrow, and Your Effective Rate">
+<meta property="og:description" content="Free property tax calculator: estimate your annual property tax and monthly escrow from home value and state-level effective rates (NJ 2.2% to HI 0.3%), or enter your exact local millage. Includes assessment-ratio and homestead-exemption math.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/property-tax-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-taxes-shopping.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Property Tax Calculator — Annual Bill, Monthly Escrow, and Your Effective Rate">
+<meta name="twitter:description" content="Free property tax calculator: estimate your annual property tax and monthly escrow from home value and state-level effective rates (NJ 2.2% to HI 0.3%), or enter your exact local millage. Includes assessment-ratio and homestead-exemption math.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-taxes-shopping.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is property tax calculated on a new purchase?", "acceptedAnswer": {"@type": "Answer", "text": "In most places the sale itself triggers reassessment at or near your purchase price. Take the price, multiply by the local effective rate (county assessor sites publish it; ~1.0% is the national median), minus any homestead exemption you qualify for. In capped states (CA, FL, TX, MI), ignore the seller's current bill — their cap dies with the sale and yours restarts from the new assessment."}}, {"@type": "Question", "name": "Why did my mortgage payment go up if my rate is fixed?", "acceptedAnswer": {"@type": "Answer", "text": "The escrow portion moved. Your servicer collects property tax and insurance monthly and pays them for you; when the county raises the levy (or your assessment) or the insurer raises premiums, the escrow math is redone — often with a shortfall catch-up from the prior year stacked on. The P&I core of a fixed loan never changes; the wrapper around it floats."}}, {"@type": "Question", "name": "Is it worth appealing my property tax assessment?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes — appeals succeed at surprisingly high rates because assessments are mass-generated. The strongest cases: factual errors in the property record, comparable sales below your assessed value, or an assessment that didn't fall after a market dip. An hour of comp-gathering for a shot at cutting $500-1,500/year — recurring until reassessment — is excellent hourly pay."}}, {"@type": "Question", "name": "Which states have the lowest and highest property taxes?", "acceptedAnswer": {"@type": "Answer", "text": "Lowest effective rates: Hawaii (~0.29%), Alabama (~0.41%), Colorado, Nevada, Utah, Arizona (0.5-0.6%). Highest: New Jersey and Illinois (~2.2%), Connecticut and New Hampshire (~2.1%), Texas (~1.7%). But dollar bills depend on home values too — Hawaii's low rate on high prices still out-bills Alabama — and low-property-tax states often tax income or sales harder. Compare total tax burden for your situation, not one line."}}, {"@type": "Question", "name": "Do I still pay property tax after the mortgage is paid off?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — forever. The county bills you directly (annually or semi-annually) once escrow ends; many owners keep a sinking fund transferring the monthly equivalent to savings so the bill never surprises. Unpaid property tax accrues liens and can ultimately force a sale, which is why 'paid-off house' never means 'free house' — it means P&I-free, with tax and insurance as the permanent floor."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Property Tax Calculator", "item": "https://fincalc-lab.pages.dev/calculators/property-tax-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Property Tax Calculator</nav>
+  <h1>🏠 Property Tax Calculator</h1>
+  <p class="lead">Property tax is the housing cost that never amortizes away — and the gap between states is enormous: the same $400,000 house owes about $1,300 a year in Hawaii and $9,000+ in New Jersey. This calculator estimates your bill from state-level effective rates or your exact local rate, and shows what it adds to the monthly payment.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home market value ($)</span>
+      
+      <input type="number" id="value" value="400000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">State (median effective rate)</span>
+      
+      <select id="state">
+        
+        <option value="0.29">Hawaii — 0.29%</option>
+        
+        <option value="0.41">Alabama — 0.41%</option>
+        
+        <option value="0.51">Colorado / Nevada — ~0.5%</option>
+        
+        <option value="0.57">Arizona / Utah — ~0.57%</option>
+        
+        <option value="0.7">California / Idaho — ~0.7%</option>
+        
+        <option value="0.8">Virginia / NC / Georgia — ~0.8%</option>
+        
+        <option value="0.9">Florida / Washington / Oregon — ~0.9%</option>
+        
+        <option value="1.0" selected>National median — ~1.0%</option>
+        
+        <option value="1.2">Minnesota / Massachusetts — ~1.2%</option>
+        
+        <option value="1.4">Michigan / Kansas / Ohio — ~1.4%</option>
+        
+        <option value="1.6">Pennsylvania / Iowa — ~1.6%</option>
+        
+        <option value="1.7">Texas / Nebraska — ~1.7%</option>
+        
+        <option value="1.9">New York (upstate) / Wisconsin — ~1.9%</option>
+        
+        <option value="2.1">Connecticut / New Hampshire — ~2.1%</option>
+        
+        <option value="2.23">New Jersey / Illinois — ~2.2%</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">OR your exact local rate (%, 0 = use state) <em class="hint">(county assessor's effective rate if you know it)</em></span>
+      
+      <input type="number" id="customrate" value="0" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Homestead/other exemption ($ off assessed value) <em class="hint">(many states knock $25k-100k off for primary residences)</em></span>
+      
+      <input type="number" id="exempt" value="0" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual increase (%) <em class="hint">(assessments and levies drift up — 2-5%/yr typical)</em></span>
+      
+      <input type="number" id="growth" value="3" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>How the bill is actually computed</h2>
+<p>Local governments set property tax in two steps: the <strong>assessed value</strong> (the assessor's estimate of your home's worth, sometimes multiplied by an assessment ratio — many states assess at a fraction of market value) and the <strong>millage rate</strong> (dollars of tax per $1,000 of assessed value, stacked across county, city, school district and special districts). Because ratios and millages vary wildly, the only portable comparison number is the <strong>effective rate</strong>: annual tax &divide; market value. That's what this calculator uses — the state presets are median effective rates, and the custom field accepts your county's exact figure (your last tax bill &divide; a realistic market value gives it to you in one division).</p>
+<h2>Why identical houses owe wildly different taxes</h2>
+<ul>
+<li><strong>State and locality dominate.</strong> New Jersey's median effective rate (~2.2%) is more than seven times Hawaii's (~0.29%). Within states, school-district lines can move the bill 50% across a street.</li>
+<li><strong>Caps and ratchets:</strong> California's Prop 13 caps assessment growth at 2%/year until sale — long-time owners pay a fraction of their new neighbor's bill on an identical house. Florida, Texas, Michigan and others cap annual increases for primary residences (10%, 3%, inflation). The cap resets at purchase: <strong>budget on the post-sale reassessment, not the seller's current bill</strong> — the #1 new-buyer surprise in capped states.</li>
+<li><strong>Homestead exemptions</strong> knock a chunk off assessed value for primary residences — Texas $100,000 (school portion), Florida up to $50,000, many states $25,000-plus, with bigger cuts for seniors, veterans and disabled owners. They usually require a one-time application; forgetting it donates hundreds a year.</li>
+<li><strong>Low sticker, high tax</strong> (and vice versa) changes affordability rankings: Texas has no income tax but ~1.7% property tax — a $400,000 Austin house carries a $560/month tax line. California's 0.7% effective rate softens its price shock slightly. Total cost of ownership is the only honest comparison.</li>
+</ul>
+<h2>Escrow: why your "fixed" mortgage payment rises</h2>
+<p>Most lenders collect property tax monthly into an <strong>escrow account</strong> and pay the county for you — so the tax lives inside your mortgage payment. When the levy or assessment rises, the servicer recalculates: your "fixed-rate" payment climbs, sometimes with a catch-up for last year's shortfall stacked on top. A 30-year fixed mortgage fixes <em>principal and interest</em> only; the tax-and-insurance layer floats forever. This is also the part of the payment that survives the mortgage — a paid-off $400,000 house at 1.5% still costs $500/month to hold, which matters enormously for <a href="/calculators/retirement-withdrawal-calculator/">retirement cash-flow planning</a>.</p>
+<h2>Appealing your assessment (worth more than it sounds)</h2>
+<p>Assessments are mass-produced estimates, and error rates are material — studies routinely find 30-60% of appeals win some reduction. The process: check the assessor's record for factual errors (square footage, bedroom count, lot size), pull 3-5 recent comparable sales below your assessed value, and file within the appeal window (often 30-60 days after the notice). No lawyer needed at typical home values; the hearing is usually informal. A successful 10% cut on a $9,000 bill saves $900 <em>every year</em> until the next reassessment. If your notice jumped after a hot market cooled, the odds are especially good.</p>
+<h2>The deduction fine print</h2>
+<p>Property tax is deductible federally only within the <strong>SALT cap</strong> — state and local taxes (income + property combined) capped at $10,000 per return for most filers, and only if you itemize past the standard deduction. Practical upshot: in high-tax states the cap is often exhausted by income tax alone, making property tax effectively non-deductible; run your actual bracket in the <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a> before crediting the deduction in a buy-vs-rent decision (<a href="/calculators/rent-vs-buy-calculator/">the calculator</a> lets you toggle it).</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How is property tax calculated on a new purchase?</summary>
+      <p>In most places the sale itself triggers reassessment at or near your purchase price. Take the price, multiply by the local effective rate (county assessor sites publish it; ~1.0% is the national median), minus any homestead exemption you qualify for. In capped states (CA, FL, TX, MI), ignore the seller's current bill — their cap dies with the sale and yours restarts from the new assessment.</p>
+    </details>
+    
+    <details>
+      <summary>Why did my mortgage payment go up if my rate is fixed?</summary>
+      <p>The escrow portion moved. Your servicer collects property tax and insurance monthly and pays them for you; when the county raises the levy (or your assessment) or the insurer raises premiums, the escrow math is redone — often with a shortfall catch-up from the prior year stacked on. The P&I core of a fixed loan never changes; the wrapper around it floats.</p>
+    </details>
+    
+    <details>
+      <summary>Is it worth appealing my property tax assessment?</summary>
+      <p>Often, yes — appeals succeed at surprisingly high rates because assessments are mass-generated. The strongest cases: factual errors in the property record, comparable sales below your assessed value, or an assessment that didn't fall after a market dip. An hour of comp-gathering for a shot at cutting $500-1,500/year — recurring until reassessment — is excellent hourly pay.</p>
+    </details>
+    
+    <details>
+      <summary>Which states have the lowest and highest property taxes?</summary>
+      <p>Lowest effective rates: Hawaii (~0.29%), Alabama (~0.41%), Colorado, Nevada, Utah, Arizona (0.5-0.6%). Highest: New Jersey and Illinois (~2.2%), Connecticut and New Hampshire (~2.1%), Texas (~1.7%). But dollar bills depend on home values too — Hawaii's low rate on high prices still out-bills Alabama — and low-property-tax states often tax income or sales harder. Compare total tax burden for your situation, not one line.</p>
+    </details>
+    
+    <details>
+      <summary>Do I still pay property tax after the mortgage is paid off?</summary>
+      <p>Yes — forever. The county bills you directly (annually or semi-annually) once escrow ends; many owners keep a sinking fund transferring the monthly equivalent to savings so the bill never surprises. Unpaid property tax accrues liens and can ultimately force a sale, which is why 'paid-off house' never means 'free house' — it means P&I-free, with tax and insurance as the permanent floor.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/quarterly-estimated-tax-calculator/">
+        <span class="card-emoji">🗓️</span>
+        <span class="card-title">Quarterly Estimated Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tax-withholding-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Tax Withholding Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/capital-gains-tax-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Capital Gains Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/tax-bracket-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Tax Bracket Calculator (2025)</span>
+      </a>
+      
+      <a class="card" href="/calculators/sales-tax-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Sales Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/vat-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">VAT Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/renting-vs-buying-a-home/">
+        <span class="card-title">"Renting vs Buying a Home: The Honest Math"</span>
+        <span class="card-desc">Beyond 'rent is throwing money away' — the real costs on both sides, the break-even horizon, and how to decide based on your actual situation.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-house-can-you-afford/">
+        <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
+        <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const V = val('value'), custom = Math.max(0, val('customrate'))/100;
+  const stateRate = parseFloat(document.getElementById('state').value)/100;
+  const ex = Math.max(0, val('exempt')), g = Math.max(0, val('growth'))/100;
+  if (V <= 0) { show('<div class="result-main">Enter a home value.</div>'); return; }
+  const rate = custom > 0 ? custom : stateRate;
+  const taxable = Math.max(0, V - ex);
+  const annual = taxable * rate;
+  const monthly = annual / 12;
+  const in10 = annual * Math.pow(1 + g, 10);
+  let total10 = 0;
+  for (let y = 0; y < 10; y++) total10 += annual * Math.pow(1 + g, y);
+  const exSave = ex * rate;
+  show(`<div class="result-main">$${fmt(annual,0)}/year<small>&asymp; $${fmt(monthly,0)}/month into escrow &middot; ${fmt(rate*100,2)}% effective rate on $${fmt(taxable,0)}${ex > 0 ? ' (after $' + fmt(ex,0) + ' exemption)' : ''}</small></div>
+  <table>
+    <tr><td>Annual property tax</td><td>$${fmt(annual,0)}</td></tr>
+    <tr><td>Monthly (what escrow adds to the payment)</td><td>$${fmt(monthly,0)}</td></tr>
+    ${ex > 0 ? `<tr><td>Exemption saves</td><td>$${fmt(exSave,0)}/yr</td></tr>` : ''}
+    <tr><td>Bill in 10 years at ${fmt(g*100,1)}%/yr growth</td><td>$${fmt(in10,0)}</td></tr>
+    <tr><td>Total paid over the next decade</td><td>$${fmt(total10,0)}</td></tr>
+    <tr><td>As % of a $${fmt(V,0)} home, per decade</td><td>${fmt(total10/V*100,1)}%</td></tr>
+  </table>
+  <p>Over 30 years of ownership this line quietly rivals the house price itself — and unlike the mortgage, it never pays off. Budgeting a purchase? Stack this on the loan payment with the <a href="/calculators/mortgage-calculator/">mortgage calculator</a> and check the whole burden against income in the <a href="/calculators/home-affordability-calculator/">affordability calculator</a>.</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
