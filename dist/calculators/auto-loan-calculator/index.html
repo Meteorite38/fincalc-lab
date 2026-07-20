@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Loan Calculator — Payment With Trade-In, Tax & Fees</title>
+<meta name="description" content="Free auto loan calculator with trade-in, sales tax and fees. See your real monthly payment, total interest, amount financed — and a warning if negative equity is rolled into the new loan.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/auto-loan-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Auto Loan Calculator — Payment With Trade-In, Tax & Fees">
+<meta property="og:description" content="Free auto loan calculator with trade-in, sales tax and fees. See your real monthly payment, total interest, amount financed — and a warning if negative equity is rolled into the new loan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/auto-loan-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auto Loan Calculator — Payment With Trade-In, Tax & Fees">
+<meta name="twitter:description" content="Free auto loan calculator with trade-in, sales tax and fees. See your real monthly payment, total interest, amount financed — and a warning if negative equity is rolled into the new loan.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What credit score do I need for a good auto loan rate?", "acceptedAnswer": {"@type": "Answer", "text": "Rates step up sharply as scores fall: prime borrowers (roughly 661+) see the advertised rates, while deep-subprime borrowers can pay 3-5x more. If your score is borderline, a co-signer or a few months of score repair often saves more than shopping ten dealerships."}}, {"@type": "Question", "name": "Should I roll my old car loan into the new one?", "acceptedAnswer": {"@type": "Answer", "text": "Avoid it if possible — you'd be paying interest on a car you no longer own and starting the new loan underwater. If it's unavoidable, roll in as little as possible, choose a shorter term, and consider GAP coverage so a totaled car doesn't leave you paying for two."}}, {"@type": "Question", "name": "Is 0% dealer financing really free?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes — but it usually replaces a cash rebate. If the choice is 0% APR or a $3,000 rebate, compare the interest you'd pay on a discounted loan (after the rebate) against $0 interest at full price. On smaller loans the rebate frequently wins."}}, {"@type": "Question", "name": "How much should my down payment be?", "acceptedAnswer": {"@type": "Answer", "text": "20% is the classic target: it covers first-year depreciation so you're never underwater, lowers the payment, and often gets a better rate. At minimum, cover tax and fees in cash so you're not financing pure paperwork."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Auto Loan Calculator", "item": "https://fincalc-lab.pages.dev/calculators/auto-loan-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Auto Loan Calculator</nav>
+  <h1>🚗 Auto Loan Calculator</h1>
+  <p class="lead">Dealer quotes rarely match the loan you actually sign, because sales tax, fees and your trade-in all change the amount financed. Enter the real numbers — including anything still owed on your trade — and see the true payment, total interest and total cost.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Vehicle price ($)</span>
+      
+      <input type="number" id="price" value="35000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Cash down payment ($)</span>
+      
+      <input type="number" id="down" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Trade-in value ($) <em class="hint">(0 if no trade)</em></span>
+      
+      <input type="number" id="tradein" value="8000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Still owed on the trade-in ($)</span>
+      
+      <input type="number" id="tradeowed" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Sales tax rate (%)</span>
+      
+      <input type="number" id="taxrate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Tax charged on price minus trade-in?</span>
+      
+      <select id="taxcredit">
+        
+        <option value="yes" selected>Yes — my state gives a trade-in tax credit (most do)</option>
+        
+        <option value="no">No — tax on the full price (e.g. CA, VA, HI, KY, MI, MD, DC)</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Title, registration & doc fees ($)</span>
+      
+      <input type="number" id="fees" value="600" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Interest rate (APR %)</span>
+      
+      <input type="number" id="rate" value="7.5" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan term (months)</span>
+      
+      <input type="number" id="months" value="60" step="12" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What actually determines your car payment</h2>
+<p>Four things set the payment: the <strong>amount financed</strong>, the <strong>APR</strong>, the <strong>term</strong>, and nothing else. The amount financed is where most surprises hide. It isn't the sticker price — it's:</p>
+<p><em>price + sales tax + fees &minus; cash down &minus; trade-in equity</em></p>
+<p>If you still owe more on your trade-in than it's worth, that shortfall (<strong>negative equity</strong>) gets <em>added</em> to the new loan. That's how people end up owing 110% of a car's value the day they drive off — this calculator flags it whenever your inputs imply it.</p>
+<h2>The trade-in sales-tax credit</h2>
+<p>In most U.S. states you pay sales tax only on <em>price minus trade-in value</em>. Trading in an $8,000 car against a $35,000 purchase at 7% tax saves $560 — a real, often-forgotten part of the trade-in's value when you compare it against selling privately. A handful of places (California, Virginia, Hawaii, Kentucky, Michigan above a cap, Maryland, DC) tax the full price regardless; the calculator has a toggle for both rules.</p>
+<h2>Term length: the payment trap</h2>
+<p>Dealers sell payments, not prices. Stretching a $30,000 loan at 7.5% from 60 to 84 months drops the payment from about $601 to $461 — but raises total interest from roughly $6,068 to $8,690, and keeps you underwater (owing more than the car's falling value) far longer. A useful discipline is the <strong>20/4/10 rule</strong>: 20% down, no more than 4 years, and total vehicle costs under 10% of gross income. Check the affordability side with the <a href="/calculators/car-affordability-calculator/">car affordability calculator</a>.</p>
+<h2>Where to actually save money</h2>
+<ul>
+<li><strong>Get pre-approved first.</strong> A credit-union or bank pre-approval sets a rate benchmark the dealer's finance office has to beat, turning "what payment do you want?" into a price negotiation.</li>
+<li><strong>Negotiate the out-the-door price</strong>, not the monthly payment — the payment can be massaged with term length while the price quietly rises.</li>
+<li><strong>Don't roll in negative equity</strong> if you can avoid it. If you must, keep the term short so you surface from being underwater sooner, and consider GAP coverage — after checking what your insurer charges versus the dealer.</li>
+<li><strong>Skip financed add-ons.</strong> Paint protection and dealer extended warranties financed at 7%+ for years cost far more than their sticker.</li>
+</ul>
+<p>Deciding between leasing and buying? Run the numbers in the <a href="/calculators/lease-vs-buy-car-calculator/">lease vs buy calculator</a> or estimate a lease payment directly with the <a href="/calculators/car-lease-calculator/">car lease calculator</a>. And before committing, sanity-check the ongoing running costs with the <a href="/calculators/fuel-cost-calculator/">fuel cost calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What credit score do I need for a good auto loan rate?</summary>
+      <p>Rates step up sharply as scores fall: prime borrowers (roughly 661+) see the advertised rates, while deep-subprime borrowers can pay 3-5x more. If your score is borderline, a co-signer or a few months of score repair often saves more than shopping ten dealerships.</p>
+    </details>
+    
+    <details>
+      <summary>Should I roll my old car loan into the new one?</summary>
+      <p>Avoid it if possible — you'd be paying interest on a car you no longer own and starting the new loan underwater. If it's unavoidable, roll in as little as possible, choose a shorter term, and consider GAP coverage so a totaled car doesn't leave you paying for two.</p>
+    </details>
+    
+    <details>
+      <summary>Is 0% dealer financing really free?</summary>
+      <p>Sometimes — but it usually replaces a cash rebate. If the choice is 0% APR or a $3,000 rebate, compare the interest you'd pay on a discounted loan (after the rebate) against $0 interest at full price. On smaller loans the rebate frequently wins.</p>
+    </details>
+    
+    <details>
+      <summary>How much should my down payment be?</summary>
+      <p>20% is the classic target: it covers first-year depreciation so you're never underwater, lowers the payment, and often gets a better rate. At minimum, cover tax and fees in cash so you're not financing pure paperwork.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/lease-vs-buy-car-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Lease vs Buy a Car Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/15-vs-30-year-mortgage-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">15 vs 30 Year Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-vs-buy-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent vs Buy a Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/lease-vs-buy-a-car/">
+        <span class="card-title">"Lease vs Buy a Car: The Honest Math (and When Each Wins)"</span>
+        <span class="card-desc">A clear framework for deciding whether to lease or buy your next car — what leasing really costs, why buying usually wins long-term, and the cases where leasing makes sense.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/etf-vs-mutual-fund/">
+        <span class="card-title">"ETFs vs Mutual Funds: Which Should You Choose?"</span>
+        <span class="card-desc">The real differences between ETFs and mutual funds — trading, fees, taxes and minimums — and why for most long-term investors it barely matters which you pick.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), down = val('down'), tradeIn = val('tradein'), owed = val('tradeowed');
+  const taxRate = val('taxrate')/100, fees = val('fees'), apr = val('rate')/100, n = Math.round(val('months'));
+  if (price <= 0 || n <= 0) { show('<div class="result-main">Enter a vehicle price and loan term above zero.</div>'); return; }
+  const credit = document.getElementById('taxcredit').value === 'yes';
+  const taxable = credit ? Math.max(0, price - tradeIn) : price;
+  const salesTax = taxable * taxRate;
+  const equity = tradeIn - owed;                    // negative = rolled into the loan
+  let financed = price + salesTax + fees - down - equity;
+  financed = Math.max(0, financed);
+  const i = apr/12;
+  const pmt = financed > 0 ? (i > 0 ? financed*i/(1-Math.pow(1+i,-n)) : financed/n) : 0;
+  const totalPaid = pmt*n;
+  const interest = totalPaid - financed;
+  const totalCost = price + salesTax + fees + interest;
+  const negRow = equity < 0
+    ? `<tr><td><strong>Negative equity rolled in</strong></td><td><strong>$${fmt(-equity,0)}</strong> — you're financing the old car's shortfall on top of the new one</td></tr>`
+    : (tradeIn > 0 ? `<tr><td>Trade-in equity applied</td><td>$${fmt(equity,0)}</td></tr>` : '');
+  const ltv = financed > 0 && price > 0 ? financed/price*100 : 0;
+  const ltvNote = ltv > 100 ? ` &middot; you owe ${fmt(ltv,0)}% of the car's price from day one` : '';
+  show(`<div class="result-main">$${fmt(pmt)} / month<small>for ${n} months at ${fmt(apr*100,2)}% APR</small></div>
+  <table>
+    <tr><td>Amount financed</td><td>$${fmt(financed,0)}${ltvNote}</td></tr>
+    <tr><td>Sales tax${credit ? ' (on price minus trade-in)' : ' (on full price)'}</td><td>$${fmt(salesTax,0)}</td></tr>
+    ${negRow}
+    <tr><td>Total interest</td><td>$${fmt(interest,0)}</td></tr>
+    <tr><td>Total of ${n} payments</td><td>$${fmt(totalPaid,0)}</td></tr>
+    <tr><td>All-in cost (price + tax + fees + interest)</td><td>$${fmt(totalCost,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
