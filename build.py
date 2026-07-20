@@ -259,6 +259,11 @@ def build():
             ("solo-401k-vs-sep-ira-calculator", "Solo 401(k) or SEP IRA — which shelters more of your self-employment profit?"),
             ("bonus-tax-calculator", "The flat 22% withholding vs your real bracket — money back or more to pay?"),
         ]),
+        _cmp_group("Career & family", [
+            ("daycare-vs-staying-home-calculator", "Second income minus childcare, taxes and work costs — what does the job really net?"),
+            ("college-roi-calculator", "Degree cost plus foregone wages vs the earnings premium — when does it break even?"),
+            ("pay-raise-calculator", "What a raise changes after taxes — and what it's worth over the years ahead?"),
+        ]),
     ]
     compare_flat = [it["calc"] for g in compare_groups for it in g["items"]]
     write("compare/index.html", env.get_template("compare.html").render(
