@@ -4,7 +4,7 @@
 MOVESTAY = [
     {
         "slug": "move-or-stay-calculator",
-        "emoji": "\U0001F4E6",
+        "emoji": "\U0001F69A",
         "category": "Income & Budgeting",
         "title": "Move or Stay Calculator — Is the Rent Increase Worth Moving Over?",
         "h1": "Move or Stay Calculator",

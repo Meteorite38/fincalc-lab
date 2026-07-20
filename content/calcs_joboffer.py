@@ -4,7 +4,7 @@
 JOBOFFER = [
     {
         "slug": "job-offer-comparison-calculator",
-        "emoji": "\u2696\uFE0F",
+        "emoji": "\U0001F91D",
         "category": "Income & Budgeting",
         "title": "Job Offer Comparison Calculator — Total Value, Not Just Salary",
         "h1": "Job Offer Comparison Calculator",
