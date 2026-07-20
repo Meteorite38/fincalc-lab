@@ -291,7 +291,14 @@ function calculate() {
   <p>Roughly $${fmt(prepaids,0)} of this isn't a fee at all — prepaid insurance, tax escrow and interest are your own future bills paid early. The negotiable money lives in the lender and title lines: $${fmt(lenderFees + titleFees,0)} here.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

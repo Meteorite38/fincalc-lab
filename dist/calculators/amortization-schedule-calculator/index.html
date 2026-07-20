@@ -220,7 +220,14 @@ function calculate() {
   show(`<div class="result-main">$${fmt(pmt)} / month<small>Total interest over ${val('years')} years: $${fmt(totalInt,0)}</small></div>${table}`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

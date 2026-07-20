@@ -313,7 +313,14 @@ function calculate() {
       : `Offer ${winner} leads on both totals and per-hour value${Math.abs(dTotal) > 3000 ? ' — a $' + fmt(Math.abs(dTotal),0) + '/yr gap that compounds with every future raise being a percentage of it' : ' — narrowly; the unpriceables should carry real weight'}.`)}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

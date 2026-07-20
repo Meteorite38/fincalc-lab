@@ -204,7 +204,14 @@ function calculate() {
   show(`<div class="result-main">~${fmt(rule,1)} years<small>to double at ${fmt(r,1)}% per year</small></div><table>${rows}</table>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

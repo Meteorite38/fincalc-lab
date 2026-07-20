@@ -31,8 +31,8 @@
 {% block content %}
 <section class="hero">
   <div class="container">
-    <h1>Financial answers in seconds</h1>
-    <p class="hero-sub">{{ calcs | length }} free calculators for loans, savings, retirement, taxes and debt — each with a plain-English explanation of the math behind the result. No sign-up. Nothing tracked. Everything runs in your browser.</p>
+    <h1>Make the money decision, not just the calculation</h1>
+    <p class="hero-sub">{{ calcs | length }} free calculators for the choices that actually move your finances — buy or rent, payoff or invest, Roth or traditional, lease or buy — each showing its math and what the answer means. No sign-up. Nothing tracked. Everything runs in your browser.</p>
     <div class="hero-stats">
       <span><strong>{{ calcs | length }}</strong> calculators</span>
       <span><strong>{{ articles | length }}</strong> in-depth guides</span>
@@ -58,6 +58,24 @@
   </div>
 </section>
 
+<section class="container section">
+  <h2>Tough calls, compared side by side</h2>
+  <p class="section-sub">Head-to-head tools for decisions with real money on both sides — <a href="/compare/">see all comparison tools</a>.</p>
+  <div class="grid">
+    {% set decisions = ['rent-vs-buy-calculator', 'roth-vs-traditional-401k-calculator', 'arm-vs-fixed-mortgage-calculator', 'pension-lump-sum-vs-annuity-calculator', 'daycare-vs-staying-home-calculator', 'student-loan-refinance-calculator'] %}
+    {% for s in decisions %}
+    {% set c = (calcs | selectattr('slug', 'equalto', s) | list | first) %}
+    {% if c %}
+    <a class="card" href="/calculators/{{ c.slug }}/">
+      <span class="card-emoji">{{ c.emoji }}</span>
+      <span class="card-title">{{ c.h1 }}</span>
+      <span class="card-desc">{{ c.blurb }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
 <section id="calculators" class="container section">
   <h2>All calculators</h2>
   <input type="search" id="calc-filter" class="calc-filter" placeholder="Search {{ calcs | length }} calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
@@ -68,22 +86,33 @@
   <h3 class="cat-label" data-catlabel>{{ cat }}</h3>
   <div class="grid" data-catgrid>
     {% for c in items %}
-    <a class="card" href="/calculators/{{ c.slug }}/" data-name="{{ (c.h1 ~ ' ' ~ c.blurb ~ ' ' ~ cat) | lower }}">
+    <a class="card{% if loop.index > 6 %} extra{% endif %}" href="/calculators/{{ c.slug }}/" data-name="{{ (c.h1 ~ ' ' ~ c.blurb ~ ' ' ~ cat) | lower }}">
       <span class="card-emoji">{{ c.emoji }}</span>
       <span class="card-title">{{ c.h1 }}</span>
       <span class="card-desc">{{ c.blurb }}</span>
     </a>
     {% endfor %}
   </div>
+  {% if items | length > 6 %}
+  <button class="show-more" data-showmore onclick="toggleCat(this)">Show all {{ items | length }} {{ cat }} tools</button>
+  {% endif %}
   {% endif %}
   {% endfor %}
 </section>
 <script>
+function toggleCat(btn) {
+  var grid = btn.previousElementSibling;
+  var expanded = grid.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Show fewer' : btn.getAttribute('data-label');
+}
+document.querySelectorAll('[data-showmore]').forEach(function(b){ b.setAttribute('data-label', b.textContent); });
 function filterCalcs(q) {
   q = (q || '').trim().toLowerCase();
   var shown = 0;
   document.querySelectorAll('[data-catgrid]').forEach(function(grid) {
     var visibleInGrid = 0;
+    var searching = q.length > 0;
+    grid.classList.toggle('searching', searching);
     grid.querySelectorAll('.card').forEach(function(card) {
       var match = !q || card.getAttribute('data-name').indexOf(q) !== -1;
       card.style.display = match ? '' : 'none';
@@ -91,6 +120,8 @@ function filterCalcs(q) {
     });
     var label = grid.previousElementSibling;
     if (label && label.hasAttribute('data-catlabel')) label.style.display = visibleInGrid ? '' : 'none';
+    var btn = grid.nextElementSibling;
+    if (btn && btn.hasAttribute('data-showmore')) btn.style.display = (searching || grid.classList.contains('expanded')) ? (searching ? 'none' : '') : (visibleInGrid ? '' : 'none');
   });
   var nr = document.getElementById('calc-noresults');
   if (nr) nr.hidden = shown !== 0;
@@ -99,12 +130,17 @@ function filterCalcs(q) {
 
 <section id="articles" class="container section">
   <h2>Guides &amp; explainers</h2>
+  <p class="section-sub">Plain-English deep dives behind the tools — <a href="/guides/">browse all {{ articles | length }} guides by topic</a>.</p>
   <div class="grid">
-    {% for a in articles %}
+    {% set featured_guides = ['financial-order-of-operations', 'how-much-house-can-you-afford', 'when-to-claim-social-security', 'freelancer-tax-survival-guide', 'rmds-and-the-roth-conversion-window', 'heloc-vs-home-equity-loan-vs-cash-out-refinance', 'rsus-and-tech-compensation-guide', 'first-time-home-buyer-guide'] %}
+    {% for s in featured_guides %}
+    {% set a = (articles | selectattr('slug', 'equalto', s) | list | first) %}
+    {% if a %}
     <a class="card" href="/articles/{{ a.slug }}/">
       <span class="card-title">{{ a.title }}</span>
       <span class="card-desc">{{ a.description }}</span>
     </a>
+    {% endif %}
     {% endfor %}
   </div>
 </section>

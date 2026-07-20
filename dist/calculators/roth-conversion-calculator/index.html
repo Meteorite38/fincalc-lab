@@ -296,7 +296,14 @@ function calculate() {
   ${payOutside ? '' : `<p><strong>Paying tax from the conversion is expensive${young ? ' — especially under 59½' : ''}.</strong> Rerun with "from savings outside" to see the difference; the gap is the hidden cost of shrinking the tax-free bucket.</p>`}`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

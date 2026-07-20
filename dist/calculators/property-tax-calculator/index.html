@@ -283,7 +283,14 @@ function calculate() {
   <p>Over 30 years of ownership this line quietly rivals the house price itself — and unlike the mortgage, it never pays off. Budgeting a purchase? Stack this on the loan payment with the <a href="/calculators/mortgage-calculator/">mortgage calculator</a> and check the whole burden against income in the <a href="/calculators/home-affordability-calculator/">affordability calculator</a>.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

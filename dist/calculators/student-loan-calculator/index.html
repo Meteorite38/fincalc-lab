@@ -230,7 +230,14 @@ function calculate() {
   show(`<div class="result-main">$${fmt(base)} / month<small>for ${y} years at ${fmt(i*1200,1)}%</small></div><table>${rows}</table>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

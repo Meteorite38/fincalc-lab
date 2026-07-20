@@ -251,7 +251,14 @@ function calculate() {
   <p>The two-week structure is the product: the fee looks small against payday, but most borrowers can't spare $${fmt(A + fee,0)} from one check — so they pay $${fmt(fee,0)} to push it back, again and again. Pricing it as an APR is what breaks the illusion.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

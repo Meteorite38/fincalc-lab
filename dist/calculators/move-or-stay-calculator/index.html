@@ -287,7 +287,14 @@ function calculate() {
   ${negotiate > 5 && monthlySave > 0 ? `<p><strong>The negotiation number:</strong> a renewal at <strong>$${fmt(ren - negotiate,0)}</strong> makes staying exactly as cheap as moving — that's your walk-away line. Landlords face their own turnover cost (vacancy, turnover prep, re-listing — commonly $2,000-4,000), so an ask $${fmt(Math.min(negotiate, ren-nw),0)} below the renewal offer is credible precisely because your leaving costs them real money too.</p>` : ''}`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

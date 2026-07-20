@@ -93,6 +93,13 @@ function fmt(x, dp = 2) {
 function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
 {{ c.js }}
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 {% endblock %}

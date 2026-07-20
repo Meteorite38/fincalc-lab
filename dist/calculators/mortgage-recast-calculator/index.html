@@ -260,7 +260,14 @@ function calculate() {
   <p>Same $${fmt(L,0)} either way — the choice is what it buys: the <strong>recast buys monthly breathing room</strong> ($${fmt(relief,0)}/month you're no longer obligated to pay), the <strong>prepayment buys time and interest</strong> ($${fmt(intPrepay > 0 ? (intOld - intPrepay) - (intOld - intRecast) : 0,0)} more interest saved, ${Math.floor(monthsSaved/12)}+ years earlier freedom). Cash-flow stress favors the recast; wealth-maximizing favors the prepayment.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

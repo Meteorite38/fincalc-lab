@@ -283,7 +283,14 @@ function calculate() {
   <p>${useSH && TY > safeHarbor ? `Income jumping this year? The safe harbor is your friend: pay $${fmt(perSH,0)}/quarter and the extra $${fmt(aprilGap,0)} isn't due until April — an interest-free deferral the rules explicitly allow.` : (!useSH ? `Income dropping this year? Paying 90% of the current year beats matching last year's bigger bill — just re-run the estimate each quarter so the projection stays honest.` : `Either method works; the schedule above uses the cheaper one.`)}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

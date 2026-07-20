@@ -305,7 +305,14 @@ function calculate() {
   <p>Rounded to $${fmt(rounded,0)} — insurers price in $50,000-250,000 bands, and the next band up is often nearly free. A healthy 35-year-old typically pays roughly $${fmt(rounded/1000000*30,0)}-$${fmt(rounded/1000000*40,0)}/month per ${term}-year term at this size (smokers and older applicants more).</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

@@ -236,7 +236,14 @@ function calculate() {
   show(`<div class="result-main">$${fmt(moneyCost,0)} / year<small>Out-of-pocket commuting cost${wage>0 ? ' \u00b7 $'+fmt(moneyCost+timeValue,0)+' including the value of your time' : ''}</small></div><table>${rows}</table>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

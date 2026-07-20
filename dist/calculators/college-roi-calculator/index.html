@@ -297,7 +297,14 @@ function calculate() {
       : `On these numbers the working path wins outright. Before abandoning the degree idea, rerun with a cheaper route — community-college transfer, in-state tuition, more aid — which often flips the verdict without changing the credential.`)}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

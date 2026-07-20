@@ -284,7 +284,14 @@ function calculate() {
     : `Extra principal payments pull both dates closer — every dollar of prepayment is a dollar less the 80% threshold has to wait for; the <a href="/calculators/extra-mortgage-payment-calculator/">extra payment calculator</a> shows the effect.`}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

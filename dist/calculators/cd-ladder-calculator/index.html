@@ -283,7 +283,14 @@ function calculate() {
   <p>After year ${n === 3 ? 3 : n}, the ladder becomes self-sustaining: each maturing rung rolls into a new ${n}-year CD at whatever rates then offer — from that point every dollar earns the long-term rate while a rung still frees up annually.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

@@ -281,7 +281,14 @@ function calculate() {
   <p>Paying only the interest-only minimum for all ${io} years means owing the full $${fmt(borrow,0)} when repayment starts. Adding principal early — even $${fmt(Math.ceil(borrow/(io*12)/50)*50,0)}/month — flattens the shock entirely.</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

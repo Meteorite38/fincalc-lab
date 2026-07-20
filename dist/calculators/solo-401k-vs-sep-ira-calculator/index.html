@@ -262,7 +262,14 @@ function calculate() {
     : `At higher profits the employer share dominates and the two converge — by ~$${fmt(Math.round((TOTAL_CAP)/0.2/0.9*1000)/1000*1000,0)}+ of profit both hit the $${fmt(TOTAL_CAP,0)} cap${age >= 50 ? ' (the solo 401(k) still adds the $' + fmt(CATCHUP,0) + ' catch-up on top)' : ''}. Below that line, the deferral keeps the solo 401(k) ahead.`}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

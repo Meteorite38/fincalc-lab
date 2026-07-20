@@ -243,7 +243,14 @@ function calculate() {
   show(`<div class="result-main">$${fmt(monthly,0)} / month<small>to save for ${sy} years of study starting in ${n1} years</small></div><table>${rows}</table>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>

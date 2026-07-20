@@ -281,7 +281,14 @@ function calculate() {
     : `Put differently: to hold $${fmt(keep,0)} in hand you're spending $${fmt(W,0)} of retirement money that would have become $${fmt(fv,0)}. That's the comparison to make against every alternative — a 401(k) loan, a 0% card, even a personal loan at 12%.`}</p>`);
 }
 
-document.addEventListener("DOMContentLoaded", calculate);
+document.addEventListener("DOMContentLoaded", function () {
+  calculate();
+  // live recalc: results update as you type, button stays as an explicit fallback
+  document.querySelectorAll("#calc input, #calc select").forEach(function (el) {
+    el.addEventListener("input", calculate);
+    el.addEventListener("change", calculate);
+  });
+});
 </script>
 
 </main>
