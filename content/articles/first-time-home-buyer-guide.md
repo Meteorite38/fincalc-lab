@@ -36,7 +36,7 @@ A mortgage **pre-approval** is a lender's written estimate of how much they'll l
 
 ## Step 5: House-hunt within budget
 
-With a firm number, search for homes at or below your comfortable maximum — not the top of your approval. Factor in the *full* monthly cost: principal, interest, taxes, insurance, and maintenance (budget ~1–2% of value per year), plus any HOA fees. The [mortgage calculator](/calculators/mortgage-calculator/) shows the real monthly payment including taxes and insurance. Also weigh location and [commute cost](/calculators/commute-cost-calculator/) — a cheaper home far away isn't always cheaper.
+With a firm number, search for homes at or below your comfortable maximum — not the top of your approval. Factor in the *full* monthly cost: principal, interest, [property taxes](/calculators/property-tax-calculator/), insurance, and maintenance (budget ~1–2% of value per year — the [maintenance calculator](/calculators/home-maintenance-budget-calculator/) adjusts it for the home's age and your climate), plus any HOA fees. The [mortgage calculator](/calculators/mortgage-calculator/) shows the real monthly payment including taxes and insurance. Also weigh location and [commute cost](/calculators/commute-cost-calculator/) — a cheaper home far away isn't always cheaper.
 
 ## Step 6: Make an offer and get inspections
 
