@@ -30,7 +30,7 @@ The method:
 Look at your recent spending (the first step of any [budget](/articles/how-to-make-a-budget-that-sticks/)) and sort each purchase honestly: *did this genuinely add to my life?* You'll typically find:
 
 - **High-value spending** — worth every cent, keep or increase.
-- **Autopilot spending** — subscriptions you forgot, convenience purchases, impulse buys, "treats" that have become routine and lost their spark. This is the goldmine to cut.
+- **Autopilot spending** — subscriptions you forgot (total yours with the [subscription cost calculator](/calculators/subscription-cost-calculator/) — most people underestimate the stack 2-3×), convenience purchases, impulse buys, "treats" that have become routine and lost their spark. This is the goldmine to cut.
 - **Status spending** — money spent to impress others rather than for your own enjoyment. Often the easiest and most freeing to eliminate.
 
 Cutting the autopilot and status categories frequently frees up substantial money with zero felt loss.

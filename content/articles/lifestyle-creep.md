@@ -44,7 +44,7 @@ Watch the categories that ratchet up silently:
 
 - **Housing** — the biggest one. "Just a bit nicer" adds hundreds a month, permanently, and drags up furniture, utilities, and commute costs with it.
 - **Cars** — financing a fancier vehicle every few years, covered in [how much to spend on a car](/articles/how-much-to-spend-on-a-car/).
-- **Subscriptions and convenience** — delivery, streaming, apps; each small, collectively large, and easy to run through our [latte factor calculator](/calculators/latte-factor-calculator/).
+- **Subscriptions and convenience** — delivery, streaming, apps; each small, collectively large. The [subscription cost calculator](/calculators/subscription-cost-calculator/) totals the stack, and the [latte factor calculator](/calculators/latte-factor-calculator/) prices any recurring habit over a decade.
 - **"Rewards" spending** — treating yourself after every accomplishment until treats are the baseline.
 
 ## Enjoy your money — on purpose
