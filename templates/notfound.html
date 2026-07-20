@@ -11,11 +11,15 @@
 <section class="container section">
   <h2>Popular calculators</h2>
   <div class="grid">
-    {% for c in calcs[:8] %}
+    {% set popular = ['mortgage-calculator', 'compound-interest-calculator', 'take-home-pay-calculator', 'rent-vs-buy-calculator', 'fire-number-calculator', 'credit-card-payoff-calculator', 'tax-bracket-calculator', 'auto-loan-calculator'] %}
+    {% for s in popular %}
+    {% set c = (calcs | selectattr('slug', 'equalto', s) | list | first) %}
+    {% if c %}
     <a class="card" href="/calculators/{{ c.slug }}/">
       <span class="card-emoji">{{ c.emoji }}</span>
       <span class="card-title">{{ c.h1 }}</span>
     </a>
+    {% endif %}
     {% endfor %}
   </div>
 </section>

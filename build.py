@@ -192,13 +192,14 @@ def build():
     # guides directory page — grouped by theme (first matching rule wins)
     guide_groups_def = [
         ("Investing", ["invest", "index-fund", "etf", "stock", "bond", "dollar-cost", "diversif",
-                       "compound", "passive-income", "market-crash", "myths", "time-value", "opportunity-cost"]),
+                       "compound", "passive-income", "market-crash", "myths", "time-value", "opportunity-cost",
+                       "apr-vs-apy"]),
         ("Retirement", ["retire", "401k", "roth", "social-security", "fire", "rmd", "sequence"]),
         ("Home & housing", ["house", "home", "mortgage", "rent", "refinanc", "down-payment"]),
         ("Cars", ["car", "vehicle", "dealer"]),
         ("Debt & credit", ["debt", "credit", "loan", "pay-later", "payday"]),
         ("Budgeting & saving", ["budget", "saving", "save", "emergency", "paycheck", "sinking",
-                                "50-30-20", "lifestyle", "spend", "frugal", "goal"]),
+                                "50-30-20", "lifestyle", "spend", "frugal", "goal", "order-of-operations"]),
         ("Income & taxes", ["salary", "raise", "freelanc", "tax", "inflation", "job-loss", "negotiate", "windfall"]),
     ]
 
