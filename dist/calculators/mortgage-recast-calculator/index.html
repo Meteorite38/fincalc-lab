@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Recast Calculator — Lower the Payment, Keep the Rate</title>
+<meta name="description" content="Free mortgage recast calculator: apply a lump sum, re-amortize the balance over the remaining term, and see the new lower payment. Compares recasting against plain extra-payment prepayment and shows when each wins.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/mortgage-recast-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Mortgage Recast Calculator — Lower the Payment, Keep the Rate">
+<meta property="og:description" content="Free mortgage recast calculator: apply a lump sum, re-amortize the balance over the remaining term, and see the new lower payment. Compares recasting against plain extra-payment prepayment and shows when each wins.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/mortgage-recast-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mortgage Recast Calculator — Lower the Payment, Keep the Rate">
+<meta name="twitter:description" content="Free mortgage recast calculator: apply a lump sum, re-amortize the balance over the remaining term, and see the new lower payment. Compares recasting against plain extra-payment prepayment and shows when each wins.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does a recast change my interest rate or payoff date?", "acceptedAnswer": {"@type": "Answer", "text": "Neither. The rate is untouched and the payoff date stays exactly where it was — the smaller balance is simply re-spread over the same remaining months, which is what drops the payment. That's the defining difference from refinancing (new rate, new term) and from prepaying (same payment, earlier payoff)."}}, {"@type": "Question", "name": "Can any mortgage be recast?", "acceptedAnswer": {"@type": "Answer", "text": "Conventional loans backed by Fannie Mae or Freddie Mac generally can, for a $150-500 fee after a minimum principal payment (often $5,000-10,000). FHA, VA and USDA loans cannot be recast — for those, the options are prepaying (keeps the payment, shortens the loan) or refinancing. Jumbo loans depend on the servicer's policy."}}, {"@type": "Question", "name": "Is recasting better than refinancing to lower my payment?", "acceptedAnswer": {"@type": "Answer", "text": "If your rate is at or below market, almost always — a recast costs ~$250 and keeps the rate, versus thousands in closing costs and a new (likely higher) rate. Refinancing only wins the payment-lowering contest when rates have dropped meaningfully below what you're paying, or you need cash out or a term change, which a recast can't do."}}, {"@type": "Question", "name": "Why did my payment barely drop after my recast?", "acceptedAnswer": {"@type": "Answer", "text": "Payment relief scales with the share of the balance you paid off. A $20,000 lump on a $400,000 balance is 5% — so the payment falls roughly 5%, maybe $120 on a $2,400 payment. For dramatic relief you need a dramatic principal cut (the post-home-sale recast works because it's often 20-40% of the balance). Run the exact numbers before paying the fee."}}, {"@type": "Question", "name": "Should I recast or just invest the lump sum?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the mortgage rate to what the money could earn. Recasting a 3% mortgage 'earns' 3% guaranteed plus cash-flow relief; a diversified portfolio has historically earned more over long horizons, with risk. High rate (6.5%+): the recast/prepay side strengthens. Low rate with solid cash flow: investing the lump usually builds more wealth — the debt-vs-invest calculator makes the comparison concrete."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Mortgage Recast Calculator", "item": "https://fincalc-lab.pages.dev/calculators/mortgage-recast-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Mortgage Recast Calculator</nav>
+  <h1>📉 Mortgage Recast Calculator</h1>
+  <p class="lead">A recast is the least-known move in the mortgage playbook: pay a lump sum toward principal, pay a ~$250 fee, and the lender re-computes your payment on the smaller balance — same rate, same payoff date, permanently lower monthly bill. No appraisal, no credit check, no closing costs. This calculator shows what your lump sum buys.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current mortgage balance ($)</span>
+      
+      <input type="number" id="balance" value="350000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Interest rate (%)</span>
+      
+      <input type="number" id="rate" value="6.0" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years left on the loan</span>
+      
+      <input type="number" id="left" value="25" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Lump sum to apply ($)</span>
+      
+      <input type="number" id="lump" value="50000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Recast fee ($) <em class="hint">(typically $150-500)</em></span>
+      
+      <input type="number" id="fee" value="250" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Recast vs refinance vs prepay: three tools, three jobs</h2>
+<p>People conflate three distinct moves. A <strong>refinance</strong> replaces the loan — new rate, new term, 2-3% closing costs, full underwriting; it's the tool when <em>rates have dropped</em> (run the <a href="/calculators/mortgage-refinance-calculator/">refinance break-even</a>). A <strong>prepayment</strong> shrinks the balance while keeping the payment — the payoff date moves closer and lifetime interest falls the most; it's the tool for <em>getting debt-free faster</em> (the <a href="/calculators/extra-mortgage-payment-calculator/">extra payment calculator</a> models it). A <strong>recast</strong> shrinks the balance and re-spreads it over the <em>original</em> remaining term — the payoff date stays put, but the required monthly payment drops permanently; it's the tool for <em>monthly cash-flow relief without touching a great rate</em>. Crucially, the recast keeps your 3% pandemic-era rate intact — which a refinance would destroy.</p>
+<h2>When a recast is exactly right</h2>
+<ul>
+<li><strong>You sold your old house after buying the new one.</strong> The classic case: you closed on the new home with a small down payment, the old home's sale lands $150,000 later, and you want the new mortgage payment sized as if you'd had that money at closing. A recast does precisely that — no refinance, no rate risk.</li>
+<li><strong>A windfall arrived and cash flow is the constraint.</strong> Inheritance, bonus, RSU vesting: if the goal is a lighter monthly obligation (new baby, one income for a while, starting a business), the recast converts the lump sum into permanent monthly relief at almost zero cost.</li>
+<li><strong>Your rate is below market.</strong> Refinancing to lower the payment would surrender the low rate; recasting lowers the payment while keeping it. In a 6-7% world, homeowners holding 2.5-3.5% mortgages should treat recasting as the default way to restructure.</li>
+<li><strong>You want optionality, not obligation.</strong> After a recast, nothing stops you from paying the <em>old</em> amount voluntarily — the extra goes to principal and you land near the prepayment outcome anyway. The recast lowers the floor; you choose the ceiling. That asymmetry — lower required payment, same allowed payment — is why a recast is rarely a mistake if the fee is small.</li>
+</ul>
+<h2>The fine print</h2>
+<ul>
+<li><strong>Eligibility:</strong> conventional (Fannie/Freddie) loans generally allow recasting; <strong>FHA, VA and USDA loans don't</strong>, and jumbo policies vary by servicer. Call and ask for a "loan modification recast" or "re-amortization."</li>
+<li><strong>Minimums:</strong> most servicers want $5,000-10,000 of principal reduction (some just require any lump plus the fee).</li>
+<li><strong>Fee:</strong> typically $150-500 — compare that to $6,000-10,000 of refinance closing costs for the same payment-lowering job.</li>
+<li><strong>Timing:</strong> the servicer re-amortizes after the lump posts; expect the new payment 1-2 statements later. Keep paying the old amount until it's official.</li>
+<li><strong>No cash out, no rate change, no term change:</strong> a recast only ever lowers the payment on the existing structure. If you want a different rate or term, that's a refinance conversation.</li>
+</ul>
+<h2>The math worth staring at</h2>
+<p>The counterintuitive part: <strong>recasting saves less interest than prepaying the identical sum</strong> — the table above shows why. Prepayment keeps your payment high, so the freed-up interest compounds into faster principal destruction; recasting hands that savings back to you as monthly cash instead. Neither is "better" — they're different assets. $50,000 recast into a $316/month payment cut is buying an annuity; $50,000 prepaid at 6% is earning a guaranteed 6% return (the logic of the <a href="/calculators/pay-off-debt-vs-invest-calculator/">debt vs invest comparison</a> applies directly — a below-market mortgage rate weakens the prepayment case and strengthens investing the lump instead). If the mortgage rate is high and cash flow is fine: prepay. Rate low, cash flow tight: recast. Rate low, cash flow fine: consider investing the lump and doing neither.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Does a recast change my interest rate or payoff date?</summary>
+      <p>Neither. The rate is untouched and the payoff date stays exactly where it was — the smaller balance is simply re-spread over the same remaining months, which is what drops the payment. That's the defining difference from refinancing (new rate, new term) and from prepaying (same payment, earlier payoff).</p>
+    </details>
+    
+    <details>
+      <summary>Can any mortgage be recast?</summary>
+      <p>Conventional loans backed by Fannie Mae or Freddie Mac generally can, for a $150-500 fee after a minimum principal payment (often $5,000-10,000). FHA, VA and USDA loans cannot be recast — for those, the options are prepaying (keeps the payment, shortens the loan) or refinancing. Jumbo loans depend on the servicer's policy.</p>
+    </details>
+    
+    <details>
+      <summary>Is recasting better than refinancing to lower my payment?</summary>
+      <p>If your rate is at or below market, almost always — a recast costs ~$250 and keeps the rate, versus thousands in closing costs and a new (likely higher) rate. Refinancing only wins the payment-lowering contest when rates have dropped meaningfully below what you're paying, or you need cash out or a term change, which a recast can't do.</p>
+    </details>
+    
+    <details>
+      <summary>Why did my payment barely drop after my recast?</summary>
+      <p>Payment relief scales with the share of the balance you paid off. A $20,000 lump on a $400,000 balance is 5% — so the payment falls roughly 5%, maybe $120 on a $2,400 payment. For dramatic relief you need a dramatic principal cut (the post-home-sale recast works because it's often 20-40% of the balance). Run the exact numbers before paying the fee.</p>
+    </details>
+    
+    <details>
+      <summary>Should I recast or just invest the lump sum?</summary>
+      <p>Compare the mortgage rate to what the money could earn. Recasting a 3% mortgage 'earns' 3% guaranteed plus cash-flow relief; a diversified portfolio has historically earned more over long horizons, with risk. High rate (6.5%+): the recast/prepay side strengthens. Low rate with solid cash flow: investing the lump usually builds more wealth — the debt-vs-invest calculator makes the comparison concrete.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/pmi-calculator/">
+        <span class="card-emoji">🚪</span>
+        <span class="card-title">PMI Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/heloc-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">HELOC Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/arm-vs-fixed-mortgage-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">ARM vs Fixed Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/closing-costs-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">Closing Costs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/balance-transfer-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Balance Transfer Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/15-vs-30-year-mortgage-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">15 vs 30 Year Mortgage Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/lease-vs-buy-a-car/">
+        <span class="card-title">"Lease vs Buy a Car: The Honest Math (and When Each Wins)"</span>
+        <span class="card-desc">A clear framework for deciding whether to lease or buy your next car — what leasing really costs, why buying usually wins long-term, and the cases where leasing makes sense.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-save-for-a-house-down-payment/">
+        <span class="card-title">"How to Save for a House Down Payment (Without It Taking Forever)"</span>
+        <span class="card-desc">How much to save for a down payment, where to keep it, and practical tactics to get there faster — plus why 20% isn't always the right target.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const B = val('balance'), r = val('rate')/100/12, yrs = Math.max(1, Math.round(val('left'))), n = yrs*12;
+  const L = val('lump'), fee = Math.max(0, val('fee'));
+  if (B <= 0 || L <= 0) { show('<div class="result-main">Enter a balance and a lump sum.</div>'); return; }
+  if (L >= B) { show('<div class="result-main">The lump sum pays the loan off entirely — no recast needed, just request a payoff quote.</div>'); return; }
+  const pay = (P, m) => r > 0 ? P * r / (1 - Math.pow(1 + r, -m)) : P / m;
+  const oldPay = pay(B, n);
+  const newBal = B - L;
+  const newPay = pay(newBal, n);
+  const relief = oldPay - newPay;
+  // Option B: same lump as prepayment, keep old payment -> earlier payoff
+  let bal = newBal, m2 = 0, intPre = 0;
+  while (bal > 0.005 && m2 < n) { const i = bal * r; intPre += i; bal = bal + i - oldPay; m2++; }
+  const monthsSaved = n - m2;
+  // total interest each path
+  const intRecast = newPay * n - newBal;
+  const intOld = oldPay * n - B;
+  const intPrepay = intPre;
+  const payback = relief > 0 ? fee / relief : 0;
+  show(`<div class="result-main">$${fmt(newPay,0)}/month after recasting<small>down from $${fmt(oldPay,0)} — <strong>$${fmt(relief,0)}/month of permanent relief</strong> for a $${fmt(fee,0)} fee (pays for itself in ${payback < 1 ? 'under a month' : fmt(Math.ceil(payback),0) + ' month' + (Math.ceil(payback) === 1 ? '' : 's')})</small></div>
+  <table>
+    <tr><th></th><th>Do nothing</th><th>Recast</th><th>Prepay, keep old payment</th></tr>
+    <tr><td>Monthly payment</td><td>$${fmt(oldPay,0)}</td><td><strong>$${fmt(newPay,0)}</strong></td><td>$${fmt(oldPay,0)}</td></tr>
+    <tr><td>Payoff date</td><td>${yrs} years</td><td>${yrs} years (unchanged)</td><td><strong>${Math.floor(m2/12)} yr ${m2%12} mo (${Math.floor(monthsSaved/12)} yr ${monthsSaved%12} mo sooner)</strong></td></tr>
+    <tr><td>Interest from here</td><td>$${fmt(intOld,0)}</td><td>$${fmt(intRecast,0)}</td><td><strong>$${fmt(intPrepay,0)}</strong></td></tr>
+    <tr><td>Interest saved vs doing nothing</td><td>—</td><td>$${fmt(intOld - intRecast,0)}</td><td><strong>$${fmt(intOld - intPrepay,0)}</strong></td></tr>
+  </table>
+  <p>Same $${fmt(L,0)} either way — the choice is what it buys: the <strong>recast buys monthly breathing room</strong> ($${fmt(relief,0)}/month you're no longer obligated to pay), the <strong>prepayment buys time and interest</strong> ($${fmt(intPrepay > 0 ? (intOld - intPrepay) - (intOld - intRecast) : 0,0)} more interest saved, ${Math.floor(monthsSaved/12)}+ years earlier freedom). Cash-flow stress favors the recast; wealth-maximizing favors the prepayment.</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
