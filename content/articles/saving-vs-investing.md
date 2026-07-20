@@ -30,6 +30,14 @@ The single best guide for whether a dollar should be saved or invested is **when
 
 Match each goal to the right tool by its timeline, and most of the saving-vs-investing confusion disappears.
 
+## What the difference is worth, in dollars
+
+Run $10,000 down both roads for 20 years. Saved at a realistic long-run 2.5% (savings rates dance around inflation), it becomes about **$16,400** — likely just holding even with prices, buying then roughly what $10,000 buys now. Invested at the stock market's historical ~7% real-inclusive average, it becomes about **$38,700** — with a genuinely bumpy ride: several 20%+ drops along the way, maybe a 40% one. That gap, $22,000 on a single deposit, is the price of leaving long-term money in the "safe" bucket. Now reverse it: that same $10,000 as a house down payment needed in 18 months has maybe a one-in-four chance of being worth less than you put in if it sits in stocks — and the [savings account version](/calculators/savings-goal-calculator/) is worth exactly what the plan requires. Each tool is catastrophically bad at the other's job, which is the entire point.
+
+## The gray zone: 3-10 year money
+
+The middle band deserves more than a shrug. A wedding in four years, a house in six, college in eight — too long for pure cash to feel good, too short to ride out a bad decade in stocks. Workable approaches: a **blend that de-risks on schedule** (say 60/40 stocks/safe assets at year six, stepping toward all-safe by year one — a DIY version of a target-date glide path); a **[CD or Treasury ladder](/calculators/cd-ladder-calculator/)** maturing when the money is needed, locking today's rates for known dates; or simply splitting the goal — invest the flexible half (a wedding can scale), save the committed half (the tuition bill can't). The discipline that matters: as the date approaches, de-risk on the calendar, not on your feelings about the market that week.
+
 ## The order: save first, then invest
 
 For most people the sequence is:

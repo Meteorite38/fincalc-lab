@@ -32,6 +32,15 @@ When deciding whether to borrow or to pay debt down early, compare the interest 
 - **A 4% mortgage is a different calculation.** With expected long-run investment returns above that, keeping the low-rate loan and investing the difference can build more wealth — at the cost of certainty. Paying it down is the guaranteed, lower-return, lower-stress choice.
 - **The crossover** sits roughly where the debt rate meets your realistic after-tax investment return. Above it, kill the debt. Below it, it's a judgment call about risk tolerance.
 
+## Good debt gone bad: the dose makes the poison
+
+Every "constructive" category has a failure mode, and it's usually size, not kind. A mortgage is good debt at 28% of income and a slow-motion crisis at 45% — same asset, same rate, different dose (the [home affordability calculator](/calculators/home-affordability-calculator/) draws that line). Student loans that raise earnings are good debt at $30,000 for an engineering degree and a two-decade anchor at $150,000 for a field paying $45,000 — the working rule of thumb: total borrowing under the realistic first-year salary. Even business debt, the classic wealth-builder, destroys wealth when it funds a hobby wearing a business costume. The three tests grade the *category*; the dose test — does the payment leave room for saving, investing and life? — grades *your* version of it. Run the payment through your [debt-to-income ratio](/calculators/debt-to-income-ratio-calculator/) before signing anything.
+
+## Two upgrades worth knowing
+
+- **Refinancing can move debt down the spectrum.** The same balance at a lower rate is strictly better debt: consolidating 24% card balances into an 11% personal loan (the [consolidation calculator](/calculators/debt-consolidation-calculator/) prices it), or a [0% balance transfer](/calculators/balance-transfer-calculator/) cleared within the window, converts destructive debt into merely expensive debt while you kill it. The trap: doing this without fixing the spending that built the balance — then you have both the loan and new card debt.
+- **Bad debt has a gravity well.** High-rate debt compounds faster than most incomes grow, which is why it converts small emergencies into permanent balances. The practical defense isn't willpower, it's the [emergency fund](/calculators/emergency-fund-calculator/) — cash that absorbs the surprise before it ever touches a 24% card. People think of the emergency fund as savings; it's actually debt prevention.
+
 ## The order of operations
 
 A widely-agreed priority list for spare cash:
