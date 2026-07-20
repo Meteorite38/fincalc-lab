@@ -1,0 +1,86 @@
+# -*- coding: utf-8 -*-
+"""Charitable bunching — every-year itemize/standard vs two-year bunching cycle, DAF framing, marginal-rate savings."""
+
+BUNCHING = [
+    {
+        "slug": "charitable-donation-bunching-calculator",
+        "emoji": "\U0001F381",
+        "category": "Taxes & Shopping",
+        "title": "Donation Bunching Calculator — Give the Same, Deduct More",
+        "h1": "Donation Bunching Calculator",
+        "blurb": "Two years of giving in one tax year vs every-year giving — the extra deduction and tax saved.",
+        "meta_description": "Free charitable donation bunching calculator: compare giving the same amount every year against bunching two years of gifts into one (often via a donor-advised fund) — extra deductions unlocked, tax saved per cycle, and when bunching isn't worth it.",
+        "intro": "Since the standard deduction roughly doubled, most givers get zero tax benefit from charity — their itemized total never clears the standard bar. Bunching fixes that with timing alone: concentrate two (or three) years of giving into one tax year, itemize that year, take the standard deduction the others. Same generosity, more deduction. This calculator sizes your version.",
+        "fields": [
+            {"id": "status", "label": "Filing status", "type": "select", "value": "mfj",
+             "options": [("single", "Single — $15,000 standard deduction"), ("mfj", "Married filing jointly — $30,000")]},
+            {"id": "giving", "label": "Charitable giving per year ($)", "value": 8000},
+            {"id": "salt", "label": "State & local taxes paid ($/yr)", "value": 12000, "hint": "income + property tax; capped at $10,000"},
+            {"id": "mortint", "label": "Mortgage interest ($/yr)", "value": 9000},
+            {"id": "other", "label": "Other itemizables ($/yr)", "value": 0, "hint": "large medical over 7.5% AGI, etc."},
+            {"id": "rate", "label": "Marginal tax rate (%)", "value": 24, "step": 0.5},
+        ],
+        "js": """
+function calculate() {
+  const std = document.getElementById('status').value === 'single' ? 15000 : 30000;
+  const G = Math.max(0, val('giving')), salt = Math.min(10000, Math.max(0, val('salt')));
+  const mi = Math.max(0, val('mortint')), oth = Math.max(0, val('other'));
+  const t = val('rate')/100;
+  const base = salt + mi + oth; // non-charity itemizables, per year
+  if (G <= 0) { show('<div class="result-main">Enter your annual charitable giving.</div>'); return; }
+  // Strategy A: same every year
+  const itemA = Math.max(std, base + G);
+  const twoYearA = itemA * 2;
+  // Strategy B: bunch 2 years of giving into year 1
+  const itemB1 = Math.max(std, base + 2*G);
+  const itemB2 = Math.max(std, base);
+  const twoYearB = itemB1 + itemB2;
+  const extraDed = twoYearB - twoYearA;
+  const saved = extraDed * t;
+  const alreadyItemizing = base + G > std;
+  const neverClears = base + 2*G <= std;
+  let msg;
+  if (neverClears) {
+    msg = `Even two years of giving stacked together ($${fmt(2*G,0)} + $${fmt(base,0)} of other deductions) doesn't clear the $${fmt(std,0)} standard deduction — try a 3-year bunch (roughly ${(base + 3*G > std) ? 'works: $' + fmt((Math.max(std, base+3*G)+2*std) - 3*itemA,0) + ' of extra deduction per 3-yr cycle' : 'still short at your numbers'}), or simply take the standard deduction and give without the tax math.`;
+  } else if (extraDed <= 0) {
+    msg = `You itemize comfortably every year already (base deductions $${fmt(base,0)} &gt; $${fmt(std,0)} standard) — every donated dollar is fully deductible as-is, and bunching adds nothing. Give on whatever schedule suits the charities.`;
+  } else {
+    msg = `Bunching unlocks <strong>$${fmt(extraDed,0)} of extra deductions every two years</strong> — worth about <strong>$${fmt(saved,0)}</strong> at your ${fmt(t*100,0)}% marginal rate, from timing alone. ${alreadyItemizing ? 'You barely itemize each year now, so the standard-deduction year is where the gain comes from.' : 'Right now your giving earns no deduction at all — bunching converts wasted generosity into deductible generosity.'}`;
+  }
+  show(`<div class="result-main">${extraDed > 0 ? '$' + fmt(saved,0) + ' saved per 2-year cycle' : 'Bunching adds nothing here'}<small>same $${fmt(G,0)}/yr of generosity, different calendar</small></div>
+  <table>
+    <tr><th></th><th>Year 1</th><th>Year 2</th><th>2-yr total deductions</th></tr>
+    <tr><td>Give $${fmt(G,0)} every year</td><td>$${fmt(itemA,0)} ${base + G > std ? '(itemized)' : '(standard)'}</td><td>$${fmt(itemA,0)}</td><td>$${fmt(twoYearA,0)}</td></tr>
+    <tr><td><strong>Bunch $${fmt(2*G,0)} into year 1</strong></td><td>$${fmt(itemB1,0)} ${base + 2*G > std ? '(itemized)' : '(standard)'}</td><td>$${fmt(itemB2,0)} (standard)</td><td><strong>$${fmt(twoYearB,0)}</strong></td></tr>
+    <tr><td>Extra deduction from timing</td><td colspan="3"><strong>$${fmt(Math.max(0,extraDed),0)}</strong> &rarr; $${fmt(Math.max(0,saved),0)} of tax at ${fmt(t*100,0)}%</td></tr>
+  </table>
+  <p>${msg}</p>`);
+}
+""",
+        "body_html": """
+<h2>Why most charitable deductions quietly died in 2018</h2>
+<p>The math that used to work — every donated dollar reduces taxable income — now has a gate in front of it. Deductions only matter <em>above</em> the standard deduction ($15,000 single / $30,000 joint for 2025), and with state and local taxes capped at $10,000, a typical married couple's itemizables (capped SALT + shrinking mortgage interest) sit a few thousand dollars <em>below</em> the bar. Their $8,000 of annual giving pushes the total barely past standard — so only the sliver above $30,000 does any tax work, and often none does. Roughly 90% of filers now take the standard deduction, which means <strong>most charity in America earns no deduction at all</strong>. Bunching is the legal, boring fix: since the standard deduction resets every year, alternating between one <em>giant</em> itemized year and standard-deduction years harvests both.</p>
+<h2>The mechanics, in one example</h2>
+<p>A joint filer with $10,000 of capped SALT, $9,000 of mortgage interest and $8,000/year of giving. Every-year strategy: itemizables total $27,000 — below $30,000, so they take the standard deduction both years: <strong>$60,000 of two-year deductions, zero benefit from $16,000 donated</strong>. Bunched: give $16,000 in January and December of year one → $35,000 itemized in year one, $30,000 standard in year two = <strong>$65,000 of deductions</strong>. Same charities, same dollars, $5,000 more deducted — $1,200 back at a 24% marginal rate, every cycle, forever. Three-year bunching stretches the gap wider for smaller givers; the calculator flags when that's your version.</p>
+<h2>The donor-advised fund: bunching without lumpy charities</h2>
+<p>The objection — "my church needs monthly support, not a lump every two years" — is exactly what a <strong>donor-advised fund (DAF)</strong> solves. Contribute the bunched amount to the DAF in the tax year (deduction locks in immediately), then grant it out to charities on any schedule you like — monthly for years, if that's your pattern. Fidelity, Schwab and Vanguard run them with low minimums and near-zero friction. The DAF also unlocks the strategy's power move: <strong>donating appreciated stock</strong> instead of cash. Give shares held over a year and you deduct the full market value <em>and</em> nobody ever pays the capital-gains tax embedded in them — a double benefit worth more than the bunching itself for anyone holding big winners in a taxable account (the <a href="/calculators/capital-gains-tax-calculator/">capital gains calculator</a> shows what's being erased). Sell-then-donate is strictly worse than donate-then-let-the-charity-sell; the DAF makes the clean version one form.</p>
+<h2>Timing partners: what else belongs in the fat year</h2>
+<p>Bunching composes with everything else that moves taxable income between years:</p>
+<ul>
+<li><strong>High-income years are bunching years.</strong> A big <a href="/calculators/bonus-tax-calculator/">bonus</a>, <a href="/calculators/rsu-tax-calculator/">RSU vests</a>, a business exit — deductions are worth the most against your highest marginal rate, so aim the itemized year at the income spike.</li>
+<li><strong>Roth conversion years are usually NOT bunching years</strong> — conversions are deliberately done in <em>low</em>-rate years (<a href="/calculators/roth-conversion-calculator/">the conversion math</a>), where deductions are worth least. Separate the two.</li>
+<li><strong>From 70&frac12;, QCDs beat bunching entirely</strong> for IRA owners: qualified charitable distributions satisfy <a href="/calculators/rmd-calculator/">RMDs</a> without touching taxable income — no itemizing needed, better than any deduction. Bunching is the accumulator's tool; QCDs are the retiree's.</li>
+<li><strong>Medical procedures</strong> (deductible above 7.5% of AGI) and even January's mortgage payment (13 payments of interest in one year) can pile into the same fat year at the margin.</li>
+</ul>
+<h2>When not to bother</h2>
+<p>If your base deductions already clear the standard bar every year (big mortgage in a high-tax state), every donated dollar already deducts fully — bunching adds nothing but complexity. If giving is small relative to the gap (a $1,000/year giver rarely moves the needle even bunched), take the standard deduction and give anyway — <strong>the tax tail should never wag the generosity dog</strong>. The strategy's sweet spot: households giving $5,000-25,000 a year whose other itemizables hover near the standard deduction — for them, a calendar change is worth $1,000-4,000 per cycle, indefinitely, at zero cost to the causes they fund. Check where the freed-up money does the most good next with the <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a>.</p>
+""",
+        "faqs": [
+            ("What is donation bunching?", "Concentrating multiple years of charitable giving into a single tax year so the itemized total clears the standard deduction, then taking the standard deduction in the off years. Total generosity is unchanged; total deductions rise because the standard deduction 'floor' resets annually and you're no longer wasting giving underneath it."),
+            ("Do I need a donor-advised fund to bunch donations?", "No — you can simply give charities two years of support in one calendar year. The DAF just decouples your tax timing from the charities' cash flow: deduct everything this year, distribute monthly for the next 24 months. It also makes donating appreciated stock trivially easy, which is often the bigger win."),
+            ("Is donating appreciated stock really better than cash?", "Usually much better, for shares held over a year in a taxable account: you deduct full market value and the embedded capital gain vanishes untaxed — neither you nor the charity ever pays it. $10,000 of stock with a $4,000 gain donated directly saves the deduction PLUS ~$600-950 of capital gains tax versus selling and giving cash. Never donate losers, though — sell those, harvest the loss, give the proceeds."),
+            ("Are there limits on how much I can deduct for charity?", "Yes, generous ones: cash gifts to public charities deduct up to 60% of AGI; appreciated securities up to 30% of AGI. Excess carries forward five years. Bunching two or three normal years of giving rarely approaches the caps, but a very large stock gift in a modest-income year can — the carryforward handles it."),
+            ("Does bunching work if I give through my church weekly?", "Yes, via the DAF pattern: contribute two years' worth to the fund in December (deduction locks in), then set the DAF to grant your usual weekly/monthly amount to the church. The congregation sees no change; the IRS sees one big deductible year. Some givers skip the fund and simply prepay January-December of next year in late December — cruder, but it works for a single-charity pattern."),
+        ],
+    },
+]
