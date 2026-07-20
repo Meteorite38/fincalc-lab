@@ -82,125 +82,140 @@
   <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; Guides</nav>
   <h1>Money guides &amp; explainers</h1>
   <p class="lead">23 plain-English guides to the money decisions that matter — no jargon, no sales pitch, just the reasoning and the numbers.</p>
-  <div class="grid">
+  <input type="search" id="guide-filter" class="calc-filter" placeholder="Search 23 guides… (e.g. debt, retirement, investing)" aria-label="Search guides" oninput="filterGuides(this.value)">
+  <p id="guide-noresults" class="calc-noresults" hidden>No guides match — try another word.</p>
+  <div class="grid" id="guide-grid">
     
-    <a class="card" href="/articles/50-30-20-rule-in-real-life/">
+    <a class="card" href="/articles/50-30-20-rule-in-real-life/" data-name=""the 50/30/20 rule in real life: where it works, where it breaks, how to fix it" an honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.">
       <span class="card-title">"The 50/30/20 Rule in Real Life: Where It Works, Where It Breaks, How to Fix It"</span>
       <span class="card-desc">An honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.</span>
     </a>
     
-    <a class="card" href="/articles/apr-vs-apy-explained/">
+    <a class="card" href="/articles/apr-vs-apy-explained/" data-name=""apr vs apy: the difference that costs (or earns) you money" apr and apy look alike but mean different things. understand compounding, why lenders quote apr and banks quote apy, and how to compare fairly.">
       <span class="card-title">"APR vs APY: The Difference That Costs (or Earns) You Money"</span>
       <span class="card-desc">APR and APY look alike but mean different things. Understand compounding, why lenders quote APR and banks quote APY, and how to compare fairly.</span>
     </a>
     
-    <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+    <a class="card" href="/articles/how-compound-interest-builds-wealth/" data-name="how compound interest builds wealth (and why starting late costs so much) a plain-english walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.">
       <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
       <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
     </a>
     
-    <a class="card" href="/articles/what-affects-your-credit-score/">
+    <a class="card" href="/articles/what-affects-your-credit-score/" data-name=""what actually affects your credit score" the five factors behind your credit score, which ones matter most, and the practical habits that raise it — without the myths.">
       <span class="card-title">"What Actually Affects Your Credit Score"</span>
       <span class="card-desc">The five factors behind your credit score, which ones matter most, and the practical habits that raise it — without the myths.</span>
     </a>
     
-    <a class="card" href="/articles/dollar-cost-averaging-explained/">
+    <a class="card" href="/articles/dollar-cost-averaging-explained/" data-name=""dollar-cost averaging: why boring, automatic investing wins" how dollar-cost averaging works, what the research actually says versus lump-sum investing, and why the biggest benefit is behavioral, not mathematical.">
       <span class="card-title">"Dollar-Cost Averaging: Why Boring, Automatic Investing Wins"</span>
       <span class="card-desc">How dollar-cost averaging works, what the research actually says versus lump-sum investing, and why the biggest benefit is behavioral, not mathematical.</span>
     </a>
     
-    <a class="card" href="/articles/emergency-fund-vs-investing/">
+    <a class="card" href="/articles/emergency-fund-vs-investing/" data-name=""emergency fund vs investing: which dollar goes where first?" a decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.">
       <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
       <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
     </a>
     
-    <a class="card" href="/articles/fire-movement-explained/">
+    <a class="card" href="/articles/fire-movement-explained/" data-name=""the fire movement explained: financial independence by the numbers" what fire really means, the 25x rule and 4% withdrawal, the variants (lean, fat, coast, barista fire), and the one number that decides your timeline.">
       <span class="card-title">"The FIRE Movement Explained: Financial Independence by the Numbers"</span>
       <span class="card-desc">What FIRE really means, the 25x rule and 4% withdrawal, the variants (Lean, Fat, Coast, Barista FIRE), and the one number that decides your timeline.</span>
     </a>
     
-    <a class="card" href="/articles/good-debt-vs-bad-debt/">
+    <a class="card" href="/articles/good-debt-vs-bad-debt/" data-name=""good debt vs bad debt: a simple framework for borrowing decisions" not all debt is equal. a practical framework for telling wealth-building debt from wealth-destroying debt, using interest rate, asset value and cash flow.">
       <span class="card-title">"Good Debt vs Bad Debt: A Simple Framework for Borrowing Decisions"</span>
       <span class="card-desc">Not all debt is equal. A practical framework for telling wealth-building debt from wealth-destroying debt, using interest rate, asset value and cash flow.</span>
     </a>
     
-    <a class="card" href="/articles/how-much-house-can-you-afford/">
+    <a class="card" href="/articles/how-much-house-can-you-afford/" data-name=""how much house can you afford? the 28/36 rule and its honest limits" a practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.">
       <span class="card-title">"How Much House Can You Afford? The 28/36 Rule and Its Honest Limits"</span>
       <span class="card-desc">A practical framework for setting your housing budget — the 28/36 rule, the costs first-time buyers forget, and when the guidelines mislead.</span>
     </a>
     
-    <a class="card" href="/articles/how-much-to-save-for-retirement/">
+    <a class="card" href="/articles/how-much-to-save-for-retirement/" data-name=""how much should you save for retirement?" rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.">
       <span class="card-title">"How Much Should You Save for Retirement?"</span>
       <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
     </a>
     
-    <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+    <a class="card" href="/articles/how-much-to-spend-on-a-car/" data-name=""how much should you spend on a car? rules of thumb that actually work" practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.">
       <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
       <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
     </a>
     
-    <a class="card" href="/articles/how-to-build-credit/">
+    <a class="card" href="/articles/how-to-build-credit/" data-name=""how to build credit from scratch (and fix a low score)" a practical, step-by-step guide to building a credit history from zero and raising a low score — what actually moves the needle and what to ignore.">
       <span class="card-title">"How to Build Credit From Scratch (and Fix a Low Score)"</span>
       <span class="card-desc">A practical, step-by-step guide to building a credit history from zero and raising a low score — what actually moves the needle and what to ignore.</span>
     </a>
     
-    <a class="card" href="/articles/index-funds-explained/">
+    <a class="card" href="/articles/index-funds-explained/" data-name=""index funds explained: why the boring choice beats the pros" what an index fund is, why it quietly outperforms most active managers after fees, and how to use one as the core of a simple, low-cost portfolio.">
       <span class="card-title">"Index Funds Explained: Why the Boring Choice Beats the Pros"</span>
       <span class="card-desc">What an index fund is, why it quietly outperforms most active managers after fees, and how to use one as the core of a simple, low-cost portfolio.</span>
     </a>
     
-    <a class="card" href="/articles/marginal-vs-effective-tax-rate/">
+    <a class="card" href="/articles/marginal-vs-effective-tax-rate/" data-name=""marginal vs effective tax rate: the misunderstanding that costs people real money" why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.">
       <span class="card-title">"Marginal vs Effective Tax Rate: The Misunderstanding That Costs People Real Money"</span>
       <span class="card-desc">Why "being in the 24% bracket" doesn't mean losing 24% of your income, how progressive brackets actually work, and the raise myth debunked with numbers.</span>
     </a>
     
-    <a class="card" href="/articles/why-net-worth-is-the-only-number-that-matters/">
+    <a class="card" href="/articles/why-net-worth-is-the-only-number-that-matters/" data-name=""why net worth is the only number that really matters" income tells you how fast you're rowing; net worth tells you where the boat actually is. how to calculate it, track it, and use it to build wealth.">
       <span class="card-title">"Why Net Worth Is the Only Number That Really Matters"</span>
       <span class="card-desc">Income tells you how fast you're rowing; net worth tells you where the boat actually is. How to calculate it, track it, and use it to build wealth.</span>
     </a>
     
-    <a class="card" href="/articles/pay-off-debt-faster/">
+    <a class="card" href="/articles/pay-off-debt-faster/" data-name=""how to pay off debt faster: a strategy guide that respects both math and psychology" avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.">
       <span class="card-title">"How to Pay Off Debt Faster: A Strategy Guide That Respects Both Math and Psychology"</span>
       <span class="card-desc">Avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.</span>
     </a>
     
-    <a class="card" href="/articles/how-to-price-freelance-work/">
+    <a class="card" href="/articles/how-to-price-freelance-work/" data-name=""how to price freelance work without underselling yourself" why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.">
       <span class="card-title">"How to Price Freelance Work Without Underselling Yourself"</span>
       <span class="card-desc">Why new freelancers charge too little, how to calculate a rate that actually sustains you, and when to move from hourly to value-based pricing.</span>
     </a>
     
-    <a class="card" href="/articles/renting-vs-buying-a-home/">
+    <a class="card" href="/articles/renting-vs-buying-a-home/" data-name=""renting vs buying a home: the honest math" beyond 'rent is throwing money away' — the real costs on both sides, the break-even horizon, and how to decide based on your actual situation.">
       <span class="card-title">"Renting vs Buying a Home: The Honest Math"</span>
       <span class="card-desc">Beyond 'rent is throwing money away' — the real costs on both sides, the break-even horizon, and how to decide based on your actual situation.</span>
     </a>
     
-    <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+    <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/" data-name=""roth vs traditional: which retirement account wins?" a clear framework for choosing between roth and traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.">
       <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
       <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
     </a>
     
-    <a class="card" href="/articles/sinking-funds-saving-for-big-purchases/">
+    <a class="card" href="/articles/sinking-funds-saving-for-big-purchases/" data-name=""sinking funds: the simple trick for big expenses" how sinking funds turn irregular, budget-wrecking expenses into small predictable monthly savings — and why they beat relying on your emergency fund.">
       <span class="card-title">"Sinking Funds: The Simple Trick for Big Expenses"</span>
       <span class="card-desc">How sinking funds turn irregular, budget-wrecking expenses into small predictable monthly savings — and why they beat relying on your emergency fund.</span>
     </a>
     
-    <a class="card" href="/articles/how-to-start-investing-with-little-money/">
+    <a class="card" href="/articles/how-to-start-investing-with-little-money/" data-name=""how to start investing with little money: a beginner's roadmap" you don't need thousands to start investing. a practical, jargon-free roadmap for beginners — what to do first, what to buy, and the mistakes to skip.">
       <span class="card-title">"How to Start Investing With Little Money: A Beginner's Roadmap"</span>
       <span class="card-desc">You don't need thousands to start investing. A practical, jargon-free roadmap for beginners — what to do first, what to buy, and the mistakes to skip.</span>
     </a>
     
-    <a class="card" href="/articles/time-value-of-money-explained/">
+    <a class="card" href="/articles/time-value-of-money-explained/" data-name=""the time value of money: why a dollar today beats a dollar tomorrow" the single most important idea in finance, explained plainly — present value, future value, discounting, and why it underpins every investment and loan decision.">
       <span class="card-title">"The Time Value of Money: Why a Dollar Today Beats a Dollar Tomorrow"</span>
       <span class="card-desc">The single most important idea in finance, explained plainly — present value, future value, discounting, and why it underpins every investment and loan decision.</span>
     </a>
     
-    <a class="card" href="/articles/true-cost-of-car-ownership/">
+    <a class="card" href="/articles/true-cost-of-car-ownership/" data-name=""the true cost of owning a car (it's not the payment)" depreciation, insurance, fuel, maintenance and financing — the full cost of car ownership, and how to spend far less on getting around.">
       <span class="card-title">"The True Cost of Owning a Car (It's Not the Payment)"</span>
       <span class="card-desc">Depreciation, insurance, fuel, maintenance and financing — the full cost of car ownership, and how to spend far less on getting around.</span>
     </a>
     
   </div>
 </div>
+<script>
+function filterGuides(q) {
+  q = (q || '').trim().toLowerCase();
+  var shown = 0;
+  document.querySelectorAll('#guide-grid .card').forEach(function(card) {
+    var m = !q || card.getAttribute('data-name').indexOf(q) !== -1;
+    card.style.display = m ? '' : 'none';
+    if (m) shown++;
+  });
+  var nr = document.getElementById('guide-noresults');
+  if (nr) nr.hidden = shown !== 0;
+}
+</script>
 
 </main>
 <footer class="site-footer">

@@ -68,12 +68,15 @@ def load_md_dir(folder):
                     k, v = line.split(":", 1)
                     meta[k.strip()] = v.strip()
         MD.reset()
+        html = MD.convert(body)
+        toc_tokens = getattr(MD, "toc_tokens", [])
         out.append({
             "slug": meta.get("slug", fn[:-3]),
             "title": meta.get("title", fn[:-3]),
             "description": meta.get("description", ""),
             "date": meta.get("date", TODAY),
-            "html": MD.convert(body),
+            "html": html,
+            "toc": MD.toc if len(toc_tokens) >= 3 else "",
         })
     return out
 
