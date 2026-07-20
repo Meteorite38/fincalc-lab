@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSA Calculator — The Triple Tax Advantage, Quantified</title>
+<meta name="description" content="Free HSA calculator: project your health savings account balance and quantify the triple tax advantage — the same contribution in an HSA vs a traditional 401(k) vs a taxable account, side by side.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/hsa-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="HSA Calculator — The Triple Tax Advantage, Quantified">
+<meta property="og:description" content="Free HSA calculator: project your health savings account balance and quantify the triple tax advantage — the same contribution in an HSA vs a traditional 401(k) vs a taxable account, side by side.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/hsa-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HSA Calculator — The Triple Tax Advantage, Quantified">
+<meta name="twitter:description" content="Free HSA calculator: project your health savings account balance and quantify the triple tax advantage — the same contribution in an HSA vs a traditional 401(k) vs a taxable account, side by side.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use HSA money for anything at 65?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — after 65, non-medical withdrawals are taxed as ordinary income with no penalty, exactly like a traditional IRA. Medical withdrawals stay completely tax-free. That asymmetry is why the HSA is often called the best retirement account: its worst case matches a traditional IRA and its likely case beats it."}}, {"@type": "Question", "name": "Should I spend from my HSA or pay medical bills out of pocket?", "acceptedAnswer": {"@type": "Answer", "text": "If cash flow allows, pay out of pocket and let the HSA stay invested — you can reimburse yourself for documented expenses in any future year, tax-free, after decades of compounding. Keep the receipts (photos/scans in cloud storage are fine)."}}, {"@type": "Question", "name": "What happens to my HSA if I change jobs or health plans?", "acceptedAnswer": {"@type": "Answer", "text": "The account is yours forever — it's not tied to the employer, and there's nothing to roll over or forfeit. Losing HDHP coverage only stops new contributions; the existing balance keeps growing and remains spendable on qualified expenses tax-free."}}, {"@type": "Question", "name": "Do HSA contributions really avoid Social Security and Medicare tax?", "acceptedAnswer": {"@type": "Answer", "text": "Contributions made through your employer's payroll (a Section 125 plan) skip the 7.65% FICA tax as well as income tax — a break even 401(k) contributions don't get. Direct contributions you make outside payroll are income-tax-deductible but don't avoid FICA."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "HSA Calculator", "item": "https://fincalc-lab.pages.dev/calculators/hsa-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; HSA Calculator</nav>
+  <h1>🩹 HSA Calculator</h1>
+  <p class="lead">The HSA is the only account in the U.S. tax code where money can go in untaxed, grow untaxed, and come out untaxed. This calculator projects your balance and shows exactly what the triple tax advantage is worth against the same dollars in a 401(k) or a taxable account.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Current HSA balance ($)</span>
+      
+      <input type="number" id="balance" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual contribution ($) <em class="hint">(2025 limits: $4,300 single / $8,550 family)</em></span>
+      
+      <input type="number" id="contrib" value="4300" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Spent on medical costs each year ($) <em class="hint">(withdrawals for care along the way)</em></span>
+      
+      <input type="number" id="spend" value="500" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Annual return (%)</span>
+      
+      <input type="number" id="ret" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years until retirement</span>
+      
+      <input type="number" id="years" value="25" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Marginal tax rate (%)</span>
+      
+      <input type="number" id="taxrate" value="24" step="0.5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The only triple-tax-free account in the code</h2>
+<p>Every other tax-advantaged account makes you pick one tax break. Traditional 401(k)s and IRAs skip tax going in but tax every dollar coming out. Roth accounts tax the money first and never again. The <strong>HSA does all three</strong>: contributions are deductible (and skip Social Security/Medicare payroll tax too, if made through payroll), growth is never taxed, and withdrawals for qualified medical expenses are tax-free at any age. For a 24%-bracket earner contributing through payroll, roughly 31.65 cents of every HSA dollar is tax that never gets paid — before compounding even starts.</p>
+<h2>Who can contribute</h2>
+<p>You need to be enrolled in a qualifying <strong>high-deductible health plan (HDHP)</strong> — for 2025, a deductible of at least $1,650 (self) / $3,300 (family) with capped out-of-pocket maximums — and have no disqualifying other coverage (including Medicare, a general-purpose FSA, or being claimed as a dependent). Contribution limits for 2025 are <strong>$4,300 for self-only coverage and $8,550 for family</strong>, plus a $1,000 catch-up from age 55. The limits cover employer contributions too — many employers seed a few hundred dollars, which is free money on top of the tax break.</p>
+<h2>The strategy that turns an HSA into a super-IRA</h2>
+<p>Most people treat the HSA as a medical checking account: money in, money out at the pharmacy. The optimizer's move is different:</p>
+<ul>
+<li><strong>Max the contribution</strong> every year you're HDHP-eligible.</li>
+<li><strong>Invest the balance</strong> (most custodians allow it above a small cash floor — often $1,000-2,000) rather than leaving it in cash earning nothing.</li>
+<li><strong>Pay routine medical costs out of pocket</strong> if you can afford to, letting the HSA compound untouched.</li>
+<li><strong>Keep the receipts.</strong> There's no deadline for reimbursing yourself: a $2,000 medical bill from 2026 can justify a tax-free $2,000 withdrawal in 2046, after the money has tripled. Decades of saved receipts become an anytime, any-reason tax-free withdrawal right.</li>
+</ul>
+<p>From <strong>age 65</strong>, the trapdoor opens further: non-medical withdrawals are allowed with ordinary income tax but no penalty — making the worst-case HSA exactly as good as a traditional IRA, and the medical-case strictly better. Given that a 65-year-old couple is projected to need six figures for healthcare in retirement, "I might not have enough medical expenses" is rarely a real risk.</p>
+<h2>Watch-outs</h2>
+<ul>
+<li><strong>Non-qualified withdrawals before 65</strong> cost income tax plus a 20% penalty — the HSA is a terrible emergency fund. Build a real one first with the <a href="/calculators/emergency-fund-calculator/">emergency fund calculator</a>.</li>
+<li><strong>The HDHP itself must make sense.</strong> If you have high, predictable medical costs, a low-deductible plan can beat the HDHP + HSA combination even after the tax breaks — compare total premiums plus expected out-of-pocket costs, not just the tax perk.</li>
+<li><strong>Cash-parking kills the magic.</strong> An uninvested HSA earning 0.1% is just a slightly awkward checking account. The triple advantage compounds only if the money is invested.</li>
+<li><strong>State quirks:</strong> California and New Jersey don't recognize HSA deductions for state income tax and tax the account's earnings; the federal breaks still apply.</li>
+</ul>
+<h2>Where the HSA fits in the priority order</h2>
+<p>A common-sense funding order for retirement dollars: 401(k) up to the employer match (free money first — see the <a href="/calculators/401k-calculator/">401(k) calculator</a>), then max the HSA, then Roth/traditional contributions per your tax situation (the <a href="/calculators/roth-vs-traditional-401k-calculator/">Roth vs traditional calculator</a> settles that one), then back to the 401(k) limit. Check what the whole stack produces with the <a href="/calculators/retirement-savings-calculator/">retirement savings calculator</a>.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Can I use HSA money for anything at 65?</summary>
+      <p>Yes — after 65, non-medical withdrawals are taxed as ordinary income with no penalty, exactly like a traditional IRA. Medical withdrawals stay completely tax-free. That asymmetry is why the HSA is often called the best retirement account: its worst case matches a traditional IRA and its likely case beats it.</p>
+    </details>
+    
+    <details>
+      <summary>Should I spend from my HSA or pay medical bills out of pocket?</summary>
+      <p>If cash flow allows, pay out of pocket and let the HSA stay invested — you can reimburse yourself for documented expenses in any future year, tax-free, after decades of compounding. Keep the receipts (photos/scans in cloud storage are fine).</p>
+    </details>
+    
+    <details>
+      <summary>What happens to my HSA if I change jobs or health plans?</summary>
+      <p>The account is yours forever — it's not tied to the employer, and there's nothing to roll over or forfeit. Losing HDHP coverage only stops new contributions; the existing balance keeps growing and remains spendable on qualified expenses tax-free.</p>
+    </details>
+    
+    <details>
+      <summary>Do HSA contributions really avoid Social Security and Medicare tax?</summary>
+      <p>Contributions made through your employer's payroll (a Section 125 plan) skip the 7.65% FICA tax as well as income tax — a break even 401(k) contributions don't get. Direct contributions you make outside payroll are income-tax-deductible but don't avoid FICA.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-vs-traditional-401k-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Roth vs Traditional 401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/social-security-break-even-calculator/">
+        <span class="card-emoji">🏛</span>
+        <span class="card-title">Social Security Break-Even Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/coast-fire-calculator/">
+        <span class="card-emoji">🏄</span>
+        <span class="card-title">Coast FIRE Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-match-free-money/">
+        <span class="card-title">"What Is a 401(k) Match, and Why It's the Best Deal in Finance"</span>
+        <span class="card-desc">How employer 401(k) matching works, why skipping it means leaving free money on the table, and how vesting and contribution limits affect you.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const B0 = val('balance'), C = val('contrib'), S = val('spend');
+  const r = val('ret')/100, yrs = Math.min(100, Math.round(val('years'))), t = val('taxrate')/100;
+  if (yrs <= 0 || (B0 <= 0 && C <= 0)) { show('<div class="result-main">Enter a balance or contribution, and years above zero.</div>'); return; }
+  const net = C - S;
+  // HSA: pre-tax in, tax-free growth, tax-free out (qualified)
+  let hsa = B0;
+  for (let y = 0; y < yrs; y++) hsa = hsa*(1+r) + net;
+  hsa = Math.max(0, hsa);
+  // Traditional 401(k): same pre-tax dollars, taxed on withdrawal
+  let k401 = B0;
+  for (let y = 0; y < yrs; y++) k401 = k401*(1+r) + net;
+  const k401After = Math.max(0, k401) * (1 - t);
+  // Taxable: contributions are after-tax dollars, returns dragged ~15%
+  const rTax = r*0.85;
+  let taxable = B0*(1-t);
+  for (let y = 0; y < yrs; y++) taxable = taxable*(1+rTax) + net*(1-t);
+  taxable = Math.max(0, taxable);
+  const fica = C * 0.0765;
+  show(`<div class="result-main">$${fmt(hsa,0)}<small>tax-free HSA balance after ${yrs} years (spending $${fmt(S,0)}/yr on care along the way)</small></div>
+  <table>
+    <tr><td><strong>HSA — spendable on medical, tax-free</strong></td><td><strong>$${fmt(hsa,0)}</strong></td></tr>
+    <tr><td>Same dollars in a traditional 401(k), after ${fmt(t*100,0)}% tax</td><td>$${fmt(k401After,0)}</td></tr>
+    <tr><td>Same dollars in a taxable account</td><td>$${fmt(taxable,0)}</td></tr>
+    <tr><td>Triple-tax edge vs 401(k)</td><td>$${fmt(Math.max(0,hsa-k401After),0)}</td></tr>
+    <tr><td>Triple-tax edge vs taxable</td><td>$${fmt(Math.max(0,hsa-taxable),0)}</td></tr>
+    <tr><td>Bonus: payroll (FICA) tax avoided per year${net < C ? '' : ''}</td><td>$${fmt(fica,0)} if contributed through payroll</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
