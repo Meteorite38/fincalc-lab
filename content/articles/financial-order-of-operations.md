@@ -39,9 +39,17 @@ Aim to push your [savings rate](/calculators/savings-rate-calculator/) as high a
 
 Only now does it make sense to overpay low-rate debt (like a sub-6% mortgage) or fund medium-term goals (house down payment, kids' education). At this point it's a judgment call between the guaranteed return of prepaying and the likely-higher return of investing — see [good debt vs bad debt](/articles/good-debt-vs-bad-debt).
 
+## Step 5½ — the accounts most people miss
+
+Two upgrades inside step 5 that punch above their weight. The **HSA**, if you're on a high-deductible health plan, is arguably the single best account in the tax code — deductible going in, tax-free growing, tax-free out for medical costs, and payroll contributions even skip FICA; many planners fund it right after the match, before anything else (the [HSA calculator](/calculators/hsa-calculator/) shows why). And for the **self-employed**, step 5 has far more room than a day-job 401(k): a [solo 401(k) or SEP IRA](/calculators/solo-401k-vs-sep-ira-calculator/) shelters up to $70,000 of profit a year — side hustlers with W-2 jobs can stack the employer share on top of their day-job plan.
+
 ## Where mortgage prepayment fits
 
-A common question: where does overpaying a mortgage go? Generally near the bottom (step 6), because mortgage rates are usually lower than both high-interest debt and expected investment returns, and the interest may be tax-advantaged. Capturing the match, clearing expensive debt, and investing for retirement almost always come first. That said, the guaranteed return and peace of mind of a paid-off home lead some people to prioritize it once the earlier steps are solid — a reasonable personal choice.
+A common question: where does overpaying a mortgage go? Generally near the bottom (step 6), because mortgage rates are usually lower than both high-interest debt and expected investment returns, and the interest may be tax-advantaged. Capturing the match, clearing expensive debt, and investing for retirement almost always come first. That said, the guaranteed return and peace of mind of a paid-off home lead some people to prioritize it once the earlier steps are solid — a reasonable personal choice. Run the actual numbers with the [debt vs invest calculator](/calculators/pay-off-debt-vs-invest-calculator/) before deciding on feel.
+
+## What the order deliberately ignores
+
+Real life interleaves the steps, and three interruptions are legitimate. **A known near-term expense** (a baby in six months, a car on its last legs) justifies saving for it out of order — predictable costs handled in cash beat emergency-fund raids later ([sinking funds](/articles/sinking-funds-saving-for-big-purchases/) are the tool). **Employer benefits with deadlines** — open enrollment for an FSA, an espp window, expiring match true-ups — jump the queue because the option itself expires. And **morale spending** in tiny doses is maintenance, not sabotage: a plan so strict it collapses in month three loses to a 90% plan you actually run for a decade. What the order should *never* bend for: consumption upgrades disguised as necessities — that's [lifestyle creep](/articles/lifestyle-creep/) negotiating with you.
 
 ## The one-line summary
 

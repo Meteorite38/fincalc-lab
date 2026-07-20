@@ -42,9 +42,15 @@ Quarterly is ideal for most people — frequent enough to catch problems, infreq
 - **Falling:** debt is outpacing assets. Time to attack liabilities and cut spending before it compounds.
 - **Volatile but climbing:** normal for anyone with significant investments. Zoom out; the multi-year slope is what counts.
 
+## What to count, honestly
+
+Where people cook their own books: **cars** belong at what a dealer would actually pay (trade-in value, not what you spent — a $45,000 car is often a $30,000 asset the next morning); **the home** at a conservative market estimate, and remember selling costs 6-8% (agent commissions and closing costs), so the equity is smaller than the Zillow-minus-mortgage math suggests; **retirement accounts** at face value for trend purposes, though pre-tax balances carry an embedded tax bill (a $500,000 traditional 401(k) is maybe $400,000 of spendable money — the [RMD](/calculators/rmd-calculator/) and withdrawal taxes are real); **collectibles, points, furniture** — round to zero unless you'd genuinely sell them. Pensions and Social Security are wealth-like income streams; most people track them separately rather than capitalizing them. The rule underneath: net worth is only a useful instrument if it would survive an auditor with a straight face. Flattering numbers defeat the entire diagnostic purpose.
+
 ## Milestones worth noticing
 
 Net worth has satisfying inflection points: the day it crosses zero (assets finally exceed debts), the first $100,000 (famously the hardest, because compounding has little to work with early on), and the point where investment growth in a good year exceeds what you contributed — the moment your money starts out-earning your effort. None of these are visible in a paycheck. All of them are visible in a tracked net worth.
+
+A useful external benchmark, held loosely: the median U.S. household net worth is roughly $190,000, but it varies enormously by age — median households cross $100,000 in their late 30s, $200,000 in their late 40s, and peak near $400,000 around retirement. Comparisons motivate some people and corrode others; if the numbers race is the corroding kind, compare only against your own line from last year. The slope you control beats the percentile you don't.
 
 ## Bottom line
 
