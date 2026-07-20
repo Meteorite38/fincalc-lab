@@ -224,6 +224,7 @@ def build():
             ("roth-vs-traditional-401k-calculator", "Pay tax now (Roth) or later (traditional) — which leaves more spendable income?"),
             ("roth-conversion-calculator", "Convert IRA money at today's tax rate, or let it ride and pay at withdrawal?"),
             ("social-security-break-even-calculator", "Claim at 62, full retirement age or 70 — where's the break-even for each?"),
+            ("pension-lump-sum-vs-annuity-calculator", "Take the buyout or keep the monthly checks — what return would the lump have to earn?"),
             ("cost-of-waiting-calculator", "Start investing now vs in five years — what does waiting actually cost?"),
         ]),
     ]
