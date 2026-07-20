@@ -227,6 +227,12 @@ def build():
             ("pension-lump-sum-vs-annuity-calculator", "Take the buyout or keep the monthly checks — what return would the lump have to earn?"),
             ("cost-of-waiting-calculator", "Start investing now vs in five years — what does waiting actually cost?"),
         ]),
+        _cmp_group("Taxes & self-employment", [
+            ("tax-withholding-calculator", "Refund or bill next April — and which W-4 line fixes it before year-end?"),
+            ("quarterly-estimated-tax-calculator", "Safe harbor on last year's tax vs 90% of this year — which schedule costs less?"),
+            ("solo-401k-vs-sep-ira-calculator", "Solo 401(k) or SEP IRA — which shelters more of your self-employment profit?"),
+            ("bonus-tax-calculator", "The flat 22% withholding vs your real bracket — money back or more to pay?"),
+        ]),
     ]
     compare_flat = [it["calc"] for g in compare_groups for it in g["items"]]
     write("compare/index.html", env.get_template("compare.html").render(
