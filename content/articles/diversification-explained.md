@@ -31,6 +31,14 @@ You can diversify along several dimensions:
 
 Here's the good news: you don't need dozens of holdings or any expertise. A single low-cost, broad-market index fund instantly diversifies across hundreds or thousands of companies and many sectors. Add a total-international fund and a bond fund, and you have a globally diversified portfolio in *three* holdings — or even one, with a "target-date" or "all-in-one" fund. Diversification is one of the few places in life where the easy option is also the expert-recommended one.
 
+## The diversification you don't see: yourself
+
+The most under-diversified asset most people own isn't in a brokerage account — it's their **human capital**. Your future earnings are a giant, concentrated position in one career, one employer, one industry. That reframes several decisions: [RSU holders](/calculators/rsu-tax-calculator/) stacking employer stock on top of an employer paycheck are doubling a bet they already can't exit; a realtor loading up on rental properties has income *and* assets riding the same housing cycle; a tech worker's index fund is already ~30% tech, so tilting further into tech "because I understand it" concentrates the very risk their salary carries. The correlated-failure scenario — asset drops *and* layoffs in the same quarter — is exactly what a diversified portfolio exists to survive. The practical rule: **let your portfolio hedge your paycheck, not echo it.**
+
+## Correlation: the fine print on the free lunch
+
+Diversification works because holdings don't move together — which means it works *least* exactly when markets panic, as correlations spike and "everything falls at once" (2008 and March 2020 both rhymed this way). Three honest implications: the stock-half of diversification cushions single-company disasters, not global crashes — that job belongs to bonds and cash, which is why [asset allocation](/articles/stocks-vs-bonds-asset-allocation/) matters more than fund count; owning 500 US large-caps and 500 more via a second S&P 500 fund adds zero diversification (same holdings, different wrapper — check overlap before counting funds); and international/bond diversification looks useless for years at a stretch, then pays for the whole ride in the one decade the home market stagnates. Diversification's cost isn't returns — it's the permanent, mild discomfort of always owning something that's underperforming. That discomfort is the fee for never being ruined.
+
 ## What diversification can and can't do
 
 - **It reduces "specific" risk** — the danger tied to any single company or sector. This risk is essentially free to eliminate by spreading out, so there's no reward for bearing it.
