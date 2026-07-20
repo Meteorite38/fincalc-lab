@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commute Cost Calculator — The Real Price of Getting to Work</title>
+<meta name="description" content="Calculate the true annual cost of your commute — fuel or transit, parking, and even the value of the time it takes — to compare jobs, homes and remote work.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/commute-cost-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Commute Cost Calculator — The Real Price of Getting to Work">
+<meta property="og:description" content="Calculate the true annual cost of your commute — fuel or transit, parking, and even the value of the time it takes — to compare jobs, homes and remote work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/commute-cost-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Commute Cost Calculator — The Real Price of Getting to Work">
+<meta name="twitter:description" content="Calculate the true annual cost of your commute — fuel or transit, parking, and even the value of the time it takes — to compare jobs, homes and remote work.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does commuting really cost?", "acceptedAnswer": {"@type": "Answer", "text": "Add up daily fuel or transit and parking across your commuting days per year for the out-of-pocket cost, then add the value of the time spent. A typical car commute can easily cost several thousand dollars and hundreds of hours a year."}}, {"@type": "Question", "name": "Should I include the value of my time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you want the full picture. Commuting time is time you can't use for work, rest, or family. Valuing it at your hourly wage (or what your time is worth to you) often reveals that time is the biggest commuting cost of all."}}, {"@type": "Question", "name": "How does this help me compare jobs?", "acceptedAnswer": {"@type": "Answer", "text": "A higher-paying job with a long, costly commute may deliver less real value than a closer, lower-paying one once you subtract commuting money and time. Comparing total commute cost puts offers on an honest, like-for-like footing."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/#calculators"},
+    {"@type": "ListItem", "position": 3, "name": "Commute Cost Calculator", "item": "https://fincalc-lab.pages.dev/calculators/commute-cost-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; Commute Cost Calculator</nav>
+  <h1>🚗 Commute Cost Calculator</h1>
+  <p class="lead">Your commute costs more than gas. Enter your daily travel to see the yearly cost in money — and optionally in the value of your time — so you can compare jobs, homes, or remote work fairly.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Daily travel cost ($) <em class="hint">(fuel + tolls, or transit fare)</em></span>
+      
+      <input type="number" id="dailycost" value="12" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Parking per day ($)</span>
+      
+      <input type="number" id="parking" value="5" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Commute days per week</span>
+      
+      <input type="number" id="daysweek" value="5" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Working weeks per year</span>
+      
+      <input type="number" id="weeks" value="48" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Round-trip commute (minutes/day)</span>
+      
+      <input type="number" id="minutes" value="60" step="5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Your hourly wage ($, for time value) <em class="hint">(0 to ignore time value)</em></span>
+      
+      <input type="number" id="wage" value="30" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Your commute is a hidden expense</h2>
+<p>Commuting quietly consumes both money and time, yet most people never add it up. Between fuel or transit fares, tolls, parking, and the hours themselves, a daily commute can cost thousands of dollars and hundreds of hours a year — a major factor that rarely makes it into job or housing decisions. This calculator makes the full cost visible.</p>
+<h2>Counting the money and the time</h2>
+<p>The out-of-pocket cost is straightforward: daily travel plus parking, times commuting days per year. A $17/day commute over 240 days is about $4,080 a year — real money that comes straight out of your take-home pay. But the bigger cost is often <strong>time</strong>: a one-hour daily round trip is roughly 240 hours a year, or ten full 24-hour days. Valued at even a modest hourly wage, that time is worth thousands more.</p>
+<h2>Where this changes decisions</h2>
+<ul>
+<li><strong>Comparing job offers.</strong> A higher salary with a long, expensive commute can pay <em>less</em> in real, after-commute terms than a closer job — factor the commute cost into the offer, alongside the effect on your true <a href="/calculators/salary-to-hourly-calculator/">hourly rate</a>.</li>
+<li><strong>Choosing where to live.</strong> The cheaper home far from work often isn't cheaper once you add years of commuting cost and time. Weigh the rent or price saving against the commute it creates.</li>
+<li><strong>Valuing remote or hybrid work.</strong> Cutting a commute two or three days a week is a real, tax-free raise plus reclaimed time — this tool quantifies exactly how much.</li>
+</ul>
+<h2>Money isn't the only cost</h2>
+<p>Beyond dollars and hours, long commutes carry well-documented costs to health, stress, and life satisfaction. When you see the annual figure — in money <em>and</em> in days of your life — a shorter commute, a move, or negotiating remote days often looks far more valuable than it first appears. Put a number on it, and you can make the trade-off deliberately instead of absorbing it invisibly.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much does commuting really cost?</summary>
+      <p>Add up daily fuel or transit and parking across your commuting days per year for the out-of-pocket cost, then add the value of the time spent. A typical car commute can easily cost several thousand dollars and hundreds of hours a year.</p>
+    </details>
+    
+    <details>
+      <summary>Should I include the value of my time?</summary>
+      <p>Yes, if you want the full picture. Commuting time is time you can't use for work, rest, or family. Valuing it at your hourly wage (or what your time is worth to you) often reveals that time is the biggest commuting cost of all.</p>
+    </details>
+    
+    <details>
+      <summary>How does this help me compare jobs?</summary>
+      <p>A higher-paying job with a long, costly commute may deliver less real value than a closer, lower-paying one once you subtract commuting money and time. Comparing total commute cost puts offers on an honest, like-for-like footing.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/salary-to-hourly-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary to Hourly Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/take-home-pay-calculator/">
+        <span class="card-emoji">🧾</span>
+        <span class="card-title">Take-Home Pay Estimator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/inflation-calculator/">
+        <span class="card-emoji">🎈</span>
+        <span class="card-title">Inflation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/net-worth-calculator/">
+        <span class="card-emoji">📋</span>
+        <span class="card-title">Net Worth Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hourly-to-salary-calculator/">
+        <span class="card-emoji">📆</span>
+        <span class="card-title">Hourly to Salary Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/overtime-pay-calculator/">
+        <span class="card-emoji">⏰</span>
+        <span class="card-title">Overtime Pay Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/paycheck-calculator/">
+        <span class="card-emoji">💵</span>
+        <span class="card-title">Paycheck Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/pay-raise-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Pay Raise Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-rate-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">Savings Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-increase-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Rent Increase Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/salary-inflation-calculator/">
+        <span class="card-emoji">📉</span>
+        <span class="card-title">Salary Inflation Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/passive-income-what-actually-works/">
+        <span class="card-title">"Passive Income: What Actually Works vs. the Hype"</span>
+        <span class="card-desc">An honest look at passive income — why most 'passive' income isn't passive, which approaches genuinely build hands-off cash flow, and the scams to avoid.</span>
+      </a>
+      
+      <a class="card" href="/articles/pay-off-debt-faster/">
+        <span class="card-title">"How to Pay Off Debt Faster: A Strategy Guide That Respects Both Math and Psychology"</span>
+        <span class="card-desc">Avalanche, snowball, consolidation and balance transfers compared honestly — which debt payoff strategy fits your numbers and your temperament.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const daily = val('dailycost'), parking = val('parking'), dpw = val('daysweek'), weeks = val('weeks');
+  const mins = val('minutes'), wage = val('wage');
+  const daysYear = dpw * weeks;
+  const moneyCost = (daily + parking) * daysYear;
+  const hoursYear = mins/60 * daysYear;
+  const timeValue = hoursYear * wage;
+  let rows = `<tr><td>Commute days per year</td><td>${fmt(daysYear,0)}</td></tr>
+    <tr><td>Out-of-pocket cost per year</td><td>$${fmt(moneyCost,0)}</td></tr>
+    <tr><td>Per month</td><td>$${fmt(moneyCost/12,0)}</td></tr>
+    <tr><td>Hours spent commuting per year</td><td>${fmt(hoursYear,0)} hrs (${fmt(hoursYear/24,1)} full days)</td></tr>`;
+  if (wage > 0) rows += `<tr><td>Value of that time</td><td>$${fmt(timeValue,0)}</td></tr>
+    <tr><td>Total cost incl. time</td><td>$${fmt(moneyCost + timeValue,0)}</td></tr>`;
+  show(`<div class="result-main">$${fmt(moneyCost,0)} / year<small>Out-of-pocket commuting cost${wage>0 ? ' \u00b7 $'+fmt(moneyCost+timeValue,0)+' including the value of your time' : ''}</small></div><table>${rows}</table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
