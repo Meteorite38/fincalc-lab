@@ -2,6 +2,7 @@
 {% block title %}{{ c.title }}{% endblock %}
 {% block description %}{{ c.meta_description }}{% endblock %}
 {% block canonical %}calculators/{{ c.slug }}/{% endblock %}
+{% block ogimage %}cat-{{ c.category | lower | replace(' & ', '-') | replace(' ', '-') }}.png{% endblock %}
 {% block head %}
 <script type="application/ld+json">{{ jsonld }}</script>
 <script type="application/ld+json">

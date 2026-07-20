@@ -13,9 +13,13 @@
 <meta property="og:description" content="{{ self.description() }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site_url }}/{{ self.canonical() }}">
+<meta property="og:image" content="{{ site_url }}/static/og/{% block ogimage %}default.png{% endblock %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ self.ogtitle() }}">
 <meta name="twitter:description" content="{{ self.description() }}">
+<meta name="twitter:image" content="{{ site_url }}/static/og/{{ self.ogimage() }}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
 <link rel="stylesheet" href="/static/style.css">
 <!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
