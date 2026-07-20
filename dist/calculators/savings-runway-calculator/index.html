@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings Runway Calculator — How Long Will Your Money Last?</title>
+<meta name="description" content="Find out how many months your savings would last if your income stopped, based on your cash and monthly expenses. Know your financial runway.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/savings-runway-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Savings Runway Calculator — How Long Will Your Money Last?">
+<meta property="og:description" content="Find out how many months your savings would last if your income stopped, based on your cash and monthly expenses. Know your financial runway.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/savings-runway-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Savings Runway Calculator — How Long Will Your Money Last?">
+<meta name="twitter:description" content="Find out how many months your savings would last if your income stopped, based on your cash and monthly expenses. Know your financial runway.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long should my savings last?", "acceptedAnswer": {"@type": "Answer", "text": "A common target is 3–6 months of expenses in accessible savings — more if your income is variable or you have dependents. This calculator shows your actual runway based on your savings and monthly burn."}}, {"@type": "Question", "name": "What's the difference between this and an emergency fund calculator?", "acceptedAnswer": {"@type": "Answer", "text": "The emergency fund calculator sizes the target you should build (months × expenses). This runway calculator tells you how long the savings you already have would actually last if income stopped."}}, {"@type": "Question", "name": "How can I make my savings last longer?", "acceptedAnswer": {"@type": "Answer", "text": "Save more (raising the total) and lower your essential monthly expenses (reducing the burn rate). In a real emergency you'd cut discretionary spending, so your true runway is often longer than your everyday-budget figure suggests."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Savings Runway Calculator", "item": "https://fincalc-lab.pages.dev/calculators/savings-runway-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Savings Runway Calculator</nav>
+  <h1>🛩️ Savings Runway Calculator</h1>
+  <p class="lead">If your income stopped tomorrow, how long could you last? Enter your available savings and monthly expenses to see your financial runway — the cushion that turns a job loss into a manageable gap.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Available savings / cash ($)</span>
+      
+      <input type="number" id="savings" value="20000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly expenses ($)</span>
+      
+      <input type="number" id="expenses" value="3500" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Any remaining monthly income ($) <em class="hint">(partial work, benefits, partner)</em></span>
+      
+      <input type="number" id="income" value="0" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What "runway" means for a household</h2>
+<p>Borrowed from the startup world, "runway" is how long you can keep going before the cash runs out. For a household it answers a reassuring, clarifying question: <strong>if my income stopped, how many months could I cover my expenses from savings?</strong> Knowing this number turns a vague fear of job loss into a concrete, manageable figure — and tells you exactly how much cushion you have to make decisions calmly.</p>
+<h2>How it's calculated</h2>
+<p>Runway is your available savings divided by your monthly net burn (expenses minus any income that would continue). $20,000 in savings with $3,500 of monthly expenses and no other income is about 5.7 months of runway. If a partner's income or partial work would continue, your net burn is lower and your runway stretches further — which is why the calculator lets you enter remaining income.</p>
+<h2>Why knowing your runway matters</h2>
+<ul>
+<li><strong>It quantifies your safety net.</strong> This is the practical flip side of the [emergency fund](/calculators/emergency-fund-calculator/): the fund is the target to build; the runway is how long what you have would actually last.</li>
+<li><strong>It informs big decisions.</strong> Enough runway gives you the freedom to leave a bad job, weather a layoff, take a career risk, or start a business without panic.</li>
+<li><strong>It reveals urgency.</strong> A runway under a month or two is a clear signal to prioritize building a buffer above almost everything else.</li>
+</ul>
+<h2>How to extend your runway</h2>
+<p>Two levers, both within your control:</p>
+<ol>
+<li><strong>Increase savings</strong> — the numerator. Every extra dollar saved adds directly to your runway. Automate it (see [how to stop living paycheck to paycheck](/articles/stop-living-paycheck-to-paycheck/)).</li>
+<li><strong>Lower your essential burn</strong> — the denominator. Knowing your bare-bones "survival budget" (below your normal spending) means your runway in a real emergency is actually longer than this everyday figure suggests, since you'd cut discretionary costs.</li>
+</ol>
+<p>Aim to build toward at least 3–6 months of runway. Beyond the money, the peace of mind of knowing you have breathing room is one of the most valuable things savings can buy.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How long should my savings last?</summary>
+      <p>A common target is 3–6 months of expenses in accessible savings — more if your income is variable or you have dependents. This calculator shows your actual runway based on your savings and monthly burn.</p>
+    </details>
+    
+    <details>
+      <summary>What's the difference between this and an emergency fund calculator?</summary>
+      <p>The emergency fund calculator sizes the target you should build (months × expenses). This runway calculator tells you how long the savings you already have would actually last if income stopped.</p>
+    </details>
+    
+    <details>
+      <summary>How can I make my savings last longer?</summary>
+      <p>Save more (raising the total) and lower your essential monthly expenses (reducing the burn rate). In a real emergency you'd cut discretionary spending, so your true runway is often longer than your everyday-budget figure suggests.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-rate-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">Savings Rate Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-affordability-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/budget-calculator/">
+        <span class="card-emoji">💸</span>
+        <span class="card-title">50/30/20 Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-increase-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Rent Increase Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/salary-gross-up-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Salary Gross-Up Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/stop-living-paycheck-to-paycheck/">
+        <span class="card-title">"How to Stop Living Paycheck to Paycheck"</span>
+        <span class="card-desc">A practical, judgment-free plan to break the paycheck-to-paycheck cycle — even on a modest income — by creating breathing room and building it into a buffer.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-big-should-your-emergency-fund-be/">
+        <span class="card-title">"How Big Should Your Emergency Fund Be? (And Where to Keep It)"</span>
+        <span class="card-desc">How to size your emergency fund for your situation, where to keep it so it's safe but accessible, and how to build one without derailing other goals.</span>
+      </a>
+      
+      <a class="card" href="/articles/etf-vs-mutual-fund/">
+        <span class="card-title">"ETFs vs Mutual Funds: Which Should You Choose?"</span>
+        <span class="card-desc">The real differences between ETFs and mutual funds — trading, fees, taxes and minimums — and why for most long-term investors it barely matters which you pick.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const savings = val('savings'), exp = val('expenses'), inc = val('income');
+  const netBurn = exp - inc;
+  if (netBurn <= 0) {
+    show(`<div class="result-main">Indefinitely \u2705<small>Your income of $${fmt(inc,0)} already covers expenses of $${fmt(exp,0)} \u2014 savings aren't being drawn down</small></div>`);
+    return;
+  }
+  const months = savings / netBurn;
+  const yrs = Math.floor(months/12), mo = Math.round(months%12);
+  let band;
+  if (months < 1) band = 'Very thin \u2014 building even one month of buffer is the priority';
+  else if (months < 3) band = 'Thin \u2014 aim to reach at least 3 months';
+  else if (months < 6) band = 'Reasonable \u2014 a solid start; 6 months is a common target';
+  else band = 'Strong \u2014 a healthy cushion of breathing room';
+  show(`<div class="result-main">${fmt(months,1)} months<small>${yrs>0 ? '(about '+yrs+'y '+mo+'m) ' : ''}your savings would last at $${fmt(netBurn,0)}/month net</small></div>
+  <table>
+    <tr><td>Available savings</td><td>$${fmt(savings,0)}</td></tr>
+    <tr><td>Net monthly burn</td><td>$${fmt(netBurn,0)}</td></tr>
+    <tr><td>Runway</td><td>${fmt(months,1)} months</td></tr>
+    <tr><td>Assessment</td><td>${band}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
