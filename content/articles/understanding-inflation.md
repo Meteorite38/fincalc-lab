@@ -24,9 +24,15 @@ Inflation quietly redistributes wealth:
 - **It hurts fixed incomes.** Pensions or wages that don't rise with inflation buy less each year — a flat salary is a real-terms [pay cut](/calculators/salary-inflation-calculator/).
 - **It helps borrowers with fixed-rate debt.** If you owe a fixed-rate mortgage, inflation erodes the real value of your debt — you repay tomorrow's cheaper dollars. This is a subtle reason a low fixed-rate loan feels easier over time.
 
+## Your inflation isn't the CPI
+
+The headline CPI is an average across a hypothetical household — nobody actually experiences it. Your personal rate depends on what your money buys. Renters feel housing inflation directly; homeowners with a fixed mortgage have frozen their biggest line item. Families paying childcare or college track categories that have outrun CPI for decades, while a household of streaming subscriptions and electronics enjoys categories that keep getting *cheaper*. Retirees skew toward healthcare, historically one of the fastest-rising baskets. This is why budget stress can be real even in a "3% inflation" year — and why the right response is to compute your own number: compare this year's actual spending on your recurring bills against last year's, category by category, using the [budget calculator](/calculators/budget-calculator/) as the ledger. Defense starts with knowing which prices are actually attacking you.
+
 ## The number that matters: real return
 
 Because inflation is always working against you, the return that counts isn't the headline ("nominal") one — it's the *real* return, after inflation. A 5% investment return during 3% inflation is really about 2% of actual growth in what your money can buy; our [real return calculator](/calculators/real-return-calculator/) does the math. Always subtract inflation mentally before judging whether a return, a raise, or a savings rate is actually getting you ahead.
+
+The same discipline applies to your salary. A 3% raise during 4% inflation is a pay cut wearing a costume — the [salary inflation calculator](/calculators/salary-inflation-calculator/) shows what your income is doing in real terms, which is the version that decides whether life is getting easier. Over a career this framing changes behavior: negotiating hard in high-inflation years matters more, because a skipped raise isn't standing still, it's sliding backwards.
 
 ## How to protect your money
 

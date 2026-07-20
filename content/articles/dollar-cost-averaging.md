@@ -37,11 +37,20 @@ The biggest threat to your returns isn't picking the wrong fund — it's *your o
 - **It reframes crashes as sales.** When you're a regular buyer, a market drop means your next contribution buys more shares. That psychological flip turns terrifying headlines into opportunities.
 - **It's automatable.** Set a standing transfer on payday and investing happens whether or not you're paying attention — the single most reliable way to stay invested through decades.
 
+## The windfall question: what if I *do* have a lump sum?
+
+An inheritance, a bonus, a home-sale profit — suddenly the lump-sum-vs-DCA question is real, and both answers have teeth. The mathematical answer is invest it now (markets rise ~70% of the time). The honest psychological answer: **the strategy you'll actually stick with beats the one you'll abandon.** If deploying $200,000 the week before a 20% crash would make you sell everything and swear off investing, that risk costs more than DCA's expected drag. A defensible compromise many planners use: invest half immediately, DCA the rest over 6-12 months on a fixed written schedule — no discretion, no "waiting for a better entry." The schedule is the point; the moment you start adjusting it based on headlines, you're market timing with extra steps. (What to do with the rest of a windfall — debt, buffer, giving — is its own decision; see [what to do with a windfall](/articles/what-to-do-with-a-windfall/).)
+
+## What DCA can't do
+
+Fair warning about the limits. DCA doesn't protect you from a market that stays down for years — it just ensures you bought some of it cheaply. It doesn't fix a bad asset: averaging into a single declining stock is throwing good money after bad; the strategy assumes a broadly diversified fund that recovers because the economy does. And the "average cost below average price" arithmetic, while true, is small — a fraction of a percent in most markets. The behavioral edge is worth multiples of the mathematical one, which is why the right comparison isn't DCA vs lump sum; it's DCA vs *the investing you'd actually do without it* — sporadic, headline-driven, and usually late.
+
 ## How to do it well
 
 - **Automate it fully.** Schedule the transfer for the day after payday so it happens before you can spend the money.
 - **Keep costs low.** Every fee is a permanent drag — funnel DCA into broad, low-cost index funds; see how much [fees cost over time](/calculators/investment-fee-impact-calculator/).
 - **Don't stop in downturns.** The whole benefit depends on continuing to buy when prices fall. Pausing during a crash — exactly when shares are cheapest — defeats the strategy.
+- **Increase the amount with every raise.** A fixed $500/month quietly shrinks as your income grows; tying the contribution to a percentage of pay — and bumping it with each raise — is how [savings rates](/calculators/savings-rate-calculator/) climb instead of stagnate.
 - **Ignore the noise.** DCA works *because* you stop watching daily prices. Check your balance quarterly, not hourly.
 
 ## The bottom line

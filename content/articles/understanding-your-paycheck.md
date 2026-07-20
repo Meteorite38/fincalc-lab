@@ -31,9 +31,23 @@ A typical pay stub subtracts several things from gross:
 
 A subtle but valuable distinction: **pre-tax deductions reduce your taxable income**, so they lower your tax bill too. Traditional retirement contributions and many health premiums are pre-tax — putting $200 into a pre-tax 401(k) reduces your take-home by *less* than $200, because it also shaves your tax. Post-tax deductions (like Roth contributions) come out after tax is calculated. This is why maxing pre-tax benefits is often more affordable than it looks.
 
+## A worked example: where $5,000 of gross goes
+
+Take a single filer earning $60,000, paid monthly ($5,000 gross), contributing 6% to a traditional 401(k) with a $180/month health premium. The stub reads roughly:
+
+- 401(k) contribution: −$300 (pre-tax, so taxable pay drops to $4,520)
+- Health premium: −$180 (also pre-tax at most employers)
+- Federal income tax withheld: about −$420
+- Social Security (6.2%) + Medicare (1.45%): −$369 (note: computed on pay *before* the 401(k) comes out — retirement contributions dodge income tax, not FICA)
+- State income tax (varies, call it 4%): about −$180
+
+Net deposit: roughly **$3,550 — 71% of gross**. Nothing on that list is a mistake or a scandal; it's a $300 investment in your own future, $180 of insurance, and about $970 of taxes. Seeing the stub as three buckets — *your future money, your benefits, and taxes* — makes it legible instead of demoralizing. Run your own version through the [take-home pay calculator](/calculators/take-home-pay-calculator/) with your actual numbers.
+
 ## Why your withholding might be "wrong"
 
 Tax withheld from each paycheck is an *estimate*. If too much is withheld, you get a refund at tax time (essentially an interest-free loan you gave the government); if too little, you owe. A big refund isn't free money — it means you overpaid all year. Adjusting your withholding so it closely matches your actual tax means more money in each paycheck instead of a lump sum later.
+
+Withholding drifts wrong at predictable moments: a mid-year raise (see what it really changes with the [pay raise calculator](/calculators/pay-raise-calculator/)), a second job or side income that no employer is withholding for, marriage or a new child, and bonuses — which are withheld at a flat supplemental rate that rarely matches your real bracket (the [bonus tax calculator](/calculators/bonus-tax-calculator/) shows the gap and whether it comes back at filing). After any of these, ten minutes updating your W-4 beats a surprise bill in April.
 
 ## Reading your stub like a pro
 
