@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)" — FinCalc Lab</title>
+<meta name="description" content="The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/articles/roth-vs-traditional-decision/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content=""Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)" — FinCalc Lab">
+<meta property="og:description" content="The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/articles/roth-vs-traditional-decision/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content=""Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)" — FinCalc Lab">
+<meta name="twitter:description" content="The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/guides.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "\"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)\"",
+  "description": "The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.",
+  "datePublished": "2026-07-20",
+  "dateModified": "2026-07-20",
+  "author": {"@type": "Organization", "name": "FinCalc Lab"},
+  "publisher": {"@type": "Organization", "name": "FinCalc Lab"},
+  "mainEntityOfPage": "https://fincalc-lab.pages.dev/articles/roth-vs-traditional-decision/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://fincalc-lab.pages.dev/guides/"},
+    {"@type": "ListItem", "position": 3, "name": "\"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)\"", "item": "https://fincalc-lab.pages.dev/articles/roth-vs-traditional-decision/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; "Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)"</nav>
+  <article class="explainer article-page">
+    <h1>"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)"</h1>
+    <p class="article-meta">Last updated 2026-07-20</p>
+    
+    <details class="toc" open>
+      <summary>Contents</summary>
+      <div class="toc">
+<ul>
+<li><a href="#the-core-math-in-three-lines">The core math, in three lines</a></li>
+<li><a href="#tiebreaker-1-marginal-in-mostly-average-out">Tiebreaker 1: marginal in, mostly-average out</a></li>
+<li><a href="#tiebreaker-2-the-contribution-cap-doesnt-care-about-tax">Tiebreaker 2: the contribution cap doesn't care about tax</a></li>
+<li><a href="#tiebreaker-3-rmds-flexibility-and-what-you-leave-behind">Tiebreaker 3: RMDs, flexibility and what you leave behind</a></li>
+<li><a href="#so-what-should-you-actually-do">So what should you actually do?</a></li>
+<li><a href="#quick-numbers-to-anchor-on">Quick numbers to anchor on</a></li>
+</ul>
+</div>
+
+    </details>
+    
+    <p>Every 401(k) enrollment form and IRA application forces the same choice: <strong>traditional</strong> (deduct now, pay tax later) or <strong>Roth</strong> (pay tax now, never again). The internet treats this as a holy war. The math treats it as one question with a clean answer — plus a few tiebreakers that matter more than most people realize.</p>
+<h2 id="the-core-math-in-three-lines">The core math, in three lines</h2>
+<p>Take $10,000 of pre-tax salary you want to save for 30 years at 7%. Say your marginal tax rate is 24% today.</p>
+<ul>
+<li><strong>Traditional:</strong> all $10,000 goes in, grows to $76,123, then gets taxed at your retirement rate on the way out.</li>
+<li><strong>Roth:</strong> pay $2,400 tax first, invest $7,600, grow to $57,853 — all yours, tax-free.</li>
+</ul>
+<p>If your retirement tax rate is also 24%, the traditional path pays $76,123 × 0.76 = <strong>$57,853. Identical.</strong> Multiplication commutes: taxing before or after three decades of growth changes nothing. So the entire fair-math comparison collapses to one question: <strong>is your tax rate higher now, or in retirement?</strong> Higher now → traditional. Higher later → Roth. Run your own numbers in the <a href="/calculators/roth-vs-traditional-401k-calculator/">Roth vs traditional calculator</a>.</p>
+<p>If that were the whole story, this would be a short guide. It isn't, because three real-world wrinkles break the symmetry.</p>
+<h2 id="tiebreaker-1-marginal-in-mostly-average-out">Tiebreaker 1: marginal in, mostly-average out</h2>
+<p>Traditional contributions save tax at your <strong>top marginal rate</strong> — every deferred dollar would otherwise have been taxed at 22%, 24%, whatever your bracket is. But traditional <em>withdrawals</em> in retirement land on an empty tax return: the first dollars fill the standard deduction (taxed at 0%), then the 10% bracket, then 12%, and so on. A retiree withdrawing $60,000 might pay an <strong>effective</strong> rate of only 8-11% even though their working marginal rate was 22-24%.</p>
+<p>This asymmetry is the strongest argument for traditional, and it's why "you'll probably be in a lower bracket in retirement" is true for most people — especially those without large pensions or enormous pre-tax balances. If Social Security plus withdrawals put you well below your working income, traditional deferral at 22%+ is hard to beat.</p>
+<h2 id="tiebreaker-2-the-contribution-cap-doesnt-care-about-tax">Tiebreaker 2: the contribution cap doesn't care about tax</h2>
+<p>The 401(k) limit — $23,500 in 2025 — is the same number whether you choose Roth or traditional. But $23,500 of Roth is worth more than $23,500 of traditional, because its tax bill has already been paid <em>outside</em> the cap. Maxing out a Roth effectively shelters more money.</p>
+<p>The traditional path only keeps up if you take the tax you saved and faithfully invest it in a taxable brokerage account — where dividends and gains get taxed along the way, dragging the return. Our calculator's "maxing out" mode models exactly this: traditional plus a taxable side account versus a straight Roth. For genuine maxer-outers, Roth usually wins even with a modestly lower retirement tax rate, because tax-sheltered space is worth more than the deferral.</p>
+<h2 id="tiebreaker-3-rmds-flexibility-and-what-you-leave-behind">Tiebreaker 3: RMDs, flexibility and what you leave behind</h2>
+<ul>
+<li><strong>Required minimum distributions</strong> force money out of traditional accounts from your mid-70s, taxed as income whether you need it or not — and can push you into higher brackets or Medicare premium surcharges (IRMAA).</li>
+<li><strong>Roth balances have no RMDs</strong> once rolled to a Roth IRA, withdrawals never touch your taxable income, and heirs inherit them tax-free (they must empty the account within 10 years, but owe nothing on it).</li>
+<li><strong>Tax diversification</strong> is quietly valuable: with both bucket types in retirement, you can fill the low brackets from traditional withdrawals and top up from Roth without climbing brackets — a lever pure-traditional savers don't have.</li>
+</ul>
+<h2 id="so-what-should-you-actually-do">So what should you actually do?</h2>
+<ul>
+<li><strong>Low bracket now (10-12%)</strong> — early career, part-time, grad school: <strong>Roth, emphatically.</strong> You're prepaying tax at a rate you may never see again.</li>
+<li><strong>High bracket now (32-37%)</strong> — peak earning years: <strong>traditional.</strong> The deferral at your marginal rate almost certainly beats your future effective rate; use the tax savings to invest more.</li>
+<li><strong>Middle brackets (22-24%):</strong> genuinely close. Reasonable defaults: split contributions 50/50, or go traditional now and plan <strong>Roth conversions</strong> in low-income years (early retirement before Social Security is the classic window — convert just enough each year to fill the low brackets).</li>
+<li><strong>Whatever you choose, the employer match is always pre-tax</strong>, so a Roth contributor automatically builds a mix. And the match itself outranks this entire debate — never leave it on the table. See how much it's worth in our <a href="/articles/401k-match-free-money/">401(k) match guide</a>.</li>
+</ul>
+<h2 id="quick-numbers-to-anchor-on">Quick numbers to anchor on</h2>
+<p>Project balances with the <a href="/calculators/401k-calculator/">401(k) calculator</a> and <a href="/calculators/roth-ira-calculator/">Roth IRA calculator</a>, then stress-test what your withdrawals look like against the <a href="/calculators/retirement-withdrawal-calculator/">retirement withdrawal calculator</a>. If the two paths land within a few percent of each other — and in the middle brackets they usually do — stop agonizing. The decision that dwarfs Roth-vs-traditional is the savings rate itself: 15% into the "wrong" account type beats 8% into the perfect one, every time.</p>
+  </article>
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-vs-traditional-401k-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Roth vs Traditional 401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/pay-off-debt-vs-invest-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Pay Off Debt vs Invest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/social-security-break-even-calculator/">
+        <span class="card-emoji">🏛</span>
+        <span class="card-title">Social Security Break-Even Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rule-of-72-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Rule of 72 Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+  
+  <section class="related">
+    <h2>Related guides</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/dollar-cost-averaging-explained/">
+        <span class="card-title">"Dollar-Cost Averaging: Why Boring, Automatic Investing Wins"</span>
+        <span class="card-desc">How dollar-cost averaging works, what the research actually says versus lump-sum investing, and why the biggest benefit is behavioral, not mathematical.</span>
+      </a>
+      
+      <a class="card" href="/articles/should-you-pay-off-your-mortgage-early/">
+        <span class="card-title">"Should You Pay Off Your Mortgage Early? The Honest Answer"</span>
+        <span class="card-desc">The math and the psychology of paying off a mortgage early versus investing — when each wins, and why the 'right' answer is partly emotional.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+</div>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
