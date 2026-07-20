@@ -29,6 +29,14 @@ Card statements show a "minimum payment" that feels reassuringly small — often
 
 Carry a $5,000 balance at 24% APR and pay only the minimum, and you could spend well over a decade repaying it and pay several thousand dollars in interest — more than doubling the cost of whatever you bought. That 24% is also why paying off card debt is one of the best "investments" available: eliminating it is a guaranteed, tax-free 24% return no market can promise. This is why credit cards sit near the top of the [financial order of operations](/articles/financial-order-of-operations/) for debt payoff.
 
+## Reading the fine print: the APRs, plural
+
+One card carries several rates, and knowing which applies when prevents expensive surprises. The **purchase APR** is the headline number. The **cash advance APR** is typically 5+ points higher, starts accruing *immediately* (no grace period ever), and stacks a 3-5% fee on top — using a credit card at an ATM is among the most expensive mainstream borrowing there is, short of a [payday loan](/calculators/payday-loan-calculator/). The **penalty APR** (up to ~30%) can be triggered by a 60-day-late payment and applied to your existing balance indefinitely. And **promotional 0% rates** expire on a date printed in the offer — with the leftover balance repricing to the go-to rate the day after (the [balance transfer calculator](/calculators/balance-transfer-calculator/) plans around exactly that cliff). Same plastic, four different prices for money.
+
+## How the interest is actually computed
+
+The mechanics explain why balances feel sticky. Your card computes an **average daily balance** across the cycle: each day's balance summed and divided by the days in the cycle. The daily rate (APR ÷ 365 — at 24%, about 0.066%) applies to that average, and unpaid interest joins the balance to accrue tomorrow. Two practical consequences: **paying mid-cycle saves real money** even if you can't pay in full (a $2,000 payment on day 10 instead of day 28 shrinks the average daily balance meaningfully), and **the date your payment posts matters more than the date you send it** — a payment arriving one day after the statement closes still shows the full balance to the [utilization calculation](/calculators/credit-utilization-calculator/) the bureaus see, even for full payers.
+
 ## How to use cards the right way
 
 - **Pay the full statement balance every month.** Automate it. This alone keeps you in "free loan + rewards" territory forever.

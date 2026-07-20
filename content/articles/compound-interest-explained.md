@@ -39,6 +39,18 @@ Ben "saved" $24,000 of contributions and paid for it with about $330,000 of fina
 
 Run your own version of this comparison with our [compound interest calculator](/calculators/compound-interest-calculator/) — changing the "years" field teaches the lesson faster than any paragraph.
 
+## The rule of 72: compounding math you can do at a dinner table
+
+Divide 72 by the annual return and you get the approximate **doubling time**: at 7%, money doubles every ~10 years; at 10%, every ~7; at 2% (a savings account), every 36. The rule's real power is chaining doublings across a career: money invested at 25 with a 40-year runway at 7% doubles four times — ×16 — while the same dollars invested at 45 double twice — ×4. That one line of arithmetic *is* the Ana-and-Ben story, and it works in reverse too: at 24% credit card rates, a carried balance doubles in three years, which is why card debt feels like quicksand. The [rule of 72 calculator](/calculators/rule-of-72-calculator/) runs the variations.
+
+## The enemies of compounding
+
+The recursive loop only compounds what stays in the loop. Three leaks drain it quietly:
+
+- **Fees.** A 1% annual fee doesn't cost 1% — it costs a compounding 1% *of an ever-larger balance*. Over 40 years, 1% in fees consumes roughly a quarter of the final wealth; the [fee impact calculator](/calculators/investment-fee-impact-calculator/) makes this the most expensive line most investors never look at.
+- **Interruptions.** Every withdrawal doesn't just remove dollars — it removes those dollars' entire future doubling chain. Cashing out a small 401(k) at a job change ([the $60,000 mistake](/calculators/401k-early-withdrawal-calculator/)) amputates the branch, not the twig.
+- **Inflation.** At 3% inflation, purchasing power halves every ~24 years (72 ÷ 3 — the rule works here too). This is why long-term money must earn a *real* return above inflation, and why "safe" cash quietly loses the compounding race it looks like it's winning — the [real return calculator](/calculators/real-return-calculator/) separates the two.
+
 ## Where compounding actually shows up
 
 - **Savings accounts and CDs** compound daily or monthly at published rates. Low risk, modest rates.

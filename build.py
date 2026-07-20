@@ -258,6 +258,7 @@ def build():
             ("quarterly-estimated-tax-calculator", "Safe harbor on last year's tax vs 90% of this year — which schedule costs less?"),
             ("solo-401k-vs-sep-ira-calculator", "Solo 401(k) or SEP IRA — which shelters more of your self-employment profit?"),
             ("bonus-tax-calculator", "The flat 22% withholding vs your real bracket — money back or more to pay?"),
+            ("charitable-donation-bunching-calculator", "Give the same every year, or bunch two years into one — which deducts more?"),
         ]),
         _cmp_group("Career & family", [
             ("daycare-vs-staying-home-calculator", "Second income minus childcare, taxes and work costs — what does the job really net?"),
