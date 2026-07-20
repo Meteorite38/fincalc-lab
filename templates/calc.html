@@ -11,7 +11,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site_url }}/"},
-    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "{{ site_url }}/#calculators"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "{{ site_url }}/calculators/"},
     {"@type": "ListItem", "position": 3, "name": "{{ c.h1 }}", "item": "{{ site_url }}/calculators/{{ c.slug }}/"}
   ]
 }
@@ -19,7 +19,7 @@
 {% endblock %}
 {% block content %}
 <div class="container narrow">
-  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/#calculators">Calculators</a> &rsaquo; {{ c.h1 }}</nav>
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; {{ c.h1 }}</nav>
   <h1>{{ c.emoji }} {{ c.h1 }}</h1>
   <p class="lead">{{ c.intro }}</p>
 
@@ -59,7 +59,7 @@
   <section class="related">
     <h2>Related calculators</h2>
     <div class="grid">
-      {% for r in calcs if r.slug != c.slug and r.category == c.category %}
+      {% for r in (c.related_calcs or calcs) if r.slug != c.slug %}
       <a class="card" href="/calculators/{{ r.slug }}/">
         <span class="card-emoji">{{ r.emoji }}</span>
         <span class="card-title">{{ r.h1 }}</span>
@@ -68,11 +68,12 @@
     </div>
   </section>
 
-  {% if related_articles %}
+  {% set fr = c.related_guides or related_articles %}
+  {% if fr %}
   <section class="related">
     <h2>Further reading</h2>
     <div class="grid">
-      {% for a in related_articles %}
+      {% for a in fr %}
       <a class="card" href="/articles/{{ a.slug }}/">
         <span class="card-title">{{ a.title }}</span>
         <span class="card-desc">{{ a.description }}</span>

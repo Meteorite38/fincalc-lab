@@ -97,8 +97,15 @@ def _tokens(*parts):
 
 def compute_related(articles):
     """Attach relevance-matched related calculators and guides to each article."""
-    calc_tokens = [(c, _tokens(c["h1"], c.get("blurb", ""), c.get("category", ""),
-                               c.get("meta_description", ""))) for c in CALCS]
+    def calc_text(c):
+        body = c.get("body_html", "")
+        # strip tags so we match words, not markup
+        body = "".join(ch if ch.isalnum() or ch.isspace() else " " for ch in body)
+        faqs = " ".join(q + " " + a for q, a in c.get("faqs", []))
+        return _tokens(c["h1"], c.get("blurb", ""), c.get("category", ""),
+                       c.get("meta_description", ""), c.get("intro", ""), body, faqs)
+
+    calc_tokens = [(c, calc_text(c)) for c in CALCS]
     art_tokens = [(a, _tokens(a["title"], a.get("description", ""), a["slug"].replace("-", " ")))
                   for a in articles]
     for a, atok in art_tokens:
@@ -111,6 +118,24 @@ def compute_related(articles):
         gs = sorted((x for x in art_tokens if x[0]["slug"] != a["slug"]),
                     key=lambda gt: len(atok & gt[1]), reverse=True)
         a["related_guides"] = [g for g, t in gs if atok & t][:4]
+
+    # for each calculator: relevance-matched related calculators and guides
+    for c, ctok in calc_tokens:
+        others = [(o, t) for o, t in calc_tokens if o["slug"] != c["slug"]]
+        same_cat = [o for o, t in others if o["category"] == c["category"]]
+        ranked = sorted(others, key=lambda ot: (ot[0]["category"] == c["category"],
+                                                len(ctok & ot[1])), reverse=True)
+        rel = []
+        seen = set()
+        for o, t in ranked:
+            if o["slug"] not in seen:
+                rel.append(o)
+                seen.add(o["slug"])
+            if len(rel) >= 6:
+                break
+        c["related_calcs"] = rel
+        gs = sorted(art_tokens, key=lambda gt: len(ctok & gt[1]), reverse=True)
+        c["related_guides"] = [g for g, t in gs if ctok & t][:4]
 
 
 def faq_jsonld(calc):
