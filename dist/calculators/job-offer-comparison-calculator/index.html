@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Offer Comparison Calculator — Total Value, Not Just Salary</title>
+<meta name="description" content="Free job offer comparison calculator: compare two offers on total annual value — salary, bonus, 401(k) match, PTO worth, health insurance costs — plus the true hourly wage once commute time and work hours are counted.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/job-offer-comparison-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Job Offer Comparison Calculator — Total Value, Not Just Salary">
+<meta property="og:description" content="Free job offer comparison calculator: compare two offers on total annual value — salary, bonus, 401(k) match, PTO worth, health insurance costs — plus the true hourly wage once commute time and work hours are counted.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/job-offer-comparison-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Job Offer Comparison Calculator — Total Value, Not Just Salary">
+<meta name="twitter:description" content="Free job offer comparison calculator: compare two offers on total annual value — salary, bonus, 401(k) match, PTO worth, health insurance costs — plus the true hourly wage once commute time and work hours are counted.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is a 401(k) match actually worth?", "acceptedAnswer": {"@type": "Answer", "text": "Face value plus compounding: a 4% match on $85,000 is $3,400/year of free money, and invested over a 30-year career that single year's match becomes ~$25,000. Between two offers, a match gap of 3-4% of salary routinely outweighs a $5,000 base-salary difference — especially since the match compounds while the salary difference gets taxed first."}}, {"@type": "Question", "name": "How do I value PTO days when comparing offers?", "acceptedAnswer": {"@type": "Answer", "text": "Each paid day off is worth your daily rate (salary ÷ 260 workdays) — about $327/day at $85,000. An offer with 8 more days effectively pays ~$2,600 more for the same annual output, and unlike bonus money it can't be discretionarily cancelled. Also check accrual vs grant, rollover rules, and whether 'unlimited PTO' comes with a norm of actually taking less."}}, {"@type": "Question", "name": "Should I count the commute when comparing jobs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, twice. As time: commute hours go in the denominator of your true hourly rate — 45 minutes each way is ~360 hours/year, so a shorter commute is a raise paid in life. As money: fuel, parking, wear and tolls add $2,000-5,000/year for typical car commutes. Remote and hybrid arrangements are compensation, not perks — price them like it."}}, {"@type": "Question", "name": "How should I compare health insurance between two offers?", "acceptedAnswer": {"@type": "Answer", "text": "Compare your premium share (monthly cost × 12), then the deductible and out-of-pocket max under realistic usage — a family that hits a $4,000 deductible yearly should add that to the 'cost' of the high-deductible offer, minus any employer HSA seed money (free dollars, and the HSA's triple tax advantage has real value). Benefits summaries make this a 10-minute comparison most candidates never do."}}, {"@type": "Question", "name": "One offer pays more but the job seems worse — how do I decide?", "acceptedAnswer": {"@type": "Answer", "text": "Price the gap per hour of your life (this calculator's last row), then ask whether the unpriceables — manager, growth, stress, meaning — are worth that hourly difference to you. A $4,000 annual gap is about $2/hour: many people happily 'pay' $2/hour for a better boss. The point of the math isn't to overrule your gut; it's to tell your gut the exact price of following it."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Job Offer Comparison Calculator", "item": "https://fincalc-lab.pages.dev/calculators/job-offer-comparison-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Job Offer Comparison Calculator</nav>
+  <h1>⚖️ Job Offer Comparison Calculator</h1>
+  <p class="lead">Two offers, one number each — and the bigger salary is routinely the worse deal once the 401(k) match, bonus, PTO, insurance premiums and a longer commute are priced. This calculator totals each offer's real annual value and computes the truest metric of all: what each job pays per hour of your life.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Offer A: base salary ($/yr)</span>
+      
+      <input type="number" id="salA" value="85000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A: expected bonus (%)</span>
+      
+      <input type="number" id="bonusA" value="5" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A: 401(k) match (% of salary)</span>
+      
+      <input type="number" id="matchA" value="4" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A: PTO + holidays (days)</span>
+      
+      <input type="number" id="ptoA" value="20" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A: your health premium ($/mo) <em class="hint">(your share, from the benefits summary)</em></span>
+      
+      <input type="number" id="insA" value="150" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer A: commute round-trip (min/day) <em class="hint">(0 if remote)</em></span>
+      
+      <input type="number" id="commuteA" value="60" step="5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: base salary ($/yr)</span>
+      
+      <input type="number" id="salB" value="92000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: expected bonus (%)</span>
+      
+      <input type="number" id="bonusB" value="0" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: 401(k) match (% of salary)</span>
+      
+      <input type="number" id="matchB" value="0" step="0.5" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: PTO + holidays (days)</span>
+      
+      <input type="number" id="ptoB" value="12" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: your health premium ($/mo)</span>
+      
+      <input type="number" id="insB" value="350" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Offer B: commute round-trip (min/day)</span>
+      
+      <input type="number" id="commuteB" value="90" step="5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why the salary number misleads</h2>
+<p>Base salary is the loudest number and frequently the least decisive. A $92,000 offer with no match, thin PTO and a $350/month premium share is worth <em>less</em> per year than an $85,000 offer with a 4% match, 20 days off and cheap insurance — before counting a shorter commute. The components people skip: the <strong>401(k) match</strong> is literal free money (4% of $85k is $3,400/year — see <a href="/articles/401k-match-free-money/">why the match comes first</a>); <strong>health premium shares</strong> differ by $2,000-5,000/year between employers for similar coverage, and deductible/out-of-pocket differences can double that gap for families; an <strong>expected bonus</strong> is real but probabilistic — haircut it by how reliably it pays (ask the recruiter what last year's actual payout percentage was); and <strong>PTO</strong> is income you're paid while living — eight extra days is 3% of the year.</p>
+<h2>The true-hourly-rate lens</h2>
+<p>The second table row that changes decisions: divide each offer's total value by the hours it actually consumes — work hours <em>plus commute</em>, on the days you're not on PTO. A 45-minute-each-way commute is ~360 unpaid hours a year, an entire extra work-month and a half; a remote job's per-hour value routinely beats a 10%-higher in-office salary once those hours enter the denominator (the <a href="/calculators/commute-cost-calculator/">commute calculator</a> adds the driving <em>dollars</em> on top — fuel, wear and parking are their own $2,000-5,000). Per-hour framing also handles culture honestly: a "$95k" job whose real norm is 50-hour weeks pays 20% less per hour than the sticker suggested. Ask about actual hours in the interview — it's a compensation question wearing a culture costume.</p>
+<h2>What this calculator deliberately leaves out</h2>
+<ul>
+<li><strong>Equity.</strong> RSUs can dwarf everything above — and deserve their own math with tenure and volatility haircuts; the <a href="/articles/rsus-and-tech-compensation-guide/">RSU guide</a> covers pricing them into an offer.</li>
+<li><strong>Raise trajectory and title.</strong> A job paying $3k less but promoting in 18 months wins by year three — every future <a href="/calculators/pay-raise-calculator/">raise</a> compounds off the new base. Weight this heavily early-career.</li>
+<li><strong>Stability and severance culture.</strong> A volatile employer's premium is partly risk compensation; discount accordingly.</li>
+<li><strong>Retirement plan quality beyond the match</strong> — a plan with 0.8% target-date funds quietly claws back part of the match's value (<a href="/calculators/investment-fee-impact-calculator/">fee impact</a>).</li>
+<li><strong>State taxes on a relocation</strong> — a $10k raise moving from Texas to California can net negative; run both versions through the <a href="/calculators/take-home-pay-calculator/">take-home calculator</a>.</li>
+</ul>
+<h2>Using the output to negotiate</h2>
+<p>The gap this calculator surfaces is your negotiation script. If Offer A wins on total value but you prefer B's work, tell B specifically: "A's package is worth about $4,000 more once the match and premiums are counted — can you close that?" Concrete component math is far harder to wave off than "I was hoping for more." Remember which levers move easiest: base salary is the stickiest; sign-on bonuses, extra PTO, a review-at-6-months clause, and remote days are routinely granted precisely because they're cheaper than base — but as this calculator shows, they're worth real dollars to <em>you</em>. And whichever offer wins, route the raise deliberately: the <a href="/articles/lifestyle-creep/">save-half-of-every-raise rule</a> is easiest to apply on day one of a new job, when the higher income hasn't become normal yet.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much is a 401(k) match actually worth?</summary>
+      <p>Face value plus compounding: a 4% match on $85,000 is $3,400/year of free money, and invested over a 30-year career that single year's match becomes ~$25,000. Between two offers, a match gap of 3-4% of salary routinely outweighs a $5,000 base-salary difference — especially since the match compounds while the salary difference gets taxed first.</p>
+    </details>
+    
+    <details>
+      <summary>How do I value PTO days when comparing offers?</summary>
+      <p>Each paid day off is worth your daily rate (salary ÷ 260 workdays) — about $327/day at $85,000. An offer with 8 more days effectively pays ~$2,600 more for the same annual output, and unlike bonus money it can't be discretionarily cancelled. Also check accrual vs grant, rollover rules, and whether 'unlimited PTO' comes with a norm of actually taking less.</p>
+    </details>
+    
+    <details>
+      <summary>Should I count the commute when comparing jobs?</summary>
+      <p>Yes, twice. As time: commute hours go in the denominator of your true hourly rate — 45 minutes each way is ~360 hours/year, so a shorter commute is a raise paid in life. As money: fuel, parking, wear and tolls add $2,000-5,000/year for typical car commutes. Remote and hybrid arrangements are compensation, not perks — price them like it.</p>
+    </details>
+    
+    <details>
+      <summary>How should I compare health insurance between two offers?</summary>
+      <p>Compare your premium share (monthly cost × 12), then the deductible and out-of-pocket max under realistic usage — a family that hits a $4,000 deductible yearly should add that to the 'cost' of the high-deductible offer, minus any employer HSA seed money (free dollars, and the HSA's triple tax advantage has real value). Benefits summaries make this a 10-minute comparison most candidates never do.</p>
+    </details>
+    
+    <details>
+      <summary>One offer pays more but the job seems worse — how do I decide?</summary>
+      <p>Price the gap per hour of your life (this calculator's last row), then ask whether the unpriceables — manager, growth, stress, meaning — are worth that hourly difference to you. A $4,000 annual gap is about $2/hour: many people happily 'pay' $2/hour for a better boss. The point of the math isn't to overrule your gut; it's to tell your gut the exact price of following it.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rsu-tax-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">RSU Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/commute-cost-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Commute Cost Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/move-or-stay-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">Move or Stay Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-maintenance-budget-calculator/">
+        <span class="card-emoji">🔨</span>
+        <span class="card-title">Home Maintenance Budget Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-rollover-options-job-change/">
+        <span class="card-title">"Changing Jobs? The Four Things You Can Do With Your Old 401(k)"</span>
+        <span class="card-desc">Leave it, roll it to the new plan, roll it to an IRA, or cash out — the real trade-offs of each, the direct-rollover rule that avoids a tax disaster, and who should pick which.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/rsus-and-tech-compensation-guide/">
+        <span class="card-title">"RSUs and Tech Compensation: Reading, Taxing, and Not Fumbling the Equity"</span>
+        <span class="card-desc">How RSU grants actually work — vesting schedules, the 22% withholding trap, sell-vs-hold, comparing offers with equity, and building a life on lumpy income.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function offerValue(sal, bonusPct, matchPct, pto, insMo, commuteMin) {
+  const workDays = 260 - pto;
+  const dailyPay = sal / 260;
+  const bonus = sal * bonusPct / 100;
+  const match = sal * matchPct / 100;
+  const ptoValue = pto * dailyPay;           // paid days off, valued at the daily rate
+  const insCost = insMo * 12;
+  const total = sal + bonus + match - insCost;
+  const hoursWorked = workDays * 8 + workDays * commuteMin / 60;
+  const hourly = total / hoursWorked;
+  return { total: total, bonus: bonus, match: match, ptoValue: ptoValue, insCost: insCost,
+           hourly: hourly, hoursWorked: hoursWorked, workDays: workDays, commuteHrs: workDays * commuteMin / 60 };
+}
+function calculate() {
+  const A = offerValue(val('salA'), val('bonusA'), val('matchA'), Math.round(val('ptoA')), val('insA'), val('commuteA'));
+  const B = offerValue(val('salB'), val('bonusB'), val('matchB'), Math.round(val('ptoB')), val('insB'), val('commuteB'));
+  if (val('salA') <= 0 || val('salB') <= 0) { show('<div class="result-main">Enter both base salaries.</div>'); return; }
+  const dTotal = A.total - B.total, dHourly = A.hourly - B.hourly;
+  const winner = dHourly > 0.05 ? 'A' : (dHourly < -0.05 ? 'B' : 'tie');
+  const flip = (A.total > B.total) !== (A.hourly > B.hourly) && winner !== 'tie';
+  show(`<div class="result-main">Offer ${winner === 'tie' ? 'A ≈ B' : winner + ' wins'}<small>$${fmt(A.hourly,2)}/hr vs $${fmt(B.hourly,2)}/hr of your actual time &middot; total value $${fmt(A.total,0)} vs $${fmt(B.total,0)}</small></div>
+  <table>
+    <tr><th></th><th>Offer A</th><th>Offer B</th></tr>
+    <tr><td>Base salary</td><td>$${fmt(val('salA'),0)}</td><td>$${fmt(val('salB'),0)}</td></tr>
+    <tr><td>Expected bonus</td><td>$${fmt(A.bonus,0)}</td><td>$${fmt(B.bonus,0)}</td></tr>
+    <tr><td>401(k) match (free money)</td><td>$${fmt(A.match,0)}</td><td>$${fmt(B.match,0)}</td></tr>
+    <tr><td>Health premiums (your share)</td><td>&minus;$${fmt(A.insCost,0)}</td><td>&minus;$${fmt(B.insCost,0)}</td></tr>
+    <tr><td><strong>Total annual value</strong></td><td><strong>$${fmt(A.total,0)}</strong></td><td><strong>$${fmt(B.total,0)}</strong></td></tr>
+    <tr><td>Paid days off (already inside salary)</td><td>${Math.round(val('ptoA'))} days (worth $${fmt(A.ptoValue,0)})</td><td>${Math.round(val('ptoB'))} days (worth $${fmt(B.ptoValue,0)})</td></tr>
+    <tr><td>Hours: work + commute per year</td><td>${fmt(A.hoursWorked,0)} (${fmt(A.commuteHrs,0)} commuting)</td><td>${fmt(B.hoursWorked,0)} (${fmt(B.commuteHrs,0)} commuting)</td></tr>
+    <tr><td><strong>True hourly rate</strong></td><td><strong>$${fmt(A.hourly,2)}</strong></td><td><strong>$${fmt(B.hourly,2)}</strong></td></tr>
+  </table>
+  <p>${flip
+    ? `<strong>Note the flip:</strong> Offer ${A.total > B.total ? 'A' : 'B'} pays more per year, but Offer ${winner} pays more per hour of your life — the difference is PTO and commute. Decide which currency you're optimizing.`
+    : (winner === 'tie'
+      ? `Financially a coin flip — let the unpriceables decide: growth trajectory, manager quality, stability, and how each place felt.`
+      : `Offer ${winner} leads on both totals and per-hour value${Math.abs(dTotal) > 3000 ? ' — a $' + fmt(Math.abs(dTotal),0) + '/yr gap that compounds with every future raise being a percentage of it' : ' — narrowly; the unpriceables should carry real weight'}.`)}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

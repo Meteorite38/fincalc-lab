@@ -261,6 +261,7 @@ def build():
             ("charitable-donation-bunching-calculator", "Give the same every year, or bunch two years into one — which deducts more?"),
         ]),
         _cmp_group("Career & family", [
+            ("job-offer-comparison-calculator", "Two offers priced on salary, match, PTO, insurance and commute — which really pays more?"),
             ("daycare-vs-staying-home-calculator", "Second income minus childcare, taxes and work costs — what does the job really net?"),
             ("college-roi-calculator", "Degree cost plus foregone wages vs the earnings premium — when does it break even?"),
             ("pay-raise-calculator", "What a raise changes after taxes — and what it's worth over the years ahead?"),
