@@ -86,6 +86,8 @@ made.append(make("calculators.png", "Financial calculators with the math explain
                  "Savings, loans, retirement, tax, business & more", "Free tools"))
 made.append(make("guides.png", "Plain-English money guides",
                  "Investing, debt, retirement & budgeting explained", "Guides"))
+made.append(make("compare.png", "This vs that: money decisions, compared",
+                 "Rent vs buy \u00b7 Roth vs traditional \u00b7 payoff vs invest", "Decision tools"))
 
 cats = {
     "Mortgages & Home": ("Mortgage & home calculators", "Payments, refinancing, equity & buying costs"),
