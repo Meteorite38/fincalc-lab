@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMD Calculator — Required Minimum Distributions Under SECURE 2.0</title>
+<meta name="description" content="Free RMD calculator using the IRS Uniform Lifetime Table and SECURE 2.0 start ages (73 or 75 by birth year). See your first required minimum distribution, the 25% penalty at stake, and a year-by-year projection.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/rmd-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="RMD Calculator — Required Minimum Distributions Under SECURE 2.0">
+<meta property="og:description" content="Free RMD calculator using the IRS Uniform Lifetime Table and SECURE 2.0 start ages (73 or 75 by birth year). See your first required minimum distribution, the 25% penalty at stake, and a year-by-year projection.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/rmd-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RMD Calculator — Required Minimum Distributions Under SECURE 2.0">
+<meta name="twitter:description" content="Free RMD calculator using the IRS Uniform Lifetime Table and SECURE 2.0 start ages (73 or 75 by birth year). See your first required minimum distribution, the 25% penalty at stake, and a year-by-year projection.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-retirement.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What happens if I miss my RMD?", "acceptedAnswer": {"@type": "Answer", "text": "The penalty is 25% of the amount you failed to withdraw (reduced from 50% by SECURE 2.0), and it drops to 10% if you fix the shortfall within roughly two years and file Form 5329. The IRS can waive it entirely for reasonable cause — but the cleanest fix is a calendar reminder each December."}}, {"@type": "Question", "name": "Do Roth accounts have RMDs?", "acceptedAnswer": {"@type": "Answer", "text": "Roth IRAs never do during your lifetime. Roth 401(k)s used to, but SECURE 2.0 eliminated their RMDs starting in 2024 — so there's no longer a reason to roll a Roth 401(k) to an IRA just to dodge distributions. Inherited Roth accounts do have distribution requirements for heirs."}}, {"@type": "Question", "name": "Can I take my RMD as stock instead of cash?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — it's called an in-kind distribution: shares move from the IRA to a taxable brokerage account, and their market value on the day of transfer counts as the RMD and as taxable income. Useful when you don't want to sell a position, though you'll still need cash from somewhere to pay the tax."}}, {"@type": "Question", "name": "Does the RMD force me to spend the money?", "acceptedAnswer": {"@type": "Answer", "text": "No — it only forces the money out of the tax-deferred wrapper. You can reinvest it in a taxable brokerage account the same day. The requirement is that it leaves the IRA and gets taxed, not that you consume it."}}, {"@type": "Question", "name": "How are RMDs calculated if my spouse is much younger?", "acceptedAnswer": {"@type": "Answer", "text": "If your spouse is both your sole beneficiary and more than 10 years younger, you use the Joint Life and Last Survivor Table instead of the Uniform Lifetime Table — the divisors are larger, so the required withdrawals are smaller. Everyone else uses the uniform table this calculator applies."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "RMD Calculator", "item": "https://fincalc-lab.pages.dev/calculators/rmd-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; RMD Calculator</nav>
+  <h1>📅 RMD Calculator</h1>
+  <p class="lead">Once you hit your RMD age, the IRS requires you to start draining pre-tax retirement accounts — and the penalty for missing a distribution is 25% of the shortfall. This calculator finds your start age under SECURE 2.0, your first RMD, and projects the next two decades of withdrawals.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Year you were born</span>
+      
+      <input type="number" id="birthyear" value="1958" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Pre-tax retirement balance today ($) <em class="hint">(traditional IRA + 401(k)/403(b) + SEP/SIMPLE)</em></span>
+      
+      <input type="number" id="balance" value="500000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected annual return (%)</span>
+      
+      <input type="number" id="ret" value="5" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What an RMD actually is</h2>
+<p>Traditional IRAs and pre-tax 401(k)s grew tax-deferred for decades — the required minimum distribution is how the IRS finally collects. Starting at your RMD age, you must withdraw a minimum amount from pre-tax retirement accounts every year and pay ordinary income tax on it. The formula is simple: <strong>the account balance on December 31 of the previous year, divided by the IRS Uniform Lifetime Table factor for your age</strong>. At 73 the divisor is 26.5, so a $500,000 balance forces out about $18,868 — roughly 3.8%. The percentage climbs every year: about 5% at 80, 8% at 90, 11% at 95.</p>
+<h2>When you start: 73 or 75, by birth year</h2>
+<p>SECURE 2.0 staggered the start age. Born <strong>1951–1959</strong>: RMDs begin the year you turn <strong>73</strong>. Born <strong>1960 or later</strong>: they begin at <strong>75</strong>. (Born 1950 or earlier, you're already under the old rules.) One quirk worth knowing: your <em>first</em> RMD can be delayed until April 1 of the following year — but the second one is still due that same December 31, so delaying stacks two taxable distributions into one year. Usually a mistake unless your income is unusually high in the first year.</p>
+<h2>Which accounts owe RMDs</h2>
+<ul>
+<li><strong>Owe RMDs:</strong> traditional IRA, SEP and SIMPLE IRAs, pre-tax 401(k)/403(b)/457(b), and inherited versions of all of these (on separate, often harsher schedules).</li>
+<li><strong>No RMDs:</strong> Roth IRAs during the owner's lifetime — and since 2024, <strong>Roth 401(k)s are exempt too</strong>.</li>
+<li><strong>Aggregation:</strong> multiple IRAs can be totaled and the combined RMD taken from any one of them. Workplace plans don't get that courtesy — each 401(k) must pay out its own RMD separately. (If you're still working at RMD age, the current employer's plan is usually deferred until you retire.)</li>
+</ul>
+<h2>The real problem: RMDs as a tax time bomb</h2>
+<p>RMDs are taxed as ordinary income whether you need the money or not. Large pre-tax balances can force six-figure distributions that push you into higher brackets, make up to 85% of Social Security taxable, and trigger Medicare IRMAA surcharges (an extra $1,000–5,000+ per year in premiums). Check what your projected RMD does to your bracket with the <a href="/calculators/tax-bracket-calculator/">tax bracket calculator</a>. Three standard defusal tools:</p>
+<ul>
+<li><strong>Roth conversions in the gap years.</strong> Between retirement and RMD age, income is often low — converting pre-tax money to Roth at 12–22% beats being forced out at 24–32% later. Each dollar converted shrinks every future RMD.</li>
+<li><strong>QCDs from age 70&frac12;.</strong> Qualified charitable distributions send IRA money directly to charity — up to $108,000 per person in 2025 — counting toward the RMD without ever appearing in taxable income. Strictly better than donating cash if you give at all.</li>
+<li><strong>Spend pre-tax first.</strong> Many retirees preserve the IRA and live on taxable savings, unintentionally maximizing future RMDs. Drawing pre-tax money early at low brackets — sized with the <a href="/calculators/retirement-withdrawal-calculator/">retirement withdrawal calculator</a> — often lowers lifetime tax.</li>
+</ul>
+<h2>What this calculator assumes</h2>
+<p>Projections grow your balance at the return you set, subtract each year's RMD, and apply the current Uniform Lifetime Table (the one in effect since 2022) — the table used by account owners whose spouse is not both the sole beneficiary and more than 10 years younger; that situation uses a more generous joint-life table. Inherited accounts follow different rules entirely (most non-spouse heirs must empty the account within 10 years). Timing your RMDs alongside Social Security matters too — the <a href="/calculators/social-security-break-even-calculator/">break-even calculator</a> shows why many delay benefits while spending down the IRA.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What happens if I miss my RMD?</summary>
+      <p>The penalty is 25% of the amount you failed to withdraw (reduced from 50% by SECURE 2.0), and it drops to 10% if you fix the shortfall within roughly two years and file Form 5329. The IRS can waive it entirely for reasonable cause — but the cleanest fix is a calendar reminder each December.</p>
+    </details>
+    
+    <details>
+      <summary>Do Roth accounts have RMDs?</summary>
+      <p>Roth IRAs never do during your lifetime. Roth 401(k)s used to, but SECURE 2.0 eliminated their RMDs starting in 2024 — so there's no longer a reason to roll a Roth 401(k) to an IRA just to dodge distributions. Inherited Roth accounts do have distribution requirements for heirs.</p>
+    </details>
+    
+    <details>
+      <summary>Can I take my RMD as stock instead of cash?</summary>
+      <p>Yes — it's called an in-kind distribution: shares move from the IRA to a taxable brokerage account, and their market value on the day of transfer counts as the RMD and as taxable income. Useful when you don't want to sell a position, though you'll still need cash from somewhere to pay the tax.</p>
+    </details>
+    
+    <details>
+      <summary>Does the RMD force me to spend the money?</summary>
+      <p>No — it only forces the money out of the tax-deferred wrapper. You can reinvest it in a taxable brokerage account the same day. The requirement is that it leaves the IRA and gets taxed, not that you consume it.</p>
+    </details>
+    
+    <details>
+      <summary>How are RMDs calculated if my spouse is much younger?</summary>
+      <p>If your spouse is both your sole beneficiary and more than 10 years younger, you use the Joint Life and Last Survivor Table instead of the Uniform Lifetime Table — the divisors are larger, so the required withdrawals are smaller. Everyone else uses the uniform table this calculator applies.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/roth-vs-traditional-401k-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Roth vs Traditional 401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/hsa-calculator/">
+        <span class="card-emoji">🩹</span>
+        <span class="card-title">HSA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/social-security-break-even-calculator/">
+        <span class="card-emoji">🏛</span>
+        <span class="card-title">Social Security Break-Even Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/roth-ira-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Roth IRA Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/401k-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">401(k) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/retirement-withdrawal-calculator/">
+        <span class="card-emoji">🏖️</span>
+        <span class="card-title">Retirement Withdrawal Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/roth-vs-traditional-decision/">
+        <span class="card-title">"Roth vs Traditional: One Question Decides It (Plus Three Tiebreakers)"</span>
+        <span class="card-desc">The Roth vs traditional choice comes down to your tax rate now versus in retirement. How the math really works, why Roth wins more often than the formula suggests, and what to do in the murky middle.</span>
+      </a>
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+const RMD_D = {72:27.4,73:26.5,74:25.5,75:24.6,76:23.7,77:22.9,78:22.0,79:21.1,80:20.2,81:19.4,82:18.5,83:17.7,84:16.8,85:16.0,86:15.2,87:14.4,88:13.7,89:12.9,90:12.2,91:11.5,92:10.8,93:10.1,94:9.5,95:8.9,96:8.4,97:7.8,98:7.3,99:6.8,100:6.4,101:6.0,102:5.6,103:5.2,104:4.9,105:4.6,106:4.3,107:4.1,108:3.9,109:3.7,110:3.5,111:3.4,112:3.3,113:3.1,114:3.0,115:2.9,116:2.8,117:2.7,118:2.5,119:2.3,120:2.0};
+function calculate() {
+  const by = Math.round(val('birthyear')), B0 = val('balance'), r = val('ret')/100;
+  if (by < 1900 || by > 2005 || B0 <= 0) { show('<div class="result-main">Enter a birth year (1900–2005) and a balance above zero.</div>'); return; }
+  const rmdAge = by <= 1950 ? 72 : (by <= 1959 ? 73 : 75);
+  const nowYear = new Date().getFullYear();
+  const curAge = nowYear - by;
+  const startAge = Math.max(rmdAge, curAge);
+  const startYear = by + startAge;
+  let bal = B0;
+  for (let a = curAge; a < startAge; a++) bal *= (1 + r);
+  const horizon = Math.min(20, 121 - startAge);
+  let rows = '', firstRmd = 0, firstPct = 0, totalRmd = 0;
+  let b = bal;
+  for (let k = 0; k < horizon; k++) {
+    const age = startAge + k;
+    const d = RMD_D[Math.min(age, 120)];
+    const rmd = b / d;
+    if (k === 0) { firstRmd = rmd; firstPct = 100 / d; }
+    totalRmd += rmd;
+    const endBal = Math.max(0, (b - rmd) * (1 + r));
+    if (k < 12 || k === horizon - 1) rows += `<tr><td>${startYear + k} — age ${age}</td><td>${d.toFixed(1)}</td><td>$${fmt(rmd,0)}</td><td>$${fmt(endBal,0)}</td></tr>`;
+    else if (k === 12) rows += `<tr><td colspan="4" style="text-align:center">&hellip;</td></tr>`;
+    b = endBal;
+  }
+  const lead = startAge > curAge
+    ? `Your first RMD lands in <strong>${startYear}</strong>, the year you turn ${startAge}: about <strong>$${fmt(firstRmd,0)}</strong> from a projected $${fmt(bal,0)} balance`
+    : `Your ${startYear} RMD is about <strong>$${fmt(firstRmd,0)}</strong> — ${fmt(firstPct,2)}% of the balance`;
+  show(`<div class="result-main">$${fmt(firstRmd,0)}<small>first-year required distribution &middot; RMDs start at age ${rmdAge} for those born ${by <= 1950 ? 'in 1950 or earlier' : (by <= 1959 ? '1951–1959' : '1960 or later')}</small></div>
+  <p>${lead}. Miss it and the IRS penalty is <strong>$${fmt(firstRmd*0.25,0)}</strong> (25% of the shortfall; 10% if corrected within two years).</p>
+  <table>
+    <tr><th>Year</th><th>IRS divisor</th><th>RMD</th><th>Year-end balance</th></tr>
+    ${rows}
+    <tr><td><strong>Total forced out over ${horizon} years</strong></td><td></td><td><strong>$${fmt(totalRmd,0)}</strong></td><td></td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
