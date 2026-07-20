@@ -8,7 +8,7 @@ BALXFER = [
         "category": "Debt & Credit",
         "title": "Balance Transfer Calculator — Is the 0% Offer Worth the Fee?",
         "h1": "Balance Transfer Calculator",
-        "blurb": "0% promo vs staying on your current card — fee included, with the payment that clears it in time.",
+        "blurb": "0% promo vs staying put — fee included, with the payment that clears it in time.",
         "meta_description": "Free balance transfer calculator: compare a 0% APR offer (with its 3-5% transfer fee) against staying on your current card. See total interest both ways, the break-even, and the exact monthly payment that zeroes the balance before the promo ends.",
         "intro": "A 0% balance transfer can wipe out years of credit card interest — or just add a 3-5% fee to debt you still won't pay off. The difference is arithmetic: fee versus interest saved, and whether your monthly payment actually clears the balance before the promo rate expires. This calculator runs both futures side by side.",
         "fields": [

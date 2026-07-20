@@ -8,7 +8,7 @@ MOVESTAY = [
         "category": "Budgeting & Life",
         "title": "Move or Stay Calculator — Is the Rent Increase Worth Moving Over?",
         "h1": "Move or Stay Calculator",
-        "blurb": "Renewal increase vs the true all-in cost of moving — breakeven month and the negotiation number.",
+        "blurb": "Renewal increase vs the all-in cost of moving — breakeven month and negotiation number.",
         "meta_description": "Free move-or-stay calculator for renters: compare the renewal increase against the full cost of moving — movers, deposits, overlap rent, fees, time off — with the breakeven month and the concession worth asking your landlord for.",
         "intro": "The renewal letter says +$150 a month and moving feels like the principled answer — until you price the truck, the deposit float, the overlap week, the application fees and two days off work. Moving has a fixed cost that a cheaper apartment repays only over time. This calculator finds the breakeven, and the number worth negotiating with instead.",
         "fields": [

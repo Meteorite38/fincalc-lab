@@ -8,7 +8,7 @@ PMI = [
         "category": "Mortgages & Home",
         "title": "PMI Calculator — Cost Per Month and Exactly When It Ends",
         "h1": "PMI Calculator",
-        "blurb": "Your monthly PMI, total cost, and the three dates it can end — including the appreciation shortcut.",
+        "blurb": "Monthly PMI, total cost, and the three exit dates — including the appraisal shortcut.",
         "meta_description": "Free PMI calculator: monthly private mortgage insurance cost, the automatic termination date at 78% LTV, when you can request cancellation at 80% — and how home appreciation moves that date years earlier.",
         "intro": "PMI is the fee for buying with less than 20% down — typically $30-70 a month per $100,000 borrowed, protecting the lender, not you. But it isn't forever: federal law sets two end dates, and home appreciation often unlocks a third, much earlier one. This calculator prices your PMI and maps all three exits.",
         "fields": [

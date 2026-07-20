@@ -8,7 +8,7 @@ K401WD = [
         "category": "Retirement",
         "title": "401(k) Early Withdrawal Calculator — The True Cost of Cashing Out",
         "h1": "401(k) Early Withdrawal Calculator",
-        "blurb": "Taxes, the 10% penalty, what actually lands in your account — and what the money would have become.",
+        "blurb": "Taxes, the 10% penalty, what lands in your account — and what it would have become.",
         "meta_description": "Free 401(k) early withdrawal calculator: federal and state tax plus the 10% penalty, the cash you'd actually keep, and what the balance would have grown to by retirement. Includes penalty exceptions and the loan alternative.",
         "intro": "Cashing out a 401(k) early is the most expensive way to get money that most people ever encounter: taxes and penalty routinely eat 30-45% up front, and the real bill — decades of lost compounding — is bigger still. Sometimes it's still the right call. This calculator prices it honestly so you decide with open eyes.",
         "fields": [

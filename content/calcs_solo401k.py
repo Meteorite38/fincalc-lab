@@ -8,7 +8,7 @@ SOLO401K = [
         "category": "Business & Self-Employment",
         "title": "Solo 401(k) vs SEP IRA Calculator — Which Shelters More of Your Profit?",
         "h1": "Solo 401(k) vs SEP IRA Calculator",
-        "blurb": "Max contributions to each from your self-employment profit — and why the solo 401(k) usually wins.",
+        "blurb": "Max contributions from your profit — and why the solo 401(k) usually wins.",
         "meta_description": "Free Solo 401(k) vs SEP IRA calculator for the self-employed: exact max contributions from your net profit (employee deferral + 25% employer share, SEP's 20% rule), the tax saved, and when each account wins.",
         "intro": "Self-employment's consolation prize is contribution room employees can only dream of — up to $70,000 a year of tax-advantaged space. But the two main vehicles fill that space very differently: the SEP IRA runs on one percentage, while the solo 401(k) stacks an employee deferral on top of the employer share. This calculator computes both maximums from your actual profit.",
         "fields": [

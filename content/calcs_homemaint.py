@@ -8,7 +8,7 @@ HOMEMAINT = [
         "category": "Mortgages & Home",
         "title": "Home Maintenance Budget Calculator — The Cost Nobody Puts in the Mortgage Math",
         "h1": "Home Maintenance Budget Calculator",
-        "blurb": "Your realistic annual maintenance number — age, climate and size adjusted — as a monthly set-aside.",
+        "blurb": "A realistic annual number — age, climate and size adjusted — as a monthly set-aside.",
         "meta_description": "Free home maintenance budget calculator: the 1-2% rule adjusted for home age, climate and size, a component-by-component replacement schedule (roof, HVAC, water heater), and the monthly sinking-fund transfer that makes $9,000 roof years boring.",
         "intro": "Maintenance is the housing cost that hides between the big years: $80 filter months, then a $9,000 roof. Averaged honestly it runs 1-2% of home value every year — but your number depends on the home's age, your climate, and whether a big component is due. This calculator personalizes the budget and turns it into a monthly transfer.",
         "fields": [
