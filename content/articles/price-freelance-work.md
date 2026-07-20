@@ -10,7 +10,7 @@ The most common freelance mistake isn't bad work — it's bad pricing. New freel
 
 The classic error: "I earned $60,000 as an employee, that's about $30 an hour, so I'll charge $30." This feels reasonable and is disastrously wrong, because as a freelancer you must now cover three things your employer used to:
 
-1. **Both halves of taxes plus your own benefits.** Employees split payroll taxes with their employer and often get subsidized health insurance and retirement matching. You now pay all of it — commonly 25–35% of income before you keep a cent.
+1. **Both halves of taxes plus your own benefits.** Employees split payroll taxes with their employer and often get subsidized health insurance and retirement matching. You now pay all of it — commonly 25–35% of income before you keep a cent. (The full machinery — SE tax, quarterly payments, the deductions that claw some back — is mapped in the [freelancer tax survival guide](/articles/freelancer-tax-survival-guide/).)
 2. **Unbillable time.** You don't get paid to find clients, send proposals, invoice, do admin, or upskill. Realistically, only 50–70% of your working hours are billable.
 3. **No paid time off.** No paid vacation, sick days, or holidays. Every hour you're not working is an hour you're not earning.
 
