@@ -22,7 +22,7 @@ The worst pitch is "I need more money" or "I've been here a while." The best is 
 
 - **Aim slightly high, anchored to data.** Negotiations tend to settle below the first number, so a well-justified higher anchor pulls the result up. But keep it credible — tie it to market rate and your impact.
 - **Give a specific figure or tight range,** not "whatever you think is fair." Specific numbers signal you've done your homework.
-- **Think in total compensation,** not just base salary. If base is capped, negotiate a bonus, more equity, a better title (which raises your next job's offers), extra leave, or a development budget.
+- **Think in total compensation,** not just base salary. If base is capped, negotiate a bonus, more equity, a better title (which raises your next job's offers), extra leave, or a development budget — the [pay raise calculator](/calculators/pay-raise-calculator/) shows what any version is worth after taxes and over the years it compounds.
 
 ## The conversation itself
 
@@ -35,7 +35,7 @@ The worst pitch is "I need more money" or "I've been here a while." The best is 
 
 - **If yes:** get it in writing, and thank them. Done well.
 - **If "not now":** ask exactly what would justify a raise and by when. Turn a "no" into a concrete, measurable path with a follow-up date. Get the criteria in writing so it can't quietly evaporate.
-- **If a hard no with no path:** that's valuable information about your ceiling here. The strongest long-term salary lever is often changing jobs — external offers routinely beat internal raises, which is worth weighing honestly.
+- **If a hard no with no path:** that's valuable information about your ceiling here. The strongest long-term salary lever is often changing jobs — external offers routinely beat internal raises, which is worth weighing honestly. When an outside offer does arrive, compare it on *total* value — match, PTO, insurance, commute — with the [job offer comparison calculator](/calculators/job-offer-comparison-calculator/), not just on base salary; the component-by-component gap is also exactly the number that makes a counteroffer conversation concrete.
 
 ## Overcome the fear
 

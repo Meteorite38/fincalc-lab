@@ -32,6 +32,20 @@ Recoveries are fast and concentrated. A large share of the market's best days oc
 - **Don't check your balance daily.** Constant monitoring turns a temporary dip into daily emotional damage that pushes you toward bad decisions. Log off.
 - **Don't abandon your plan** because a headline is scary. Your plan was made in calm; the crash is exactly when it earns its keep.
 
+## The moves a crash actually unlocks
+
+Beyond holding steady, a deep downturn opens a few doors that are only ajar in normal markets:
+
+- **Tax-loss harvesting** (taxable accounts): sell a position sitting below cost, immediately buy a *similar but not identical* fund (avoid the 30-day wash-sale trap), and bank the capital loss — it offsets gains and up to $3,000/year of ordinary income, while your market exposure never lapses. A mechanical, unglamorous few hundred to few thousand dollars of tax value, available precisely when everything is red.
+- **Roth conversions on sale:** converting IRA money after a 25% drop moves the same number of shares at 25% less tax, and the recovery then happens inside the tax-free wrapper — the [conversion math](/calculators/roth-conversion-calculator/) gets strictly better in a crash.
+- **Rebalancing bonuses:** the pre-planned sell-bonds-buy-stocks rebalance is the systematic version of buying fear; a written threshold (say, when allocation drifts 5 points) turns a scary decision into a checklist item.
+
+None of these require predicting anything — they're all reactions to prices that already fell, which is exactly why they work.
+
+## Write the plan before you need it
+
+The interventions above share a prerequisite: they were decided *in advance*. A one-page investment policy — target allocation, rebalance rule, "no selling within 72 hours of any decision," where spending cash comes from — costs an evening in calm markets and pays for itself in the first crash. Pair it with the structural safety nets: an [emergency fund](/calculators/emergency-fund-calculator/) so the market never funds a surprise bill, and for anyone within a decade of retirement, the cash/bond runway that [sequence-of-returns risk](/articles/sequence-of-returns-risk/) demands. Panic is a liquidity problem wearing an emotion costume; the plan and the buffer remove the liquidity problem, and the emotion mostly follows.
+
 ## The mindset that wins
 
 If you're still years from needing the money, a crash isn't a disaster — it's a sale, and a test of temperament. The wealth-building investor sees red numbers, shrugs, and keeps buying. The key is to decide your strategy *now*, in calm times, so that when fear hits you're simply following a plan rather than making decisions with your adrenaline. Markets reward patience and punish panic; choose patience in advance.
