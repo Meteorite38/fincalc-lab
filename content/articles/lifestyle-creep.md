@@ -21,6 +21,12 @@ The math is brutal. Two things make lifestyle creep worse than ordinary overspen
 
 Some lifestyle upgrades are genuinely worth it — more income *should* buy a better life. The problem is unconscious, automatic creep where every dollar of new income silently becomes new spending. The fix isn't deprivation; it's *intentionality*: deciding on purpose which upgrades actually improve your life and directing the rest toward your future.
 
+There's a second psychological engine underneath: **your reference group creeps too.** A raise or promotion usually comes with new peers — colleagues who eat at different restaurants, drive different cars, take different vacations. What felt like luxury a year ago now reads as "normal for people like us," and spending rises to match the new normal without a single conscious decision. This is why creep hits hardest exactly when income jumps most (new job, big promotion) and why the highest earners are often the most exposed: every rung up the ladder installs a more expensive definition of ordinary. Naming the mechanism is half the defense — the other half is choosing comparisons on purpose, a theme the [psychology of money](/articles/psychology-of-money-behavioral-biases/) explores further.
+
+## Run the ten-year cost of a permanent upgrade
+
+Creep looks small month to month; priced over a decade it stops looking small. An extra $800/month of permanent lifestyle — a fancier apartment plus a nicer car payment — is $9,600 a year. Invested at 7% instead, that stream compounds to roughly **$137,000 in ten years** (check any version of this with the [future value calculator](/calculators/future-value-calculator/)). And the true cost is double-counted: you spent the $9,600 *and* you now need a bigger portfolio to sustain the higher lifestyle forever — at a 4% withdrawal rate, each permanent $800/month of spending raises your financial-independence target by about $240,000. The spending decision and the freedom decision are the same decision.
+
 ## The simple rule that beats it
 
 The most effective defense is to **save a fixed percentage of every raise before you adjust your lifestyle.** A common version: when your income rises, split the increase — send at least half to savings/investing automatically, and enjoy the rest guilt-free. Because the money is diverted *before* it hits your spending, you never miss it, and your savings rate climbs with your income instead of stagnating.
