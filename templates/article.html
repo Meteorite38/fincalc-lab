@@ -44,9 +44,9 @@
     {{ a.html }}
   </article>
   <section class="related">
-    <h2>Try our calculators</h2>
+    <h2>Related calculators</h2>
     <div class="grid">
-      {% for r in calcs[:6] %}
+      {% for r in (a.related_calcs or calcs[:6]) %}
       <a class="card" href="/calculators/{{ r.slug }}/">
         <span class="card-emoji">{{ r.emoji }}</span>
         <span class="card-title">{{ r.h1 }}</span>
@@ -54,5 +54,18 @@
       {% endfor %}
     </div>
   </section>
+  {% if a.related_guides %}
+  <section class="related">
+    <h2>Related guides</h2>
+    <div class="grid">
+      {% for g in a.related_guides %}
+      <a class="card" href="/articles/{{ g.slug }}/">
+        <span class="card-title">{{ g.title }}</span>
+        <span class="card-desc">{{ g.description }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 </div>
 {% endblock %}

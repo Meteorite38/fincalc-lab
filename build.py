@@ -81,6 +81,38 @@ def load_md_dir(folder):
     return out
 
 
+STOPWORDS = set(
+    "the a an and or of to for in on with your you it is are how what why when "
+    "that this from as at be by can do does your yours will not no vs your his her "
+    "into out over more most than then them they their our we us if but so about "
+    "calculator guide money finance financial pay payment rate really actually".split()
+)
+
+
+def _tokens(*parts):
+    text = " ".join(p for p in parts if p).lower()
+    words = "".join(c if c.isalnum() else " " for c in text).split()
+    return {w for w in words if len(w) > 3 and w not in STOPWORDS}
+
+
+def compute_related(articles):
+    """Attach relevance-matched related calculators and guides to each article."""
+    calc_tokens = [(c, _tokens(c["h1"], c.get("blurb", ""), c.get("category", ""),
+                               c.get("meta_description", ""))) for c in CALCS]
+    art_tokens = [(a, _tokens(a["title"], a.get("description", ""), a["slug"].replace("-", " ")))
+                  for a in articles]
+    for a, atok in art_tokens:
+        cs = sorted(calc_tokens, key=lambda ct: len(atok & ct[1]), reverse=True)
+        top_calcs = [c for c, t in cs if atok & t][:6]
+        if len(top_calcs) < 6:
+            have = {c["slug"] for c in top_calcs}
+            top_calcs += [c for c in CALCS if c["slug"] not in have][: 6 - len(top_calcs)]
+        a["related_calcs"] = top_calcs
+        gs = sorted((x for x in art_tokens if x[0]["slug"] != a["slug"]),
+                    key=lambda gt: len(atok & gt[1]), reverse=True)
+        a["related_guides"] = [g for g, t in gs if atok & t][:4]
+
+
 def faq_jsonld(calc):
     return json.dumps({
         "@context": "https://schema.org",
@@ -101,6 +133,7 @@ def build():
 
     articles = load_md_dir("articles")
     pages = load_md_dir("pages")
+    compute_related(articles)
     urls = []
 
     # calculators
