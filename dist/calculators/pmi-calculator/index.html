@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMI Calculator — Cost Per Month and Exactly When It Ends</title>
+<meta name="description" content="Free PMI calculator: monthly private mortgage insurance cost, the automatic termination date at 78% LTV, when you can request cancellation at 80% — and how home appreciation moves that date years earlier.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/pmi-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="PMI Calculator — Cost Per Month and Exactly When It Ends">
+<meta property="og:description" content="Free PMI calculator: monthly private mortgage insurance cost, the automatic termination date at 78% LTV, when you can request cancellation at 80% — and how home appreciation moves that date years earlier.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/pmi-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PMI Calculator — Cost Per Month and Exactly When It Ends">
+<meta name="twitter:description" content="Free PMI calculator: monthly private mortgage insurance cost, the automatic termination date at 78% LTV, when you can request cancellation at 80% — and how home appreciation moves that date years earlier.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is PMI per month?", "acceptedAnswer": {"@type": "Answer", "text": "Roughly $30-125 per $100,000 borrowed per month, set mainly by credit score and down payment size: strong credit with 10-15% down lands near the bottom of that range (0.3-0.5%/yr); scores under 680 with 3-5% down reach 1-1.5%/yr. It's charged on the loan balance, so the dollar amount is fixed at origination and drops only when PMI is recalculated or removed."}}, {"@type": "Question", "name": "Can I cancel PMI without refinancing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — that's the point of the Homeowners Protection Act. At 80% LTV against original value you can request cancellation in writing; at 78% it must drop automatically. And most servicers allow earlier cancellation against current appraised value (75-80% LTV depending on loan age). Refinancing is only the necessary route for FHA loans with permanent MIP."}}, {"@type": "Question", "name": "Does PMI cover me if I can't pay my mortgage?", "acceptedAnswer": {"@type": "Answer", "text": "No — it reimburses the lender's losses after your default and foreclosure. You pay the premium, the lender holds the protection. Borrower-side protection comes from an emergency fund and, where it makes sense, disability or life insurance sized to the mortgage."}}, {"@type": "Question", "name": "Is PMI tax-deductible?", "acceptedAnswer": {"@type": "Answer", "text": "The federal PMI deduction expired after tax year 2021 and hasn't been renewed as of 2025, so for most borrowers it's not deductible. Even in the years it existed, it phased out above ~$100k of AGI. Treat PMI as a pure cost when running the numbers."}}, {"@type": "Question", "name": "Should I make a bigger down payment just to avoid PMI?", "acceptedAnswer": {"@type": "Answer", "text": "Run PMI as an interest rate on the down-payment gap (this calculator's last row). If the effective rate is 3-5% and cancellable within a few years, stretching to 20% by draining savings — or delaying the purchase years while renting — is often the more expensive choice. If the rate computes to 8%+ (small down payment, weak credit), waiting or a piggyback structure deserves a look."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "PMI Calculator", "item": "https://fincalc-lab.pages.dev/calculators/pmi-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; PMI Calculator</nav>
+  <h1>🚪 PMI Calculator</h1>
+  <p class="lead">PMI is the fee for buying with less than 20% down — typically $30-70 a month per $100,000 borrowed, protecting the lender, not you. But it isn't forever: federal law sets two end dates, and home appreciation often unlocks a third, much earlier one. This calculator prices your PMI and maps all three exits.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home price ($)</span>
+      
+      <input type="number" id="price" value="400000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment ($)</span>
+      
+      <input type="number" id="down" value="20000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Mortgage rate (%)</span>
+      
+      <input type="number" id="rate" value="6.5" step="0.01" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan term (years)</span>
+      
+      <input type="number" id="term" value="30" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">PMI rate (% of loan per year) <em class="hint">(0.3-0.8% typical with good credit; up to 1.5% below 680)</em></span>
+      
+      <input type="number" id="pmirate" value="0.6" step="0.05" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Expected home appreciation (%/yr)</span>
+      
+      <input type="number" id="appr" value="3" step="0.1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What PMI is — and what it isn't</h2>
+<p>Private mortgage insurance protects the <strong>lender</strong> against loss if a low-down-payment loan defaults; the borrower pays the premium and receives nothing but loan approval. That approval has value — PMI is the price of buying now instead of after years of saving toward 20% (a timeline the <a href="/calculators/house-down-payment-calculator/">down payment calculator</a> makes concrete). The premium runs <strong>0.3% to 1.5% of the loan per year</strong> depending mostly on credit score and LTV: a 760-score borrower putting 10% down might pay 0.3-0.5%; a 650 score with 5% down can pay triple that. On a $380,000 loan at 0.6%, that's $190 a month — real money, but not the villain it's often made out to be.</p>
+<h2>The three ways PMI ends</h2>
+<ul>
+<li><strong>Borrower-requested cancellation at 80% LTV (original value).</strong> Under the federal Homeowners Protection Act, when your balance amortizes to 80% of the <em>original</em> purchase price (or appraised value at closing, if lower), you can request cancellation in writing — good payment history required, and the request is yours to make, not the servicer's to volunteer.</li>
+<li><strong>Automatic termination at 78% LTV.</strong> If you never ask, the servicer must drop PMI when the balance hits 78% of original value on the amortization schedule (and the loan is current). With 10% down at today's rates, that's typically year 5-7; with 3-5% down, year 8-11.</li>
+<li><strong>The appreciation shortcut.</strong> Most servicers will also cancel based on <em>current</em> value with a new appraisal: commonly 75% LTV if the loan is 2-5 years old, 80% after 5 years (exactly the thresholds this calculator applies). In a market rising 4-5% a year, a 10%-down buyer can hit 75% of current value by year 2-3 — years ahead of the schedule, for the cost of a $400-600 appraisal.</li>
+</ul>
+<h2>Reframing the cost: PMI as a loan rate on the gap</h2>
+<p>Here's the calculation that changes minds. PMI isn't really a fee on your whole mortgage — it's the cost of borrowing the down payment you don't have. Put 5% down instead of 20% and the "missing" 15% ($60,000 on a $400,000 house) costs you, say, $190 &times; 12 = $2,280 a year: an effective <strong>3.8% interest rate on that gap</strong> — often cheaper than the years of rent paid while saving it, and far cheaper than most people assume. The calculator's last row prices your own gap. The corollary: draining the emergency fund to dodge PMI is usually the worse trade — check what cushion you need first with the <a href="/calculators/emergency-fund-calculator/">emergency fund calculator</a>.</p>
+<h2>Ways to skip or shed PMI</h2>
+<ul>
+<li><strong>Lender-paid PMI (LPMI):</strong> the lender "waives" PMI for a ~0.25-0.5 point higher rate — permanent, baked into the rate for the life of the loan. Usually loses to borrower-paid PMI that cancels in year 4-7, unless you'll sell quickly.</li>
+<li><strong>Piggyback 80/10/10:</strong> a second loan (often a <a href="/calculators/heloc-calculator/">HELOC</a>) covers part of the down payment, keeping the first mortgage at 80%. Works when the second loan's rate is modest; compare total monthly cost, not just the PMI line.</li>
+<li><strong>Prepay principal early.</strong> Every extra dollar shortens the runway to 80%. Small consistent prepayments in the first years often pull cancellation forward by 12-24 months.</li>
+<li><strong>Watch the market.</strong> If nearby comps are up 10%+ since purchase, call the servicer and ask their current-value cancellation rules before spending on the appraisal — requirements vary by servicer and by how long you've had the loan.</li>
+<li><strong>FHA is a different animal:</strong> FHA mortgage insurance (MIP) can't be cancelled at 80% — with under 10% down it lasts the life of the loan, and the standard exit is <a href="/calculators/mortgage-refinance-calculator/">refinancing into a conventional loan</a> once equity reaches 20%.</li>
+</ul>
+<h2>The calendar-reminder move</h2>
+<p>Servicers profit from inertia: automatic termination at 78% is the law's backstop, but the 80% request date arrives 1-2 years earlier and requires you to act. When you close on a low-down-payment loan, set two reminders — one at the projected 80% date from this calculator, one annually to sanity-check local prices against the appreciation shortcut. Ten minutes of paperwork routinely saves $2,000-5,000 of premiums; fold the freed-up cash into the payment itself and the <a href="/calculators/amortization-schedule-calculator/">amortization schedule</a> compresses further.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much is PMI per month?</summary>
+      <p>Roughly $30-125 per $100,000 borrowed per month, set mainly by credit score and down payment size: strong credit with 10-15% down lands near the bottom of that range (0.3-0.5%/yr); scores under 680 with 3-5% down reach 1-1.5%/yr. It's charged on the loan balance, so the dollar amount is fixed at origination and drops only when PMI is recalculated or removed.</p>
+    </details>
+    
+    <details>
+      <summary>Can I cancel PMI without refinancing?</summary>
+      <p>Yes — that's the point of the Homeowners Protection Act. At 80% LTV against original value you can request cancellation in writing; at 78% it must drop automatically. And most servicers allow earlier cancellation against current appraised value (75-80% LTV depending on loan age). Refinancing is only the necessary route for FHA loans with permanent MIP.</p>
+    </details>
+    
+    <details>
+      <summary>Does PMI cover me if I can't pay my mortgage?</summary>
+      <p>No — it reimburses the lender's losses after your default and foreclosure. You pay the premium, the lender holds the protection. Borrower-side protection comes from an emergency fund and, where it makes sense, disability or life insurance sized to the mortgage.</p>
+    </details>
+    
+    <details>
+      <summary>Is PMI tax-deductible?</summary>
+      <p>The federal PMI deduction expired after tax year 2021 and hasn't been renewed as of 2025, so for most borrowers it's not deductible. Even in the years it existed, it phased out above ~$100k of AGI. Treat PMI as a pure cost when running the numbers.</p>
+    </details>
+    
+    <details>
+      <summary>Should I make a bigger down payment just to avoid PMI?</summary>
+      <p>Run PMI as an interest rate on the down-payment gap (this calculator's last row). If the effective rate is 3-5% and cancellable within a few years, stretching to 20% by draining savings — or delaying the purchase years while renting — is often the more expensive choice. If the rate computes to 8%+ (small down payment, weak credit), waiting or a piggyback structure deserves a look.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/heloc-calculator/">
+        <span class="card-emoji">🏦</span>
+        <span class="card-title">HELOC Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/arm-vs-fixed-mortgage-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">ARM vs Fixed Mortgage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/balance-transfer-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Balance Transfer Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/auto-loan-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Auto Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rent-vs-buy-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Rent vs Buy a Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/mortgage-refinance-calculator/">
+        <span class="card-emoji">🔄</span>
+        <span class="card-title">Mortgage Refinance Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/when-to-refinance-your-mortgage/">
+        <span class="card-title">"When Does Refinancing Your Mortgage Make Sense?"</span>
+        <span class="card-desc">How to tell whether refinancing will save you money — the break-even rule, the costs people forget, and the traps that make a lower rate a worse deal.</span>
+      </a>
+      
+      <a class="card" href="/articles/financial-order-of-operations/">
+        <span class="card-title">"The Financial Order of Operations: What to Do With Your Money First"</span>
+        <span class="card-desc">A clear, prioritized sequence for every spare dollar — emergency fund, employer match, high-interest debt, investing — so you never wonder what comes next.</span>
+      </a>
+      
+      <a class="card" href="/articles/emergency-fund-vs-investing/">
+        <span class="card-title">"Emergency Fund vs Investing: Which Dollar Goes Where First?"</span>
+        <span class="card-desc">A decision framework for the classic dilemma — cash safety versus market growth — including the order of operations most planners actually recommend.</span>
+      </a>
+      
+      <a class="card" href="/articles/first-time-home-buyer-guide/">
+        <span class="card-title">"First-Time Home Buyer Guide: From Saving to Closing"</span>
+        <span class="card-desc">A step-by-step guide for first-time buyers — how much to save, what you can afford, the full costs, and the process from pre-approval to getting the keys.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), down = val('down');
+  const r = val('rate')/100/12, yrs = Math.max(1, Math.round(val('term'))), n = yrs*12;
+  const pmiR = Math.max(0, val('pmirate'))/100, g = val('appr')/100;
+  if (price <= 0 || down < 0 || down >= price) { show('<div class="result-main">Enter a home price and a down payment smaller than it.</div>'); return; }
+  const L = price - down;
+  const ltv0 = L / price * 100;
+  if (ltv0 <= 80) {
+    show(`<div class="result-main">No PMI required<small>your down payment is ${fmt(100-ltv0,1)}% — at or above the 20% threshold, conventional loans carry no mortgage insurance</small></div>`);
+    return;
+  }
+  const pay = r > 0 ? L * r / (1 - Math.pow(1 + r, -n)) : L / n;
+  const pmiMo = L * pmiR / 12;
+  // amortize; track three exits
+  let bal = L, mAuto = -1, mReq = -1, mAppr = -1;
+  for (let m = 1; m <= n; m++) {
+    bal -= (pay - bal * r);
+    if (mAuto < 0 && bal <= price * 0.78) mAuto = m;
+    if (mReq < 0 && bal <= price * 0.80) mReq = m;
+    if (mAppr < 0) {
+      const vNow = price * Math.pow(1 + g, m / 12);
+      // servicer current-value rules: 75% LTV for loans 2-5 yrs old, 80% after 5 yrs; under 2 yrs rarely allowed
+      const needLtv = m >= 60 ? 0.80 : 0.75;
+      if (m >= 24 && bal <= vNow * needLtv) mAppr = m;
+    }
+  }
+  if (mAuto < 0) mAuto = n;
+  if (mReq < 0) mReq = n;
+  const fmtM = (m) => `${Math.floor(m/12)} yr ${m%12} mo`;
+  const costAuto = pmiMo * mAuto, costReq = pmiMo * mReq;
+  const apprRow = (g > 0 && mAppr > 0 && mAppr < mReq)
+    ? `<tr><td><strong>Appreciation shortcut</strong> — reappraisal at ${fmt(g*100,1)}%/yr growth</td><td><strong>${fmtM(mAppr)}</strong> &middot; PMI paid: $${fmt(pmiMo*mAppr,0)} (saves $${fmt(costReq - pmiMo*mAppr,0)} vs waiting)</td></tr>`
+    : '';
+  show(`<div class="result-main">$${fmt(pmiMo,0)}/month PMI<small>${fmt(pmiR*100,2)}% per year on a $${fmt(L,0)} loan — ${fmt(ltv0,1)}% starting LTV</small></div>
+  <table>
+    <tr><td>Mortgage payment (P&amp;I)</td><td>$${fmt(pay,0)}/month &middot; $${fmt(pay + pmiMo,0)} with PMI</td></tr>
+    <tr><td>Request cancellation at 80% LTV (original value)</td><td>${fmtM(mReq)} &middot; PMI paid by then: $${fmt(costReq,0)}</td></tr>
+    <tr><td>Automatic termination at 78% LTV</td><td>${fmtM(mAuto)} &middot; PMI paid by then: $${fmt(costAuto,0)}</td></tr>
+    ${apprRow}
+    <tr><td>PMI as an effective cost of the missing down payment</td><td>${fmt(pmiMo*12 / Math.max(1, price*0.2 - down) * 100,1)}% per year on the $${fmt(Math.max(0, price*0.2 - down),0)} gap</td></tr>
+  </table>
+  <p>${(g > 0 && mAppr > 0 && mAppr < mReq)
+    ? `At ${fmt(g*100,1)}%/yr appreciation, a <strong>reappraisal around ${fmtM(mAppr)}</strong> beats waiting for the amortization schedule — a $400-600 appraisal fee vs $${fmt(costReq - pmiMo*mAppr,0)} of avoided premiums.`
+    : `Extra principal payments pull both dates closer — every dollar of prepayment is a dollar less the 80% threshold has to wait for; the <a href="/calculators/extra-mortgage-payment-calculator/">extra payment calculator</a> shows the effect.`}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
