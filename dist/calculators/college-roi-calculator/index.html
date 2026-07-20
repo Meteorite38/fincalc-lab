@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College ROI Calculator — Is the Degree Worth the Price?</title>
+<meta name="description" content="Free college ROI calculator: total degree cost including foregone earnings vs the wage premium over a no-degree path — net lifetime value, the age the investment breaks even, and the debt-to-first-salary sanity check.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/college-roi-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="College ROI Calculator — Is the Degree Worth the Price?">
+<meta property="og:description" content="Free college ROI calculator: total degree cost including foregone earnings vs the wage premium over a no-degree path — net lifetime value, the age the investment breaks even, and the debt-to-first-salary sanity check.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/college-roi-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-everyday-math.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="College ROI Calculator — Is the Degree Worth the Price?">
+<meta name="twitter:description" content="Free college ROI calculator: total degree cost including foregone earnings vs the wage premium over a no-degree path — net lifetime value, the age the investment breaks even, and the debt-to-first-salary sanity check.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-everyday-math.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is college still worth it financially?", "acceptedAnswer": {"@type": "Answer", "text": "On average, strongly yes — the median bachelor's holder out-earns the median high-school path by roughly $1M+ over a career. But averages hide the distribution: the verdict depends on the major's realistic salary, the price paid, debt taken, and finishing on time. High-premium majors at in-state prices are among the best investments available; low-premium majors at private-sticker prices with 2× debt can genuinely never break even. That's why running your specific numbers beats quoting the average."}}, {"@type": "Question", "name": "How much student debt is too much?", "acceptedAnswer": {"@type": "Answer", "text": "The working rule: keep total borrowing under your realistic first-year salary — $60k expected salary, borrow under $60k. That keeps a standard 10-year payment near 10% of gross income. Past 1.5-2×, the payment starts dictating life choices (housing, saving, career risk) for a decade-plus, and income-driven plans that stretch the term multiply the interest."}}, {"@type": "Question", "name": "Does the calculator account for the college experience, networking, or non-money value?", "acceptedAnswer": {"@type": "Answer", "text": "No — deliberately. Those benefits are real but personal; pricing them is your call, not a formula's. What the calculator prevents is paying $150,000 for benefits you assumed were financial when they weren't. If the numbers say the degree loses $200k and you still want it, that's a legitimate values choice — made with open eyes, which is the whole point."}}, {"@type": "Question", "name": "Is graduate school worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Same machine, sharper inputs: cost plus 2-6 years of foregone professional salary (much bigger than an 18-year-old's) versus the premium the credential actually gates. Professional degrees with licensure moats (medicine, law at strong schools, MBA into consulting/finance) often clear the bar; PhDs and master's degrees in fields that don't require them frequently don't. Employer tuition funding flips marginal cases to yes."}}, {"@type": "Question", "name": "What about starting at community college?", "acceptedAnswer": {"@type": "Answer", "text": "It's the highest-ROI move in the system for most students: two years at community-college prices, transfer, graduate with the four-year school's diploma — indistinguishable to employers — at roughly half the direct cost. The execution details that matter: confirmed articulation agreements (courses that actually transfer) and staying on the transfer timeline so the total stays at four years."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "College ROI Calculator", "item": "https://fincalc-lab.pages.dev/calculators/college-roi-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; College ROI Calculator</nav>
+  <h1>🧠 College ROI Calculator</h1>
+  <p class="lead">A degree is an investment with a price (tuition plus the wages you don't earn while studying) and a return (the earnings premium over the path you'd take instead). For many degrees that return is spectacular; for some price-program combinations it never breaks even. This calculator runs your actual numbers instead of the averages.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">All-in cost per year ($) <em class="hint">(tuition + fees + room/board beyond what living anyway costs)</em></span>
+      
+      <input type="number" id="tuition" value="24000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years to complete</span>
+      
+      <input type="number" id="years" value="4" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Grants & scholarships per year ($) <em class="hint">(free money only — not loans)</em></span>
+      
+      <input type="number" id="aid" value="6000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Salary without the degree ($/yr) <em class="hint">(what you'd realistically earn instead)</em></span>
+      
+      <input type="number" id="nodegree" value="38000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Starting salary with the degree ($/yr) <em class="hint">(realistic for the major — not the university brochure)</em></span>
+      
+      <input type="number" id="withdegree" value="62000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Both paths' salary growth (%/yr)</span>
+      
+      <input type="number" id="growTo" value="3" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Extra growth on the degree path (%/yr) <em class="hint">(degrees often raise the ceiling, not just the floor)</em></span>
+      
+      <input type="number" id="premiumgrow" value="1" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Student loans at graduation ($)</span>
+      
+      <input type="number" id="loans" value="40000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan rate (%)</span>
+      
+      <input type="number" id="loanrate" value="6.5" step="0.05" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>The cost side people undercount — and the return side they overcount</h2>
+<p>The sticker price is the smaller half of the investment. Four years <em>not</em> earning a $38,000 salary is roughly $160,000 of foregone wages — usually more than net tuition at a public university. That's why this calculator counts both, and why finishing in four years instead of six is worth more than most scholarships (each extra year adds a year of cost <em>and</em> a year of missing pay). On the return side, the honest comparison is your realistic salary <em>for that major in that job market</em>, not the university's marketing average — engineering and nursing premiums are enormous; some majors' premiums are modest and arrive slowly. The degree also often changes the <em>slope</em>, not just the starting point — promotions, credential-gated roles, graduate options — which is what the "extra growth" input captures. Both effects are real; both deserve real numbers instead of vibes.</p>
+<h2>The one-line debt rule</h2>
+<p>Decades of outcomes compress into one guideline: <strong>total borrowing under your realistic first-year salary</strong>. At 1× or below, a standard 10-year payoff takes roughly 10% of gross — tight but livable. At 2×+, the payment crowds out saving, housing and risk-taking through the exact decade when <a href="/articles/how-to-build-wealth-in-your-20s-and-30s/">compounding matters most</a>. The rule also converts neatly into strategy: it says <em>which version</em> of a credential to buy. The $25,000-debt path to a nursing degree and the $120,000-debt path lead to the same license — the <a href="/calculators/student-loan-calculator/">loan payoff calculator</a> shows what each costs monthly, and the difference is a house down payment.</p>
+<h2>Moving the ROI without changing the diploma</h2>
+<ul>
+<li><strong>Community college transfer:</strong> two years at ~$4,000 rolling into the state flagship's diploma — same final credential, roughly half the direct cost. The single biggest ROI lever available.</li>
+<li><strong>In-state public vs private sticker:</strong> the median private premium rarely survives this calculator unless heavy aid closes the gap. Always compare <em>net</em> price after the aid letter, not sticker vs sticker.</li>
+<li><strong>Finish on time.</strong> Six-year graduation is the silent ROI killer — a fifth year costs tuition plus a year of degree-level wages, easily $80,000+ of swing.</li>
+<li><strong>AP/dual-enrollment credits, CLEP, summer courses</strong> shave semesters at trivial cost.</li>
+<li><strong>Aid is negotiable:</strong> competing offers can be sent back to the preferred school's aid office; appeals succeed often enough to be worth an afternoon. Grants and scholarships change the math dollar-for-dollar (the <a href="/calculators/college-savings-calculator/">college savings calculator</a> handles the family-funding side).</li>
+</ul>
+<h2>When the working path honestly wins</h2>
+<p>The comparison isn't degree vs nothing — it's degree vs <em>the best version of not-degree</em>: skilled trades (electricians and linemen out-earn many bachelor's holders, with paid apprenticeships instead of tuition), certifications and licensure programs measured in months, sales roles where output beats credentials, and military or employer-tuition routes that pay for later education. For a student lukewarm on academics staring at a 2×-salary debt load for a modest-premium major, the trades path frequently wins this calculator outright — earlier earnings, zero debt, and a decade's head start on <a href="/calculators/compound-interest-calculator/">compounding</a>. The credential question deserves the same discipline as any five-figure investment: run the numbers, compare the alternatives, and buy the cheapest version of the outcome you actually want.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is college still worth it financially?</summary>
+      <p>On average, strongly yes — the median bachelor's holder out-earns the median high-school path by roughly $1M+ over a career. But averages hide the distribution: the verdict depends on the major's realistic salary, the price paid, debt taken, and finishing on time. High-premium majors at in-state prices are among the best investments available; low-premium majors at private-sticker prices with 2× debt can genuinely never break even. That's why running your specific numbers beats quoting the average.</p>
+    </details>
+    
+    <details>
+      <summary>How much student debt is too much?</summary>
+      <p>The working rule: keep total borrowing under your realistic first-year salary — $60k expected salary, borrow under $60k. That keeps a standard 10-year payment near 10% of gross income. Past 1.5-2×, the payment starts dictating life choices (housing, saving, career risk) for a decade-plus, and income-driven plans that stretch the term multiply the interest.</p>
+    </details>
+    
+    <details>
+      <summary>Does the calculator account for the college experience, networking, or non-money value?</summary>
+      <p>No — deliberately. Those benefits are real but personal; pricing them is your call, not a formula's. What the calculator prevents is paying $150,000 for benefits you assumed were financial when they weren't. If the numbers say the degree loses $200k and you still want it, that's a legitimate values choice — made with open eyes, which is the whole point.</p>
+    </details>
+    
+    <details>
+      <summary>Is graduate school worth it?</summary>
+      <p>Same machine, sharper inputs: cost plus 2-6 years of foregone professional salary (much bigger than an 18-year-old's) versus the premium the credential actually gates. Professional degrees with licensure moats (medicine, law at strong schools, MBA into consulting/finance) often clear the bar; PhDs and master's degrees in fields that don't require them frequently don't. Employer tuition funding flips marginal cases to yes.</p>
+    </details>
+    
+    <details>
+      <summary>What about starting at community college?</summary>
+      <p>It's the highest-ROI move in the system for most students: two years at community-college prices, transfer, graduate with the four-year school's diploma — indistinguishable to employers — at roughly half the direct cost. The execution details that matter: confirmed articulation agreements (courses that actually transfer) and staying on the transfer timeline so the total stays at four years.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/percentage-calculator/">
+        <span class="card-emoji">🔢</span>
+        <span class="card-title">Percentage Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/unit-price-calculator/">
+        <span class="card-emoji">🛒</span>
+        <span class="card-title">Unit Price Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/fuel-cost-calculator/">
+        <span class="card-emoji">⛽</span>
+        <span class="card-title">Fuel Cost Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-refinance-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Refinance Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/lease-vs-buy-a-car/">
+        <span class="card-title">"Lease vs Buy a Car: The Honest Math (and When Each Wins)"</span>
+        <span class="card-desc">A clear framework for deciding whether to lease or buy your next car — what leasing really costs, why buying usually wins long-term, and the cases where leasing makes sense.</span>
+      </a>
+      
+      <a class="card" href="/articles/roth-vs-traditional-retirement-accounts/">
+        <span class="card-title">"Roth vs Traditional: Which Retirement Account Wins?"</span>
+        <span class="card-desc">A clear framework for choosing between Roth and Traditional retirement accounts — the tax logic, the break-even rule, and why many people use both.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-rollover-options-job-change/">
+        <span class="card-title">"Changing Jobs? The Four Things You Can Do With Your Old 401(k)"</span>
+        <span class="card-desc">Leave it, roll it to the new plan, roll it to an IRA, or cash out — the real trade-offs of each, the direct-rollover rule that avoids a tax disaster, and who should pick which.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const T = val('tuition'), yrs = Math.max(1, Math.round(val('years'))), aid = Math.max(0, val('aid'));
+  const s0 = val('nodegree'), s1 = val('withdegree');
+  const g = val('growTo')/100, pg = Math.max(0, val('premiumgrow'))/100;
+  const L = Math.max(0, val('loans')), lr = val('loanrate')/100/12;
+  if (s0 < 0 || s1 <= 0) { show('<div class="result-main">Enter both salaries.</div>'); return; }
+  const direct = (T - aid) * yrs;
+  const foregone = (() => { let f = 0, s = s0; for (let y = 0; y < yrs; y++) { f += s; s *= (1 + g); } return f; })();
+  const totalCost = direct + foregone;
+  // loan interest over a 10-year standard payoff
+  const n = 120;
+  const pay = lr > 0 ? L * lr / (1 - Math.pow(1 + lr, -n)) : L / n;
+  const loanInterest = L > 0 ? pay * n - L : 0;
+  // simulate to age ~65: assume start at 18, degree path starts earning at 18+yrs
+  const horizon = 47; // 18 -> 65
+  let cumNo = 0, cumDeg = -direct - loanInterest, sNo = s0, sDeg = s1;
+  let breakevenYear = -1;
+  for (let y = 0; y < horizon; y++) {
+    cumNo += sNo; sNo *= (1 + g);
+    if (y >= yrs) { cumDeg += sDeg; sDeg *= (1 + g + pg); }
+    if (breakevenYear < 0 && cumDeg >= cumNo) breakevenYear = y + 1;
+  }
+  const lifetime = cumDeg - cumNo;
+  const ratio = s1 > 0 ? L / s1 : 0;
+  const ratioNote = L === 0 ? 'debt-free — the strongest version of this plan'
+    : (ratio <= 1 ? `${fmt(ratio*100,0)}% of first-year salary — inside the classic borrow-less-than-year-one rule`
+    : `<strong>${fmt(ratio,1)}× first-year salary — beyond the borrow-under-1× guideline; this is where degrees stop paying</strong>`);
+  show(`<div class="result-main">${lifetime > 0 ? '$' + fmt(lifetime,0) + ' lifetime edge' : '$' + fmt(-lifetime,0) + ' lifetime LOSS'}<small>degree path vs working path through age 65 &middot; ${breakevenYear > 0 ? 'breaks even around age ' + (18 + breakevenYear) : '<strong>never breaks even</strong> on these numbers'}</small></div>
+  <table>
+    <tr><td>Direct cost (${yrs} yrs × $${fmt(T - aid,0)} net of aid)</td><td>$${fmt(direct,0)}</td></tr>
+    <tr><td>Foregone earnings while studying</td><td>$${fmt(foregone,0)} — the cost nobody prices</td></tr>
+    <tr><td><strong>True investment</strong></td><td><strong>$${fmt(totalCost,0)}</strong></td></tr>
+    <tr><td>Loan interest (10-yr payoff of $${fmt(L,0)})</td><td>$${fmt(loanInterest,0)}</td></tr>
+    <tr><td>Year-1 premium</td><td>$${fmt(s1 - s0*Math.pow(1+g,yrs),0)}/yr, growing</td></tr>
+    <tr><td>Debt vs first salary</td><td>${ratioNote}</td></tr>
+    <tr><td>Cumulative advantage by 65</td><td>${lifetime > 0 ? '$' + fmt(lifetime,0) : '&minus;$' + fmt(-lifetime,0)}</td></tr>
+  </table>
+  <p>${lifetime > 0 && breakevenYear > 0 && (18 + breakevenYear) <= 35
+    ? `Strong investment: the degree repays its full cost (including the invisible foregone wages) by ${18 + breakevenYear} and compounds from there.`
+    : (lifetime > 0
+      ? `It pays eventually — but a breakeven at ${18 + breakevenYear} leaves little margin for a wrong major, a fifth year, or a soft job market. Cheaper versions of the same credential (below) move this number fast.`
+      : `On these numbers the working path wins outright. Before abandoning the degree idea, rerun with a cheaper route — community-college transfer, in-state tuition, more aid — which often flips the verdict without changing the credential.`)}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
