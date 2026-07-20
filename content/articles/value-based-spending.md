@@ -39,6 +39,14 @@ Cutting the autopilot and status categories frequently frees up substantial mone
 
 Value-based thinking applies most powerfully to your largest expenses, not just small indulgences. Housing, transport, and food dominate most budgets. Ask whether your spending there matches your values: a huge car payment you barely think about is pure waste; a home in a location you love may be worth stretching for. Aligning the *big* categories with what you value creates far more room than trimming lattes — while still leaving you the lattes if those are what you love.
 
+## A worked example: same income, redesigned
+
+A concrete before-and-after on a $4,800/month take-home. Before: $1,700 rent, $650 car payment on a barely-driven SUV, $580 groceries plus $520 of forgettable takeout, $210 of subscriptions (four streaming services, two apps, a gym visited twice), $400 shopping drift, $340 on the two things this person actually loves — climbing trips and cooking classes — and about $400 left over in a good month. The value audit: the SUV, half the takeout, three subscriptions and most of the shopping drift graded "wouldn't miss it." After: a $19,000 used car ($330 payment), takeout cut to the weekly ramen night that's genuinely loved ($200), subscriptions to $60, shopping to $150 — freeing about $1,020/month. Spending on the loved things *doubled* to $700, and $900/month now auto-routes to goals ([$150k+ over a decade](/calculators/future-value-calculator/) at 7%). Total spending fell, measured happiness rose — because the cuts came entirely from the indifferent middle.
+
+## The maintenance habit: a 15-minute quarterly audit
+
+Values drift and autopilot regrows — the strategy needs light upkeep. Once a quarter: pull the last month's transactions, mark each purchase kept/killed/loved in one pass (gut reaction is accurate enough), cancel or downgrade the killed list the same day, and check that the freed money is still flowing to goals rather than leaking back into drift. Fifteen minutes, four times a year — the cheapest insurance against [lifestyle creep](/articles/lifestyle-creep/) quietly reassembling the old spending pattern with new logos. If a formal structure helps, the [50/30/20 framework](/articles/50-30-20-rule-in-real-life/) pairs naturally: value-based thinking decides *what* fills the wants bucket; the ratio caps *how big* it gets.
+
 ## Redirect the savings on purpose
 
 The freed-up money only builds wealth if it goes somewhere deliberate. Automatically route it to your goals — [emergency fund](/calculators/emergency-fund-calculator/), debt payoff, or [investing](/articles/index-funds-explained/) — before it drifts back into autopilot spending. Value-based spending on the expense side plus automation on the saving side is a combination that quietly builds wealth while you enjoy your life.
