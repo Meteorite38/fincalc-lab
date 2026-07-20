@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Utilization Calculator — The Ratio That Moves Your Score</title>
+<meta name="description" content="Calculate your credit utilization ratio — balances divided by limits — and see how it affects your credit score, plus the target to aim for.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/credit-utilization-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Credit Utilization Calculator — The Ratio That Moves Your Score">
+<meta property="og:description" content="Calculate your credit utilization ratio — balances divided by limits — and see how it affects your credit score, plus the target to aim for.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/credit-utilization-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Credit Utilization Calculator — The Ratio That Moves Your Score">
+<meta name="twitter:description" content="Calculate your credit utilization ratio — balances divided by limits — and see how it affects your credit score, plus the target to aim for.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a good credit utilization ratio?", "acceptedAnswer": {"@type": "Answer", "text": "Keep it under 30% of your total limits, and ideally under 10% for the best score impact. Very low utilization (but not zero across all cards) tends to maximize this part of your score."}}, {"@type": "Question", "name": "How do I lower my credit utilization?", "acceptedAnswer": {"@type": "Answer", "text": "Pay down balances, pay before the statement closes (since the statement balance is what's reported), request higher credit limits, and keep old cards open to preserve your total available credit."}}, {"@type": "Question", "name": "Does credit utilization affect my score quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — it's one of the fastest-moving factors, updating whenever your balances are reported. Paying down a balance can improve your score within one or two billing cycles."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Credit Utilization Calculator", "item": "https://fincalc-lab.pages.dev/calculators/credit-utilization-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Credit Utilization Calculator</nav>
+  <h1>💳 Credit Utilization Calculator</h1>
+  <p class="lead">Credit utilization is one of the biggest factors in your credit score. Enter your total balances and limits to see your ratio and how it's likely helping or hurting your score.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Total credit card balances ($)</span>
+      
+      <input type="number" id="balance" value="2400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Total credit limits ($)</span>
+      
+      <input type="number" id="limit" value="10000" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>What credit utilization is</h2>
+<p>Credit utilization is the percentage of your available credit you're currently using: <code>utilization = balances ÷ credit limits × 100</code>. If you owe $2,400 across cards with $10,000 of total limits, your utilization is 24%. It's calculated both per-card and overall, and it's one of the most powerful factors in your credit score — typically around <strong>30% of the score</strong>, second only to payment history (see [what affects your credit score](/articles/what-affects-your-credit-score/)).</p>
+<h2>Why lenders care</h2>
+<p>High utilization signals risk: someone using most of their available credit looks financially stretched and more likely to miss payments. Low utilization signals control. Because it's such a strong signal, utilization can swing your score significantly — and unlike most factors, it can change fast, since it updates whenever balances are reported.</p>
+<h2>The targets to aim for</h2>
+<ul>
+<li><strong>Under 30%</strong> — the widely-cited maximum. Above this, your score usually takes a hit.</li>
+<li><strong>Under 10%</strong> — the sweet spot. The lowest utilization (while still using cards) tends to maximize this part of your score.</li>
+<li><strong>Not 0%</strong> — showing a small balance that you pay off is generally slightly better than showing zero everywhere, which can look like inactivity.</li>
+</ul>
+<h2>How to lower it fast</h2>
+<p>Utilization is one of the quickest score levers because it responds immediately to balance changes:</p>
+<ul>
+<li><strong>Pay down balances</strong> — the direct route. The calculator shows exactly how much to pay to reach 30% and 10%.</li>
+<li><strong>Pay before the statement closes.</strong> Card issuers report the statement balance, so paying down *before* the statement date lowers the utilization that gets reported — even if you'd pay it off anyway.</li>
+<li><strong>Request a credit-limit increase.</strong> A higher limit lowers utilization instantly without changing your spending (just don't spend more to match).</li>
+<li><strong>Keep old cards open.</strong> Closing a card removes its limit, which *raises* your utilization — usually keep them open, per [how to build credit](/articles/how-to-build-credit/).</li>
+</ul>
+<h2>The bottom line</h2>
+<p>Credit utilization is the rare credit factor you can improve in a single billing cycle. Keep it under 30% always, aim for under 10% before applying for anything important (a mortgage, car loan, or new card), and use the "pay before the statement date" trick to control what's reported. It's one of the easiest, fastest ways to protect and boost your score.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What is a good credit utilization ratio?</summary>
+      <p>Keep it under 30% of your total limits, and ideally under 10% for the best score impact. Very low utilization (but not zero across all cards) tends to maximize this part of your score.</p>
+    </details>
+    
+    <details>
+      <summary>How do I lower my credit utilization?</summary>
+      <p>Pay down balances, pay before the statement closes (since the statement balance is what's reported), request higher credit limits, and keep old cards open to preserve your total available credit.</p>
+    </details>
+    
+    <details>
+      <summary>Does credit utilization affect my score quickly?</summary>
+      <p>Yes — it's one of the fastest-moving factors, updating whenever your balances are reported. Paying down a balance can improve your score within one or two billing cycles.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-to-income-ratio-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Debt-to-Income (DTI) Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/debt-consolidation-calculator/">
+        <span class="card-emoji">🧮</span>
+        <span class="card-title">Debt Consolidation Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/extra-mortgage-payment-calculator/">
+        <span class="card-emoji">🏡</span>
+        <span class="card-title">Extra Mortgage Payment Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/house-down-payment-calculator/">
+        <span class="card-emoji">🔑</span>
+        <span class="card-title">House Down Payment Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-to-save-for-a-house-down-payment/">
+        <span class="card-title">"How to Save for a House Down Payment (Without It Taking Forever)"</span>
+        <span class="card-desc">How much to save for a down payment, where to keep it, and practical tactics to get there faster — plus why 20% isn't always the right target.</span>
+      </a>
+      
+      <a class="card" href="/articles/what-affects-your-credit-score/">
+        <span class="card-title">"What Actually Affects Your Credit Score"</span>
+        <span class="card-desc">The five factors behind your credit score, which ones matter most, and the practical habits that raise it — without the myths.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-build-credit/">
+        <span class="card-title">"How to Build Credit From Scratch (and Fix a Low Score)"</span>
+        <span class="card-desc">A practical, step-by-step guide to building a credit history from zero and raising a low score — what actually moves the needle and what to ignore.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-match-free-money/">
+        <span class="card-title">"What Is a 401(k) Match, and Why It's the Best Deal in Finance"</span>
+        <span class="card-desc">How employer 401(k) matching works, why skipping it means leaving free money on the table, and how vesting and contribution limits affect you.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const bal = val('balance'), lim = val('limit');
+  if (lim <= 0) { show('<div class="result-main">Enter your total credit limit above zero.</div>'); return; }
+  const util = bal / lim * 100;
+  let band, advice;
+  if (util <= 10) { band = 'Excellent'; advice = 'Ideal range \u2014 this helps your score the most.'; }
+  else if (util <= 30) { band = 'Good'; advice = 'Within the recommended limit; aim under 10% for the best effect.'; }
+  else if (util <= 50) { band = 'Fair'; advice = 'Above the 30% guideline \u2014 paying this down should lift your score.'; }
+  else { band = 'High'; advice = 'Well above 30% \u2014 this is likely dragging your score down noticeably.'; }
+  const to30 = Math.max(0, bal - lim*0.30);
+  const to10 = Math.max(0, bal - lim*0.10);
+  show(`<div class="result-main">${fmt(util,1)}%<small>Credit utilization \u2014 ${band}</small></div>
+  <table>
+    <tr><td>Total balances</td><td>$${fmt(bal,0)}</td></tr>
+    <tr><td>Total limits</td><td>$${fmt(lim,0)}</td></tr>
+    <tr><td>Utilization</td><td>${fmt(util,1)}%</td></tr>
+    <tr><td>Pay down to reach 30%</td><td>${to30>0 ? '$'+fmt(to30,0) : 'already under 30% \u2705'}</td></tr>
+    <tr><td>Pay down to reach 10%</td><td>${to10>0 ? '$'+fmt(to10,0) : 'already under 10% \u2705'}</td></tr>
+    <tr><td>Assessment</td><td>${advice}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>

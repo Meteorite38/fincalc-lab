@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Required Return Calculator — What Rate You Need to Hit Your Goal</title>
+<meta name="description" content="Find the annual investment return you'd need to reach a financial goal, given your starting amount, monthly contributions and timeline — and whether it's realistic.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/required-return-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Required Return Calculator — What Rate You Need to Hit Your Goal">
+<meta property="og:description" content="Find the annual investment return you'd need to reach a financial goal, given your starting amount, monthly contributions and timeline — and whether it's realistic.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/required-return-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-savings-investing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Required Return Calculator — What Rate You Need to Hit Your Goal">
+<meta name="twitter:description" content="Find the annual investment return you'd need to reach a financial goal, given your starting amount, monthly contributions and timeline — and whether it's realistic.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-savings-investing.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What return do I need to reach my goal?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your starting amount, monthly contributions, timeline and target. This calculator solves for the exact annual return required — and tells you whether that rate is realistic given historical market averages."}}, {"@type": "Question", "name": "What's a realistic investment return to plan around?", "acceptedAnswer": {"@type": "Answer", "text": "A diversified stock portfolio has historically averaged about 7% a year after inflation over long periods. Planning around 5–8% is reasonable; needing more than ~10% is a sign to adjust your contributions, timeline, or goal rather than chase risk."}}, {"@type": "Question", "name": "What if the required return is unrealistically high?", "acceptedAnswer": {"@type": "Answer", "text": "Change the inputs you control: contribute more, extend your timeline, or lower the goal. Relying on an unrealistically high return means gambling — adjust the plan so a normal market return gets you there."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Required Return Calculator", "item": "https://fincalc-lab.pages.dev/calculators/required-return-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Required Return Calculator</nav>
+  <h1>🎯 Required Return Calculator</h1>
+  <p class="lead">Know your goal, your timeline, and how much you can invest? This calculator finds the annual return you'd need to get there — and tells you whether that's realistic or wishful.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Goal amount ($)</span>
+      
+      <input type="number" id="target" value="500000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Current savings ($)</span>
+      
+      <input type="number" id="current" value="50000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Monthly contribution ($)</span>
+      
+      <input type="number" id="monthly" value="600" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years to reach it</span>
+      
+      <input type="number" id="years" value="20" step="1" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Working backwards from your goal</h2>
+<p>Most calculators start with a return and project a result. This one flips it: you set the goal, the timeline, and what you can invest, and it solves for the <strong>annual return you'd need</strong> to get there. That's powerful, because it turns a wish into a testable question — <em>is the return I need actually realistic?</em></p>
+<h2>Why the reality check matters</h2>
+<p>The value here isn't just the number — it's the honesty. If the calculator says you need 4% a year, that's very achievable and your plan is sound. If it says you need 15%, that's a warning: no investment reliably delivers that, so betting on it means gambling. A required return above roughly 10% is a signal to change the plan, not to chase riskier assets hoping they deliver.</p>
+<h2>What counts as realistic</h2>
+<ul>
+<li><strong>Under ~5%</strong> — achievable even with conservative, lower-risk investing.</li>
+<li><strong>5–8%</strong> — in line with long-run diversified [stock market](/articles/index-funds-explained/) averages (about 7% real historically). A reasonable plan.</li>
+<li><strong>8–12%</strong> — ambitious; above typical averages. Possible in good decades but not something to count on.</li>
+<li><strong>Over 12%</strong> — unrealistic as a plan. Markets don't reliably deliver this, and needing it means the goal, timeline, or contributions must change.</li>
+</ul>
+<h2>If the required return is too high</h2>
+<p>You have three honest levers, none of which involve gambling on a miracle return:</p>
+<ol>
+<li><strong>Contribute more</strong> each month — the most reliable fix, and it lowers the return you need.</li>
+<li><strong>Extend the timeline</strong> — more years means [compounding](/articles/how-compound-interest-builds-wealth/) does more of the work, dropping the required return.</li>
+<li><strong>Lower the goal</strong> to something the math supports.</li>
+</ol>
+<p>Chasing a high required return by piling into risky assets is how people lose money. Adjust the inputs you control instead, and build a plan around a return the market can actually provide.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>What return do I need to reach my goal?</summary>
+      <p>It depends on your starting amount, monthly contributions, timeline and target. This calculator solves for the exact annual return required — and tells you whether that rate is realistic given historical market averages.</p>
+    </details>
+    
+    <details>
+      <summary>What's a realistic investment return to plan around?</summary>
+      <p>A diversified stock portfolio has historically averaged about 7% a year after inflation over long periods. Planning around 5–8% is reasonable; needing more than ~10% is a sign to adjust your contributions, timeline, or goal rather than chase risk.</p>
+    </details>
+    
+    <details>
+      <summary>What if the required return is unrealistically high?</summary>
+      <p>Change the inputs you control: contribute more, extend your timeline, or lower the goal. Relying on an unrealistically high return means gambling — adjust the plan so a normal market return gets you there.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/savings-goal-calculator/">
+        <span class="card-emoji">🎯</span>
+        <span class="card-title">Savings Goal Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/college-savings-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">College Savings Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/cost-of-waiting-calculator/">
+        <span class="card-emoji">⏱️</span>
+        <span class="card-title">Cost of Waiting to Invest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/time-to-save-calculator/">
+        <span class="card-emoji">⏳</span>
+        <span class="card-title">Time to Save Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/compound-interest-calculator/">
+        <span class="card-emoji">📈</span>
+        <span class="card-title">Compound Interest Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/millionaire-calculator/">
+        <span class="card-emoji">💰</span>
+        <span class="card-title">Millionaire Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-save-for-retirement/">
+        <span class="card-title">"How Much Should You Save for Retirement?"</span>
+        <span class="card-desc">Rules of thumb, the real math behind retirement targets, and how to turn a scary abstract goal into a monthly number you can actually act on.</span>
+      </a>
+      
+      <a class="card" href="/articles/investing-myths-debunked/">
+        <span class="card-title">"10 Investing Myths That Keep People Poor"</span>
+        <span class="card-desc">The most common investing myths — from 'you need to be rich to start' to 'timing the market works' — debunked with the evidence, so you can invest with confidence.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-build-wealth-in-your-20s-and-30s/">
+        <span class="card-title">"How to Build Wealth in Your 20s and 30s"</span>
+        <span class="card-desc">The moves that matter most when you're young — why starting early beats everything, and a simple playbook that turns modest income into long-term wealth.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function fv(P, pmt, annualPct, years) {
+  const i = annualPct/100/12, n = Math.round(years*12);
+  const g = Math.pow(1+i, n);
+  return i === 0 ? P + pmt*n : P*g + pmt*(g-1)/i;
+}
+function calculate() {
+  const target = val('target'), P = val('current'), pmt = val('monthly'), y = val('years');
+  if (y <= 0) { show('<div class="result-main">Enter a time horizon above zero.</div>'); return; }
+  const contribTotal = P + pmt*y*12;
+  // bisection on annual rate 0%..60%
+  let lo = -50, hi = 60;
+  if (fv(P, pmt, hi, y) < target) { show(`<div class="result-main">Out of realistic range<small>Even a 60% annual return wouldn't reach $${fmt(target,0)} \u2014 increase contributions or time</small></div>`); return; }
+  if (fv(P, pmt, 0, y) >= target) {
+    show(`<div class="result-main">0% needed \u2705<small>Your contributions alone reach $${fmt(target,0)} \u2014 no growth required</small></div>
+    <table><tr><td>Total you'll contribute</td><td>$${fmt(contribTotal,0)}</td></tr></table>`);
+    return;
+  }
+  for (let k = 0; k < 100; k++) { const mid = (lo+hi)/2; if (fv(P, pmt, mid, y) < target) lo = mid; else hi = mid; }
+  const rate = (lo+hi)/2;
+  let verdict;
+  if (rate <= 5) verdict = 'Very achievable \u2014 within reach of conservative investing';
+  else if (rate <= 8) verdict = 'Realistic \u2014 in line with long-run stock market averages';
+  else if (rate <= 12) verdict = 'Ambitious \u2014 above typical averages; possible but not guaranteed';
+  else verdict = 'Unrealistic \u2014 higher than markets reliably deliver; adjust the plan';
+  show(`<div class="result-main">${fmt(rate,1)}% / year<small>Annual return needed to reach $${fmt(target,0)} in ${y} years</small></div>
+  <table>
+    <tr><td>Total you'll contribute</td><td>$${fmt(contribTotal,0)}</td></tr>
+    <tr><td>Growth required on top</td><td>$${fmt(target-contribTotal,0)}</td></tr>
+    <tr><td>Required annual return</td><td>${fmt(rate,1)}%</td></tr>
+    <tr><td>Reality check</td><td>${verdict}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
