@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lease vs Buy a Car Calculator — Which Is Cheaper?</title>
+<meta name="description" content="Compare leasing vs buying a car by true net cost over the years you'll keep it — including the resale value you keep when you buy. See which is cheaper and by how much.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/lease-vs-buy-car-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Lease vs Buy a Car Calculator — Which Is Cheaper?">
+<meta property="og:description" content="Compare leasing vs buying a car by true net cost over the years you'll keep it — including the resale value you keep when you buy. See which is cheaper and by how much.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/lease-vs-buy-car-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lease vs Buy a Car Calculator — Which Is Cheaper?">
+<meta name="twitter:description" content="Compare leasing vs buying a car by true net cost over the years you'll keep it — including the resale value you keep when you buy. See which is cheaper and by how much.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-loans-debt.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it cheaper to lease or buy a car?", "acceptedAnswer": {"@type": "Answer", "text": "Over the long run, buying and keeping a car is almost always cheaper, because you eventually stop making payments and keep an asset with resale value. Leasing can be competitive only if you replace the car every few years and value having a new one."}}, {"@type": "Question", "name": "Why does this calculator subtract resale value?", "acceptedAnswer": {"@type": "Answer", "text": "Because when you buy, the car is yours to sell or keep driving at the end of the period — that residual value is real money that offsets your cost. A lease returns the car, so you get nothing back. Ignoring resale would unfairly favor leasing."}}, {"@type": "Question", "name": "What resale percentage should I use?", "acceptedAnswer": {"@type": "Answer", "text": "A typical car retains very roughly 45% of its price after 6 years, though it varies widely by model — some hold value far better. Check resale estimates for the specific car; models that hold value strengthen the case for buying."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Lease vs Buy a Car Calculator", "item": "https://fincalc-lab.pages.dev/calculators/lease-vs-buy-car-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Lease vs Buy a Car Calculator</nav>
+  <h1>🚗 Lease vs Buy a Car Calculator</h1>
+  <p class="lead">Leasing looks cheaper month to month, but buying leaves you owning an asset. This calculator compares the real net cost of each over the years you plan to keep the car, so you can see which actually wins — and by how much.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Car price ($)</span>
+      
+      <input type="number" id="price" value="35000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Years you'll keep the car</span>
+      
+      <input type="number" id="keep" value="6" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Resale value after those years (% of price) <em class="hint">(typical: ~45% after 6 years)</em></span>
+      
+      <input type="number" id="resalepct" value="45" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Down payment if buying ($)</span>
+      
+      <input type="number" id="down" value="5000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan interest rate (%)</span>
+      
+      <input type="number" id="rate" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Loan term (years)</span>
+      
+      <input type="number" id="loanyears" value="5" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Lease payment ($/month)</span>
+      
+      <input type="number" id="lease" value="400" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Lease upfront + fees over the period ($) <em class="hint">(down payment, acquisition & disposition fees)</em></span>
+      
+      <input type="number" id="leasefees" value="3000" step="any" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why the monthly payment lies</h2>
+<p>Lease payments are almost always lower than loan payments on the same car, which makes leasing look cheaper. But that comparison is rigged: a lease payment buys you nothing but temporary use, while a loan payment builds equity in an asset you keep. To compare fairly you have to look at <strong>net cost over the whole period you'll keep the car</strong> — and credit buying with the resale value you walk away with. That's exactly what this calculator does.</p>
+<h2>How the comparison works</h2>
+<p>For <strong>buying</strong>, it adds up your down payment plus every loan payment you make during the years you keep the car, adds any loan balance still owed at the end, then <em>subtracts</em> the car's resale value (which is yours to sell or keep driving). For <strong>leasing</strong>, it adds every lease payment over the same period plus upfront fees — and credits you nothing at the end, because you hand the car back. The lower net cost wins.</p>
+<h2>The decisive factor: how long you keep it</h2>
+<p>Time is what flips the answer. Leases are structured to cover a car's steepest depreciation years, so over a single 3-year lease term the gap can be small. But buyers win big when they <strong>keep the car well beyond the loan payoff</strong> — those are years of payment-free driving while the leaser is still making payments forever. Set the "years you'll keep the car" high and buying usually pulls ahead; set it to a short churn cycle and leasing narrows or wins.</p>
+<h2>When leasing can still make sense</h2>
+<ul>
+<li><strong>You want a new car every 2–3 years</strong> and value that over cost — leasing removes resale hassle.</li>
+<li><strong>Business use</strong> where lease payments may be deductible (check with a tax professional).</li>
+<li><strong>You drive low mileage</strong> and stay within lease limits, avoiding per-mile penalties.</li>
+</ul>
+<h2>When buying almost always wins</h2>
+<ul>
+<li><strong>You keep cars a long time.</strong> The longer you drive a paid-off car, the more buying dominates.</li>
+<li><strong>You drive a lot.</strong> Leases charge steep per-mile fees over the limit; ownership doesn't care.</li>
+<li><strong>You want to build wealth.</strong> A paid-off car is an asset and frees up cash flow — money that can compound instead of vanishing into perpetual payments.</li>
+</ul>
+<p>Whatever the result here, remember the biggest lever isn't lease-vs-buy at all — it's <a href="/calculators/car-affordability-calculator/">how much car you buy in the first place</a>. Pair this with our <a href="/calculators/car-lease-calculator/">lease payment</a> and <a href="/articles/how-much-to-spend-on-a-car/">how much to spend on a car</a> guides.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>Is it cheaper to lease or buy a car?</summary>
+      <p>Over the long run, buying and keeping a car is almost always cheaper, because you eventually stop making payments and keep an asset with resale value. Leasing can be competitive only if you replace the car every few years and value having a new one.</p>
+    </details>
+    
+    <details>
+      <summary>Why does this calculator subtract resale value?</summary>
+      <p>Because when you buy, the car is yours to sell or keep driving at the end of the period — that residual value is real money that offsets your cost. A lease returns the car, so you get nothing back. Ignoring resale would unfairly favor leasing.</p>
+    </details>
+    
+    <details>
+      <summary>What resale percentage should I use?</summary>
+      <p>A typical car retains very roughly 45% of its price after 6 years, though it varies widely by model — some hold value far better. Check resale estimates for the specific car; models that hold value strengthen the case for buying.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/car-lease-calculator/">
+        <span class="card-emoji">🗝️</span>
+        <span class="card-title">Car Lease Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/loan-payoff-calculator/">
+        <span class="card-emoji">🚀</span>
+        <span class="card-title">Loan Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/credit-card-payoff-calculator/">
+        <span class="card-emoji">💳</span>
+        <span class="card-title">Credit Card Payoff Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/student-loan-calculator/">
+        <span class="card-emoji">🎓</span>
+        <span class="card-title">Student Loan Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/car-affordability-calculator/">
+        <span class="card-emoji">🚗</span>
+        <span class="card-title">Car Affordability Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/amortization-schedule-calculator/">
+        <span class="card-emoji">📅</span>
+        <span class="card-title">Amortization Schedule Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-to-save-for-a-house-down-payment/">
+        <span class="card-title">"How to Save for a House Down Payment (Without It Taking Forever)"</span>
+        <span class="card-desc">How much to save for a down payment, where to keep it, and practical tactics to get there faster — plus why 20% isn't always the right target.</span>
+      </a>
+      
+      <a class="card" href="/articles/etf-vs-mutual-fund/">
+        <span class="card-title">"ETFs vs Mutual Funds: Which Should You Choose?"</span>
+        <span class="card-desc">The real differences between ETFs and mutual funds — trading, fees, taxes and minimums — and why for most long-term investors it barely matters which you pick.</span>
+      </a>
+      
+      <a class="card" href="/articles/good-debt-vs-bad-debt/">
+        <span class="card-title">"Good Debt vs Bad Debt: A Simple Framework for Borrowing Decisions"</span>
+        <span class="card-desc">Not all debt is equal. A practical framework for telling wealth-building debt from wealth-destroying debt, using interest rate, asset value and cash flow.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const price = val('price'), keep = Math.min(val('keep'), 40), resale = price * val('resalepct')/100;
+  const down = val('down'), i = val('rate')/100/12, ly = Math.min(val('loanyears'), 40);
+  const lease = val('lease'), leaseFees = val('leasefees');
+  if (price <= 0 || keep <= 0) { show('<div class="result-main">Enter a car price and how long you\'ll keep it.</div>'); return; }
+  const P = Math.max(0, price - down), n = Math.round(ly*12), months = Math.round(keep*12);
+  const pmt = n > 0 ? (i>0 ? P*i/(1-Math.pow(1+i,-n)) : P/n) : 0;
+  let bal = P, paid = 0;
+  for (let m = 1; m <= months; m++) {
+    if (bal <= 0) break;
+    const int = bal * i; let principal = pmt - int;
+    if (principal > bal) principal = bal;
+    bal -= principal; paid += (principal + int);
+  }
+  const remaining = Math.max(0, bal);
+  const buyNet = down + paid + remaining - resale;
+  const leaseNet = leaseFees + lease * months;
+  const diff = Math.abs(buyNet - leaseNet);
+  const buyWins = buyNet < leaseNet;
+  show(`<div class="result-main">${buyWins ? 'Buying' : 'Leasing'} is cheaper by $${fmt(diff,0)}<small>over ${keep} years, net of the resale value you keep when buying</small></div>
+  <table>
+    <tr><td><strong>Buy</strong> \u2014 net cost over ${keep} yrs</td><td>$${fmt(buyNet,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Down + payments made</td><td>$${fmt(down + paid,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Loan still owed at year ${keep}</td><td>$${fmt(remaining,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Minus resale value kept</td><td>\u2212$${fmt(resale,0)}</td></tr>
+    <tr><td><strong>Lease</strong> \u2014 net cost over ${keep} yrs</td><td>$${fmt(leaseNet,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Monthly \u00d7 ${months}</td><td>$${fmt(lease*months,0)}</td></tr>
+    <tr><td>&nbsp;&nbsp;Upfront + fees</td><td>$${fmt(leaseFees,0)}</td></tr>
+  </table>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
