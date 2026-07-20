@@ -29,7 +29,7 @@ Most people need a handful of straightforward documents:
 - **If you have children,** a will naming guardians is essential regardless of your net worth — it's about who raises your kids, not just money.
 - **If you have any assets,** a plan ensures they go where you want, quickly, instead of being tied up in a court process.
 - **If you have medical preferences,** directives ensure they're followed and remove an impossible burden from your family.
-- **If you own a home or have dependents relying on your income,** [life insurance](/articles/do-you-need-life-insurance/) is a key companion piece, replacing your income for those who need it.
+- **If you own a home or have dependents relying on your income,** [life insurance](/articles/do-you-need-life-insurance/) is a key companion piece, replacing your income for those who need it — the [needs calculator](/calculators/life-insurance-needs-calculator/) sizes the coverage from your actual debts, income years and college costs.
 
 Estate planning is fundamentally an act of care — it's the difference between leaving your family clarity or chaos during their worst days.
 
