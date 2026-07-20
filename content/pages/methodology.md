@@ -28,6 +28,10 @@ Accuracy is enforced by an automated test suite that runs before every update:
 
 A change is only published if all of these checks pass.
 
+## What earns a place here (and what gets retired)
+
+We deliberately keep the catalog curated rather than maximal. A calculator earns a page when it answers a question people genuinely ask, with a method meaningfully distinct from its neighbors. We merge or retire tools that duplicate another tool's job, solve a rarely-asked variant of the same equation, or drift away from personal-finance decisions. When a tool is retired, its address permanently redirects to the closest substitute, so bookmarks and links keep working. The goal is that every tool you find here is the one worth finding — not one of five near-identical pages competing for your click.
+
 ## Our sources
 
 Our calculators rely on standard financial mathematics, which doesn't change. Our guides draw on widely-accepted principles from reputable sources including academic research (such as the Trinity study on retirement withdrawals), long-run market data, and the consensus of mainstream financial education. Where we cite a specific rule of thumb (like 50/30/20 budgeting or the 28/36 mortgage guideline), we explain where it comes from and its limitations.

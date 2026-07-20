@@ -8,7 +8,7 @@ ARMFIXED = [
         "category": "Mortgages & Home",
         "title": "ARM vs Fixed Mortgage Calculator — Priced Over Your Real Horizon",
         "h1": "ARM vs Fixed Mortgage Calculator",
-        "blurb": "5/7/10-year ARM vs 30-year fixed over the years you'll actually keep the loan — with the cap-out worst case.",
+        "blurb": "ARM discount vs 30-year fixed over your real horizon — with the cap-out worst case.",
         "meta_description": "Free ARM vs fixed-rate mortgage calculator: compare a 5/6, 7/6 or 10/6 ARM against a 30-year fixed over the years you actually expect to keep the loan. Includes the worst-case path under standard 2/2/5 rate caps.",
         "intro": "The ARM discount is real money — often half a point or more — but it has an expiry date. Whether the gamble pays depends almost entirely on one input lenders can't know: how long you'll actually keep the loan. This calculator prices both loans over your real horizon, your own rate guess, and the contractual worst case.",
         "fields": [
