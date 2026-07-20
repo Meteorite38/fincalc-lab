@@ -81,20 +81,22 @@ def make(filename, title, subtitle, tag):
 
 made = []
 made.append(make("default.png", "Free financial calculators that just work",
-                 "No sign-up. Nothing tracked. The math, explained.", "67 calculators \u00b7 23 guides"))
+                 "No sign-up. Nothing tracked. The math, explained.", "110 calculators \u00b7 70 guides"))
 made.append(make("calculators.png", "Financial calculators with the math explained",
                  "Savings, loans, retirement, tax, business & more", "Free tools"))
 made.append(make("guides.png", "Plain-English money guides",
                  "Investing, debt, retirement & budgeting explained", "Guides"))
 
 cats = {
-    "Savings & Investing": ("Savings & investing calculators", "Compound interest, FIRE, returns & more"),
-    "Retirement": ("Retirement calculators", "FIRE number, 401(k), withdrawals & annuities"),
-    "Loans & Debt": ("Loan & debt calculators", "Mortgage, payoff, consolidation & more"),
-    "Income & Budgeting": ("Income & budgeting calculators", "Take-home pay, savings rate, budgets"),
-    "Taxes & Shopping": ("Tax & shopping calculators", "Sales tax, VAT, tips & discounts"),
-    "Business": ("Business calculators", "Margin, break-even, runway & ROI"),
-    "Everyday Math": ("Everyday math calculators", "Percentages, unit price & fuel cost"),
+    "Mortgages & Home": ("Mortgage & home calculators", "Payments, refinancing, equity & buying costs"),
+    "Savings & Investing": ("Savings & investing calculators", "Compound interest, goals, returns & fees"),
+    "Retirement": ("Retirement calculators", "401(k), FIRE, Social Security & withdrawals"),
+    "Debt & Credit": ("Debt & credit calculators", "Payoff plans, consolidation & credit health"),
+    "Budgeting & Life": ("Budgeting & life calculators", "Budgets, emergency funds & life decisions"),
+    "Salary & Work": ("Salary & work calculators", "Take-home pay, raises, bonuses & offers"),
+    "Taxes & Shopping": ("Tax & shopping calculators", "Brackets, withholding, sales tax & tips"),
+    "Business & Self-Employment": ("Business & self-employment calculators", "Freelance rates, SE tax, margins & runway"),
+    "Cars & Commuting": ("Car & commuting calculators", "Loans, leases, true costs & fuel"),
 }
 for cat, (t, s) in cats.items():
     slug = cat.lower().replace(" & ", "-").replace(" ", "-")

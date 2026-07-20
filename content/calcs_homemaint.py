@@ -5,7 +5,7 @@ HOMEMAINT = [
     {
         "slug": "home-maintenance-budget-calculator",
         "emoji": "\U0001F528",
-        "category": "Income & Budgeting",
+        "category": "Mortgages & Home",
         "title": "Home Maintenance Budget Calculator — The Cost Nobody Puts in the Mortgage Math",
         "h1": "Home Maintenance Budget Calculator",
         "blurb": "Your realistic annual maintenance number — age, climate and size adjusted — as a monthly set-aside.",

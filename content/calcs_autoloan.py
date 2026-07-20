@@ -5,7 +5,7 @@ AUTOLOAN = [
     {
         "slug": "auto-loan-calculator",
         "emoji": "\U0001F697",
-        "category": "Loans & Debt",
+        "category": "Cars & Commuting",
         "title": "Auto Loan Calculator — Payment With Trade-In, Tax & Fees",
         "h1": "Auto Loan Calculator",
         "blurb": "Monthly payment with trade-in value, sales tax, fees and any rolled-in loan balance.",

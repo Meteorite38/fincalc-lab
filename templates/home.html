@@ -62,7 +62,7 @@
   <h2>All calculators</h2>
   <input type="search" id="calc-filter" class="calc-filter" placeholder="Search {{ calcs | length }} calculators… (e.g. mortgage, tax, retirement)" aria-label="Search calculators" oninput="filterCalcs(this.value)">
   <p id="calc-noresults" class="calc-noresults" hidden>No calculators match — try another word.</p>
-  {% for cat in ['Savings & Investing', 'Retirement', 'Loans & Debt', 'Income & Budgeting', 'Taxes & Shopping', 'Business', 'Everyday Math'] %}
+  {% for cat in ['Mortgages & Home', 'Savings & Investing', 'Retirement', 'Debt & Credit', 'Budgeting & Life', 'Salary & Work', 'Taxes & Shopping', 'Business & Self-Employment', 'Cars & Commuting'] %}
   {% set items = calcs | selectattr('category', 'equalto', cat) | list %}
   {% if items %}
   <h3 class="cat-label" data-catlabel>{{ cat }}</h3>

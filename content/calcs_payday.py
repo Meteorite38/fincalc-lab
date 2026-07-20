@@ -5,7 +5,7 @@ PAYDAY = [
     {
         "slug": "payday-loan-calculator",
         "emoji": "\u26A0\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Payday Loan Calculator — The Real APR and the Rollover Spiral",
         "h1": "Payday Loan Calculator",
         "blurb": "What the fee works out to as an APR, what rollovers cost, and every cheaper alternative ranked.",

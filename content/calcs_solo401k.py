@@ -5,7 +5,7 @@ SOLO401K = [
     {
         "slug": "solo-401k-vs-sep-ira-calculator",
         "emoji": "\U0001F9F0",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Solo 401(k) vs SEP IRA Calculator — Which Shelters More of Your Profit?",
         "h1": "Solo 401(k) vs SEP IRA Calculator",
         "blurb": "Max contributions to each from your self-employment profit — and why the solo 401(k) usually wins.",

@@ -5,7 +5,7 @@ STUDENTREFI = [
     {
         "slug": "student-loan-refinance-calculator",
         "emoji": "\U0001F393",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Student Loan Refinance Calculator — Savings vs What You Give Up",
         "h1": "Student Loan Refinance Calculator",
         "blurb": "New rate vs old: monthly and lifetime savings — and the federal protections a refi permanently burns.",

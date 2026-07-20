@@ -5,7 +5,7 @@ PART3 = [
     {
         "slug": "salary-to-hourly-calculator",
         "emoji": "\U0001F4B0",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Salary to Hourly Calculator — What You Really Earn Per Hour",
         "h1": "Salary to Hourly Calculator",
         "blurb": "Convert annual salary to hourly, weekly and monthly pay.",
@@ -56,7 +56,7 @@ function calculate() {
     {
         "slug": "take-home-pay-calculator",
         "emoji": "\U0001F9FE",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Take-Home Pay Estimator — From Gross to Net Salary",
         "h1": "Take-Home Pay Estimator",
         "blurb": "Estimate net monthly pay from gross salary and tax rates.",
@@ -107,7 +107,7 @@ function calculate() {
     {
         "slug": "budget-calculator",
         "emoji": "\U0001F4B8",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "50/30/20 Budget Calculator — Needs, Wants, Savings",
         "h1": "50/30/20 Budget Calculator",
         "blurb": "Split your take-home pay into needs, wants and savings.",
@@ -157,7 +157,7 @@ function calculate() {
     {
         "slug": "emergency-fund-calculator",
         "emoji": "\U0001F6DF",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Emergency Fund Calculator — Your Target and Timeline",
         "h1": "Emergency Fund Calculator",
         "blurb": "Size your emergency fund and see how long it takes to build.",
@@ -214,7 +214,7 @@ function calculate() {
     {
         "slug": "inflation-calculator",
         "emoji": "\U0001F388",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Inflation Calculator — Future Purchasing Power",
         "h1": "Inflation Calculator",
         "blurb": "See what today's money will be worth in the future.",
@@ -262,7 +262,7 @@ function calculate() {
     {
         "slug": "break-even-point-calculator",
         "emoji": "\u2696\uFE0F",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Break-Even Point Calculator — Units and Revenue to Profit",
         "h1": "Break-Even Point Calculator",
         "blurb": "How many sales cover your costs — the first business question.",
@@ -313,7 +313,7 @@ function calculate() {
     {
         "slug": "profit-margin-calculator",
         "emoji": "\U0001F4C9",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Profit Margin Calculator — Gross Margin & Markup",
         "h1": "Profit Margin Calculator",
         "blurb": "Margin, markup and profit from cost and price.",

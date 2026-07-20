@@ -152,7 +152,7 @@ function calculate() {
     {
         "slug": "student-loan-calculator",
         "emoji": "\U0001F393",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Student Loan Calculator — Payment, Payoff and Interest",
         "h1": "Student Loan Calculator",
         "blurb": "Monthly payment and total interest on student debt.",
@@ -212,7 +212,7 @@ function calculate() {
     {
         "slug": "fuel-cost-calculator",
         "emoji": "\u26FD",
-        "category": "Everyday Math",
+        "category": "Cars & Commuting",
         "title": "Fuel Cost Calculator — Trip and Annual Driving Cost",
         "h1": "Fuel Cost Calculator",
         "blurb": "Cost of a trip, and yearly fuel spend.",
@@ -258,7 +258,7 @@ function calculate() {
     {
         "slug": "unit-price-calculator",
         "emoji": "\U0001F6D2",
-        "category": "Everyday Math",
+        "category": "Budgeting & Life",
         "title": "Unit Price Calculator — Compare Which Package Is Cheaper",
         "h1": "Unit Price Calculator",
         "blurb": "Find the real cost per unit and the better deal.",
@@ -307,7 +307,7 @@ function calculate() {
     {
         "slug": "car-lease-calculator",
         "emoji": "\U0001F5DD\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Cars & Commuting",
         "title": "Car Lease Calculator — Estimate Your Monthly Lease Payment",
         "h1": "Car Lease Calculator",
         "blurb": "Estimate a monthly lease payment from the key terms.",

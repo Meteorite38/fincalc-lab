@@ -5,7 +5,7 @@ DAYCARE = [
     {
         "slug": "daycare-vs-staying-home-calculator",
         "emoji": "\U0001F476",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Daycare vs Staying Home Calculator — What the Second Income Really Nets",
         "h1": "Daycare vs Staying Home Calculator",
         "blurb": "Second paycheck minus childcare, taxes and work costs — the honest hourly wage that's left.",

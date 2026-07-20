@@ -5,7 +5,7 @@ PROPTAX = [
     {
         "slug": "property-tax-calculator",
         "emoji": "\U0001F3E0",
-        "category": "Taxes & Shopping",
+        "category": "Mortgages & Home",
         "title": "Property Tax Calculator — Annual Bill, Monthly Escrow, and Your Effective Rate",
         "h1": "Property Tax Calculator",
         "blurb": "Estimate the annual bill and monthly escrow from your home value and state — or your exact local rate.",

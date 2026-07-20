@@ -5,7 +5,7 @@ DEBTINVEST = [
     {
         "slug": "pay-off-debt-vs-invest-calculator",
         "emoji": "\u2696\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Pay Off Debt vs Invest Calculator — Which Builds More Wealth?",
         "h1": "Pay Off Debt vs Invest Calculator",
         "blurb": "Should spare cash attack debt or go into investments? Compare net worth.",

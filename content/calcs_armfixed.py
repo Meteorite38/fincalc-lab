@@ -5,7 +5,7 @@ ARMFIXED = [
     {
         "slug": "arm-vs-fixed-mortgage-calculator",
         "emoji": "\u2696\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "ARM vs Fixed Mortgage Calculator — Priced Over Your Real Horizon",
         "h1": "ARM vs Fixed Mortgage Calculator",
         "blurb": "5/7/10-year ARM vs 30-year fixed over the years you'll actually keep the loan — with the cap-out worst case.",

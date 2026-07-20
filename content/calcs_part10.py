@@ -5,7 +5,7 @@ PART10 = [
     {
         "slug": "home-affordability-calculator",
         "emoji": "\U0001F3E1",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Home Affordability Calculator — How Much House Can You Afford?",
         "h1": "Home Affordability Calculator",
         "blurb": "Max home price from your income using the 28/36 rule.",
@@ -70,7 +70,7 @@ function calculate() {
     {
         "slug": "rental-property-calculator",
         "emoji": "\U0001F3D8\uFE0F",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Rental Property Calculator — Cap Rate & Cash-on-Cash Return",
         "h1": "Rental Property ROI Calculator",
         "blurb": "Cap rate, cash flow and cash-on-cash return.",

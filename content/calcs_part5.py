@@ -5,7 +5,7 @@ PART5 = [
     {
         "slug": "car-affordability-calculator",
         "emoji": "\U0001F697",
-        "category": "Loans & Debt",
+        "category": "Cars & Commuting",
         "title": "Car Affordability Calculator — What Car Payment Can You Afford?",
         "h1": "Car Affordability Calculator",
         "blurb": "Turn a monthly budget into a realistic car price.",
@@ -56,7 +56,7 @@ function calculate() {
     {
         "slug": "credit-card-payoff-calculator",
         "emoji": "\U0001F4B3",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Credit Card Payoff Calculator — Time and Interest to Clear a Balance",
         "h1": "Credit Card Payoff Calculator",
         "blurb": "How long to clear a card, and what interest costs you.",
@@ -111,7 +111,7 @@ function calculate() {
     {
         "slug": "debt-to-income-ratio-calculator",
         "emoji": "\u2696\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Debt-to-Income Ratio Calculator — The Number Lenders Check",
         "h1": "Debt-to-Income (DTI) Calculator",
         "blurb": "The ratio lenders use to approve mortgages and loans.",
@@ -167,7 +167,7 @@ function calculate() {
     {
         "slug": "hourly-to-salary-calculator",
         "emoji": "\U0001F4C6",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Hourly to Salary Calculator — Annual Income from an Hourly Wage",
         "h1": "Hourly to Salary Calculator",
         "blurb": "Convert an hourly wage into weekly, monthly and yearly pay.",
@@ -214,7 +214,7 @@ function calculate() {
     {
         "slug": "rent-affordability-calculator",
         "emoji": "\U0001F3E1",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Rent Affordability Calculator — How Much Rent Can You Afford?",
         "h1": "Rent Affordability Calculator",
         "blurb": "A sensible rent range based on your income.",
@@ -463,7 +463,7 @@ function calculate() {
     {
         "slug": "freelance-hourly-rate-calculator",
         "emoji": "\U0001F9D1\u200D\U0001F4BB",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Freelance Rate Calculator — What to Charge Per Hour",
         "h1": "Freelance Hourly Rate Calculator",
         "blurb": "Turn a target income into the hourly rate you must charge.",

@@ -5,7 +5,7 @@ LIFEINS = [
     {
         "slug": "life-insurance-needs-calculator",
         "emoji": "\U0001F6E1\uFE0F",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Life Insurance Needs Calculator — How Much Coverage, Really?",
         "h1": "Life Insurance Needs Calculator",
         "blurb": "Coverage sized from your debts, income, kids and savings — not a salesperson's rule of thumb.",

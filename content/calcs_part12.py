@@ -5,7 +5,7 @@ PART12 = [
     {
         "slug": "home-sale-proceeds-calculator",
         "emoji": "\U0001F3E1",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Home Sale Proceeds Calculator — What You'll Actually Walk Away With",
         "h1": "Home Sale Proceeds Calculator",
         "blurb": "Your net cash after paying off the mortgage and selling costs.",

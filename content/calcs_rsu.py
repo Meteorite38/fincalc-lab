@@ -5,7 +5,7 @@ RSU = [
     {
         "slug": "rsu-tax-calculator",
         "emoji": "\U0001F4E6",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "RSU Tax Calculator — The Withholding Gap That Ambushes Tech Workers",
         "h1": "RSU Tax Calculator",
         "blurb": "Vest-day tax at your real bracket vs the 22% withheld — and the April surprise in between.",

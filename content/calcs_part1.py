@@ -129,7 +129,7 @@ function calculate() {
     {
         "slug": "retirement-savings-calculator",
         "emoji": "\U0001F334",
-        "category": "Savings & Investing",
+        "category": "Retirement",
         "title": "Retirement Savings Calculator — Will You Have Enough?",
         "h1": "Retirement Savings Calculator",
         "blurb": "Project your nest egg and the income it could support.",

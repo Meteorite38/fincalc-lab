@@ -5,7 +5,7 @@ PART17 = [
     {
         "slug": "savings-runway-calculator",
         "emoji": "\U0001F6E9\uFE0F",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Savings Runway Calculator — How Long Will Your Money Last?",
         "h1": "Savings Runway Calculator",
         "blurb": "Months your savings would cover with no income.",

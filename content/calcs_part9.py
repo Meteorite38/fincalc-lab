@@ -6,7 +6,7 @@ PART9 = [
     {
         "slug": "amortization-schedule-calculator",
         "emoji": "\U0001F4C5",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Amortization Schedule Calculator — Year-by-Year Loan Breakdown",
         "h1": "Amortization Schedule Calculator",
         "blurb": "Yearly principal vs interest breakdown of any loan.",
@@ -62,7 +62,7 @@ function calculate() {
     {
         "slug": "debt-consolidation-calculator",
         "emoji": "\U0001F9EE",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Debt Consolidation Calculator — Compare Combining Your Debts",
         "h1": "Debt Consolidation Calculator",
         "blurb": "See if one consolidated loan beats your current debts.",
@@ -124,7 +124,7 @@ function calculate() {
     {
         "slug": "home-equity-calculator",
         "emoji": "\U0001F3E6",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Home Equity Calculator — How Much You Can Borrow (HELOC)",
         "h1": "Home Equity Calculator",
         "blurb": "Your home equity and borrowable amount at a target LTV.",
@@ -174,7 +174,7 @@ function calculate() {
     {
         "slug": "savings-rate-calculator",
         "emoji": "\U0001F4B9",
-        "category": "Income & Budgeting",
+        "category": "Savings & Investing",
         "title": "Savings Rate Calculator — What Percentage of Income You Save",
         "h1": "Savings Rate Calculator",
         "blurb": "Your savings rate and what it means for freedom.",
@@ -289,7 +289,7 @@ function calculate() {
     {
         "slug": "rent-increase-calculator",
         "emoji": "\U0001F4C8",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Rent Increase Calculator — New Rent and Percentage Change",
         "h1": "Rent Increase Calculator",
         "blurb": "New rent after an increase, and if it's fair.",

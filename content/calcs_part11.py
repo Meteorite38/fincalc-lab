@@ -5,7 +5,7 @@ PART11 = [
     {
         "slug": "mortgage-points-calculator",
         "emoji": "\U0001F4CD",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Mortgage Points Calculator — Should You Buy Discount Points?",
         "h1": "Mortgage Points Calculator",
         "blurb": "Whether paying points to lower your rate pays off.",
@@ -69,7 +69,7 @@ function calculate() {
     {
         "slug": "loan-comparison-calculator",
         "emoji": "\u2696\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Loan Comparison Calculator — Compare Two Loan Offers",
         "h1": "Loan Comparison Calculator",
         "blurb": "Put two loan offers side by side to see the real cost.",
@@ -177,7 +177,7 @@ function calculate() {
     {
         "slug": "salary-inflation-calculator",
         "emoji": "\U0001F4C9",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Salary Inflation Calculator — Has Your Pay Kept Up?",
         "h1": "Salary Inflation Calculator",
         "blurb": "Whether your salary has kept pace with inflation.",

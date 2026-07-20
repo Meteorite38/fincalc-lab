@@ -6,7 +6,7 @@ RENTBUY = [
     {
         "slug": "rent-vs-buy-calculator",
         "emoji": "\U0001F3E1",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Rent vs Buy Calculator — Should You Rent or Buy a Home?",
         "h1": "Rent vs Buy a Home Calculator",
         "blurb": "Compare renting vs buying by true net cost over the years you'll stay.",

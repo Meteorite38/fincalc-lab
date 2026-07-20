@@ -5,7 +5,7 @@ BONUSTAX = [
     {
         "slug": "bonus-tax-calculator",
         "emoji": "\U0001F4B0",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Bonus Tax Calculator — What You'll Actually Take Home",
         "h1": "Bonus Tax Calculator",
         "blurb": "Bonus withholding (22% federal + FICA + state) and what you truly owe at tax time.",

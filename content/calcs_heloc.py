@@ -5,7 +5,7 @@ HELOC = [
     {
         "slug": "heloc-calculator",
         "emoji": "\U0001F3E6",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "HELOC Calculator — Credit Line, Payments, and the Payment Shock",
         "h1": "HELOC Calculator",
         "blurb": "How big a credit line your equity supports, and payments in both phases — including the jump.",

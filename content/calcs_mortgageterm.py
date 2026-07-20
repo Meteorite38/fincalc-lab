@@ -5,7 +5,7 @@ MORTGAGETERM = [
     {
         "slug": "15-vs-30-year-mortgage-calculator",
         "emoji": "\U0001F3E6",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "15 vs 30 Year Mortgage Calculator — Which Should You Choose?",
         "h1": "15 vs 30 Year Mortgage Calculator",
         "blurb": "Compare payment, total interest, and investing the payment difference.",

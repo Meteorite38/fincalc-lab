@@ -5,7 +5,7 @@ LEASEBUY = [
     {
         "slug": "lease-vs-buy-car-calculator",
         "emoji": "\U0001F697",
-        "category": "Loans & Debt",
+        "category": "Cars & Commuting",
         "title": "Lease vs Buy a Car Calculator — Which Is Cheaper?",
         "h1": "Lease vs Buy a Car Calculator",
         "blurb": "Compare the true cost of leasing vs buying over the years you keep it.",

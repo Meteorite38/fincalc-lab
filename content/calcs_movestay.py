@@ -5,7 +5,7 @@ MOVESTAY = [
     {
         "slug": "move-or-stay-calculator",
         "emoji": "\U0001F69A",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Move or Stay Calculator — Is the Rent Increase Worth Moving Over?",
         "h1": "Move or Stay Calculator",
         "blurb": "Renewal increase vs the true all-in cost of moving — breakeven month and the negotiation number.",

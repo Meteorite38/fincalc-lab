@@ -194,7 +194,7 @@ function calculate() {
     {
         "slug": "net-worth-calculator",
         "emoji": "\U0001F4CB",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Net Worth Calculator — Assets Minus Liabilities",
         "h1": "Net Worth Calculator",
         "blurb": "Add up what you own, subtract what you owe.",

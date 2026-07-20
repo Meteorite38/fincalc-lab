@@ -58,7 +58,7 @@ function calculate() {
     {
         "slug": "commute-cost-calculator",
         "emoji": "\U0001F697",
-        "category": "Income & Budgeting",
+        "category": "Cars & Commuting",
         "title": "Commute Cost Calculator — The Real Price of Getting to Work",
         "h1": "Commute Cost Calculator",
         "blurb": "Yearly cost of commuting, including the value of your time.",

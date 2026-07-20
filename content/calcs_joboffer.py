@@ -5,7 +5,7 @@ JOBOFFER = [
     {
         "slug": "job-offer-comparison-calculator",
         "emoji": "\U0001F91D",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Job Offer Comparison Calculator — Total Value, Not Just Salary",
         "h1": "Job Offer Comparison Calculator",
         "blurb": "Two offers priced on everything: bonus, match, PTO, insurance, commute — and true hourly pay.",

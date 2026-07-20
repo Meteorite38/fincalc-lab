@@ -102,7 +102,7 @@ function calculate() {
     {
         "slug": "house-down-payment-calculator",
         "emoji": "\U0001F511",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Down Payment Calculator — Save for a Home Deposit",
         "h1": "House Down Payment Calculator",
         "blurb": "Down payment amount and monthly saving to reach it.",
@@ -153,7 +153,7 @@ function calculate() {
     {
         "slug": "mortgage-refinance-calculator",
         "emoji": "\U0001F504",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Refinance Calculator — Should You Refinance Your Mortgage?",
         "h1": "Mortgage Refinance Calculator",
         "blurb": "Monthly savings and break-even point of refinancing.",
@@ -208,7 +208,7 @@ function calculate() {
     {
         "slug": "overtime-pay-calculator",
         "emoji": "\u23F0",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Overtime Pay Calculator — Time-and-a-Half and Total Pay",
         "h1": "Overtime Pay Calculator",
         "blurb": "Total weekly pay including overtime at any multiplier.",
@@ -255,7 +255,7 @@ function calculate() {
     {
         "slug": "paycheck-calculator",
         "emoji": "\U0001F4B5",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Paycheck Calculator — Pay Per Period from Annual Salary",
         "h1": "Paycheck Calculator",
         "blurb": "Gross and net pay per paycheck by pay frequency.",
@@ -354,7 +354,7 @@ function calculate() {
     {
         "slug": "cac-ltv-calculator",
         "emoji": "\U0001F3AF",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "LTV:CAC Ratio Calculator — Customer Economics",
         "h1": "LTV : CAC Ratio Calculator",
         "blurb": "Lifetime value vs acquisition cost — is growth healthy?",

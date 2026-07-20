@@ -5,7 +5,7 @@ BALXFER = [
     {
         "slug": "balance-transfer-calculator",
         "emoji": "\U0001F4B3",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Balance Transfer Calculator — Is the 0% Offer Worth the Fee?",
         "h1": "Balance Transfer Calculator",
         "blurb": "0% promo vs staying on your current card — fee included, with the payment that clears it in time.",

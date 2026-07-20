@@ -5,7 +5,7 @@ PART16 = [
     {
         "slug": "credit-utilization-calculator",
         "emoji": "\U0001F4B3",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Credit Utilization Calculator — The Ratio That Moves Your Score",
         "h1": "Credit Utilization Calculator",
         "blurb": "Your credit utilization ratio and its score impact.",

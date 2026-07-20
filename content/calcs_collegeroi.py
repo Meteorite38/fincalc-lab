@@ -5,7 +5,7 @@ COLLEGEROI = [
     {
         "slug": "college-roi-calculator",
         "emoji": "\U0001F9E0",
-        "category": "Everyday Math",
+        "category": "Budgeting & Life",
         "title": "College ROI Calculator — Is the Degree Worth the Price?",
         "h1": "College ROI Calculator",
         "blurb": "Degree cost plus foregone wages vs the earnings premium — breakeven age and lifetime value.",

@@ -5,7 +5,7 @@ PART2 = [
     {
         "slug": "loan-payment-calculator",
         "emoji": "\U0001F4B3",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Loan Payment Calculator — Monthly Payment & Total Interest",
         "h1": "Loan Payment Calculator",
         "blurb": "Monthly payment, total interest and cost of any amortized loan.",
@@ -57,7 +57,7 @@ function calculate() {
     {
         "slug": "mortgage-calculator",
         "emoji": "\U0001F3E0",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Mortgage Calculator — Monthly Payment with Taxes & Insurance",
         "h1": "Mortgage Calculator",
         "blurb": "Full monthly housing cost: loan, property tax and insurance.",
@@ -116,7 +116,7 @@ function calculate() {
     {
         "slug": "loan-payoff-calculator",
         "emoji": "\U0001F680",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Loan Payoff Calculator — Extra Payments, Time & Interest Saved",
         "h1": "Loan Payoff Calculator",
         "blurb": "See how extra monthly payments shorten a loan and cut interest.",
@@ -180,7 +180,7 @@ function calculate() {
     {
         "slug": "debt-snowball-vs-avalanche-calculator",
         "emoji": "\U0001F9CA",
-        "category": "Loans & Debt",
+        "category": "Debt & Credit",
         "title": "Debt Avalanche vs Snowball — Which Saves You More?",
         "h1": "Debt Avalanche vs Snowball Calculator",
         "blurb": "Compare the two classic payoff strategies on your own debts.",

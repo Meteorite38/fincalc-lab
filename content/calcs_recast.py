@@ -5,7 +5,7 @@ RECAST = [
     {
         "slug": "mortgage-recast-calculator",
         "emoji": "\U0001F4C9",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Mortgage Recast Calculator — Lower the Payment, Keep the Rate",
         "h1": "Mortgage Recast Calculator",
         "blurb": "What a lump sum + re-amortization does to your payment — vs just prepaying, vs refinancing.",

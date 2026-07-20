@@ -267,7 +267,7 @@ function calculate() {
     {
         "slug": "extra-mortgage-payment-calculator",
         "emoji": "\U0001F3E1",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Extra Mortgage Payment Calculator — Save Interest and Years",
         "h1": "Extra Mortgage Payment Calculator",
         "blurb": "How extra payments cut mortgage interest and time.",
@@ -326,7 +326,7 @@ function calculate() {
     {
         "slug": "biweekly-mortgage-calculator",
         "emoji": "\U0001F5D3\uFE0F",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Biweekly Mortgage Calculator — Pay Off Your Home Sooner",
         "h1": "Biweekly Mortgage Calculator",
         "blurb": "How biweekly payments shorten your mortgage.",
@@ -384,7 +384,7 @@ function calculate() {
     {
         "slug": "pay-raise-calculator",
         "emoji": "\U0001F4C8",
-        "category": "Income & Budgeting",
+        "category": "Salary & Work",
         "title": "Pay Raise Calculator — New Salary After a Percentage Raise",
         "h1": "Pay Raise Calculator",
         "blurb": "New pay after a raise, and if it beats inflation.",
@@ -434,7 +434,7 @@ function calculate() {
     {
         "slug": "startup-runway-calculator",
         "emoji": "\U0001F680",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Startup Runway Calculator — How Many Months of Cash Left",
         "h1": "Startup Runway Calculator",
         "blurb": "Months of cash left from burn rate and balance.",
@@ -494,7 +494,7 @@ function calculate() {
     {
         "slug": "payback-period-calculator",
         "emoji": "\u23F3",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Payback Period Calculator — How Fast an Investment Pays Back",
         "h1": "Payback Period Calculator",
         "blurb": "Time for an investment to recoup its cost.",

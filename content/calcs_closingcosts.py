@@ -5,7 +5,7 @@ CLOSING = [
     {
         "slug": "closing-costs-calculator",
         "emoji": "\U0001F511",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "Closing Costs Calculator — What You'll Actually Pay at the Table",
         "h1": "Closing Costs Calculator",
         "blurb": "Itemized buyer closing costs and total cash to close — lender, title, escrow and prepaids.",

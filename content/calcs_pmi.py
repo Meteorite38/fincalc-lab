@@ -5,7 +5,7 @@ PMI = [
     {
         "slug": "pmi-calculator",
         "emoji": "\U0001F6AA",
-        "category": "Loans & Debt",
+        "category": "Mortgages & Home",
         "title": "PMI Calculator — Cost Per Month and Exactly When It Ends",
         "h1": "PMI Calculator",
         "blurb": "Your monthly PMI, total cost, and the three dates it can end — including the appreciation shortcut.",

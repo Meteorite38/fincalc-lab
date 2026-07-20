@@ -5,7 +5,7 @@ SETAX = [
     {
         "slug": "self-employment-tax-calculator",
         "emoji": "\U0001F9D1\u200D\U0001F4BB",
-        "category": "Business",
+        "category": "Business & Self-Employment",
         "title": "Self-Employment Tax Calculator 2025 — SE Tax + Quarterly Estimates",
         "h1": "Self-Employment Tax Calculator",
         "blurb": "SE tax, the half-deduction, income tax estimate and your quarterly payment.",

@@ -5,7 +5,7 @@ SUBSCRIPTIONS = [
     {
         "slug": "subscription-cost-calculator",
         "emoji": "\U0001F4F1",
-        "category": "Income & Budgeting",
+        "category": "Budgeting & Life",
         "title": "Subscription Cost Calculator — What the Stack Really Costs You",
         "h1": "Subscription Cost Calculator",
         "blurb": "Your subscription stack's yearly bill, its 10-year invested cost, and what trimming half buys.",
