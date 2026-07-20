@@ -16,8 +16,8 @@ Crucial mindset: the amount a lender *approves* is a ceiling, not a target. Buyi
 
 You'll need cash for several things, not just the down payment:
 
-- **Down payment** — ideally 20% to avoid private mortgage insurance (PMI) and get better rates, though many first-timers put down less (see [how to save for a down payment](/articles/how-to-save-for-a-house-down-payment/) and the [down payment calculator](/calculators/house-down-payment-calculator/)).
-- **Closing costs** — typically 2–5% of the price for loan fees, appraisal, title, and taxes. Easy to forget and painful to be short on.
+- **Down payment** — ideally 20% to avoid private mortgage insurance (PMI) and get better rates, though many first-timers put down less (see [how to save for a down payment](/articles/how-to-save-for-a-house-down-payment/) and the [down payment calculator](/calculators/house-down-payment-calculator/)). If you do land under 20%, the [PMI calculator](/calculators/pmi-calculator/) prices the monthly cost and shows exactly when it can be cancelled — it's usually smaller and shorter-lived than feared.
+- **Closing costs** — typically 2–5% of the price for loan fees, appraisal, title, and taxes. Easy to forget and painful to be short on; itemize yours with the [closing costs calculator](/calculators/closing-costs-calculator/) to get a real cash-to-close number.
 - **Emergency fund** — keep it *intact*. Don't drain your safety net to buy; a home springs expensive surprises the moment you own it.
 - **Moving and immediate costs** — furniture, repairs, deposits.
 

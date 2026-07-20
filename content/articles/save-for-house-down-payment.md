@@ -10,11 +10,11 @@ The down payment is the biggest hurdle between renters and homeownership. It's a
 
 The famous target is **20% of the home price**, and it's a good one because it unlocks two benefits: you avoid private mortgage insurance (PMI), and you get better loan terms. On a $350,000 home, that's $70,000.
 
-But 20% is not mandatory. Many buyers put down far less — median first-time down payments are often in the 6–9% range, and some loan programs allow as little as 3–5%. The trade-off: a smaller down payment means a bigger loan, PMI, and higher monthly costs. Use our [down payment calculator](/calculators/house-down-payment-calculator/) to see the target for your price and percentage, and the [mortgage calculator](/calculators/mortgage-calculator/) to see how the down payment changes the monthly payment.
+But 20% is not mandatory. Many buyers put down far less — median first-time down payments are often in the 6–9% range, and some loan programs allow as little as 3–5%. The trade-off: a smaller down payment means a bigger loan, PMI, and higher monthly costs. Use our [down payment calculator](/calculators/house-down-payment-calculator/) to see the target for your price and percentage, and the [mortgage calculator](/calculators/mortgage-calculator/) to see how the down payment changes the monthly payment. Before treating 20% as a hard gate, price the alternative: the [PMI calculator](/calculators/pmi-calculator/) frames the insurance as an effective interest rate on the down-payment gap — often cheaper than years of extra rent while saving.
 
 ## Don't forget closing costs
 
-The down payment isn't the only cash you need at the finish line. **Closing costs** — loan fees, appraisal, title, taxes — typically add 2–5% of the price on top. Budget for these separately, or you'll be short at the worst moment. Also keep your [emergency fund](/calculators/emergency-fund-calculator/) intact; draining it to close on a house leaves you dangerously exposed the moment you own a property that can spring expensive surprises.
+The down payment isn't the only cash you need at the finish line. **Closing costs** — loan fees, appraisal, title, taxes — typically add 2–5% of the price on top; the [closing costs calculator](/calculators/closing-costs-calculator/) itemizes them for your price and state. Budget for these separately, or you'll be short at the worst moment. Also keep your [emergency fund](/calculators/emergency-fund-calculator/) intact; draining it to close on a house leaves you dangerously exposed the moment you own a property that can spring expensive surprises.
 
 ## Where to keep down-payment savings
 

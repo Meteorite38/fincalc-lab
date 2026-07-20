@@ -18,7 +18,7 @@ The 28% is not just the loan payment. It is **PITI**: principal, interest, prope
 
 The 28/36 framework predates several line items that now decide whether a budget survives:
 
-- **Private mortgage insurance (PMI):** with less than 20% down in the US, typically 0.5–1.5% of the loan annually until you reach sufficient equity.
+- **Private mortgage insurance (PMI):** with less than 20% down in the US, typically 0.5–1.5% of the loan annually until you reach sufficient equity — the [PMI calculator](/calculators/pmi-calculator/) prices yours and maps the cancellation dates.
 - **Maintenance:** the boring consensus estimate is 1–2% of home value per year, arriving as $80 filter months and $9,000 roof years. Renters never see this cost; owners who ignore it meet it as credit-card debt.
 - **Utilities scale with square footage.** Moving from a 700 sq ft apartment to a 2,000 sq ft house roughly doubles-to-triples heating, cooling and upkeep consumables.
 - **Commute changes.** The affordable house 45 minutes out can add hundreds a month in fuel, tolls and vehicle wear — and taxes your time daily.

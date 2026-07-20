@@ -14,7 +14,7 @@ You take out a new loan to pay off the old one, then repay the new loan on its o
 2. **Shorten the term** (e.g., 30-year → 15-year) to pay off faster and save huge interest.
 3. **Tap equity** (cash-out refinance) or switch loan types (adjustable → fixed).
 
-The catch: refinancing isn't free. It comes with **closing costs** — typically 2–5% of the loan — and it resets your [amortization schedule](/calculators/amortization-schedule-calculator/) back to the interest-heavy beginning.
+The catch: refinancing isn't free. It comes with **closing costs** — typically 2–3% of the loan on a refi; itemize yours with the [closing costs calculator](/calculators/closing-costs-calculator/) — and it resets your [amortization schedule](/calculators/amortization-schedule-calculator/) back to the interest-heavy beginning.
 
 ## The break-even rule
 
@@ -39,7 +39,7 @@ Two fixes:
 - **Rates have dropped meaningfully** since you borrowed, and you'll stay past break-even.
 - **Your credit has improved** substantially, qualifying you for a better rate than before.
 - **You want to shorten the term** and can afford the higher payment — often a big lifetime-interest win.
-- **You're on an adjustable-rate mortgage** and want to lock in a fixed rate before resets.
+- **You're on an adjustable-rate mortgage** and want to lock in a fixed rate before resets — the [ARM vs fixed calculator](/calculators/arm-vs-fixed-mortgage-calculator/) shows what staying on the ARM's worst-case path would cost, which is the number the refinance is protecting you from.
 
 ## When to think twice
 
