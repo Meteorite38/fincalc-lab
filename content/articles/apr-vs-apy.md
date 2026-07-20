@@ -47,6 +47,16 @@ A subtlety on loans: the regulatory **APR also folds in mandatory fees** (origin
 | Which is bigger? | Lower | Higher (or equal) |
 | Best for comparing | Loans | Savings |
 
+## Convert it yourself
+
+The math is simple enough to do on any calculator. To turn an APR into an APY:
+
+> **APY = (1 + APR/n)ⁿ − 1**, where **n** is the number of compounding periods per year.
+
+For 12% APR compounded monthly (n = 12): (1 + 0.12/12)¹² − 1 = (1.01)¹² − 1 ≈ **0.1268 = 12.68% APY**. Compounded daily (n = 365) it edges up to about 12.75%. Going the other way — from a quoted APY back to the nominal APR — is rarer but occasionally useful: **APR = n × [(1 + APY)^(1/n) − 1]**.
+
+A fast sanity check without any formula: the higher the rate and the more frequent the compounding, the bigger the APR-to-APY gap. At low savings rates (say 1%) the difference is a rounding error; at credit-card rates (20%+) compounding daily, it's several full percentage points — which is exactly why card balances snowball. Our [APY calculator](/calculators/apy-calculator/) does the conversion instantly if you'd rather not do the arithmetic.
+
 ## Bottom line
 
 APR is the sticker rate; APY is what actually happens after compounding. Debt costs a little more than its APR suggests, and savings compound to a little more than a nominal rate implies. Compare loans by APR, savings by APY, and never let a single-letter difference cost you money you didn't have to lose.

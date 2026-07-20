@@ -30,6 +30,27 @@ The single most powerful habit is automation. Set up a recurring transfer — ev
 
 Small amounts matter more than beginners believe. $50 a week is $2,600 a year; at a 7% return over 30 years that grows to roughly [$260,000](/calculators/compound-interest-calculator/) — most of it growth you never deposited. Starting small and early beats waiting until you can invest "a real amount."
 
+## Where to open an account
+
+You invest through a **brokerage account**, and opening one is now free and takes minutes online. Two beginner-friendly routes:
+
+- **A major low-cost broker** (the big names known for cheap index funds). You buy a total-market or S&P 500 index fund or ETF directly, ideally with automatic recurring investments.
+- **A robo-advisor** if you'd rather not choose funds at all. It builds a diversified portfolio for you and rebalances automatically, for a small annual fee (typically ~0.25%). Slightly more expensive than doing it yourself, but genuinely hands-off.
+
+For most people the plain broker + one broad index fund is cheapest and perfectly sufficient. If your employer offers a retirement plan with a match, that account comes *first* — the match is free money no brokerage can match.
+
+## A concrete first-$100 plan
+
+To make this real, here's a start-from-nothing sequence:
+
+1. Open a free brokerage account (or use your employer plan if there's a match).
+2. Turn on an automatic transfer of whatever you can sustain — even $25/week.
+3. Set that money to buy **one** broad, low-cost index fund (fractional shares mean $25 buys in fine).
+4. Change nothing for a year. Let it run through ups and downs.
+5. Increase the amount whenever your income rises — raises are the easiest time to save more before lifestyle catches up.
+
+That's the entire strategy. It looks too simple to work, which is exactly why it does.
+
 ## The mistakes to skip
 
 - **Waiting for the "right time."** Time in the market beats timing the market. The right time is when you have money you won't need for years — which is now.

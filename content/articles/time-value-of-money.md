@@ -37,6 +37,12 @@ Once you see money as time-stamped, a lot of finance clicks into place:
 
 Businesses formalize this into **net present value (NPV)**: discount all of an investment's future cash flows back to today, subtract the upfront cost, and if the result is positive, it creates value. NPV is the gold-standard investment rule precisely because it respects the time value of money — a project returning $1 million spread over 20 years may be worth less than one returning $700,000 in three, depending on the discount rate.
 
+## A worked example: the lump sum vs the payments
+
+Say you win a prize and can take **$100,000 today** or **$12,000 a year for 10 years** ($120,000 total). The bigger number looks better — until you discount it. At a 6% discount rate, each future payment is worth less than its face value: year 1's $12,000 is worth ~$11,320 today, year 10's only ~$6,700. Add up all ten discounted payments and the stream is worth about **$88,300 today** — meaningfully *less* than the $100,000 lump sum, even though it totals $120,000. Change the discount rate and the answer can flip: at 2% the payment stream is worth about $107,800, beating the lump sum. This is the time value of money turning a "which is bigger?" question into a "which is worth more *today*?" question — the only comparison that's actually fair.
+
+A quick mental shortcut for growth is the **Rule of 72**: divide 72 by the rate to estimate the years to double. At 6%, money doubles in ~12 years; at 9%, ~8 years. It's the time value of money compressed into arithmetic you can do in your head — try it with our [Rule of 72 calculator](/calculators/rule-of-72-calculator/).
+
 ## The takeaway
 
 "A dollar today beats a dollar tomorrow" isn't a platitude — it's a tool. It tells you why starting to invest early is so powerful (more compounding periods), why high-rate debt is so damaging (you're paying a steep price for money now), and how to compare any two options that pay out at different times: convert them to the same point in time first. Master that habit and you'll make sharper decisions than most people ever do.

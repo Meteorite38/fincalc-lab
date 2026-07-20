@@ -32,6 +32,23 @@ Crucially, this protects your emergency fund for its real job. A car's annual se
 3. **Automate the transfers** on payday into savings. Many banks let you create named sub-accounts ("Car," "Holidays," "Insurance") so each fund is visible and separate.
 4. **Pay from the fund** when the expense hits — guilt-free, because the money was always earmarked for exactly this.
 
+## A worked example
+
+Suppose you map out your predictable-but-irregular costs for the year:
+
+| Fund | Annual cost | Months to save | Monthly amount |
+|---|---|---|---|
+| Car insurance (paid every 6 months) | $1,200 | 6 | $200 |
+| Holidays & gifts (due in December) | $900 | 12 | $75 |
+| Car maintenance & tyres | $800 | 12 | $67 |
+| Home repairs fund | $1,500 | 12 | $125 |
+| Annual subscriptions | $240 | 12 | $20 |
+| **Total** | **$4,640** | | **$487/month** |
+
+That $487 a month feels like a real budget line — but every one of those bills now arrives fully funded. Without the sinking funds, the same $4,640 would have hit as a series of "surprises," most likely landing on a credit card at 20%+ interest and quietly turning a $4,640 problem into a $5,000+ problem. The monthly discipline isn't extra spending; it's the *same* spending, simply smoothed out and stripped of interest charges.
+
+If a fund's target is large or far off, let the [savings goal calculator](/calculators/savings-goal-calculator/) compute the exact monthly figure including any interest your savings earn.
+
 ## Sinking funds vs emergency fund vs investing
 
 Think of three buckets with three jobs:
