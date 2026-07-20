@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Maintenance Budget Calculator — The Cost Nobody Puts in the Mortgage Math</title>
+<meta name="description" content="Free home maintenance budget calculator: the 1-2% rule adjusted for home age, climate and size, a component-by-component replacement schedule (roof, HVAC, water heater), and the monthly sinking-fund transfer that makes $9,000 roof years boring.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/home-maintenance-budget-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Home Maintenance Budget Calculator — The Cost Nobody Puts in the Mortgage Math">
+<meta property="og:description" content="Free home maintenance budget calculator: the 1-2% rule adjusted for home age, climate and size, a component-by-component replacement schedule (roof, HVAC, water heater), and the monthly sinking-fund transfer that makes $9,000 roof years boring.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/home-maintenance-budget-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home Maintenance Budget Calculator — The Cost Nobody Puts in the Mortgage Math">
+<meta name="twitter:description" content="Free home maintenance budget calculator: the 1-2% rule adjusted for home age, climate and size, a component-by-component replacement schedule (roof, HVAC, water heater), and the monthly sinking-fund transfer that makes $9,000 roof years boring.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much should I budget for home maintenance per month?", "acceptedAnswer": {"@type": "Answer", "text": "Take 1% of home value plus $5 per square foot, average the two, divide by 12 — for a typical $400,000, 1,900 sq ft home that's around $280-320/month, more for older homes or harsh climates. The exact number matters less than the mechanism: an automatic monthly transfer to a dedicated account, so the eventual roof year is pre-funded."}}, {"@type": "Question", "name": "Is the 1% rule realistic with today's prices?", "acceptedAnswer": {"@type": "Answer", "text": "As a long-run average, yes for most markets — but it understates costs for older homes (closer to 2%) and overstates them where land dominates the price (use the per-square-foot blend instead). Labor inflation has pushed component costs up, which is why this calculator blends $5/sq ft rather than the older $2-3 figures still quoted around the internet."}}, {"@type": "Question", "name": "Should maintenance money come out of my emergency fund?", "acceptedAnswer": {"@type": "Answer", "text": "No — keep them separate. The emergency fund covers income shocks (job loss, medical); maintenance is a predictable cost that merely arrives irregularly, which is exactly what a sinking fund handles. Mixing them means a roof replacement leaves you exposed to a layoff the same year — the two risks you least want stacked."}}, {"@type": "Question", "name": "What are the most expensive things that will need replacing?", "acceptedAnswer": {"@type": "Answer", "text": "The big five: roof ($8,000-20,000, ~20-25 years), HVAC ($7,000-14,000, ~15-20 years), windows as a set ($10,000-25,000, ~25-35 years), siding/exterior ($8,000-20,000, ~25-40 years), and water/sewer line surprises ($3,000-15,000, no schedule). A pre-purchase inspection that ages each of these is effectively a discount negotiation checklist — a roof with 3 years left is a $10,000 price conversation."}}, {"@type": "Question", "name": "Do condos need a maintenance budget too?", "acceptedAnswer": {"@type": "Answer", "text": "A smaller personal one (interior systems, appliances, in-unit HVAC — often $50-150/month) — but the building's share arrives as HOA dues and, when reserves are thin, special assessments that can hit five figures. Before buying, read the reserve study: a well-funded HOA is prepaid maintenance; an underfunded one is a deferred bill with your name partially on it."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Home Maintenance Budget Calculator", "item": "https://fincalc-lab.pages.dev/calculators/home-maintenance-budget-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Home Maintenance Budget Calculator</nav>
+  <h1>🔨 Home Maintenance Budget Calculator</h1>
+  <p class="lead">Maintenance is the housing cost that hides between the big years: $80 filter months, then a $9,000 roof. Averaged honestly it runs 1-2% of home value every year — but your number depends on the home's age, your climate, and whether a big component is due. This calculator personalizes the budget and turns it into a monthly transfer.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Home value ($)</span>
+      
+      <input type="number" id="value" value="400000" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Home age (years)</span>
+      
+      <input type="number" id="age" value="25" step="1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Size (sq ft)</span>
+      
+      <input type="number" id="sqft" value="1900" step="50" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Climate stress</span>
+      
+      <select id="climate">
+        
+        <option value="mild">Mild (coastal CA, PNW)</option>
+        
+        <option value="mid" selected>Moderate (most of the US)</option>
+        
+        <option value="harsh">Harsh (freeze-thaw, hail, humidity, salt air)</option>
+        
+      </select>
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Recent condition</span>
+      
+      <select id="condition">
+        
+        <option value="new">Renovated / major systems new</option>
+        
+        <option value="avg" selected>Average — mixed ages</option>
+        
+        <option value="worn">Deferred maintenance to catch up on</option>
+        
+      </select>
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why 1-2% — and why your number isn't the average</h2>
+<p>The classic guideline says budget <strong>1% of home value per year</strong> for maintenance and repairs, stretching toward 2% for older homes. The logic isn't that every year costs that — it's that <em>component replacement clocks</em> average out to it: a $12,000 roof every 20 years is $600/year; a $9,000 HVAC every 17 is $530; water heater, paint, appliances, gutters, the annual parade of small fixes — stack the reserves and a typical home lands at 1-1.5% of value. Your personal rate moves with three things this calculator adjusts for: <strong>age</strong> (a 5-year-old home coasts on new components; a 50-year-old one is on its second or third cycle of everything), <strong>climate</strong> (freeze-thaw, hail, humidity and salt air all shorten component lives), and <strong>condition</strong> (a just-renovated home has its clocks reset; deferred maintenance is a debt with its own interest). In high-land-value markets (where a $900,000 house is mostly lot), the percentage overstates costs — that's why the calculator blends in a per-square-foot estimate, since roofs are priced by area, not by ZIP-code prestige.</p>
+<h2>The sinking fund is the entire strategy</h2>
+<p>Maintenance ruins budgets not because it's large but because it's <strong>lumpy</strong> — years of $600, then an $11,000 summer. The fix is mechanical: a dedicated high-yield savings account, an automatic monthly transfer of this calculator's number, and a rule that home repairs come from it and nothing else does. Now the roof year is boring — the money was collected $250 at a time across a decade. This is a <a href="/articles/sinking-funds-saving-for-big-purchases/">sinking fund</a> doing exactly what sinking funds do, and it belongs in the budget as a fixed line, not as an aspiration (the <a href="/calculators/budget-calculator/">budget calculator</a> treats it as a bill, which is correct). Two boundary rules keep it honest: the <a href="/calculators/emergency-fund-calculator/">emergency fund</a> is for income shocks, not water heaters — a component failing on schedule is not an emergency, it's an appointment; and renovations/upgrades are a separate goal — the maintenance fund keeps the house working, not remodeled.</p>
+<h2>Spending it well: the maintenance hierarchy</h2>
+<ul>
+<li><strong>Prevention is the highest-return tier:</strong> gutter cleaning, HVAC filters and annual service, caulk and grout, tree limbs off the roof, water heater flushes. A few hundred a year here prevents four-figure failures — water intrusion alone causes a huge share of expensive damage, and almost all of it starts as a $150 gutter or caulk fix.</li>
+<li><strong>Repair-vs-replace has a rule of thumb:</strong> multiply the repair quote by the component's age, divide by expected life — if repair cost &times; age &gt; 50% of replacement &times; life remaining, replace. A $700 compressor repair on a 15-year-old AC is usually money thrown at a dying unit.</li>
+<li><strong>Timing beats urgency pricing:</strong> replace a 19-year-old roof on <em>your</em> schedule (three quotes, off-season) rather than after the leak (tarps, water damage, whoever can come Tuesday). The fund is what buys that timing.</li>
+<li><strong>Some years, spend down deliberately:</strong> if the balance grows past ~2 big-component costs, the excess can flow to other goals — the fund is a buffer, not a hoard.</li>
+</ul>
+<h2>Where this fits in the buying decision</h2>
+<p>Maintenance is the third leg of the true monthly cost of ownership — payment (<a href="/calculators/mortgage-calculator/">mortgage calculator</a>), taxes and insurance (<a href="/calculators/property-tax-calculator/">property tax calculator</a>), then this. A $2,400 P&amp;I payment on an older home in a harsh climate is really a $3,200+ commitment once taxes and a realistic maintenance reserve are stacked — which is exactly the stress-test the <a href="/calculators/home-affordability-calculator/">affordability calculator</a> runs and the <a href="/calculators/rent-vs-buy-calculator/">rent-vs-buy comparison</a> depends on (renters famously never see this line; owners who ignore it meet it as credit card debt). Budgeting it before the offer is what separates a house that fits from one that slowly doesn't.</p>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much should I budget for home maintenance per month?</summary>
+      <p>Take 1% of home value plus $5 per square foot, average the two, divide by 12 — for a typical $400,000, 1,900 sq ft home that's around $280-320/month, more for older homes or harsh climates. The exact number matters less than the mechanism: an automatic monthly transfer to a dedicated account, so the eventual roof year is pre-funded.</p>
+    </details>
+    
+    <details>
+      <summary>Is the 1% rule realistic with today's prices?</summary>
+      <p>As a long-run average, yes for most markets — but it understates costs for older homes (closer to 2%) and overstates them where land dominates the price (use the per-square-foot blend instead). Labor inflation has pushed component costs up, which is why this calculator blends $5/sq ft rather than the older $2-3 figures still quoted around the internet.</p>
+    </details>
+    
+    <details>
+      <summary>Should maintenance money come out of my emergency fund?</summary>
+      <p>No — keep them separate. The emergency fund covers income shocks (job loss, medical); maintenance is a predictable cost that merely arrives irregularly, which is exactly what a sinking fund handles. Mixing them means a roof replacement leaves you exposed to a layoff the same year — the two risks you least want stacked.</p>
+    </details>
+    
+    <details>
+      <summary>What are the most expensive things that will need replacing?</summary>
+      <p>The big five: roof ($8,000-20,000, ~20-25 years), HVAC ($7,000-14,000, ~15-20 years), windows as a set ($10,000-25,000, ~25-35 years), siding/exterior ($8,000-20,000, ~25-40 years), and water/sewer line surprises ($3,000-15,000, no schedule). A pre-purchase inspection that ages each of these is effectively a discount negotiation checklist — a roof with 3 years left is a $10,000 price conversation.</p>
+    </details>
+    
+    <details>
+      <summary>Do condos need a maintenance budget too?</summary>
+      <p>A smaller personal one (interior systems, appliances, in-unit HVAC — often $50-150/month) — but the building's share arrives as HOA dues and, when reserves are thin, special assessments that can hit five figures. Before buying, read the reserve study: a well-funded HOA is prepaid maintenance; an underfunded one is a deferred bill with your name partially on it.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rsu-tax-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">RSU Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/move-or-stay-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">Move or Stay Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/emergency-fund-calculator/">
+        <span class="card-emoji">🛟</span>
+        <span class="card-title">Emergency Fund Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/savings-rate-calculator/">
+        <span class="card-emoji">💹</span>
+        <span class="card-title">Savings Rate Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/sinking-funds-saving-for-big-purchases/">
+        <span class="card-title">"Sinking Funds: The Simple Trick for Big Expenses"</span>
+        <span class="card-desc">How sinking funds turn irregular, budget-wrecking expenses into small predictable monthly savings — and why they beat relying on your emergency fund.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/lease-vs-buy-a-car/">
+        <span class="card-title">"Lease vs Buy a Car: The Honest Math (and When Each Wins)"</span>
+        <span class="card-desc">A clear framework for deciding whether to lease or buy your next car — what leasing really costs, why buying usually wins long-term, and the cases where leasing makes sense.</span>
+      </a>
+      
+      <a class="card" href="/articles/50-30-20-rule-in-real-life/">
+        <span class="card-title">"The 50/30/20 Rule in Real Life: Where It Works, Where It Breaks, How to Fix It"</span>
+        <span class="card-desc">An honest field guide to the most famous budgeting rule — including what to do when rent alone eats 45% of your income.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const V = val('value'), age = Math.max(0, Math.round(val('age'))), sqft = Math.max(300, val('sqft'));
+  const climate = document.getElementById('climate').value;
+  const cond = document.getElementById('condition').value;
+  if (V <= 0) { show('<div class="result-main">Enter a home value.</div>'); return; }
+  let pct = 0.01;
+  pct += age < 10 ? -0.002 : (age < 25 ? 0.001 : (age < 50 ? 0.004 : 0.007));
+  pct += climate === 'mild' ? -0.001 : (climate === 'harsh' ? 0.003 : 0);
+  pct += cond === 'new' ? -0.003 : (cond === 'worn' ? 0.005 : 0);
+  pct = Math.max(0.005, Math.min(0.025, pct));
+  // blend value-based with sqft-based ($4-6/sqft/yr modern estimate) for high-value-land markets
+  const byValue = V * pct;
+  const bySqft = sqft * 5;
+  const annual = (byValue + bySqft) / 2;
+  const monthly = annual / 12;
+  const rows = [
+    ['Roof (asphalt)', 20, 12000], ['HVAC / furnace + AC', 17, 9000], ['Water heater', 11, 1800],
+    ['Exterior paint / siding refresh', 9, 5000], ['Appliance rotation (each ~12 yr)', 4, 1200],
+    ['Windows (as a set)', 30, 15000], ['Driveway / concrete', 28, 5000],
+  ].map(([name, life, cost]) => `<tr><td>${name}</td><td>~${life} yrs</td><td>$${fmt(cost,0)} &rarr; $${fmt(cost/life/12,0)}/mo</td></tr>`).join('');
+  show(`<div class="result-main">$${fmt(monthly,0)}/month<small>&asymp; $${fmt(annual,0)}/year (${fmt(annual/V*100,2)}% of home value) — auto-transfer it to a dedicated savings account</small></div>
+  <table>
+    <tr><td>Value-based estimate (${fmt(pct*100,2)}% for age/climate/condition)</td><td>$${fmt(byValue,0)}/yr</td></tr>
+    <tr><td>Size-based estimate ($5/sq ft)</td><td>$${fmt(bySqft,0)}/yr</td></tr>
+    <tr><td><strong>Blended budget</strong></td><td><strong>$${fmt(annual,0)}/yr &middot; $${fmt(monthly,0)}/mo</strong></td></tr>
+  </table>
+  <p>Where the money eventually goes — the component clock that explains the average:</p>
+  <table>
+    <tr><th>Component</th><th>Typical life</th><th>Cost &rarr; monthly reserve</th></tr>
+    ${rows}
+  </table>
+  <p>${age >= 20 && cond !== 'new'
+    ? `At ${age} years old, this home is inside the replacement window for 2-3 major components — if the roof or HVAC hasn't been done, expect the <em>lumpy</em> version of this average soon and consider front-loading the fund for a year.`
+    : `A newer or renovated home runs below the long-run average for now — bank the quiet years anyway; the average always arrives eventually.`}</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
