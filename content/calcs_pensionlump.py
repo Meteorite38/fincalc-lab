@@ -22,7 +22,7 @@ PENSIONLUMP = [
         "js": """
 function calculate() {
   const L = val('lump'), M = val('monthly'), a0 = Math.round(val('age'));
-  const aEnd = Math.max(a0 + 1, Math.round(val('lifeexp')));
+  const aEnd = Math.min(a0 + 80, Math.max(a0 + 1, Math.round(val('lifeexp'))));
   const r = val('ret')/100, cola = Math.max(0, val('cola'))/100;
   if (L <= 0 || M <= 0) { show('<div class="result-main">Enter the lump sum and the monthly pension.</div>'); return; }
   const months = (aEnd - a0) * 12;

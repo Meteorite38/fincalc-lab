@@ -22,7 +22,7 @@ PMI = [
         "js": """
 function calculate() {
   const price = val('price'), down = val('down');
-  const r = val('rate')/100/12, yrs = Math.max(1, Math.round(val('term'))), n = yrs*12;
+  const r = val('rate')/100/12, yrs = Math.min(50, Math.max(1, Math.round(val('term')))), n = yrs*12;
   const pmiR = Math.max(0, val('pmirate'))/100, g = val('appr')/100;
   if (price <= 0 || down < 0 || down >= price) { show('<div class="result-main">Enter a home price and a down payment smaller than it.</div>'); return; }
   const L = price - down;

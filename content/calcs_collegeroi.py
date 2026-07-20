@@ -24,7 +24,7 @@ COLLEGEROI = [
         ],
         "js": """
 function calculate() {
-  const T = val('tuition'), yrs = Math.max(1, Math.round(val('years'))), aid = Math.max(0, val('aid'));
+  const T = val('tuition'), yrs = Math.min(15, Math.max(1, Math.round(val('years')))), aid = Math.max(0, val('aid'));
   const s0 = val('nodegree'), s1 = val('withdegree');
   const g = val('growTo')/100, pg = Math.max(0, val('premiumgrow'))/100;
   const L = Math.max(0, val('loans')), lr = val('loanrate')/100/12;

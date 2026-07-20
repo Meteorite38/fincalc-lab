@@ -231,7 +231,7 @@ function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
 function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
 
 function calculate() {
-  const B = val('balance'), r = val('rate')/100/12, yrs = Math.max(1, Math.round(val('left'))), n = yrs*12;
+  const B = val('balance'), r = val('rate')/100/12, yrs = Math.min(50, Math.max(1, Math.round(val('left')))), n = yrs*12;
   const L = val('lump'), fee = Math.max(0, val('fee'));
   if (B <= 0 || L <= 0) { show('<div class="result-main">Enter a balance and a lump sum.</div>'); return; }
   if (L >= B) { show('<div class="result-main">The lump sum pays the loan off entirely — no recast needed, just request a payoff quote.</div>'); return; }
