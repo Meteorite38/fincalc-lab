@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscription Cost Calculator — What the Stack Really Costs You</title>
+<meta name="description" content="Free subscription audit calculator: add up streaming, music, fitness, cloud, delivery and app subscriptions — see the annual total, the 10-year opportunity cost if invested instead, and what cutting the unused half is actually worth.">
+<link rel="canonical" href="https://fincalc-lab.pages.dev/calculators/subscription-cost-calculator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b6e4f">
+<meta property="og:site_name" content="FinCalc Lab">
+<meta property="og:title" content="Subscription Cost Calculator — What the Stack Really Costs You">
+<meta property="og:description" content="Free subscription audit calculator: add up streaming, music, fitness, cloud, delivery and app subscriptions — see the annual total, the 10-year opportunity cost if invested instead, and what cutting the unused half is actually worth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fincalc-lab.pages.dev/calculators/subscription-cost-calculator/">
+<meta property="og:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Subscription Cost Calculator — What the Stack Really Costs You">
+<meta name="twitter:description" content="Free subscription audit calculator: add up streaming, music, fitness, cloud, delivery and app subscriptions — see the annual total, the 10-year opportunity cost if invested instead, and what cutting the unused half is actually worth.">
+<meta name="twitter:image" content="https://fincalc-lab.pages.dev/static/og/cat-income-budgeting.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>&#128202;</text></svg>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="application/rss+xml" title="FinCalc Lab — Money Guides" href="/rss.xml">
+<!-- ADSENSE: paste the AdSense verification snippet here after your account is approved -->
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does the average person spend on subscriptions?", "acceptedAnswer": {"@type": "Answer", "text": "Recent surveys put the typical American household in the $200-300/month range once streaming, music, fitness, cloud storage, delivery memberships, gaming and apps are all counted — while people asked to guess before counting typically say $80-120. The 2-3× underestimate is the headline finding, and it's why a statement-scan audit almost always finds money."}}, {"@type": "Question", "name": "What's the easiest way to find all my subscriptions?", "acceptedAnswer": {"@type": "Answer", "text": "Three sweeps catch nearly everything: (1) 90 days of card/bank statements filtered for recurring charges, (2) the subscription pages inside the Apple/Google app stores — where app trials hide, and (3) PayPal's automatic-payments page. Add any annual renewals from your email (search 'receipt' or 'renewal') and you have the complete list in about 20 minutes."}}, {"@type": "Question", "name": "Should I use a subscription-cancellation app?", "acceptedAnswer": {"@type": "Answer", "text": "They can surface forgotten charges, but read the pricing: several charge subscription fees themselves (the irony is real) or take a cut of 'negotiated savings.' The DIY version — statement scan plus the app-store pages — takes 20 minutes and costs nothing. If an app does the audit that you'd otherwise never do, though, even a paid one can earn its keep."}}, {"@type": "Question", "name": "Is it better to pay annually or monthly?", "acceptedAnswer": {"@type": "Answer", "text": "Annual pricing typically saves 15-40% — on services you're certain you'll keep all year. The risk is silent renewal of something you stopped using in month three. A working rule: annual billing only for services that survived a full year of monthly billing first, with the renewal date in your calendar. Everything newer stays monthly, on probation."}}, {"@type": "Question", "name": "How do I stop subscription spending from creeping back up?", "acceptedAnswer": {"@type": "Answer", "text": "Two structural habits beat vigilance: a quarterly 15-minute re-scan (prices creep and new trials accumulate — a calendar reminder does it), and routing every cancellation's amount into an automatic transfer the same day, so the freed money is captured rather than reabsorbed. Some people also run subscriptions on a single dedicated card, which makes the quarterly scan a one-statement job."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fincalc-lab.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fincalc-lab.pages.dev/calculators/"},
+    {"@type": "ListItem", "position": 3, "name": "Subscription Cost Calculator", "item": "https://fincalc-lab.pages.dev/calculators/subscription-cost-calculator/"}
+  ]
+}
+</script>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">&#128202; FinCalc Lab</a>
+    <nav class="nav">
+      <a href="/calculators/">Calculators</a>
+      <a href="/compare/">Compare</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<div class="container narrow">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/calculators/">Calculators</a> &rsaquo; Subscription Cost Calculator</nav>
+  <h1>📱 Subscription Cost Calculator</h1>
+  <p class="lead">No single subscription hurts — that's the design. $12 here, $16 there, each canceling-eligible any time and therefore never canceled. Stack eight of them and the drip becomes a four-figure annual bill on autopilot. This calculator totals your stack, prices it over a decade, and shows what auditing the bottom half is worth.</p>
+
+  <div class="calc-box" id="calc">
+    
+    <label class="field">
+      <span class="field-label">Video streaming ($/mo) <em class="hint">(Netflix + Disney + Max + ... — count them all)</em></span>
+      
+      <input type="number" id="video" value="35" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Music & audio ($/mo) <em class="hint">(Spotify, Audible, podcasts)</em></span>
+      
+      <input type="number" id="music" value="12" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Fitness & wellness ($/mo) <em class="hint">(gym, apps, classes)</em></span>
+      
+      <input type="number" id="fitness" value="30" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Cloud, software & AI tools ($/mo) <em class="hint">(storage, Office, password manager, AI)</em></span>
+      
+      <input type="number" id="cloud" value="20" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Delivery & shopping memberships ($/mo) <em class="hint">(Prime, DoorDash, meal kits)</em></span>
+      
+      <input type="number" id="delivery" value="25" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Gaming & entertainment ($/mo)</span>
+      
+      <input type="number" id="gaming" value="10" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Everything else ($/mo) <em class="hint">(news, dating, apps you forgot)</em></span>
+      
+      <input type="number" id="other" value="15" step="any" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Investment return for comparison (%/yr)</span>
+      
+      <input type="number" id="ret" value="7" step="0.1" min="0">
+      
+    </label>
+    
+    <label class="field">
+      <span class="field-label">Share you could cut without missing it (%)</span>
+      
+      <input type="number" id="cutpct" value="40" step="5" min="0">
+      
+    </label>
+    
+    <button class="btn" onclick="calculate()">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+
+  <article class="explainer">
+    
+<h2>Why subscription spending is invisible by design</h2>
+<p>Subscriptions weaponize three biases at once. <strong>Small-number framing:</strong> $14.99 never triggers the mental alarm a $180 annual bill would — which is the same purchase. <strong>Default persistence:</strong> canceling requires an action; continuing requires nothing, so the default wins for years past the last use. <strong>Loss aversion at cancel time:</strong> the moment you consider canceling, you imagine the one week you might want it — so the median household pays for roughly <em>double-digit</em> subscriptions while actively using half. Surveys keep finding people underestimate their subscription spend by 2-3&times; when asked to guess before counting. That gap — guessed $80, actual $190 — is precisely the money this calculator surfaces, and it's the cheapest money in your budget to reclaim because <strong>cutting it changes nothing about your life this week</strong>.</p>
+<h2>The audit, operationalized</h2>
+<ul>
+<li><strong>Find them all:</strong> scan 90 days of card and bank statements for recurring charges (banks and card apps increasingly list "recurring" as a filter), plus the app-store subscription pages (iOS/Android), plus PayPal's automatic payments page — the three places forgotten trials go to live.</li>
+<li><strong>Apply the 30-day test:</strong> used in the last 30 days → keep. Not used in 90 → cancel today. In between → cancel and see if you notice; re-subscribing takes ninety seconds, which makes aggressive canceling nearly risk-free.</li>
+<li><strong>Rotate instead of stacking:</strong> streaming services are the classic overlap — subscribe to one at a time, binge its catalog for a month or two, swap. Half the video line for the same actual watching.</li>
+<li><strong>Check annual-plan math both ways:</strong> annual billing cuts 15-40% off services you're certain about — and silently renews the ones you're not. Annual for the provable keepers, monthly for everything on probation.</li>
+<li><strong>Downgrade before canceling:</strong> ad-supported tiers, family-plan splits, and student/loyalty pricing routinely halve a line item you do want to keep. Calling to cancel often triggers a retention offer — accept it and calendar the expiry.</li>
+</ul>
+<h2>Where the freed money should land</h2>
+<p>An audit that frees $60/month only builds wealth if the money is <em>redirected on purpose</em> — otherwise it dissolves back into general spending within two cycles. Same day as the cancellations, raise an automatic transfer by the freed amount: toward the <a href="/calculators/emergency-fund-calculator/">emergency fund</a> if it's thin, the <a href="/calculators/credit-card-payoff-calculator/">card balance</a> if one exists, or the index-fund autopilot otherwise. $60/month at 7% is <a href="/calculators/compound-interest-calculator/">$10,400 in ten years</a> — from a change whose entire lifestyle cost is remembering which password streams the shows. This is the <a href="/calculators/latte-factor-calculator/">latte-factor logic</a> applied where it's most defensible: not to the coffee that brings daily joy, but to the services nobody remembered paying for. (That distinction — cut the unfelt, keep the loved — is the whole <a href="/articles/value-based-spending/">value-based spending</a> playbook.)</p>
+<h2>The corporate-side fine print worth knowing</h2>
+<ul>
+<li><strong>Price creep is the business model:</strong> major streaming services have raised prices 30-60% over the past few years, usually a couple of dollars at a time — the frog-boiling is deliberate, and each hike is a natural audit trigger.</li>
+<li><strong>"Click to cancel" rules are improving</strong> — regulators have pushed services toward cancellation flows as easy as sign-up. If a service makes canceling genuinely hard, that's information about how they retain customers.</li>
+<li><strong>Free trials want your card for a reason:</strong> the conversion event is the forgotten renewal, not the delighted user. Calendar the trial's end the minute you start it, or use virtual-card numbers that can be turned off.</li>
+<li><strong>Bundles reprice the comparison:</strong> a bundle at $25 replacing $35 of separates is real savings — but only if you'd genuinely keep paying for all the parts. Bundling three services you'd otherwise cancel is a $25 loss dressed as a $10 saving.</li>
+</ul>
+
+  </article>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    
+    <details>
+      <summary>How much does the average person spend on subscriptions?</summary>
+      <p>Recent surveys put the typical American household in the $200-300/month range once streaming, music, fitness, cloud storage, delivery memberships, gaming and apps are all counted — while people asked to guess before counting typically say $80-120. The 2-3× underestimate is the headline finding, and it's why a statement-scan audit almost always finds money.</p>
+    </details>
+    
+    <details>
+      <summary>What's the easiest way to find all my subscriptions?</summary>
+      <p>Three sweeps catch nearly everything: (1) 90 days of card/bank statements filtered for recurring charges, (2) the subscription pages inside the Apple/Google app stores — where app trials hide, and (3) PayPal's automatic-payments page. Add any annual renewals from your email (search 'receipt' or 'renewal') and you have the complete list in about 20 minutes.</p>
+    </details>
+    
+    <details>
+      <summary>Should I use a subscription-cancellation app?</summary>
+      <p>They can surface forgotten charges, but read the pricing: several charge subscription fees themselves (the irony is real) or take a cut of 'negotiated savings.' The DIY version — statement scan plus the app-store pages — takes 20 minutes and costs nothing. If an app does the audit that you'd otherwise never do, though, even a paid one can earn its keep.</p>
+    </details>
+    
+    <details>
+      <summary>Is it better to pay annually or monthly?</summary>
+      <p>Annual pricing typically saves 15-40% — on services you're certain you'll keep all year. The risk is silent renewal of something you stopped using in month three. A working rule: annual billing only for services that survived a full year of monthly billing first, with the renewal date in your calendar. Everything newer stays monthly, on probation.</p>
+    </details>
+    
+    <details>
+      <summary>How do I stop subscription spending from creeping back up?</summary>
+      <p>Two structural habits beat vigilance: a quarterly 15-minute re-scan (prices creep and new trials accumulate — a calendar reminder does it), and routing every cancellation's amount into an automatic transfer the same day, so the freed money is captured rather than reabsorbed. Some people also run subscriptions on a single dedicated card, which makes the quarterly scan a one-statement job.</p>
+    </details>
+    
+  </section>
+
+  <section class="related">
+    <h2>Related calculators</h2>
+    <div class="grid">
+      
+      <a class="card" href="/calculators/life-insurance-needs-calculator/">
+        <span class="card-emoji">🛡️</span>
+        <span class="card-title">Life Insurance Needs Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/daycare-vs-staying-home-calculator/">
+        <span class="card-emoji">👶</span>
+        <span class="card-title">Daycare vs Staying Home Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/home-maintenance-budget-calculator/">
+        <span class="card-emoji">🔨</span>
+        <span class="card-title">Home Maintenance Budget Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/rsu-tax-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">RSU Tax Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/job-offer-comparison-calculator/">
+        <span class="card-emoji">⚖️</span>
+        <span class="card-title">Job Offer Comparison Calculator</span>
+      </a>
+      
+      <a class="card" href="/calculators/move-or-stay-calculator/">
+        <span class="card-emoji">📦</span>
+        <span class="card-title">Move or Stay Calculator</span>
+      </a>
+      
+    </div>
+  </section>
+
+  
+  
+  <section class="related">
+    <h2>Further reading</h2>
+    <div class="grid">
+      
+      <a class="card" href="/articles/how-compound-interest-builds-wealth/">
+        <span class="card-title">How Compound Interest Builds Wealth (and Why Starting Late Costs So Much)</span>
+        <span class="card-desc">A plain-English walkthrough of compound growth, with real numbers showing why time in the market beats timing — and what starting five years late actually costs.</span>
+      </a>
+      
+      <a class="card" href="/articles/how-much-to-spend-on-a-car/">
+        <span class="card-title">"How Much Should You Spend on a Car? Rules of Thumb That Actually Work"</span>
+        <span class="card-desc">Practical guidelines for a sensible car budget — the 20/4/10 rule, why total cost dwarfs the sticker price, and how a car quietly drains wealth.</span>
+      </a>
+      
+      <a class="card" href="/articles/401k-rollover-options-job-change/">
+        <span class="card-title">"Changing Jobs? The Four Things You Can Do With Your Old 401(k)"</span>
+        <span class="card-desc">Leave it, roll it to the new plan, roll it to an IRA, or cash out — the real trade-offs of each, the direct-rollover rule that avoids a tax disaster, and who should pick which.</span>
+      </a>
+      
+      <a class="card" href="/articles/lifestyle-creep/">
+        <span class="card-title">"Lifestyle Creep: Why Earning More Doesn't Make You Richer"</span>
+        <span class="card-desc">How lifestyle inflation quietly eats every raise, why high earners can still live paycheck to paycheck, and a simple rule to keep more of what you earn.</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <p class="page-disclaimer">This calculator is for educational purposes only and does not constitute financial advice. Results are estimates based on the inputs and assumptions shown.</p>
+</div>
+<script>
+function fmt(x, dp = 2) {
+  if (!isFinite(x)) return "—";
+  return x.toLocaleString("en-US", { minimumFractionDigits: dp, maximumFractionDigits: dp });
+}
+function val(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function show(html) { const el = document.getElementById("result"); el.innerHTML = html; el.classList.add("show"); }
+
+function calculate() {
+  const cats = ['video','music','fitness','cloud','delivery','gaming','other'];
+  const labels = {video:'Video streaming', music:'Music & audio', fitness:'Fitness & wellness', cloud:'Cloud, software & AI', delivery:'Delivery & memberships', gaming:'Gaming & entertainment', other:'Everything else'};
+  let mo = 0, rows = '';
+  const vals = {};
+  cats.forEach(c => { vals[c] = Math.max(0, val(c)); mo += vals[c]; });
+  if (mo <= 0) { show('<div class="result-main">Enter at least one subscription.</div>'); return; }
+  const sorted = cats.filter(c => vals[c] > 0).sort((a,b) => vals[b] - vals[a]);
+  sorted.forEach(c => { rows += `<tr><td>${labels[c]}</td><td>$${fmt(vals[c],0)}/mo</td><td>$${fmt(vals[c]*12,0)}/yr</td></tr>`; });
+  const yr = mo * 12;
+  const r = val('ret')/100/12, n = 120;
+  const fv10 = r > 0 ? mo * ((Math.pow(1+r,n)-1)/r) : mo * n;
+  const cut = Math.min(100, Math.max(0, val('cutpct')))/100;
+  const cutMo = mo * cut;
+  const cutFv = r > 0 ? cutMo * ((Math.pow(1+r,n)-1)/r) : cutMo * n;
+  show(`<div class="result-main">$${fmt(yr,0)}/year<small>$${fmt(mo,0)}/month across the stack &middot; kept for 10 years, that's <strong>$${fmt(fv10,0)}</strong> of forgone wealth at ${fmt(val('ret'),1)}%</small></div>
+  <table>
+    <tr><th>Category</th><th>Monthly</th><th>Yearly</th></tr>
+    ${rows}
+    <tr><td><strong>Total</strong></td><td><strong>$${fmt(mo,0)}</strong></td><td><strong>$${fmt(yr,0)}</strong></td></tr>
+  </table>
+  <table>
+    <tr><td>Cut the ${fmt(cut*100,0)}% you wouldn't miss</td><td>frees $${fmt(cutMo,0)}/mo &middot; $${fmt(cutMo*12,0)}/yr</td></tr>
+    <tr><td>That slice invested for 10 years</td><td><strong>$${fmt(cutFv,0)}</strong></td></tr>
+    <tr><td>Hours of work the stack costs at $25/hr (after tax)</td><td>~${fmt(yr/25,0)} hours/year — ${fmt(yr/25/8,1)} working days</td></tr>
+  </table>
+  <p>The audit question isn't "is this worth $${fmt(12,0)}?" — everything is worth $12 in isolation. It's "which of these did I actually use in the last 30 days?" Cancel the rest today; anything you genuinely miss can be re-subscribed in ninety seconds, which is exactly why canceling is so safe.</p>`);
+}
+
+document.addEventListener("DOMContentLoaded", calculate);
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>FinCalc Lab</strong>
+      <p>Free, fast and honest financial calculators. All tools run entirely in your browser &mdash; we never see or store your numbers.</p>
+    </div>
+    <div class="footer-col">
+      <a href="/about/">About</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+  </div>
+  <div class="container disclaimer">
+    <p>&copy; 2026 FinCalc Lab. All calculators and articles are for educational purposes only and do not constitute financial advice. Consult a qualified professional before making financial decisions.</p>
+  </div>
+</footer>
+</body>
+</html>
