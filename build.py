@@ -193,6 +193,42 @@ def build():
     write("guides/index.html", env.get_template("guides_index.html").render(calcs=CALCS, articles=articles))
     urls.append("guides/")
 
+    # compare hub page — head-to-head decision tools
+    by_slug = {c["slug"]: c for c in CALCS}
+
+    def _cmp_group(label, pairs):
+        items = [{"calc": by_slug[s], "question": q} for s, q in pairs if s in by_slug]
+        return {"label": label, "items": items}
+
+    compare_groups = [
+        _cmp_group("Housing", [
+            ("rent-vs-buy-calculator", "Is renting really throwing money away — or is buying the costlier path in your city?"),
+            ("15-vs-30-year-mortgage-calculator", "Guaranteed interest savings vs investing the payment difference — which builds more wealth?"),
+            ("mortgage-points-calculator", "Pay points up front for a lower rate, or keep the cash — when do you break even?"),
+            ("mortgage-refinance-calculator", "Does refinancing actually save money after closing costs, and how soon?"),
+            ("biweekly-mortgage-calculator", "Biweekly payments vs monthly — how much time and interest do they really cut?"),
+        ]),
+        _cmp_group("Cars", [
+            ("lease-vs-buy-car-calculator", "Lease payments vs ownership costs minus resale value — which is cheaper over your horizon?"),
+            ("auto-loan-calculator", "What does the loan really cost once trade-in, tax rules and fees are included?"),
+        ]),
+        _cmp_group("Debt vs investing", [
+            ("pay-off-debt-vs-invest-calculator", "Extra money each month: kill the debt first, or invest and pay the minimum?"),
+            ("debt-snowball-vs-avalanche-calculator", "Smallest-balance-first motivation vs highest-rate-first math — what does each cost?"),
+            ("loan-comparison-calculator", "Two loan offers, different rates and fees — which is genuinely cheaper?"),
+            ("debt-consolidation-calculator", "Keep juggling separate debts, or roll them into one loan — what changes?"),
+        ]),
+        _cmp_group("Retirement", [
+            ("roth-vs-traditional-401k-calculator", "Pay tax now (Roth) or later (traditional) — which leaves more spendable income?"),
+            ("social-security-break-even-calculator", "Claim at 62, full retirement age or 70 — where's the break-even for each?"),
+            ("cost-of-waiting-calculator", "Start investing now vs in five years — what does waiting actually cost?"),
+        ]),
+    ]
+    compare_flat = [it["calc"] for g in compare_groups for it in g["items"]]
+    write("compare/index.html", env.get_template("compare.html").render(
+        calcs=CALCS, articles=articles, groups=compare_groups, flat=compare_flat))
+    urls.append("compare/")
+
     # home
     write("index.html", env.get_template("home.html").render(calcs=CALCS, articles=articles))
     urls.insert(0, "")

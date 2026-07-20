@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}This vs That — Money Decision Comparison Tools — {{ site_name }}{% endblock %}
+{% block description %}Rent vs buy, 15 vs 30 year mortgage, lease vs buy, Roth vs traditional, pay off debt vs invest, claim Social Security early vs late — head-to-head calculators that settle the classic money debates with your numbers.{% endblock %}
+{% block canonical %}compare/{% endblock %}
+{% block ogimage %}calculators.png{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Money Decision Comparison Tools",
+  "url": "{{ site_url }}/compare/",
+  "description": "Head-to-head calculators for the classic either/or money decisions.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ flat | length }},
+    "itemListElement": [
+      {% for c in flat %}{"@type": "ListItem", "position": {{ loop.index }}, "name": {{ c.h1 | tojson }}, "url": "{{ site_url }}/calculators/{{ c.slug }}/"}{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <nav class="breadcrumb"><a href="/">Home</a> &rsaquo; Compare</nav>
+  <h1>This vs that: settle the classic money debates</h1>
+  <p class="lead">Every big money question is really a choice between two paths. These head-to-head tools run both paths with <em>your</em> numbers — same assumptions, same time horizon — and tell you which one leaves you better off, and by how much.</p>
+  {% for g in groups %}
+  <h2 class="cat-label">{{ g.label }}</h2>
+  <div class="grid">
+    {% for item in g['items'] %}
+    <a class="card" href="/calculators/{{ item.calc.slug }}/">
+      <span class="card-emoji">{{ item.calc.emoji }}</span>
+      <span class="card-title">{{ item.calc.h1 }}</span>
+      <span class="card-desc">{{ item.question }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <section class="section">
+    <h2>How to use these fairly</h2>
+    <p>Two rules make either/or comparisons honest. First, <strong>hold total cash committed equal</strong> — if one path costs less per month, the fair comparison invests the difference rather than quietly spending it. Second, <strong>compare at the same end date</strong> — a 15-year mortgage vs a 30-year only makes sense measured over the same 30 years. Every tool above follows both rules, and each page explains the assumptions and the math it uses, so you can disagree with an input and change it.</p>
+  </section>
+</div>
+{% endblock %}
