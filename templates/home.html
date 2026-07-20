@@ -62,7 +62,7 @@
   <h2>Tough calls, compared side by side</h2>
   <p class="section-sub">Head-to-head tools for decisions with real money on both sides — <a href="/compare/">see all comparison tools</a>.</p>
   <div class="grid">
-    {% set decisions = ['rent-vs-buy-calculator', 'roth-vs-traditional-401k-calculator', 'arm-vs-fixed-mortgage-calculator', 'pension-lump-sum-vs-annuity-calculator', 'daycare-vs-staying-home-calculator', 'student-loan-refinance-calculator'] %}
+    {% set decisions = ['roth-vs-traditional-401k-calculator', 'social-security-break-even-calculator', 'arm-vs-fixed-mortgage-calculator', 'pension-lump-sum-vs-annuity-calculator', 'daycare-vs-staying-home-calculator', 'student-loan-refinance-calculator'] %}
     {% for s in decisions %}
     {% set c = (calcs | selectattr('slug', 'equalto', s) | list | first) %}
     {% if c %}

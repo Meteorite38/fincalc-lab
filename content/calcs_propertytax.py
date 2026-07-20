@@ -8,7 +8,7 @@ PROPTAX = [
         "category": "Mortgages & Home",
         "title": "Property Tax Calculator — Annual Bill, Monthly Escrow, and Your Effective Rate",
         "h1": "Property Tax Calculator",
-        "blurb": "Estimate the annual bill and monthly escrow from your home value and state — or your exact local rate.",
+        "blurb": "Annual bill and monthly escrow from home value and state — or your exact local rate.",
         "meta_description": "Free property tax calculator: estimate your annual property tax and monthly escrow from home value and state-level effective rates (NJ 2.2% to HI 0.3%), or enter your exact local millage. Includes assessment-ratio and homestead-exemption math.",
         "intro": "Property tax is the housing cost that never amortizes away — and the gap between states is enormous: the same $400,000 house owes about $1,300 a year in Hawaii and $9,000+ in New Jersey. This calculator estimates your bill from state-level effective rates or your exact local rate, and shows what it adds to the monthly payment.",
         "fields": [

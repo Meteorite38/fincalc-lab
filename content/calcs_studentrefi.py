@@ -8,7 +8,7 @@ STUDENTREFI = [
         "category": "Debt & Credit",
         "title": "Student Loan Refinance Calculator — Savings vs What You Give Up",
         "h1": "Student Loan Refinance Calculator",
-        "blurb": "New rate vs old: monthly and lifetime savings — and the federal protections a refi permanently burns.",
+        "blurb": "New rate vs old, monthly and lifetime — and the federal protections a refi burns.",
         "meta_description": "Free student loan refinance calculator: compare your current balance and rate against a refinance offer — monthly payment, total interest, keep-paying-the-same payoff acceleration — plus the federal protections refinancing permanently gives up.",
         "intro": "Refinancing student debt is a clean trade on private loans and a one-way door on federal ones: a lower rate saves real interest, but refinancing federal loans permanently surrenders income-driven plans, forgiveness tracks and hardship pauses. This calculator prices both sides — the savings and the exit.",
         "fields": [
