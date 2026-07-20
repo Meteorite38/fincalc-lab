@@ -43,6 +43,14 @@ This is the step that makes goals stick. For each funded goal:
 
 Automation replaces willpower — the scarcest resource — with a system that runs itself. You make the decision once, and the goal funds itself every month.
 
+## A worked example: three goals, one paycheck
+
+Say a household takes home $5,600/month and lands on three goals: finish the emergency fund ($6,000 more needed, 12 months → $500/mo), a house down payment ($30,000 in 5 years → about $460/mo at 4% interest), and retirement at 15% of gross (already partly running via the 401(k), $250/mo more needed). That's $1,210/month of goals — about 22% of take-home. If the budget only supports $900, the priority order does the cutting, not vibes: the emergency fund and retirement match hold firm (they protect everything else), the down payment stretches from 5 years to 7, and the goal set becomes honest instead of aspirational. This negotiation — goals vs capacity, settled by priority — is the actual work of goal-setting; the [budget calculator](/calculators/budget-calculator/) and [time-to-save calculator](/calculators/time-to-save-calculator/) are the referees.
+
+## Goals that aren't savings numbers
+
+Not every financial goal is an account balance. "Raise my income 20% in two years" (the highest-leverage goal most people never write down — see [negotiating a raise](/articles/how-to-negotiate-a-raise/)), "cut our [debt-to-income ratio](/calculators/debt-to-income-ratio-calculator/) below 30%", "get our [net worth](/articles/why-net-worth-is-the-only-number-that-matters/) crossing zero by December" — these follow the same SMART discipline with different verbs. Income goals in particular deserve a slot: a $400/month raise funds more goals than most spending cuts combined, and it compounds through every future year.
+
 ## Track and adjust
 
 - **Check progress regularly but not obsessively** — monthly or quarterly. Seeing a balance climb toward a labeled goal is genuinely motivating.

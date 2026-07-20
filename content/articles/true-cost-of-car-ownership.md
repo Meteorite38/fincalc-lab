@@ -26,9 +26,23 @@ Because new cars shed value fastest in their first years, buying a **2–4 year 
 - **Finance new:** convenient and predictable, but you pay full depreciation plus interest. Follow the 20/4/10 guideline — 20% down, ≤4-year loan, total transport costs under 10% of income.
 - **Lease:** lowest monthly payment and a new car every few years, but perpetual payments and no ownership. Understand what you're really paying with the [car lease calculator](/calculators/car-lease-calculator/) — and convert that "money factor" to an APR.
 
+## A worked example: the $28,000 "affordable" car
+
+Put real numbers on a typical purchase — a $28,000 lightly-used SUV, financed with $5,000 down at 7.5% over 5 years:
+
+- Loan payment: **$461/month**
+- Depreciation beyond what the payment covers is already priced in — but insurance adds **$140**, fuel at 12,000 miles/year around **$160**, maintenance/tyres averaged **$80**, registration/misc **$25**
+- True monthly cost: **~$865** — nearly double the payment that got quoted at the dealership
+
+Over the 5-year loan that's roughly $52,000 of total outlay, against a car then worth maybe $13,000. The per-mile arithmetic lands near **65 cents a mile** — which is the number to hold in mind when weighing a 15-mile-longer commute or whether a household truly needs the second vehicle ([the commute calculator](/calculators/commute-cost-calculator/) prices exactly this). None of this makes the SUV a mistake — it makes it a **$865/month decision**, which deserves to be made at that price, not at $461.
+
 ## The commute trade-off nobody prices
 
 A cheaper home an hour away can cost more than it saves once you price the extra driving: more fuel, faster depreciation from higher mileage, more maintenance, and the un-priceable cost of hours in traffic. Before choosing distance for a lower rent or mortgage, run the added driving cost — it's frequently large enough to flip the decision.
+
+## The second car question
+
+Households default to one car per adult, but the second car is often the single most cuttable five-figure expense in the budget. Its costs are nearly identical to the first (insurance, registration, depreciation and maintenance don't halve for lower mileage) while its usage is often a short commute that transit, an e-bike, or occasional ride-hailing could cover. Dropping a $700/month second car and spending even $250/month on alternatives frees $5,400 a year — invested at 7%, roughly [$78,000 over a decade](/calculators/future-value-calculator/). It's not viable for every geography or family — but it's worth an honest week of tracking what the second car actually does before renewing its insurance.
 
 ## How to spend far less on transport
 
